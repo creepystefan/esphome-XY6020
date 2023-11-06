@@ -142,7 +142,7 @@ void Dps::on_status_data_(const std::vector<uint8_t> &data) {
     Model XY6020
     //                        Roduct model                      6020 = XY6020
     //                        Firmware version
-    this->publish_state_(this->firmware_version_sensor_, dps_get_16bit(24) * 0.1f);
+    this->publish_state_(this->firmware_version_sensor_, dps_get_16bit(23) * 0.1f);
         
 
 void Dps::update() {
