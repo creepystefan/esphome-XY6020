@@ -146,8 +146,8 @@ void Dps::on_status_data_(const std::vector<uint8_t> &data) {
         
       
 // Firmware XY6020
-   //  24    0x00 0x11        Firmware version                 17 * 0.1 = 1.7
- this->publish_state_(this->firmware_version_sensor_, dps_get_16bit(24) * 0.1f);
+   //  23    0x00 0x11        Firmware version                 17 * 0.1 = 1.7
+ this->publish_state_(this->firmware_version_sensor_, dps_get_16bit(23) * 0.1f);
 
 
 
