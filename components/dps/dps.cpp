@@ -133,28 +133,14 @@ void Dps::on_status_data_(const std::vector<uint8_t> &data) {
   //  20    0x00 0x00        Backlight brightness level       0...5
   this->publish_state_(this->backlight_brightness_sensor_, dps_get_16bit(20) * 20.0f);
   //  22    0x13 0x9C        Product model                    5020 = DPS5020
-  
- 
-
-
-
-
-    
+      
 // Firmware DSP
         //  24    0x00 0x11        Firmware version                 17 * 0.1 = 1.7
         // this->publish_state_(this->firmware_version_sensor_, dps_get_16bit(24) * 0.1f);
-        
-      
+             
 // Firmware XY6020
-   //  23    0x00 0x11        Firmware version                 17 * 0.1 = 1.7
- this->publish_state_(this->firmware_version_sensor_, dps_get_16bit(23) * 0.1f);
-
-
-
-    
-
-
-
+   //  23    0x00 0x0c        Firmware version                 17 * 0.1 = 1.7
+ this->publish_state_(this->firmware_version_sensor_, dps_get_16bit(24) * 0.1f);
     
 
 void Dps::update() {
