@@ -1,7 +1,8 @@
 substitutions:
   name: "dps"
   device_description: "Monitor and control a RDTech Digital Control Power Supply (DPS) via UART-TTL"
-  external_components_source: github://syssi/esphome-dps@main
+  #external_components_source: github://syssi/esphome-dps@main
+  external_components_source: github://creepystefan/esphome-XY6020@main
 
 #uart2 auf dem AZ-Delivery ESP32
 # tx GPIO 17
