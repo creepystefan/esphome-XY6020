@@ -116,7 +116,7 @@ void Dps::on_status_data_(const std::vector<uint8_t> &data) {
   //   6    0x00 0xED        Output current display value     0237 * 0.01 = 2.37A           0.01 A
   this->publish_state_(this->output_current_sensor_, (float) dps_get_16bit(6) * this->current_resolution_factor());
   //   8    0x21 0x4F        Output power display value       8527 * 0.01 = 85.27W          0.01 W
-  this->publish_state_(this->output_power_sensor_, (float) dps_get_16bit(8) * 0.01f);
+  this->publish_state_(this->output_power_sensor_, (float) dps_get_16bit(4) * 0.01f);
   //  10    0x10 0x87        Input voltage display value      4231 * 0.01 = 42.31V          0.01 V
   this->publish_state_(this->input_voltage_sensor_, (float) dps_get_16bit(10) * 0.01f);
   //  12    0x00 0x00        Key lock                         0x00: off, 0x01: on
