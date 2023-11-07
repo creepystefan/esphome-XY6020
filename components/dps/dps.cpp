@@ -106,7 +106,7 @@ void Dps::on_status_data_(const std::vector<uint8_t> &data) {
   //   0    0x0E 0x10        Voltage setting                  3600 * 0.01 = 36.00V          0.01 V
   float voltage_setting = dps_get_16bit(0) * 0.01f;
   this->publish_state_(this->voltage_setting_sensor_, voltage_setting);
-  this->publish_state_(this->voltage_setting_number_, voltage_setting);
+  //this->publish_state_(this->voltage_setting_number_, voltage_setting);
   //   2    0x03 0xE8        Current setting                  1000 * 0.01 = 10.00A          0.01 A
   float current_setting = dps_get_16bit(2) * this->current_resolution_factor();
   this->publish_state_(this->current_setting_sensor_, current_setting);
@@ -116,7 +116,7 @@ void Dps::on_status_data_(const std::vector<uint8_t> &data) {
   //   6    0x00 0xED        Output current display value     0237 * 0.01 = 2.37A           0.01 A
   this->publish_state_(this->output_current_sensor_, (float) dps_get_16bit(6) * this->current_resolution_factor());
   //   8    0x21 0x4F        Output power display value       8527 * 0.01 = 85.27W          0.01 W
-  this->publish_state_(this->output_power_sensor_, (float) dps_get_16bit(4) * 0.01f);
+  this->publish_state_(this->output_power_sensor_, (float) dps_get_16bit(6) * 0.01f);
   //  10    0x10 0x87        Input voltage display value      4231 * 0.01 = 42.31V          0.01 V
   this->publish_state_(this->input_voltage_sensor_, (float) dps_get_16bit(10) * 0.01f);
   //  12    0x00 0x00        Key lock                         0x00: off, 0x01: on
@@ -232,6 +232,7 @@ void Dps::dump_config() {  // NOLINT(google-readability-function-size,readabilit
   LOG_SENSOR("", "Firmware Version", this->firmware_version_sensor_);
   LOG_TEXT_SENSOR("", "Protection Status", this->protection_status_text_sensor_);
   LOG_TEXT_SENSOR("", "Device Model", this->device_model_text_sensor_);
+
 }
 
 }  // namespace dps
