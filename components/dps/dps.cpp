@@ -20,7 +20,7 @@ static const char *const PROTECTION_STATUS[PROTECTION_STATUS_SIZE] = {
 };
 
 void Dps::on_modbus_data(const std::vector<uint8_t> &data) {
-  if (data.size() == 28) {
+  if (data.size() == 26) {
     this->on_status_data_(data);
     return;
   }
