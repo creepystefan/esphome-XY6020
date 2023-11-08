@@ -1,5 +1,5 @@
 substitutions:
-  name: "XY6020"
+  name: "dps"
   device_description: "Monitor and control a XY6020 Digital Control Power Supply via UART-TTL"
   # external_components_source: github://syssi/esphome-dps@main
   external_components_source: github://creepystefan/esphome-XY6020@main
