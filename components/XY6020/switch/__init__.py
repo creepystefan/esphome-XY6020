@@ -9,9 +9,9 @@ from esphome.const import (
     ENTITY_CATEGORY_CONFIG,
 )
 
-from .. import CONF_DPS_ID, DPS_COMPONENT_SCHEMA, dps_ns
+from .. import CONF_xy6020_ID, xy6020_COMPONENT_SCHEMA, xy6020_ns
 
-DEPENDENCIES = ["dps"]
+DEPENDENCIES = ["xy6020"]
 
 CODEOWNERS = ["@syssi"]
 
@@ -26,13 +26,13 @@ SWITCHES = {
     CONF_KEY_LOCK: 0x0006,
 }
 
-DpsSwitch = dps_ns.class_("DpsSwitch", switch.Switch, cg.Component)
+xy6020Switch = xy6020_ns.class_("xy6020Switch", switch.Switch, cg.Component)
 
-CONFIG_SCHEMA = DPS_COMPONENT_SCHEMA.extend(
+CONFIG_SCHEMA = xy6020_COMPONENT_SCHEMA.extend(
     {
         cv.Optional(CONF_OUTPUT): switch.SWITCH_SCHEMA.extend(
             {
-                cv.GenerateID(): cv.declare_id(DpsSwitch),
+                cv.GenerateID(): cv.declare_id(xy6020Switch),
                 cv.Optional(CONF_ICON, default=ICON_OUTPUT): cv.icon,
                 cv.Optional(
                     CONF_ENTITY_CATEGORY, default=ENTITY_CATEGORY_CONFIG
@@ -41,7 +41,7 @@ CONFIG_SCHEMA = DPS_COMPONENT_SCHEMA.extend(
         ).extend(cv.COMPONENT_SCHEMA),
         cv.Optional(CONF_KEY_LOCK): switch.SWITCH_SCHEMA.extend(
             {
-                cv.GenerateID(): cv.declare_id(DpsSwitch),
+                cv.GenerateID(): cv.declare_id(xy6020Switch),
                 cv.Optional(CONF_ICON, default=ICON_KEY_LOCK): cv.icon,
                 cv.Optional(
                     CONF_ENTITY_CATEGORY, default=ENTITY_CATEGORY_CONFIG
@@ -53,7 +53,7 @@ CONFIG_SCHEMA = DPS_COMPONENT_SCHEMA.extend(
 
 
 async def to_code(config):
-    hub = await cg.get_variable(config[CONF_DPS_ID])
+    hub = await cg.get_variable(config[CONF_xy6020_ID])
     for key, address in SWITCHES.items():
         if key in config:
             conf = config[key]
