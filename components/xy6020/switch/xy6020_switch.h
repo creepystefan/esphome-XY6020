@@ -9,7 +9,7 @@ namespace xy6020 {
 
 class xy6020;
 
-class xy6020Switch : public switch_::Switch, public Component {
+class Xy6020Switch : public switch_::Switch, public Component {
  public:
   void set_parent(xy6020 *parent) { this->parent_ = parent; };
   void set_holding_register(uint16_t holding_register) { this->holding_register_ = holding_register; };
