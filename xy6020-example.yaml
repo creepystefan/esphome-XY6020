@@ -70,7 +70,7 @@ modbus:
   uart_id: uart_01
   send_wait_time: 0ms
 
-dps:
+XY6020:
   id: dps0
   modbus_id: modbus0
   update_interval: 5s
