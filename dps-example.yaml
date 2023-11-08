@@ -43,14 +43,11 @@ ota:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  manual_ip:
-    static_ip: 192.168.178.38
-    gateway: 192.168.178.1
-    subnet: 255.255.255.0
+
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Xy6020 Fallback Hotspot"
+    ssid: "DPS Fallback Hotspot"
     password: "UEikMwV1wqU8"
 
 captive_portal:
@@ -63,12 +60,7 @@ uart:
   rx_pin: ${rx_pin1}
   debug:
       direction: BOTH
-      dummy_receiver: false
-      after:
-        delimiter: "\n,\r,0"
-      sequence:
-        - lambda: UARTDebug::log_string(direction, bytes);
-
+      
 modbus:
   id: modbus0
   uart_id: uart_01
