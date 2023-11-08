@@ -9,15 +9,15 @@
 #include "esphome/components/modbus/modbus.h"
 
 namespace esphome {
-namespace XY6020 {
+namespace xy6020 {
 
 enum CurrentResolution {
-  XY6020_CURRENT_RESOLUTION_AUTO,
-  XY6020_CURRENT_RESOLUTION_LOW,
-  XY6020_CURRENT_RESOLUTION_HIGH,
+  xy6020_CURRENT_RESOLUTION_AUTO,
+  xy6020_CURRENT_RESOLUTION_LOW,
+  xy6020_CURRENT_RESOLUTION_HIGH,
 };
 
-class XY6020 : public PollingComponent, public modbus::ModbusDevice {
+class xy6020 : public PollingComponent, public modbus::ModbusDevice {
  public:
   void set_output_binary_sensor(binary_sensor::BinarySensor *output_binary_sensor) {
     output_binary_sensor_ = output_binary_sensor;
@@ -68,12 +68,12 @@ class XY6020 : public PollingComponent, public modbus::ModbusDevice {
   }
   void set_current_resolution(CurrentResolution current_resolution) { current_resolution_ = current_resolution; }
   void set_current_resolution_if_auto(CurrentResolution current_resolution) {
-    if (this->current_resolution_ == XY6020_CURRENT_RESOLUTION_AUTO) {
+    if (this->current_resolution_ == xy6020_CURRENT_RESOLUTION_AUTO) {
       this->set_current_resolution(current_resolution);
     }
   }
   float current_resolution_factor() {
-    return (this->current_resolution_ == XY6020_CURRENT_RESOLUTION_HIGH) ? 0.001f : 0.01f;
+    return (this->current_resolution_ == xy6020_CURRENT_RESOLUTION_HIGH) ? 0.001f : 0.01f;
   }
 
   void dump_config() override;
@@ -85,7 +85,7 @@ class XY6020 : public PollingComponent, public modbus::ModbusDevice {
   void write_register(uint16_t address, uint16_t value);
 
  protected:
-  CurrentResolution current_resolution_{XY6020_CURRENT_RESOLUTION_AUTO};
+  CurrentResolution current_resolution_{xy6020_CURRENT_RESOLUTION_AUTO};
 
   binary_sensor::BinarySensor *output_binary_sensor_;
   binary_sensor::BinarySensor *key_lock_binary_sensor_;
@@ -118,5 +118,5 @@ class XY6020 : public PollingComponent, public modbus::ModbusDevice {
   void publish_state_(text_sensor::TextSensor *text_sensor, const std::string &state);
 };
 
-}  // namespace XY6020
+}  // namespace xy6020
 }  // namespace esphome
