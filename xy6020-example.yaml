@@ -1,5 +1,5 @@
 substitutions:
-  name: "dps"
+  name: "xy6020"
   device_description: "Monitor and control a xy6020 Digital Control Power Supply via UART-TTL"
   # external_components_source: github://syssi/esphome-xy6020@main
   external_components_source: github://creepystefan/esphome-xy6020@main
@@ -9,7 +9,7 @@ substitutions:
 
 esphome:
   name: ${name}
-  friendly_name: dps
+  friendly_name: xy6020
   comment: ${device_description}
   project:
     name: "syssi.esphome-xy6020"
