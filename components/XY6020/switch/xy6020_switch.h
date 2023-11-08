@@ -1,17 +1,17 @@
 #pragma once
 
-#include "../dps.h"
+#include "../xy6020.h"
 #include "esphome/core/component.h"
 #include "esphome/components/switch/switch.h"
 
 namespace esphome {
-namespace dps {
+namespace xy6020 {
 
-class Dps;
+class xy6020;
 
-class DpsSwitch : public switch_::Switch, public Component {
+class xy6020Switch : public switch_::Switch, public Component {
  public:
-  void set_parent(Dps *parent) { this->parent_ = parent; };
+  void set_parent(xy6020 *parent) { this->parent_ = parent; };
   void set_holding_register(uint16_t holding_register) { this->holding_register_ = holding_register; };
   void dump_config() override;
   void loop() override {}
@@ -19,9 +19,9 @@ class DpsSwitch : public switch_::Switch, public Component {
 
  protected:
   void write_state(bool state) override;
-  Dps *parent_;
+  xy6020 *parent_;
   uint16_t holding_register_;
 };
 
-}  // namespace dps
+}  // namespace xy6020
 }  // namespace esphome
