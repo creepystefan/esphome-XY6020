@@ -3,9 +3,9 @@ import esphome.config_validation as cv
 from esphome.components import text_sensor
 from esphome.const import CONF_ICON, CONF_ID, ICON_EMPTY
 
-from . import CONF_DPS_ID, DPS_COMPONENT_SCHEMA
+from . import CONF_XY6020_ID, XY6020_COMPONENT_SCHEMA
 
-DEPENDENCIES = ["dps"]
+DEPENDENCIES = ["XY6020"]
 
 CODEOWNERS = ["@syssi"]
 
@@ -19,7 +19,7 @@ TEXT_SENSORS = [
     CONF_DEVICE_MODEL,
 ]
 
-CONFIG_SCHEMA = DPS_COMPONENT_SCHEMA.extend(
+CONFIG_SCHEMA = XY6020_COMPONENT_SCHEMA.extend(
     {
         cv.Optional(CONF_PROTECTION_STATUS): text_sensor.TEXT_SENSOR_SCHEMA.extend(
             {
@@ -38,7 +38,7 @@ CONFIG_SCHEMA = DPS_COMPONENT_SCHEMA.extend(
 
 
 async def to_code(config):
-    hub = await cg.get_variable(config[CONF_DPS_ID])
+    hub = await cg.get_variable(config[CONF_XY6020_ID])
     for key in TEXT_SENSORS:
         if key in config:
             conf = config[key]
