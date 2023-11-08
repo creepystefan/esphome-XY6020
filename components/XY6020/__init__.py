@@ -9,29 +9,29 @@ DEPENDENCIES = ["modbus"]
 AUTO_LOAD = ["binary_sensor", "number", "sensor", "switch", "text_sensor"]
 MULTI_CONF = True
 
-CONF_DPS_ID = "dps_id"
+CONF_XY6020_ID = "XY6020_id"
 CONF_CURRENT_RESOLUTION = "current_resolution"
 
-dps_ns = cg.esphome_ns.namespace("dps")
-Dps = dps_ns.class_("Dps", cg.PollingComponent, modbus.ModbusDevice)
+XY6020_ns = cg.esphome_ns.namespace("XY6020")
+XY6020 = XY6020_ns.class_("XY6020", cg.PollingComponent, modbus.ModbusDevice)
 
-CurrentResolution = dps_ns.enum("CurrentResolution")
+CurrentResolution = XY6020_ns.enum("CurrentResolution")
 CURRENT_RESOLUTION_OPTIONS = {
-    "AUTO": CurrentResolution.DPS_CURRENT_RESOLUTION_AUTO,
-    "LOW": CurrentResolution.DPS_CURRENT_RESOLUTION_LOW,
-    "HIGH": CurrentResolution.DPS_CURRENT_RESOLUTION_HIGH,
+    "AUTO": CurrentResolution.XY6020_CURRENT_RESOLUTION_AUTO,
+    "LOW": CurrentResolution.XY6020_CURRENT_RESOLUTION_LOW,
+    "HIGH": CurrentResolution.XY6020_CURRENT_RESOLUTION_HIGH,
 }
 
-DPS_COMPONENT_SCHEMA = cv.Schema(
+XY6020_COMPONENT_SCHEMA = cv.Schema(
     {
-        cv.GenerateID(CONF_DPS_ID): cv.use_id(Dps),
+        cv.GenerateID(CONF_XY6020_ID): cv.use_id(XY6020),
     }
 )
 
 CONFIG_SCHEMA = (
     cv.Schema(
         {
-            cv.GenerateID(): cv.declare_id(Dps),
+            cv.GenerateID(): cv.declare_id(XY6020),
             cv.Optional(CONF_CURRENT_RESOLUTION, default="AUTO"): cv.enum(
                 CURRENT_RESOLUTION_OPTIONS, upper=True
             ),
