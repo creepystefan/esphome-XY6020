@@ -1,8 +1,8 @@
 substitutions:
   name: "dps"
-  device_description: "Monitor and control a XY6020 Digital Control Power Supply via UART-TTL"
+  device_description: "Monitor and control a xy6020 Digital Control Power Supply via UART-TTL"
   # external_components_source: github://syssi/esphome-xy6020@main
-  external_components_source: github://creepystefan/esphome-XY6020@main
+  external_components_source: github://creepystefan/esphome-xy6020@main
 
   tx_pin1: GPIO4
   rx_pin1: GPIO2
@@ -46,7 +46,7 @@ wifi:
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Xy6020 Fallback Hotspot"
+    ssid: "xy6020 Fallback Hotspot"
     password: "UEikMwV1wqU8"
 
 captive_portal:
@@ -70,7 +70,7 @@ modbus:
   uart_id: uart_01
   send_wait_time: 0ms
 
-XY6020:
+xy6020:
   id: xy60200
   modbus_id: modbus0
   update_interval: 5s
@@ -86,7 +86,7 @@ binary_sensor:
       name: "${name} constant current mode"
 
 sensor:
-  - platform: XY6020
+  - platform: xy6020
     output_voltage:
       name: "${name} output voltage"
     output_current:
@@ -105,21 +105,21 @@ sensor:
       name: "${name} firmware version"
 
 text_sensor:
-  - platform: XY6020
+  - platform: xy6020
     protection_status:
       name: "${name} protection status"
     device_model:
       name: "${name} device model"
 
 switch:
-  - platform: XY6020
+  - platform: xy6020
     output:
       name: "${name} output"
     key_lock:
       name: "${name} key lock"
 
 number:
-  - platform: XY6020
+  - platform: xy6020
     voltage_setting:
       name: "${name} voltage setting"
     current_setting:
