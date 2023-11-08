@@ -3,9 +3,9 @@ import esphome.config_validation as cv
 from esphome.components import binary_sensor
 from esphome.const import CONF_ICON, CONF_ID, CONF_OUTPUT
 
-from . import CONF_DPS_ID, DPS_COMPONENT_SCHEMA
+from . import CONF_XY6020_ID, XY6020_COMPONENT_SCHEMA
 
-DEPENDENCIES = ["dps"]
+DEPENDENCIES = ["XY6020"]
 
 CODEOWNERS = ["@syssi"]
 
@@ -23,7 +23,7 @@ BINARY_SENSORS = [
     CONF_CONSTANT_CURRENT_MODE,
 ]
 
-CONFIG_SCHEMA = DPS_COMPONENT_SCHEMA.extend(
+CONFIG_SCHEMA = XY6020_COMPONENT_SCHEMA.extend(
     {
         cv.Optional(CONF_OUTPUT): binary_sensor.BINARY_SENSOR_SCHEMA.extend(
             {
@@ -50,7 +50,7 @@ CONFIG_SCHEMA = DPS_COMPONENT_SCHEMA.extend(
 
 
 async def to_code(config):
-    hub = await cg.get_variable(config[CONF_DPS_ID])
+    hub = await cg.get_variable(config[CONF_XY6020_ID])
     for key in BINARY_SENSORS:
         if key in config:
             conf = config[key]
