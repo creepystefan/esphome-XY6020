@@ -16,9 +16,9 @@ from esphome.const import (
     UNIT_VOLT,
 )
 
-from .. import CONF_DPS_ID, DPS_COMPONENT_SCHEMA, dps_ns
+from .. import CONF_xy6020_ID, xy6020_COMPONENT_SCHEMA, xy6020_ns
 
-DEPENDENCIES = ["dps"]
+DEPENDENCIES = ["xy6020"]
 
 CODEOWNERS = ["@syssi"]
 
@@ -32,11 +32,11 @@ NUMBERS = {
     CONF_CURRENT_SETTING: 0x0001,
 }
 
-DpsNumber = dps_ns.class_("DpsNumber", number.Number, cg.Component)
+xy6020Number = xy6020_ns.class_("xy6020Number", number.Number, cg.Component)
 
-DPSNUMBER_SCHEMA = number.NUMBER_SCHEMA.extend(
+xy6020NUMBER_SCHEMA = number.NUMBER_SCHEMA.extend(
     {
-        cv.GenerateID(): cv.declare_id(DpsNumber),
+        cv.GenerateID(): cv.declare_id(xy6020Number),
         cv.Optional(CONF_ICON, default=ICON_EMPTY): cv.icon,
         cv.Optional(CONF_STEP, default=0.01): cv.float_,
         cv.Optional(CONF_UNIT_OF_MEASUREMENT, default=UNIT_VOLT): cv.string_strict,
@@ -47,15 +47,15 @@ DPSNUMBER_SCHEMA = number.NUMBER_SCHEMA.extend(
     }
 ).extend(cv.COMPONENT_SCHEMA)
 
-CONFIG_SCHEMA = DPS_COMPONENT_SCHEMA.extend(
+CONFIG_SCHEMA = xy6020_COMPONENT_SCHEMA.extend(
     {
-        cv.Optional(CONF_VOLTAGE_SETTING): DPSNUMBER_SCHEMA.extend(
+        cv.Optional(CONF_VOLTAGE_SETTING): xy6020NUMBER_SCHEMA.extend(
             {
                 cv.Optional(CONF_MIN_VALUE, default=0.0): cv.float_,
                 cv.Optional(CONF_MAX_VALUE, default=50.0): cv.float_,
             }
         ),
-        cv.Optional(CONF_CURRENT_SETTING): DPSNUMBER_SCHEMA.extend(
+        cv.Optional(CONF_CURRENT_SETTING): xy6020NUMBER_SCHEMA.extend(
             {
                 cv.Optional(
                     CONF_UNIT_OF_MEASUREMENT, default=UNIT_AMPERE
@@ -69,7 +69,7 @@ CONFIG_SCHEMA = DPS_COMPONENT_SCHEMA.extend(
 
 
 async def to_code(config):
-    hub = await cg.get_variable(config[CONF_DPS_ID])
+    hub = await cg.get_variable(config[CONF_xy6020_ID])
     for key, address in NUMBERS.items():
         if key in config:
             conf = config[key]
