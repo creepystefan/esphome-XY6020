@@ -1,7 +1,6 @@
 substitutions:
   name: "xy6020"
   device_description: "Monitor and control a xy6020 Digital Control Power Supply via UART-TTL"
-  # external_components_source: github://syssi/esphome-xy6020@main
   external_components_source: github://creepystefan/esphome-xy6020@main
 
   tx_pin1: GPIO4
@@ -54,16 +53,10 @@ captive_portal:
 uart:
 - id: uart_01
   baud_rate: 115200
-  #baud_rate: 9600
   tx_pin: ${tx_pin1}
   rx_pin: ${rx_pin1}
   debug:
       direction: BOTH
-      dummy_receiver: false
-      after:
-        delimiter: "\n,\r,0"
-      sequence:
-        - lambda: UARTDebug::log_string(direction, bytes);
 
 modbus:
   id: modbus0
