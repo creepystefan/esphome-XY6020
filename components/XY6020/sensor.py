@@ -15,9 +15,9 @@ from esphome.const import (
     UNIT_WATT,
 )
 
-from . import CONF_XY6020_ID, XY6020_COMPONENT_SCHEMA
+from . import CONF_xy6020_ID, xy6020_COMPONENT_SCHEMA
 
-DEPENDENCIES = ["XY6020"]
+DEPENDENCIES = ["xy6020"]
 
 CODEOWNERS = ["@syssi"]
 
@@ -44,7 +44,7 @@ SENSORS = [
 ]
 
 # pylint: disable=too-many-function-args
-CONFIG_SCHEMA = XY6020_COMPONENT_SCHEMA.extend(
+CONFIG_SCHEMA = xy6020_COMPONENT_SCHEMA.extend(
     {
         cv.Optional(CONF_OUTPUT_VOLTAGE): sensor.sensor_schema(
             unit_of_measurement=UNIT_VOLT,
@@ -101,7 +101,7 @@ CONFIG_SCHEMA = XY6020_COMPONENT_SCHEMA.extend(
 
 
 async def to_code(config):
-    hub = await cg.get_variable(config[CONF_XY6020_ID])
+    hub = await cg.get_variable(config[CONF_xy6020_ID])
     for key in SENSORS:
         if key in config:
             conf = config[key]
