@@ -1,11 +1,11 @@
-#include "XY6020.h"
+#include "xy6020.h"
 #include "esphome/core/log.h"
 #include "esphome/core/helpers.h"
 
 namespace esphome {
-namespace XY6020 {
+namespace xy6020 {
 
-static const char *const TAG = "XY6020";
+static const char *const TAG = "xy6020";
 
 static const uint8_t FUNCTION_READ_REGISTERS = 0x03;
 static const uint8_t FUNCTION_WRITE_SINGLE_REGISTER = 0x06;
@@ -19,7 +19,7 @@ static const char *const PROTECTION_STATUS[PROTECTION_STATUS_SIZE] = {
     "Over-Power",    // 0x03
 };
 
-void XY6020::on_modbus_data(const std::vector<uint8_t> &data) {
+void xy6020::on_modbus_data(const std::vector<uint8_t> &data) {
   if (data.size() == 26) {
     this->on_status_data_(data);
     return;
@@ -30,12 +30,12 @@ void XY6020::on_modbus_data(const std::vector<uint8_t> &data) {
     return;
   }
 
-  ESP_LOGW(TAG, "Invalid size (%zu) for XY6020 frame!", data.size());
+  ESP_LOGW(TAG, "Invalid size (%zu) for xy6020 frame!", data.size());
   ESP_LOGW(TAG, "Payload: %s", format_hex_pretty(&data.front(), data.size()).c_str());
 }
 
-void XY6020::on_acknowledge_data_(const std::vector<uint8_t> &data) {
-  auto XY6020_get_16bit = [&](size_t i) -> uint16_t {
+void xy6020::on_acknowledge_data_(const std::vector<uint8_t> &data) {
+  auto xy6020_get_16bit = [&](size_t i) -> uint16_t {
     return (uint16_t(data[i + 0]) << 8) | (uint16_t(data[i + 1]) << 0);
   };
 
@@ -44,8 +44,8 @@ void XY6020::on_acknowledge_data_(const std::vector<uint8_t> &data) {
   // -> 0x01 0x10 0x00 0x01 0x00 0x01 0x02 0x02 0xF7 0xE7 0x67
   // <- 0x01 0x10 0x00 0x01 0x00 0x01 .... ....
 
-  uint16_t starting_address = XY6020_get_16bit(0);
-  uint16_t registers_written = XY6020_get_16bit(2);
+  uint16_t starting_address = xy6020_get_16bit(0);
+  uint16_t registers_written = xy6020_get_16bit(2);
 
   if (registers_written == 0) {
     ESP_LOGW(TAG, "Updating register 0x%02X failed", starting_address);
@@ -55,34 +55,34 @@ void XY6020::on_acknowledge_data_(const std::vector<uint8_t> &data) {
   ESP_LOGD(TAG, "Acknowledge received: %zu registers written at address 0x%02X", registers_written, starting_address);
 }
 
-void XY6020::on_status_data_(const std::vector<uint8_t> &data) {
-  auto XY6020_get_16bit = [&](size_t i) -> uint16_t {
+void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
+  auto xy6020_get_16bit = [&](size_t i) -> uint16_t {
     return (uint16_t(data[i + 0]) << 8) | (uint16_t(data[i + 1]) << 0);
   };
 
   ESP_LOGI(TAG, "Status frame received");
 
   // Set device model & current resolution based on reported model
-  uint16_t model_number = XY6020_get_16bit(22);
+  uint16_t model_number = xy6020_get_16bit(22);
   switch (model_number) {
     case 5015:
     case 5020:
-      this->set_current_resolution_if_auto(XY6020_CURRENT_RESOLUTION_LOW);
-      this->publish_state_(this->device_model_text_sensor_, "XY6020" + to_string(model_number));
+      this->set_current_resolution_if_auto(xy6020_CURRENT_RESOLUTION_LOW);
+      this->publish_state_(this->device_model_text_sensor_, "xy6020" + to_string(model_number));
       break;
     case 5205:
-      this->set_current_resolution_if_auto(XY6020_CURRENT_RESOLUTION_HIGH);
+      this->set_current_resolution_if_auto(xy6020_CURRENT_RESOLUTION_HIGH);
       this->publish_state_(this->device_model_text_sensor_, "DPH" + to_string(model_number - 200));
       break;
     case 3005:
     case 5005:
     case 8005:
     default:
-      this->set_current_resolution_if_auto(XY6020_CURRENT_RESOLUTION_HIGH);
-      this->publish_state_(this->device_model_text_sensor_, "XY6020" + to_string(model_number));
+      this->set_current_resolution_if_auto(xy6020_CURRENT_RESOLUTION_HIGH);
+      this->publish_state_(this->device_model_text_sensor_, "xy6020" + to_string(model_number));
       break;
   }
-        //# XY6020
+        //# xy6020
   // Status request (read register 0...13)
   // -> 0x01 0x03 0x00 0x00 0x00 0x0D 0x84 0x0F
   //
@@ -95,7 +95,7 @@ void XY6020::on_status_data_(const std::vector<uint8_t> &data) {
   //
   // *Data*
 
-       // XY6020
+       // xy6020
     // Status request (read register 0...13)
     // -> 0x01 0x03 0x00 0x00 0x00 0x0D 0x84 0x0F
     // Status response
@@ -104,23 +104,23 @@ void XY6020::on_status_data_(const std::vector<uint8_t> &data) {
     
   // Byte   Address Content: Description                      Decoded content               Coeff./Unit
   //   0    0x0E 0x10        Voltage setting                  3600 * 0.01 = 36.00V          0.01 V
-  float voltage_setting = XY6020_get_16bit(0) * 0.01f;
+  float voltage_setting = xy6020_get_16bit(0) * 0.01f;
   this->publish_state_(this->voltage_setting_sensor_, voltage_setting);
   this->publish_state_(this->voltage_setting_number_, voltage_setting);
   //   2    0x03 0xE8        Current setting                  1000 * 0.01 = 10.00A          0.01 A
-  float current_setting = XY6020_get_16bit(2) * this->current_resolution_factor();
+  float current_setting = xy6020_get_16bit(2) * this->current_resolution_factor();
   this->publish_state_(this->current_setting_sensor_, current_setting);
   this->publish_state_(this->current_setting_number_, current_setting);
   //   4    0x0E 0x0E        Output voltage display value     3598 * 0.01 = 35.98V          0.01 V
-  this->publish_state_(this->output_voltage_sensor_, (float) XY6020_get_16bit(4) * 0.01f);
+  this->publish_state_(this->output_voltage_sensor_, (float) xy6020_get_16bit(4) * 0.01f);
   //   6    0x00 0xED        Output current display value     0237 * 0.01 = 2.37A           0.01 A
-  this->publish_state_(this->output_current_sensor_, (float) XY6020_get_16bit(6) * this->current_resolution_factor());
+  this->publish_state_(this->output_current_sensor_, (float) xy6020_get_16bit(6) * this->current_resolution_factor());
   //   8    0x21 0x4F        Output power display value       8527 * 0.01 = 85.27W          0.01 W
-  this->publish_state_(this->output_power_sensor_, (float) XY6020_get_16bit(8) * 0.01f);
+  this->publish_state_(this->output_power_sensor_, (float) xy6020_get_16bit(8) * 0.01f);
   //  10    0x10 0x87        Input voltage display value      4231 * 0.01 = 42.31V          0.01 V
-  this->publish_state_(this->input_voltage_sensor_, (float) XY6020_get_16bit(10) * 0.01f);
+  this->publish_state_(this->input_voltage_sensor_, (float) xy6020_get_16bit(10) * 0.01f);
   //  12    0x00 0x00        Key lock                         0x00: off, 0x01: on
-  bool key_lock = XY6020_get_16bit(12) == 0x0001;
+  bool key_lock = xy6020_get_16bit(12) == 0x0001;
   this->publish_state_(this->key_lock_binary_sensor_, key_lock);
   this->publish_state_(this->key_lock_switch_, key_lock);
   //  14    0x00 0x00        Protection status                0x00: normal, 0x01: over-voltage,
@@ -132,32 +132,32 @@ void XY6020::on_status_data_(const std::vector<uint8_t> &data) {
     this->publish_state_(this->protection_status_text_sensor_, "Unknown");
   }
   //  16    0x00 0x00        Constant current (CC mode)       0x00: CV mode, 0x01: CC mode
-  this->publish_state_(this->constant_current_mode_binary_sensor_, XY6020_get_16bit(16) == 0x0001);
+  this->publish_state_(this->constant_current_mode_binary_sensor_, xy6020_get_16bit(16) == 0x0001);
   //  18    0x00 0x01        Switch output state              0x00: off, 0x01: on
-  bool output = XY6020_get_16bit(18) == 0x0001;
+  bool output = xy6020_get_16bit(18) == 0x0001;
   this->publish_state_(this->output_binary_sensor_, output);
   this->publish_state_(this->output_switch_, output);
   //  20    0x00 0x00        Backlight brightness level       0...5
-  this->publish_state_(this->backlight_brightness_sensor_, XY6020_get_16bit(20) * 20.0f);
+  this->publish_state_(this->backlight_brightness_sensor_, xy6020_get_16bit(20) * 20.0f);
    
     
-  //  Model XY6020
-    //  22    0x13 0x9C        Product model                    5020 = XY60205020
+  //  Model xy6020
+    //  22    0x13 0x9C        Product model                    5020 = xy60205020
     //  24    0x00 0x11        Firmware version                 17 * 0.1 = 1.7
-    // this->publish_state_(this->firmware_version_sensor_, XY6020_get_16bit(24) * 0.1f);
+    // this->publish_state_(this->firmware_version_sensor_, xy6020_get_16bit(24) * 0.1f);
     
-  //  Model XY6020
-    //                        Roduct model                      6020 = XY6020
+  //  Model xy6020
+    //                        Roduct model                      6020 = xy6020
     //                        Firmware version
-    this->publish_state_(this->firmware_version_sensor_, XY6020_get_16bit(24) * 0.1f);
+    this->publish_state_(this->firmware_version_sensor_, xy6020_get_16bit(24) * 0.1f);
 }    
 
-void XY6020::update() {
+void xy6020::update() {
   // Status request: 0x01 0x03 0x00 0x00 0x00 0x0D 0x84 0x0F
   this->send(FUNCTION_READ_REGISTERS, 0x0000, 0x000D);
 }
 
-void XY6020::write_register(uint16_t address, uint16_t value) {
+void xy6020::write_register(uint16_t address, uint16_t value) {
   // Output on:    0x01 0x10 0x00 0x09 0x00 0x01 0x02 0x00 0x01 0x67 0x09
   // Output off:   0x01 0x10 0x00 0x09 0x00 0x01 0x02 0x00 0x00 0xa6 0xc9
   // Key lock on:  0x01 0x10 0x00 0x06 0x00 0x01 0x02 0x00 0x01 0x67 0xf6
@@ -181,43 +181,43 @@ void XY6020::write_register(uint16_t address, uint16_t value) {
   this->send(FUNCTION_WRITE_MULTIPLE_REGISTERS, address, 0x0001, sizeof(payload), payload);
 }
 
-void XY6020::publish_state_(binary_sensor::BinarySensor *binary_sensor, const bool &state) {
+void xy6020::publish_state_(binary_sensor::BinarySensor *binary_sensor, const bool &state) {
   if (binary_sensor == nullptr)
     return;
 
   binary_sensor->publish_state(state);
 }
 
-void XY6020::publish_state_(number::Number *number, float value) {
+void xy6020::publish_state_(number::Number *number, float value) {
   if (number == nullptr)
     return;
 
   number->publish_state(value);
 }
 
-void XY6020::publish_state_(sensor::Sensor *sensor, float value) {
+void xy6020::publish_state_(sensor::Sensor *sensor, float value) {
   if (sensor == nullptr)
     return;
 
   sensor->publish_state(value);
 }
 
-void XY6020::publish_state_(text_sensor::TextSensor *text_sensor, const std::string &state) {
+void xy6020::publish_state_(text_sensor::TextSensor *text_sensor, const std::string &state) {
   if (text_sensor == nullptr)
     return;
 
   text_sensor->publish_state(state);
 }
 
-void XY6020::publish_state_(switch_::Switch *obj, const bool &state) {
+void xy6020::publish_state_(switch_::Switch *obj, const bool &state) {
   if (obj == nullptr)
     return;
 
   obj->publish_state(state);
 }
 
-void XY6020::dump_config() {  // NOLINT(google-readability-function-size,readability-function-size)
-  ESP_LOGCONFIG(TAG, "XY6020:");
+void xy6020::dump_config() {  // NOLINT(google-readability-function-size,readability-function-size)
+  ESP_LOGCONFIG(TAG, "xy6020:");
   ESP_LOGCONFIG(TAG, "  Address: 0x%02X", this->address_);
   LOG_BINARY_SENSOR("", "Output", this->output_binary_sensor_);
   LOG_BINARY_SENSOR("", "Key Lock", this->key_lock_binary_sensor_);
@@ -235,5 +235,5 @@ void XY6020::dump_config() {  // NOLINT(google-readability-function-size,readabi
 
 }
 
-}  // namespace XY6020
+}  // namespace xy6020
 }  // namespace esphome
