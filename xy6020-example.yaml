@@ -1,12 +1,8 @@
 substitutions:
-  name: "dps"
-  device_description: "Monitor and control a RDTech Digital Control Power Supply (DPS) via UART-TTL"
+  name: "XY6020"
+  device_description: "Monitor and control a XY6020 Digital Control Power Supply via UART-TTL"
   # external_components_source: github://syssi/esphome-dps@main
   external_components_source: github://creepystefan/esphome-XY6020@main
-
-#uart2 auf dem AZ-Delivery ESP32
-# tx GPIO 17
-# rx GPIO 16
 
   tx_pin1: GPIO4
   rx_pin1: GPIO2
@@ -90,7 +86,7 @@ binary_sensor:
       name: "${name} constant current mode"
 
 sensor:
-  - platform: dps
+  - platform: XY6020
     output_voltage:
       name: "${name} output voltage"
     output_current:
@@ -109,21 +105,21 @@ sensor:
       name: "${name} firmware version"
 
 text_sensor:
-  - platform: dps
+  - platform: XY6020
     protection_status:
       name: "${name} protection status"
     device_model:
       name: "${name} device model"
 
 switch:
-  - platform: dps
+  - platform: XY6020
     output:
       name: "${name} output"
     key_lock:
       name: "${name} key lock"
 
 number:
-  - platform: dps
+  - platform: XY6020
     voltage_setting:
       name: "${name} voltage setting"
     current_setting:
