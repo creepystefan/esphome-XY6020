@@ -81,7 +81,7 @@ binary_sensor:
 sensor:
   - platform: xy6020
     output_voltage:
-      name: "${name} Battery Voltage"
+      name: "${name} output voltage"
     output_current:
       name: "${name} output current"
     output_power:
