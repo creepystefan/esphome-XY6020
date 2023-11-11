@@ -58,3 +58,63 @@ uart:
   rx_pin: ${rx_pin1}
   debug:
       direction: BOTH
+
+modbus:
+  id: modbus0
+  uart_id: uart_01
+  send_wait_time: 0ms
+
+xy6020:
+  id: xy60200
+  modbus_id: modbus0
+  update_interval: 5s
+  current_resolution: AUTO
+
+binary_sensor:
+  - platform: xy6020
+    output:
+      name: "${name} output"
+    key_lock:
+      name: "${name} key lock"
+    constant_current_mode:
+      name: "${name} constant current mode"
+
+sensor:
+  - platform: xy6020
+    output_voltage:
+      name: "${name} Battery Voltage"
+    output_current:
+      name: "${name} output current"
+    output_power:
+      name: "${name} output power"
+    input_voltage:
+      name: "${name} input voltage"
+    voltage_setting:
+      name: "${name} voltage setting"
+    current_setting:
+      name: "${name} current setting"
+    #backlight_brightness:
+    #  name: "${name} backlight brightness"
+    #firmware_version:
+    #  name: "${name} firmware version"
+
+text_sensor:
+  - platform: xy6020
+    protection_status:
+      name: "${name} protection status"
+   # device_model:
+   #   name: "${name} device model"
+
+switch:
+  - platform: xy6020
+    output:
+      name: "${name} output"
+    key_lock:
+      name: "${name} key lock"
+
+number:
+  - platform: xy6020
+    voltage_setting:
+      name: "${name} voltage setting"
+    current_setting:
+      name: "${name} current setting"
