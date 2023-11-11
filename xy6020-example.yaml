@@ -81,7 +81,7 @@ binary_sensor:
 sensor:
   - platform: xy6020
     output_voltage:
-      name: "${name} output voltage"
+      name: "${name} Battery Voltage"
     output_current:
       name: "${name} output current"
     output_power:
@@ -92,17 +92,17 @@ sensor:
       name: "${name} voltage setting"
     current_setting:
       name: "${name} current setting"
-    backlight_brightness:
-      name: "${name} backlight brightness"
-    firmware_version:
-      name: "${name} firmware version"
+    #backlight_brightness:
+    #  name: "${name} backlight brightness"
+    #firmware_version:
+    #  name: "${name} firmware version"
 
 text_sensor:
   - platform: xy6020
     protection_status:
       name: "${name} protection status"
-    device_model:
-      name: "${name} device model"
+   # device_model:
+   #   name: "${name} device model"
 
 switch:
   - platform: xy6020
