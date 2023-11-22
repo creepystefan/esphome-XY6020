@@ -106,14 +106,15 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
     //   01:03:3A 09C4 00C7 09C4 00:0C 00:1E:12:D9:75:A3:00:00:71:36:00:0B:01:09:00:34:00:13:01:6C:22:B8:00:00:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:EC:53
     //Data: 09:C4:00:C7:09:C4:00:0B:00:1B:12:D9:75:89:00:00:6E:B7:00:0B:01:09:00:26:00:22:01:6A:22:B8:00:00:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:AD:5C
     //
-    
+
+
   // Byte   Address Content: Description                      Decoded content               Coeff./Unit
   //   0    0x0E 0x10        Voltage setting                  3600 * 0.01 = 36.00V          0.01 V
   float voltage_setting = xy6020_get_16bit(0) * 0.01f;
   this->publish_state_(this->voltage_setting_sensor_, voltage_setting);
   this->publish_state_(this->voltage_setting_number_, voltage_setting);
   //   2    0x03 0xE8        Current setting                  1000 * 0.01 = 10.00A          0.01 A
-  float current_setting = xy6020_get_16bit(2) * this->current_resolution_factor(2);
+  float current_setting = xy6020_get_16bit(2) * this->current_resolution_factor();
   this->publish_state_(this->current_setting_sensor_, current_setting);
   this->publish_state_(this->current_setting_number_, current_setting);
   //   4    0x0E 0x0E        Output voltage display value     3598 * 0.01 = 35.98V          0.01 V
