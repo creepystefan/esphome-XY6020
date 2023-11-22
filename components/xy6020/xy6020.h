@@ -57,7 +57,7 @@ class xy6020 : public PollingComponent, public modbus::ModbusDevice {
     firmware_version_sensor_ = firmware_version_sensor;
   }
   void set_intern_temp_sensor(sensor::Sensor *intern_temp_sensor) {
-    firmware_version_sensor_ = firmware_version_sensor;
+    intern_temp_sensor_ = intern_temp_sensor;
   }
 
   void set_output_switch(switch_::Switch *output_switch) { output_switch_ = output_switch; }
