@@ -155,8 +155,8 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
    //  this->publish_state_(this->firmware_version_sensor_, xy6020_get_16bit(44) * 0.1f);
     
   //  Model xy6020
-    //                        Roduct model                      6020 = xy6020
-    //                        Firmware version
+  //                        Product model                      6020 = xy6020
+  //  46     0073           Firmware version                   115 = 11.5
     this->publish_state_(this->firmware_version_sensor_, xy6020_get_16bit(46) * 0.1f);
 }    
 
