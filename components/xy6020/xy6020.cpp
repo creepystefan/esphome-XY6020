@@ -124,6 +124,9 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   this->publish_state_(this->key_lock_binary_sensor_, key_lock);
   this->publish_state_(this->key_lock_switch_, key_lock);
   //  14    0x00 0x00        Protection status                0x00: normal, 0x01: over-voltage,
+  //  26                     internal Temperatur 
+ this->publish_state_(this->intern_temp_sensor_, (float) xy6020_get_16bit(26) * 0.01f);    
+    
   //                                                          0x02: over-current, 0x03: over-power
   uint16_t raw_protection_status = data[14];
   if (raw_protection_status < PROTECTION_STATUS_SIZE) {
@@ -149,7 +152,7 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   //  Model xy6020
     //                        Roduct model                      6020 = xy6020
     //                        Firmware version
-    this->publish_state_(this->firmware_version_sensor_, xy6020_get_16bit(26) * 0.1f);
+    this->publish_state_(this->firmware_version_sensor_, xy6020_get_16bit(46) * 0.1f);
 }    
 
 void xy6020::update() {
@@ -230,6 +233,7 @@ void xy6020::dump_config() {  // NOLINT(google-readability-function-size,readabi
   LOG_SENSOR("", "Current Setting", this->current_setting_sensor_);
   LOG_SENSOR("", "Backlight Brightness", this->backlight_brightness_sensor_);
   LOG_SENSOR("", "Firmware Version", this->firmware_version_sensor_);
+  LOG_SENSOR("", "Internal Temperatur", this->intern_temp_sensor_);
   LOG_TEXT_SENSOR("", "Protection Status", this->protection_status_text_sensor_);
   LOG_TEXT_SENSOR("", "Device Model", this->device_model_text_sensor_);
 
