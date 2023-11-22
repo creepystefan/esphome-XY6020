@@ -25,7 +25,7 @@ void xy6020::on_modbus_data(const std::vector<uint8_t> &data) {
     return;
   }
 
-  if (data.size() == 10) {
+  if (data.size() == 4) {
     this->on_acknowledge_data_(data);
     return;
   }
