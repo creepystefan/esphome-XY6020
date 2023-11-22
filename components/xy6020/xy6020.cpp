@@ -63,7 +63,7 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   ESP_LOGI(TAG, "Status frame received");
 
   // Set device model & current resolution based on reported model
-  uint16_t model_number = xy6020_get_16bit(22);
+  uint16_t model_number = xy6020_get_16bit(23);
   switch (model_number) {
     case 5015:
     case 5020:
@@ -149,7 +149,7 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   //  Model xy6020
     //                        Roduct model                      6020 = xy6020
     //                        Firmware version
-    this->publish_state_(this->firmware_version_sensor_, xy6020_get_16bit(24) * 0.1f);
+    this->publish_state_(this->firmware_version_sensor_, xy6020_get_16bit(23) * 0.1f);
 }    
 
 void xy6020::update() {
