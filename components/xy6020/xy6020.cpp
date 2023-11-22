@@ -131,7 +131,28 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   this->publish_state_(this->key_lock_switch_, key_lock);
   //  14    0x00 0x00        Protection status                0x00: normal, 0x01: over-voltage,
   //  26                     internal Temperatur 
- this->publish_state_(this->intern_temp_sensor_, (float) xy6020_get_16bit(26) * 0.1f);    
+ this->publish_state_(this->intern_temp_sensor_, (float) xy6020_get_16bit(26) * 0.1f);  
+
+//                             0x51     3598 * 0.01 = 35.98V          0.01 V
+ // this->publish_state_(this->51_sensor_, (float) xy6020_get_16bit(0x51) * 0.01f);
+    //                0x52
+ // this->publish_state_(this->52_sensor_, (float) xy6020_get_16bit(0x52) * 0.01f);
+    //                0x53
+ // this->publish_state_(this->53_sensor_, (float) xy6020_get_16bit(0x53) * 0.01f);
+    //                0x54
+ // this->publish_state_(this->54_sensor_, (float) xy6020_get_16bit(0x54) * 0.01f);
+    //                0x55
+ // this->publish_state_(this->55_sensor_, (float) xy6020_get_16bit(0x55) * 0.01f);
+    //                0x56
+ // this->publish_state_(this->56_sensor_, (float) xy6020_get_16bit(0x56) * 0.01f);
+    //                 0x57
+ // this->publish_state_(this->57_sensor_, (float) xy6020_get_16bit(0x57) * 0.01f);
+    //                 0x58
+ // this->publish_state_(this->58_sensor_, (float) xy6020_get_16bit(0x58) * 0.01f);
+//                     0x59
+//  this->publish_state_(this->59_sensor_, (float) xy6020_get_16bit(0x59) * 0.01f);
+
+    
     
   //                                                          0x02: over-current, 0x03: over-power
   uint16_t raw_protection_status = data[14];
