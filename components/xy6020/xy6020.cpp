@@ -144,7 +144,7 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   //  Model xy6020
     //  22    0x13 0x9C        Product model                    5020 = xy60205020
     //  24    0x00 0x11        Firmware version                 17 * 0.1 = 1.7
-    // this->publish_state_(this->firmware_version_sensor_, xy6020_get_16bit(24) * 0.1f);
+     this->publish_state_(this->firmware_version_sensor_, xy6020_get_16bit(44) * 0.1f);
     
   //  Model xy6020
     //                        Roduct model                      6020 = xy6020
