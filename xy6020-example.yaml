@@ -94,8 +94,10 @@ sensor:
       name: "${name} current setting"
     #backlight_brightness:
     #  name: "${name} backlight brightness"
-    #firmware_version:
-    #  name: "${name} firmware version"
+    firmware_version:
+      name: "${name} firmware version"
+    intern_temp:
+      name: "${name} intern temp"
 
 text_sensor:
   - platform: xy6020
