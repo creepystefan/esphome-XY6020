@@ -112,7 +112,7 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   this->publish_state_(this->current_setting_sensor_, current_setting);
   this->publish_state_(this->current_setting_number_, current_setting);
   //   4    0x0E 0x0E        Output voltage display value     3598 * 0.01 = 35.98V          0.01 V
-  this->publish_state_(this->output_voltage_sensor_, (float) xy6020_get_16bit(4) * 0.01f);
+  this->publish_state_(this->output_voltage_sensor_, (float) xy6020_get_16bit(0x81) * 0.01f);
   //   6    0x00 0xED        Output current display value     0237 * 0.01 = 2.37A           0.01 A
   this->publish_state_(this->output_current_sensor_, (float) xy6020_get_16bit(6) * this->current_resolution_factor());
   //   8    0x21 0x4F        Output power display value       8527 * 0.01 = 85.27W          0.01 W
