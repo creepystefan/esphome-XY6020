@@ -29,6 +29,7 @@ CONF_VOLTAGE_SETTING = "voltage_setting"
 CONF_CURRENT_SETTING = "current_setting"
 CONF_BACKLIGHT_BRIGHTNESS = "backlight_brightness"
 CONF_FIRMWARE_VERSION = "firmware_version"
+CONF_INTERN_TEMP = "intern_temp"
 
 ICON_BACKLIGHT_BRIGHTNESS = "mdi:brightness-6"
 
@@ -41,6 +42,7 @@ SENSORS = [
     CONF_CURRENT_SETTING,
     CONF_BACKLIGHT_BRIGHTNESS,
     CONF_FIRMWARE_VERSION,
+    CONF_INTERN_TEMP
 ]
 
 # pylint: disable=too-many-function-args
@@ -95,6 +97,15 @@ CONFIG_SCHEMA = xy6020_COMPONENT_SCHEMA.extend(
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_EMPTY,
             state_class=STATE_CLASS_MEASUREMENT,
+         ),
+        cv.Optional(CONF_INTERN_TEMP): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+            
+            
         ),
     }
 )
