@@ -113,7 +113,7 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   this->publish_state_(this->voltage_setting_sensor_, voltage_setting);
   this->publish_state_(this->voltage_setting_number_, voltage_setting);
   //   2    0x03 0xE8        Current setting                  1000 * 0.01 = 10.00A          0.01 A
-  float current_setting = xy6020_get_16bit(2) * this->current_resolution_factor();
+  float current_setting = xy6020_get_16bit(2) * this->current_resolution_factor(0x02);
   this->publish_state_(this->current_setting_sensor_, current_setting);
   this->publish_state_(this->current_setting_number_, current_setting);
   //   4    0x0E 0x0E        Output voltage display value     3598 * 0.01 = 35.98V          0.01 V
