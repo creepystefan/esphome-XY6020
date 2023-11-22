@@ -13,6 +13,7 @@ from esphome.const import (
     UNIT_PERCENT,
     UNIT_VOLT,
     UNIT_WATT,
+    UNIT_CELSIUS,
 )
 
 from . import CONF_xy6020_ID, xy6020_COMPONENT_SCHEMA
@@ -42,7 +43,7 @@ SENSORS = [
     CONF_CURRENT_SETTING,
     CONF_BACKLIGHT_BRIGHTNESS,
     CONF_FIRMWARE_VERSION,
-    CONF_INTERN_TEMP
+    CONF_INTERN_TEMP,
 ]
 
 # pylint: disable=too-many-function-args
@@ -99,13 +100,11 @@ CONFIG_SCHEMA = xy6020_COMPONENT_SCHEMA.extend(
             state_class=STATE_CLASS_MEASUREMENT,
          ),
         cv.Optional(CONF_INTERN_TEMP): sensor.sensor_schema(
-            unit_of_measurement=UNIT_EMPTY,
+            unit_of_measurement=UNIT_CELSIUS,
             icon=ICON_EMPTY,
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_EMPTY,
             state_class=STATE_CLASS_MEASUREMENT,
-            
-            
         ),
     }
 )
