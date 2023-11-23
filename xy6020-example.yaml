@@ -101,7 +101,7 @@ sensor:
    # M0_50:
    #   name: "${name} M0_50"
    # M0_51:
-   #   name: "${name} M0_51
+   #   name: "${name} M0_51"
    # M0_52:
    #   name: "${name} M0_52"
    # M0_53:
@@ -114,7 +114,31 @@ sensor:
    #   name: "${name} M0_56"
    # M0_57:
    #   name: "${name} M0_57"
-
+   # M0_58:
+   #   name: "${name} M0_58"
+   # M0_59:
+   #   name: "${name} M0_59"
+    # M1_60:
+   #   name: "${name} M1_60"
+   # M1_61:
+   #   name: "${name} M1_61"
+   # M1_62:
+   #   name: "${name} M1_62"
+   # M1_63:
+   #   name: "${name} M1_63"
+   # M1_64:
+   #   name: "${name} M1_64"
+   # M1_65:
+   #   name: "${name} M1_65"
+   # M1_66:
+   #   name: "${name} M1_66"
+   # M1_67:
+   #   name: "${name} M1_67"
+   # M1_68:
+   #   name: "${name} M1_68"
+   # M1_69:
+   #   name: "${name} M1_69"
+   
 text_sensor:
   - platform: xy6020
     protection_status:
