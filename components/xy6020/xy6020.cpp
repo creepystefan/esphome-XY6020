@@ -131,7 +131,7 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   this->publish_state_(this->key_lock_switch_, key_lock);
   //  14    0x00 0x00        Protection status                0x00: normal, 0x01: over-voltage,
   //  26                     internal Temperatur 
- this->publish_state_(this->intern_temp_sensor_, (float) xy6020_get_16bit(26) * 0.1f);  
+  this->publish_state_(this->intern_temp_sensor_, (float) xy6020_get_16bit(26) * 0.1f);  
 
 
 //       Store M0
