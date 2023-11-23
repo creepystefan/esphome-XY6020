@@ -49,10 +49,10 @@ SENSORS = [
     CONF_BACKLIGHT_BRIGHTNESS,
     CONF_FIRMWARE_VERSION,
     CONF_INTERN_TEMP,
-    CONF_M0_50
-    CONF_M0_51
-    CONF_M0_52
-    CONF_M0_53
+    CONF_M0_50,
+    CONF_M0_51,
+    CONF_M0_52,
+    CONF_M0_53,
 ]
 
 # pylint: disable=too-many-function-args
