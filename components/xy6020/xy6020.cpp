@@ -134,10 +134,12 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   this->publish_state_(this->intern_temp_sensor_, (float) xy6020_get_16bit(26) * 0.1f);  
 
 
+//   LOAD Set Register M0-M9   0x35
+    
 //       Store M0
     
     //                    0x50     M0 Voltage Set
-  this->publish_state_(this->M0_50_sensor_, (float) xy6020_get_16bit(0x80) * 0.01f);    
+  this->publish_state_(this->M0_50_sensor_, (float) xy6020_get_16bit(0x35) * 0.01f);    
     //                0x51     M0 Current Set
   this->publish_state_(this->M0_51_sensor_, (float) xy6020_get_16bit(0x81) * 0.01f);
     //                0x52    OVP Over Voltage Protect
