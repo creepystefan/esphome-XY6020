@@ -31,6 +31,11 @@ CONF_CURRENT_SETTING = "current_setting"
 CONF_BACKLIGHT_BRIGHTNESS = "backlight_brightness"
 CONF_FIRMWARE_VERSION = "firmware_version"
 CONF_INTERN_TEMP = "intern_temp"
+CONF_M0_50 = "M0_50"
+CONF_M0_51 = "M0_51"
+CONF_M0_52 = "M0_52"
+CONF_M0_53 = "M0_53"
+
 
 ICON_BACKLIGHT_BRIGHTNESS = "mdi:brightness-6"
 
@@ -44,6 +49,10 @@ SENSORS = [
     CONF_BACKLIGHT_BRIGHTNESS,
     CONF_FIRMWARE_VERSION,
     CONF_INTERN_TEMP,
+    CONF_M0_50
+    CONF_M0_51
+    CONF_M0_52
+    CONF_M0_53
 ]
 
 # pylint: disable=too-many-function-args
@@ -106,14 +115,14 @@ CONFIG_SCHEMA = xy6020_COMPONENT_SCHEMA.extend(
             device_class=DEVICE_CLASS_EMPTY,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
-        cv.Optional(M0_50): sensor.sensor_schema(
+        cv.Optional(CONF_M0_50): sensor.sensor_schema(
             unit_of_measurement=UNIT_EMPTY,
             icon=ICON_EMPTY,
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_EMPTY,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
-        cv.Optional(M0_51): sensor.sensor_schema(
+        cv.Optional(CONF_M0_51): sensor.sensor_schema(
             unit_of_measurement=UNIT_EMPTY,
             icon=ICON_EMPTY,
             accuracy_decimals=1,
@@ -121,14 +130,14 @@ CONFIG_SCHEMA = xy6020_COMPONENT_SCHEMA.extend(
             state_class=STATE_CLASS_MEASUREMENT,
             
         ),
-        cv.Optional(M0_52): sensor.sensor_schema(
+        cv.Optional(CONF_M0_52): sensor.sensor_schema(
             unit_of_measurement=UNIT_EMPTY,
             icon=ICON_EMPTY,
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_EMPTY,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
-        cv.Optional(M0_53): sensor.sensor_schema(
+        cv.Optional(CONF_M0_53): sensor.sensor_schema(
             unit_of_measurement=UNIT_EMPTY,
             icon=ICON_EMPTY,
             accuracy_decimals=1,
