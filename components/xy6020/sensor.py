@@ -106,6 +106,35 @@ CONFIG_SCHEMA = xy6020_COMPONENT_SCHEMA.extend(
             device_class=DEVICE_CLASS_EMPTY,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
+        cv.Optional(M0_50): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(M0_51): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+            
+        ),
+        cv.Optional(M0_52): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(M0_53): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
     }
 )
 
