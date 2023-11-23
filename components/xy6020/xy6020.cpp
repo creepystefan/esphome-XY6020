@@ -133,23 +133,73 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   //  26                     internal Temperatur 
  this->publish_state_(this->intern_temp_sensor_, (float) xy6020_get_16bit(26) * 0.1f);  
 
-//                             0x51     3598 * 0.01 = 35.98V          0.01 V
+
+//       Store M0
+    
+    //                    0x50     M0 Voltage Set
+ // this->publish_state_(this->51_sensor_, (float) xy6020_get_16bit(0x50) * 0.01f);    
+    //                0x51     M0 Current Set
  // this->publish_state_(this->51_sensor_, (float) xy6020_get_16bit(0x51) * 0.01f);
-    //                0x52
+    //                0x52    OVP Over Voltage Protect
  // this->publish_state_(this->52_sensor_, (float) xy6020_get_16bit(0x52) * 0.01f);
-    //                0x53
+    //                0x53    OCP Over Current Protect
  // this->publish_state_(this->53_sensor_, (float) xy6020_get_16bit(0x53) * 0.01f);
-    //                0x54
+    //                0x54    OPP
  // this->publish_state_(this->54_sensor_, (float) xy6020_get_16bit(0x54) * 0.01f);
-    //                0x55
+    //                0x55    b_led2_set_max
  // this->publish_state_(this->55_sensor_, (float) xy6020_get_16bit(0x55) * 0.01f);
-    //                0x56
+    //                0x56    m_pre_set_max, self.limits.m_pre_set_min
  // this->publish_state_(this->56_sensor_, (float) xy6020_get_16bit(0x56) * 0.01f);
-    //                 0x57
+    //                0x57    s_ini_set_max, self.limits.s_ini_set_min
  // this->publish_state_(this->57_sensor_, (float) xy6020_get_16bit(0x57) * 0.01f);
-    //                 0x58
+    //                0x58
  // this->publish_state_(this->58_sensor_, (float) xy6020_get_16bit(0x58) * 0.01f);
-//                     0x59
+//                    0x59
+//  this->publish_state_(this->59_sensor_, (float) xy6020_get_16bit(0x59) * 0.01f);
+
+
+   
+    //           Store M1
+    //                    0x60     M1 Voltage Set
+ // this->publish_state_(this->51_sensor_, (float) xy6020_get_16bit(0x60) * 0.01f);    
+    //                0x61     M1 Current Set
+ // this->publish_state_(this->51_sensor_, (float) xy6020_get_16bit(0x61) * 0.01f);
+    //                0x62    OVP Over Voltage Protect
+ // this->publish_state_(this->52_sensor_, (float) xy6020_get_16bit(0x62) * 0.01f);
+    //                0x63    OCP Over Current Protect
+ // this->publish_state_(this->53_sensor_, (float) xy6020_get_16bit(0x63) * 0.01f);
+    //                0x64    OPP
+ // this->publish_state_(this->54_sensor_, (float) xy6020_get_16bit(0x64) * 0.01f);
+    //                0x65    ??  b_led2_set_max
+ // this->publish_state_(this->55_sensor_, (float) xy6020_get_16bit(0x65) * 0.01f);
+    //                0x66    ??  m_pre_set_max, self.limits.m_pre_set_min
+ // this->publish_state_(this->56_sensor_, (float) xy6020_get_16bit(0x66) * 0.01f);
+    //                0x67    ??
+ // this->publish_state_(this->57_sensor_, (float) xy6020_get_16bit(0x67) * 0.01f);
+    //                0x68    ??
+ // this->publish_state_(this->58_sensor_, (float) xy6020_get_16bit(0x68) * 0.01f);
+//                    0x69    ??
+//  this->publish_state_(this->59_sensor_, (float) xy6020_get_16bit(0x69) * 0.01f);
+
+    //                    0x50     M2 Voltage Set
+ // this->publish_state_(this->51_sensor_, (float) xy6020_get_16bit(0x51) * 0.01f);    
+    //                0x51     M1 Current Set
+ // this->publish_state_(this->51_sensor_, (float) xy6020_get_16bit(0x51) * 0.01f);
+    //                0x52    OVP Over Voltage Protect
+ // this->publish_state_(this->52_sensor_, (float) xy6020_get_16bit(0x52) * 0.01f);
+    //                0x53    OCP Over Current Protect
+ // this->publish_state_(this->53_sensor_, (float) xy6020_get_16bit(0x53) * 0.01f);
+    //                0x54    OPP
+ // this->publish_state_(this->54_sensor_, (float) xy6020_get_16bit(0x54) * 0.01f);
+    //                0x55    b_led2_set_max
+ // this->publish_state_(this->55_sensor_, (float) xy6020_get_16bit(0x55) * 0.01f);
+    //                0x56    m_pre_set_max, self.limits.m_pre_set_min
+ // this->publish_state_(this->56_sensor_, (float) xy6020_get_16bit(0x56) * 0.01f);
+    //                0x57    s_ini_set_max, self.limits.s_ini_set_min
+ // this->publish_state_(this->57_sensor_, (float) xy6020_get_16bit(0x57) * 0.01f);
+    //                0x58
+ // this->publish_state_(this->58_sensor_, (float) xy6020_get_16bit(0x58) * 0.01f);
+//                    0x59
 //  this->publish_state_(this->59_sensor_, (float) xy6020_get_16bit(0x59) * 0.01f);
 
     
