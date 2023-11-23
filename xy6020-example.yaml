@@ -98,6 +98,22 @@ sensor:
       name: "${name} firmware version"
     intern_temp:
       name: "${name} intern temp"
+   # M0_50:
+   #   name: "${name} M0_50"
+   # M0_51:
+   #   name: "${name} M0_51
+   # M0_52:
+   #   name: "${name} M0_52"
+   # M0_53:
+   #   name: "${name} M0_53"
+   # M0_54:
+   #   name: "${name} M0_54"
+   # M0_55:
+   #   name: "${name} M0_55"
+   # M0_56:
+   #   name: "${name} M0_56"
+   # M0_57:
+   #   name: "${name} M0_57"
 
 text_sensor:
   - platform: xy6020
