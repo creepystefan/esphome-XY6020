@@ -126,7 +126,7 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   //  10    0x10 0x87        Input voltage display value      4231 * 0.01 = 42.31V          0.01 V
   this->publish_state_(this->input_voltage_sensor_, (float) xy6020_get_16bit(10) * 0.01f);
   //  12    0x00 0x00        Key lock                         0x00: off, 0x01: on
-  bool key_lock = xy6020_get_16bit(20) == 0x0001;
+  bool key_lock = xy6020_get_16bit(18) == 0x0001;
   this->publish_state_(this->key_lock_binary_sensor_, key_lock);
   this->publish_state_(this->key_lock_switch_, key_lock);
   //  14    0x00 0x00        Protection status                0x00: normal, 0x01: over-voltage,
@@ -139,13 +139,13 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
 //       Store M0
     
     //                    0x50     M0 Voltage Set
-  this->publish_state_(this->M0_50_sensor_, (float) xy6020_get_16bit(18));    
+  this->publish_state_(this->M0_50_sensor_, (float) xy6020_get_16bit(16) == 0x0001);    
     //                0x51     M0 Current Set
-  this->publish_state_(this->M0_51_sensor_, (float) xy6020_get_16bit(21) * 0.01f);
+  this->publish_state_(this->M0_51_sensor_, (float) xy6020_get_16bit(17) == 0x0001);
     //                0x52    OVP Over Voltage Protect
-  this->publish_state_(this->M0_52_sensor_, (float) xy6020_get_16bit(19) * 0.01f);
+  this->publish_state_(this->M0_52_sensor_, (float) xy6020_get_16bit(18) == 0x0001);
     //                0x53    OCP Over Current Protect
-  this->publish_state_(this->M0_53_sensor_, (float) xy6020_get_16bit(40) * 0.01f);
+  this->publish_state_(this->M0_53_sensor_, (float) xy6020_get_16bit(19) == 0x0001);
     //                0x54    OPP
  // this->publish_state_(this->54_sensor_, (float) xy6020_get_16bit(0x54) * 0.01f);
     //                0x55    b_led2_set_max
