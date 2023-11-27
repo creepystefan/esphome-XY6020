@@ -105,7 +105,7 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
     //   01:03:3A 09C4 00C7 09C4 00:0B 00:1B:12:D7:75:93:00:00:6F:BA:00:0B:01:09:00:2B:00:39:01:6B:22:B8:00:00:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:B2:5D
     //   01:03:3A 09C4 00C7 09C4 00:0C 00:1E:12:D9:75:A3:00:00:71:36:00:0B:01:09:00:34:00:13:01:6C:22:B8:00:00:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:EC:53
     //Data: 09:C4:00:C7:09:C4:00:0B:00:1B:12:D9:75:89:00:00:6E:B7:00:0B:01:09:00:26:00:22:01:6A:22:B8:00:00:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:AD:5C
-    //
+    // 01:03:3A:09:C4:00:C7:09:C4:00:0B:00:1B:12:DC:00:0A:00:00:01:06:00:00:00:00:00:04:00:0F:01:23:22:B8:00:01:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:C5:49
 
 
   // Byte   Address Content: Description                      Decoded content               Coeff./Unit
@@ -126,7 +126,7 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   //  10    0x10 0x87        Input voltage display value      4231 * 0.01 = 42.31V          0.01 V
   this->publish_state_(this->input_voltage_sensor_, (float) xy6020_get_16bit(10) * 0.01f);
   //  12    0x00 0x00        Key lock                         0x00: off, 0x01: on
-  bool key_lock = xy6020_get_16bit(30) == 0x0001;
+  bool key_lock = xy6020_get_16bit(17) == 0x0001;
   this->publish_state_(this->key_lock_binary_sensor_, key_lock);
   this->publish_state_(this->key_lock_switch_, key_lock);
   //  14    0x00 0x00        Protection status                0x00: normal, 0x01: over-voltage,
