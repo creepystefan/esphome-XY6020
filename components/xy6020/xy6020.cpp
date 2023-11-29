@@ -143,13 +143,13 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
 //       Store M0
     
     //                    0x50     M0 Voltage Set
-  this->publish_state_(this->M0_50_sensor_, (float) xy6020_get_16bit(22) * 0.1f);    
+  this->publish_state_(this->M0_50_sensor_, (float) xy6020_get_16bit(36) * 0.1f);    
     //                0x51     M0 Current Set
-  this->publish_state_(this->M0_51_sensor_, (float) xy6020_get_16bit(23) * 0.1f);
+  this->publish_state_(this->M0_51_sensor_, (float) xy6020_get_16bit(38) * 0.1f);
     //                0x52    OVP Over Voltage Protect
-  this->publish_state_(this->M0_52_sensor_, (float) xy6020_get_16bit(24) * 0.1f);
+  this->publish_state_(this->M0_52_sensor_, (float) xy6020_get_16bit(40) * 0.1f);
     //                0x53    OCP Over Current Protect
-  this->publish_state_(this->M0_53_sensor_, (float) xy6020_get_16bit(25) * 0.1f);
+  this->publish_state_(this->M0_53_sensor_, (float) xy6020_get_16bit(42) * 0.1f);
     //                0x54    OPP
  // this->publish_state_(this->54_sensor_, (float) xy6020_get_16bit(0x54) * 0.01f);
     //                0x55    b_led2_set_max
@@ -220,7 +220,7 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   //  16    0x00 0x00        Constant current (CC mode)       0x00: CV mode, 0x01: CC mode
   this->publish_state_(this->constant_current_mode_binary_sensor_, xy6020_get_16bit(16) == 0x0001);
   //  18    0x00 0x01        Switch output state              0x00: off, 0x01: on
-  bool output = xy6020_get_16bit(20) == 0x0001;
+  bool output = xy6020_get_16bit(38) == 0x0001;
   this->publish_state_(this->output_binary_sensor_, output);
   this->publish_state_(this->output_switch_, output);
   //  20    0x00 0x00        Backlight brightness level       0...5
