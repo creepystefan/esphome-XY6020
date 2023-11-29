@@ -107,10 +107,11 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
     //  off 09:CA:00:63:01:F2:00:00:00:00:12:D0:00:00:00:00:00:00:00:00:00:00:00:00:00:00:01:35:22:B8:00:00:00:00:00:00:00: (00) :00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:4B:E2
     //  on  09:CA:00:63:09:CA:00:0B:00:1B:12:DA:00:01:00:00:00:0B:00:00:00:00:00:00:00:0E:01:39:22:B8:00:00:00:00:00:00:00: (01) :00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:8A:D4
 
-    //  KEY Lock   lock / unluck
-    
-
-
+    //  KEY Lock   lock / unluck   Block 30    Register 0x1E
+    //  unlock 09:CA:00:63:09:CA:00:0B:00:1B:12:D9:00:04:00:00:00:5B:00:00:00:00:00:01:00:3B:01:54:22:B8:00: (00) :00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:C8:59
+    //  lock   09:CA:00:63:09:CA:00:0C:00:1E:12:DC:00:0A:00:00:00:ED:00:00:00:00:00:05:00:08:01:56:22:B8:00: (01) :00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:14:6E
+    //  unlock 09:CA:00:63:09:CA:00:0C:00:1E:12:DA:00:0D:00:00:01:42:00:00:00:00:00:06:00:39:01:57:22:B8:00: (00) :00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:E4:47
+    //  lock   09:CA:00:63:09:CA:00:0B:00:1B:12:DC:00:10:00:00:01:8E:00:00:00:00:00:08:00:24:01:57:22:B8:00: (01) :00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:95:10
     
   // Byte   Address Content: Description                      Decoded content               Coeff./Unit
   //   0    0x0E 0x10        Voltage setting                  3600 * 0.01 = 36.00V          0.01 V
@@ -150,9 +151,9 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
     //                0x51     M0 Current Set
   this->publish_state_(this->M0_51_sensor_, (float) xy6020_get_16bit(0x24) * 0.1f);
     //                0x52    OVP Over Voltage Protect
-  this->publish_state_(this->M0_52_sensor_, (float) xy6020_get_16bit(0x12) * 0.1f);
+  this->publish_state_(this->M0_52_sensor_, (float) xy6020_get_16bit(30) * 0.1f);
     //                0x53    OCP Over Current Protect
-  this->publish_state_(this->M0_53_sensor_, (float) xy6020_get_16bit(42) * 0.1f);
+  this->publish_state_(this->M0_53_sensor_, (float) xy6020_get_16bit(0x1E) * 0.1f);
     //                0x54    OPP
  // this->publish_state_(this->54_sensor_, (float) xy6020_get_16bit(0x54) * 0.01f);
     //                0x55    b_led2_set_max
