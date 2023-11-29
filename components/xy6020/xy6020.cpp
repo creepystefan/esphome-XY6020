@@ -220,7 +220,7 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   //  16    0x00 0x00        Constant current (CC mode)       0x00: CV mode, 0x01: CC mode
   this->publish_state_(this->constant_current_mode_binary_sensor_, xy6020_get_16bit(16) == 0x0001);
   //  18    0x00 0x01        Switch output state              0x00: off, 0x01: on
-  bool output = xy6020_get_16bit(38) == 0x0001;
+  bool output = xy6020_get_16bit(36) == 0x0001;
   this->publish_state_(this->output_binary_sensor_, output);
   this->publish_state_(this->output_switch_, output);
   //  20    0x00 0x00        Backlight brightness level       0...5
