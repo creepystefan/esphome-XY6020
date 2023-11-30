@@ -59,9 +59,13 @@ class xy6020 : public PollingComponent, public modbus::ModbusDevice {
   void set_intern_temp_sensor(sensor::Sensor *intern_temp_sensor) {
     intern_temp_sensor_ = intern_temp_sensor;
   }
-  void set_M0_50_sensor(sensor::Sensor *M0_50_sensor) {M0_50_sensor_ = M0_50_sensor; }
-  
-  void set_M0_51_sensor(sensor::Sensor *M0_51_sensor) {
+void set_runtimehours_sensor(sensor::Sensor *runtimehours_sensor) {
+    intern_temp_sensor_ = intern_temp_sensor;
+  }
+  void set_M0_50_sensor(sensor::Sensor *M0_50_sensor) {
+    M0_50_sensor_ = M0_50_sensor;
+  }
+    void set_M0_51_sensor(sensor::Sensor *M0_51_sensor) {
     M0_51_sensor_ = M0_51_sensor;
   }
   void set_M0_52_sensor(sensor::Sensor *M0_52_sensor) {
@@ -118,6 +122,7 @@ class xy6020 : public PollingComponent, public modbus::ModbusDevice {
   sensor::Sensor *backlight_brightness_sensor_;
   sensor::Sensor *firmware_version_sensor_;
   sensor::Sensor *intern_temp_sensor_;
+  sensor::Sensor *runtimehours_sensor_;
   sensor::Sensor *M0_50_sensor_;
   sensor::Sensor *M0_51_sensor_;
   sensor::Sensor *M0_52_sensor_;
