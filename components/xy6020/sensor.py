@@ -117,7 +117,7 @@ CONFIG_SCHEMA = xy6020_COMPONENT_SCHEMA.extend(
             device_class=DEVICE_CLASS_EMPTY,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
-        cv.Optional(CONF_runtimehours): sensor.sensor_schema(
+        cv.Optional(CONF_RUNTIMEHOURS): sensor.sensor_schema(
             unit_of_measurement=UNIT_EMPTY,
             icon=ICON_EMPTY,
             accuracy_decimals=0,
