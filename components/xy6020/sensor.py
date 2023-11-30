@@ -14,7 +14,6 @@ from esphome.const import (
     UNIT_VOLT,
     UNIT_WATT,
     UNIT_CELSIUS,
-    UNIT_TIME,
 )
 
 from . import CONF_xy6020_ID, xy6020_COMPONENT_SCHEMA
@@ -51,7 +50,7 @@ SENSORS = [
     CONF_BACKLIGHT_BRIGHTNESS,
     CONF_FIRMWARE_VERSION,
     CONF_INTERN_TEMP,
-    CONF_runtimehours,
+    CONF_RUNTIMEHOURS,
     CONF_M0_50,
     CONF_M0_51,
     CONF_M0_52,
@@ -119,7 +118,7 @@ CONFIG_SCHEMA = xy6020_COMPONENT_SCHEMA.extend(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_runtimehours): sensor.sensor_schema(
-            unit_of_measurement=UNIT_TIME,
+            unit_of_measurement=UNIT_EMPTY,
             icon=ICON_EMPTY,
             accuracy_decimals=0,
             device_class=DEVICE_CLASS_EMPTY,
