@@ -32,6 +32,7 @@ CONF_BACKLIGHT_BRIGHTNESS = "backlight_brightness"
 CONF_FIRMWARE_VERSION = "firmware_version"
 CONF_INTERN_TEMP = "intern_temp"
 CONF_RUNTIMEHOURS = "runtimehours"
+CONF_RUNTIMEHOURS = "runtimeminutes"
 CONF_M0_50 = "M0_50"
 CONF_M0_51 = "M0_51"
 CONF_M0_52 = "M0_52"
@@ -51,6 +52,7 @@ SENSORS = [
     CONF_FIRMWARE_VERSION,
     CONF_INTERN_TEMP,
     CONF_RUNTIMEHOURS,
+    CONF_RUNTIMEMINUTES,
     CONF_M0_50,
     CONF_M0_51,
     CONF_M0_52,
@@ -118,6 +120,13 @@ CONFIG_SCHEMA = xy6020_COMPONENT_SCHEMA.extend(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_RUNTIMEHOURS): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=0,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_RUNTIMEMINUTES): sensor.sensor_schema(
             unit_of_measurement=UNIT_EMPTY,
             icon=ICON_EMPTY,
             accuracy_decimals=0,
