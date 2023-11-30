@@ -113,7 +113,7 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
     //  unlock 09:CA:00:63:09:CA:00:0C:00:1E:12:DA:00:0D:00:00:01:42:00:00:00:00:00:06:00:39:01:57:22:B8: (00:00) :00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:E4:47
     //  lock   09:CA:00:63:09:CA:00:0B:00:1B:12:DC:00:10:00:00:01:8E:00:00:00:00:00:08:00:24:01:57:22:B8: (00:01) :00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:95:10
 
-    // running time hours    (hours Block 18)   (minutes Block 20)
+    // running time hours    (hours Block 20)   (minutes Block 22)
     // hours   09:CA:00:63:09:CA:00:0C:00:1E:12:DA:0C:52:00:00:33:C7:00:01: (00:1A) :  00:07  :00:11:01:5C:22:B8:00:01:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:43:4A
     // minutes 09:CA:00:63:09:CA:00:0C:00:1E:12:DA:0C:52:00:00:33:C7:00:01:  00:1A  : (00:07) :00:11:01:5C:22:B8:00:01:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:43:4A
 
@@ -145,10 +145,10 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   //  14    0x00 0x00        Protection status                0x00: normal, 0x01: over-voltage,
   //  26                     internal Temperatur 
   this->publish_state_(this->intern_temp_sensor_, (float) xy6020_get_16bit(26) * 0.1f);  
- //   18     running Time  hours
- // this->publish_state_(this->runtimehours_sensor_, (float) xy6020_get_16bit(16));    
- //   20     running Time  Minutes        
- // this->publish_state_(this->runtimeminutes_sensor_, (float) xy6020_get_16bit(18));
+ //   20     running Time  hours
+ // this->publish_state_(this->runtimehours_sensor_, (float) xy6020_get_16bit(20));    
+ //   22     running Time  Minutes        
+ // this->publish_state_(this->runtimeminutes_sensor_, (float) xy6020_get_16bit(22));
 
 
     
@@ -157,9 +157,9 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
 //       Store M0
     
     //                    0x50     M0 Voltage Set
-  this->publish_state_(this->M0_50_sensor_, (float) xy6020_get_16bit(16) * 0.1f);    
+  this->publish_state_(this->M0_50_sensor_, (float) xy6020_get_16bit(20) * 1.f);    
     //                0x51     M0 Current Set
-  this->publish_state_(this->M0_51_sensor_, (float) xy6020_get_16bit(18) * 0.1f);
+  this->publish_state_(this->M0_51_sensor_, (float) xy6020_get_16bit(22) * 1.f);
     //                0x52    OVP Over Voltage Protect
   this->publish_state_(this->M0_52_sensor_, (float) xy6020_get_16bit(20) * 0.1f);
     //                0x53    OCP Over Current Protect
