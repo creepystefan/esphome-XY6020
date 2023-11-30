@@ -98,6 +98,10 @@ sensor:
       name: "${name} firmware version"
     intern_temp:
       name: "${name} intern temp"
+    runtimehours:
+      name: "${name} runtime Hours"
+    runtimeminutes:
+      name: "${name} runtime Minutes"      
    # M0_50:
    #   name: "${name} M0_50"
    # M0_51:
