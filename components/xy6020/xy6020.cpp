@@ -146,9 +146,9 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   //  26                     internal Temperatur 
   this->publish_state_(this->intern_temp_sensor_, (float) xy6020_get_16bit(26) * 0.1f);  
  //   20     running Time  hours
- // this->publish_state_(this->runtimehours_sensor_, (float) xy6020_get_16bit(20));    
+  this->publish_state_(this->runtimehours_sensor_, (float) xy6020_get_16bit(20) * 0.1f);    
  //   22     running Time  Minutes        
- // this->publish_state_(this->runtimeminutes_sensor_, (float) xy6020_get_16bit(22));
+ // this->publish_state_(this->runtimeminutes_sensor_, (float) xy6020_get_16bit(22) * 0.1f);
 
 
     
