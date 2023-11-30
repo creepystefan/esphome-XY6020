@@ -20,7 +20,7 @@ static const char *const PROTECTION_STATUS[PROTECTION_STATUS_SIZE] = {
 };
 
 void xy6020::on_modbus_data(const std::vector<uint8_t> &data) {
-  if (data.size() == 58) {
+  if (data.size() == 64) {
     this->on_status_data_(data);
     return;
   }
