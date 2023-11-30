@@ -1,0 +1,217 @@
+INFO ESPHome 2023.11.6
+INFO Reading configuration /config/esphome/xy6020.yaml...
+INFO Updating https://github.com/creepystefan/esphome-xy6020.git@main
+WARNING GPIO2 is a strapping PIN and should only be used for I/O with care.
+Attaching external pullup/down resistors to strapping pins can cause unexpected failures.
+See https://esphome.io/guides/faq.html#why-am-i-getting-a-warning-about-strapping-pins
+INFO Starting log output from 192.168.178.38 using esphome API
+INFO Successfully connected to 192.168.178.38 in 0.087s
+INFO Successful handshake with 192.168.178.38 in 0.099s
+[07:46:17][I][app:102]: ESPHome version 2023.11.6 compiled on Nov 29 2023, 07:33:18
+[07:46:17][I][app:104]: Project syssi.esphome-dps version 1.1.0
+[07:46:17][C][wifi:559]: WiFi:
+[07:46:17][C][wifi:391]:   Local MAC: 0C:B8:15:F6:4E:44
+[07:46:17][C][wifi:396]:   SSID: 'Jae'[redacted]
+[07:46:17][C][wifi:397]:   IP Address: 192.168.178.38
+[07:46:17][C][wifi:399]:   BSSID: 34:31:C4:35:1E:D5[redacted]
+[07:46:17][C][wifi:400]:   Hostname: 'xy6020'
+[07:46:17][C][wifi:402]:   Signal strength: -32 dB ▂▄▆█
+[07:46:17][C][wifi:406]:   Channel: 11
+[07:46:17][C][wifi:407]:   Subnet: 255.255.255.0
+[07:46:17][C][wifi:408]:   Gateway: 192.168.178.1
+[07:46:17][C][wifi:409]:   DNS1: 0.0.0.0
+[07:46:17][C][wifi:410]:   DNS2: 0.0.0.0
+[07:46:17][C][logger:416]: Logger:
+[07:46:17][C][logger:417]:   Level: DEBUG
+[07:46:17][C][logger:418]:   Log Baud Rate: 115200
+[07:46:17][C][logger:420]:   Hardware UART: UART0
+[07:46:17][C][uart.arduino_esp32:124]: UART Bus 1:
+[07:46:17][C][uart.arduino_esp32:125]:   TX Pin: GPIO4
+[07:46:17][C][uart.arduino_esp32:126]:   RX Pin: GPIO2
+[07:46:17][C][uart.arduino_esp32:128]:   RX Buffer Size: 256
+[07:46:17][C][uart.arduino_esp32:130]:   Baud Rate: 115200 baud
+[07:46:17][C][uart.arduino_esp32:131]:   Data Bits: 8
+[07:46:17][C][uart.arduino_esp32:132]:   Parity: NONE
+[07:46:17][C][uart.arduino_esp32:133]:   Stop bits: 1
+[07:46:17][C][modbus:143]: Modbus:
+[07:46:17][C][modbus:145]:   Send Wait Time: 0 ms
+[07:46:17][C][modbus:146]:   CRC Disabled: NO
+[07:46:17][C][xy6020:303]: xy6020:
+[07:46:17][C][xy6020:304]:   Address: 0x01
+[07:46:17][C][xy6020:305]: Output 'xy6020 output'
+[07:46:17][C][xy6020:306]: Key Lock 'xy6020 key lock'
+[07:46:17][C][xy6020:307]: Constant Current Mode 'xy6020 constant current mode'
+[07:46:17][C][xy6020:308]: Output Voltage 'xy6020 output voltage'
+[07:46:17][C][xy6020:308]:   Device Class: 'voltage'
+[07:46:17][C][xy6020:308]:   State Class: 'measurement'
+[07:46:17][C][xy6020:308]:   Unit of Measurement: 'V'
+[07:46:17][C][xy6020:308]:   Accuracy Decimals: 2
+[07:46:17][C][xy6020:309]: Output Current 'xy6020 output current'
+[07:46:17][C][xy6020:309]:   Device Class: 'current'
+[07:46:17][C][xy6020:309]:   State Class: 'measurement'
+[07:46:17][C][xy6020:309]:   Unit of Measurement: 'A'
+[07:46:17][C][xy6020:309]:   Accuracy Decimals: 3
+[07:46:17][C][xy6020:310]: Output Power 'xy6020 output power'
+[07:46:17][C][xy6020:310]:   Device Class: 'power'
+[07:46:17][C][xy6020:310]:   State Class: 'measurement'
+[07:46:17][C][xy6020:310]:   Unit of Measurement: 'W'
+[07:46:17][C][xy6020:310]:   Accuracy Decimals: 2
+[07:46:17][C][xy6020:311]: Input Voltage 'xy6020 input voltage'
+[07:46:17][C][xy6020:311]:   Device Class: 'voltage'
+[07:46:17][C][xy6020:311]:   State Class: 'measurement'
+[07:46:17][C][xy6020:311]:   Unit of Measurement: 'V'
+[07:46:17][C][xy6020:311]:   Accuracy Decimals: 2
+[07:46:17][C][xy6020:312]: Voltage Setting 'xy6020 voltage setting'
+[07:46:17][C][xy6020:312]:   Device Class: 'voltage'
+[07:46:17][C][xy6020:312]:   State Class: 'measurement'
+[07:46:17][C][xy6020:312]:   Unit of Measurement: 'V'
+[07:46:17][C][xy6020:312]:   Accuracy Decimals: 2
+[07:46:17][C][xy6020:313]: Current Setting 'xy6020 current setting'
+[07:46:17][C][xy6020:313]:   Device Class: 'current'
+[07:46:17][C][xy6020:313]:   State Class: 'measurement'
+[07:46:17][C][xy6020:313]:   Unit of Measurement: 'A'
+[07:46:17][C][xy6020:313]:   Accuracy Decimals: 3
+[07:46:17][C][xy6020:315]: Firmware Version 'xy6020 firmware version'
+[07:46:17][C][xy6020:315]:   State Class: 'measurement'
+[07:46:17][C][xy6020:315]:   Unit of Measurement: ''
+[07:46:17][C][xy6020:315]:   Accuracy Decimals: 1
+[07:46:17][C][xy6020:316]: Internal Temperatur 'xy6020 intern temp'
+[07:46:17][C][xy6020:316]:   State Class: 'measurement'
+[07:46:17][C][xy6020:316]:   Unit of Measurement: '°C'
+[07:46:17][C][xy6020:316]:   Accuracy Decimals: 1
+[07:46:17][C][xy6020:317]: Protection Status 'xy6020 protection status'
+[07:46:17][C][xy6020:317]:   Icon: 'mdi:heart-pulse'
+[07:46:17][C][xy6020:318]: Device Model 'xy6020 device model'
+[07:46:17][C][xy6020.switch:068]: xy6020 Switch 'xy6020 output'
+[07:46:17][C][xy6020.switch:070]:   Icon: 'mdi:power'
+[07:46:17][C][xy6020.switch:091]:   Restore Mode: always OFF
+[07:46:17][C][xy6020.switch:068]: xy6020 Switch 'xy6020 key lock'
+[07:46:17][C][xy6020.switch:070]:   Icon: 'mdi:play-box-lock-outline'
+[07:46:17][C][xy6020.switch:091]:   Restore Mode: always OFF
+[07:46:17][C][xy6020.number:009]: xy6020 Number 'xy6020 voltage setting'
+[07:46:17][C][xy6020.number:009]:   Unit of Measurement: 'V'
+[07:46:17][C][xy6020.number:009]: xy6020 Number 'xy6020 current setting'
+[07:46:17][C][xy6020.number:009]:   Unit of Measurement: 'A'
+[07:46:17][C][captive_portal:088]: Captive Portal:
+[07:46:17][C][mdns:115]: mDNS:
+[07:46:17][C][mdns:116]:   Hostname: xy6020
+[07:46:17][C][ota:097]: Over-The-Air Updates:
+[07:46:17][C][ota:098]:   Address: 192.168.178.38:3232
+[07:46:17][C][ota:101]:   Using Password.
+[07:46:17][C][api:139]: API Server:
+[07:46:17][C][api:140]:   Address: 192.168.178.38:6053
+[07:46:17][C][api:142]:   Using noise encryption: YES
+[07:46:20][D][uart_debug:114]: >>> 01:03:00:00:00:1D:85:C3
+[07:46:20][I][xy6020:063]: Status frame received
+[07:46:20][D][text_sensor:064]: 'xy6020 device model': Sending state 'xy602024832'
+[07:46:20][D][sensor:094]: 'xy6020 voltage setting': Sending state 25.06000 V with 2 decimals of accuracy
+[07:46:20][D][number:012]: 'xy6020 voltage setting': Sending state 25.059999
+[07:46:20][D][sensor:094]: 'xy6020 current setting': Sending state 0.09900 A with 3 decimals of accuracy
+[07:46:20][D][number:012]: 'xy6020 current setting': Sending state 0.099000
+[07:46:20][D][sensor:094]: 'xy6020 output voltage': Sending state 25.06000 V with 2 decimals of accuracy
+[07:46:20][D][sensor:094]: 'xy6020 output current': Sending state 0.12000 A with 3 decimals of accuracy
+[07:46:20][D][sensor:094]: 'xy6020 output power': Sending state 0.30000 W with 2 decimals of accuracy
+[07:46:20][D][sensor:094]: 'xy6020 input voltage': Sending state 48.25000 V with 2 decimals of accuracy
+[07:46:20][D][sensor:094]: 'xy6020 intern temp': Sending state 35.30000 °C with 1 decimals of accuracy
+[07:46:20][D][sensor:094]: 'xy6020 M0_50': Sending state 0.10000  with 1 decimals of accuracy
+[07:46:20][D][sensor:094]: 'xy6020 M0_51': Sending state 0.10000  with 1 decimals of accuracy
+[07:46:20][D][sensor:094]: 'xy6020 M0_52': Sending state 0.10000  with 1 decimals of accuracy
+[07:46:20][D][sensor:094]: 'xy6020 M0_53': Sending state 0.10000  with 1 decimals of accuracy
+[07:46:20][D][text_sensor:064]: 'xy6020 protection status': Sending state 'Normal'
+[07:46:20][D][sensor:094]: 'xy6020 firmware version': Sending state 11.50000  with 1 decimals of accuracy
+[07:46:20][W][component:214]: Component modbus took a long time for an operation (0.16 s).
+[07:46:20][W][component:215]: Components should block for at most 20-30ms.
+[07:46:20][D][uart_debug:114]: <<< 01:03:3A:09:CA:00:63:09:CA:00:0C:00:1E:12:D9:0B:4F:00:00:1A:85:00:01:00:18:00:01:00:1E:01:61:22:B8:00:01:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:06:92
+[07:46:20][D][switch:016]: 'xy6020 key lock' Turning OFF.
+[07:46:20][D][uart_debug:114]: >>> 01:10:00:06:00:01:02:00:00:A6:36
+[07:46:20][D][modbus:119]: Modbus error function code: 0x90 exception: 2
+[07:46:20][D][modbus:124]: Ignoring Modbus error - not expecting a response
+[07:46:20][D][uart_debug:114]: <<< 01:90:02:CD:C1
+[07:46:21][D][switch:016]: 'xy6020 output' Turning OFF.
+[07:46:21][D][uart_debug:114]: >>> 01:10:00:09:00:01:02:00:00:A6:C9
+[07:46:21][D][modbus:119]: Modbus error function code: 0x90 exception: 2
+[07:46:21][D][modbus:124]: Ignoring Modbus error - not expecting a response
+[07:46:21][D][uart_debug:114]: <<< 01:90:02:CD:C1
+[07:46:24][D][switch:016]: 'xy6020 key lock' Turning OFF.
+[07:46:24][D][uart_debug:114]: >>> 01:10:00:06:00:01:02:00:00:A6:36
+[07:46:24][D][modbus:119]: Modbus error function code: 0x90 exception: 2
+[07:46:24][D][modbus:124]: Ignoring Modbus error - not expecting a response
+[07:46:24][D][uart_debug:114]: <<< 01:90:02:CD:C1
+[07:46:25][D][uart_debug:114]: >>> 01:03:00:00:00:1D:85:C3
+[07:46:25][I][xy6020:063]: Status frame received
+[07:46:25][D][text_sensor:064]: 'xy6020 device model': Sending state 'xy602024832'
+[07:46:25][D][sensor:094]: 'xy6020 voltage setting': Sending state 25.06000 V with 2 decimals of accuracy
+[07:46:25][D][number:012]: 'xy6020 voltage setting': Sending state 25.059999
+[07:46:25][D][sensor:094]: 'xy6020 current setting': Sending state 0.09900 A with 3 decimals of accuracy
+[07:46:25][D][number:012]: 'xy6020 current setting': Sending state 0.099000
+[07:46:25][D][sensor:094]: 'xy6020 output voltage': Sending state 25.06000 V with 2 decimals of accuracy
+[07:46:25][D][sensor:094]: 'xy6020 output current': Sending state 0.12000 A with 3 decimals of accuracy
+[07:46:25][D][sensor:094]: 'xy6020 output power': Sending state 0.30000 W with 2 decimals of accuracy
+[07:46:25][D][sensor:094]: 'xy6020 input voltage': Sending state 48.25000 V with 2 decimals of accuracy
+[07:46:25][D][sensor:094]: 'xy6020 intern temp': Sending state 35.40000 °C with 1 decimals of accuracy
+[07:46:25][D][sensor:094]: 'xy6020 M0_50': Sending state 0.10000  with 1 decimals of accuracy
+[07:46:25][D][sensor:094]: 'xy6020 M0_51': Sending state 0.10000  with 1 decimals of accuracy
+[07:46:25][D][sensor:094]: 'xy6020 M0_52': Sending state 0.10000  with 1 decimals of accuracy
+[07:46:25][D][sensor:094]: 'xy6020 M0_53': Sending state 0.10000  with 1 decimals of accuracy
+[07:46:25][D][text_sensor:064]: 'xy6020 protection status': Sending state 'Normal'
+[07:46:25][D][sensor:094]: 'xy6020 firmware version': Sending state 11.50000  with 1 decimals of accuracy
+[07:46:25][W][component:214]: Component modbus took a long time for an operation (0.16 s).
+[07:46:25][W][component:215]: Components should block for at most 20-30ms.
+[07:46:25][D][uart_debug:114]: <<< 01:03:3A:09:CA:00:63:09:CA:00:0C:00:1E:12:D9:0B:4F:00:00:1A:89:00:01:00:18:00:01:00:23:01:62:22:B8:00:01:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:65:C6
+[07:46:27][D][switch:016]: 'xy6020 output' Turning OFF.
+[07:46:27][D][uart_debug:114]: >>> 01:10:00:09:00:01:02:00:00:A6:C9
+[07:46:27][D][modbus:119]: Modbus error function code: 0x90 exception: 2
+[07:46:27][D][modbus:124]: Ignoring Modbus error - not expecting a response
+[07:46:27][D][uart_debug:114]: <<< 01:90:02:CD:C1
+[07:46:29][D][switch:016]: 'xy6020 key lock' Turning OFF.
+[07:46:29][D][uart_debug:114]: >>> 01:10:00:06:00:01:02:00:00:A6:36
+[07:46:29][D][modbus:119]: Modbus error function code: 0x90 exception: 2
+[07:46:29][D][modbus:124]: Ignoring Modbus error - not expecting a response
+[07:46:29][D][uart_debug:114]: <<< 01:90:02:CD:C1
+[07:46:30][D][uart_debug:114]: >>> 01:03:00:00:00:1D:85:C3
+[07:46:30][I][xy6020:063]: Status frame received
+[07:46:30][D][text_sensor:064]: 'xy6020 device model': Sending state 'xy602024832'
+[07:46:30][D][sensor:094]: 'xy6020 voltage setting': Sending state 25.06000 V with 2 decimals of accuracy
+[07:46:30][D][number:012]: 'xy6020 voltage setting': Sending state 25.059999
+[07:46:30][D][sensor:094]: 'xy6020 current setting': Sending state 0.09900 A with 3 decimals of accuracy
+[07:46:30][D][number:012]: 'xy6020 current setting': Sending state 0.099000
+[07:46:30][D][sensor:094]: 'xy6020 output voltage': Sending state 25.06000 V with 2 decimals of accuracy
+[07:46:30][D][sensor:094]: 'xy6020 output current': Sending state 0.12000 A with 3 decimals of accuracy
+[07:46:30][D][sensor:094]: 'xy6020 output power': Sending state 0.30000 W with 2 decimals of accuracy
+[07:46:30][D][sensor:094]: 'xy6020 input voltage': Sending state 48.25000 V with 2 decimals of accuracy
+[07:46:30][D][sensor:094]: 'xy6020 intern temp': Sending state 35.40000 °C with 1 decimals of accuracy
+[07:46:30][D][sensor:094]: 'xy6020 M0_50': Sending state 0.10000  with 1 decimals of accuracy
+[07:46:30][D][sensor:094]: 'xy6020 M0_51': Sending state 0.10000  with 1 decimals of accuracy
+[07:46:30][D][sensor:094]: 'xy6020 M0_52': Sending state 0.10000  with 1 decimals of accuracy
+[07:46:30][D][sensor:094]: 'xy6020 M0_53': Sending state 0.10000  with 1 decimals of accuracy
+[07:46:30][D][text_sensor:064]: 'xy6020 protection status': Sending state 'Normal'
+[07:46:30][D][sensor:094]: 'xy6020 firmware version': Sending state 11.50000  with 1 decimals of accuracy
+[07:46:30][W][component:214]: Component modbus took a long time for an operation (0.16 s).
+[07:46:30][W][component:215]: Components should block for at most 20-30ms.
+[07:46:30][D][uart_debug:114]: <<< 01:03:3A:09:CA:00:63:09:CA:00:0C:00:1E:12:D9:0B:50:00:00:1A:8E:00:01:00:18:00:01:00:28:01:62:22:B8:00:01:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:C6:08
+[07:46:30][D][switch:016]: 'xy6020 output' Turning OFF.
+[07:46:30][D][uart_debug:114]: >>> 01:10:00:09:00:01:02:00:00:A6:C9
+[07:46:30][D][modbus:119]: Modbus error function code: 0x90 exception: 2
+[07:46:30][D][modbus:124]: Ignoring Modbus error - not expecting a response
+[07:46:30][D][uart_debug:114]: <<< 01:90:02:CD:C1
+[07:46:35][D][uart_debug:114]: >>> 01:03:00:00:00:1D:85:C3
+[07:46:35][I][xy6020:063]: Status frame received
+[07:46:35][D][text_sensor:064]: 'xy6020 device model': Sending state 'xy602024832'
+[07:46:35][D][sensor:094]: 'xy6020 voltage setting': Sending state 25.06000 V with 2 decimals of accuracy
+[07:46:35][D][number:012]: 'xy6020 voltage setting': Sending state 25.059999
+[07:46:35][D][sensor:094]: 'xy6020 current setting': Sending state 0.09900 A with 3 decimals of accuracy
+[07:46:35][D][number:012]: 'xy6020 current setting': Sending state 0.099000
+[07:46:35][D][sensor:094]: 'xy6020 output voltage': Sending state 25.06000 V with 2 decimals of accuracy
+[07:46:35][D][sensor:094]: 'xy6020 output current': Sending state 0.12000 A with 3 decimals of accuracy
+[07:46:35][D][sensor:094]: 'xy6020 output power': Sending state 0.30000 W with 2 decimals of accuracy
+[07:46:35][D][sensor:094]: 'xy6020 input voltage': Sending state 48.25000 V with 2 decimals of accuracy
+[07:46:35][D][sensor:094]: 'xy6020 intern temp': Sending state 35.40000 °C with 1 decimals of accuracy
+[07:46:35][D][sensor:094]: 'xy6020 M0_50': Sending state 0.10000  with 1 decimals of accuracy
+[07:46:35][D][sensor:094]: 'xy6020 M0_51': Sending state 0.10000  with 1 decimals of accuracy
+[07:46:35][D][sensor:094]: 'xy6020 M0_52': Sending state 0.10000  with 1 decimals of accuracy
+[07:46:35][D][sensor:094]: 'xy6020 M0_53': Sending state 0.10000  with 1 decimals of accuracy
+[07:46:35][D][text_sensor:064]: 'xy6020 protection status': Sending state 'Normal'
+[07:46:35][D][sensor:094]: 'xy6020 firmware version': Sending state 11.50000  with 1 decimals of accuracy
+[07:46:35][W][component:214]: Component modbus took a long time for an operation (0.17 s).
+[07:46:35][W][component:215]: Components should block for at most 20-30ms.
+[07:46:35][D][uart_debug:114]: <<< 01:03:3A:09:CA:00:63:09:CA:00:0C:00:1E:12:D9:0B:50:00:00:1A:92:00:01:00:18:00:01:00:2D:01:62:22:B8:00:01:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:5F:05
