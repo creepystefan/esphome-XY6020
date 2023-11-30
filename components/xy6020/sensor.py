@@ -14,7 +14,7 @@ from esphome.const import (
     UNIT_VOLT,
     UNIT_WATT,
     UNIT_CELSIUS,
-    UNIT_TIME
+    UNIT_TIME,
 )
 
 from . import CONF_xy6020_ID, xy6020_COMPONENT_SCHEMA
