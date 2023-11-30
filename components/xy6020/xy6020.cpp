@@ -159,7 +159,7 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
     //                    0x50     M0 Voltage Set
   this->publish_state_(this->M0_50_sensor_, (float) xy6020_get_16bit(16) * 0.1f);    
     //                0x51     M0 Current Set
-  this->publish_state_(this->M0_51_sensor_, (float) xy6020_get_16bit(18) (float) xy6020_get_16bit(20));
+  this->publish_state_(this->M0_51_sensor_, (float) xy6020_get_16bit(18));
     //                0x52    OVP Over Voltage Protect
   this->publish_state_(this->M0_52_sensor_, (float) xy6020_get_16bit(20) * 0.1f);
     //                0x53    OCP Over Current Protect
