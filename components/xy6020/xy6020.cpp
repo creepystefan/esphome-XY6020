@@ -157,9 +157,9 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
  //   22     running Time  Minutes        
   this->publish_state_(this->runtimeminutes_sensor_, (float) xy6020_get_16bit(22) * 1.f);
  //   16     verbrauchte Leistung       
-  //this->publish_state_(this->run_power_hour_sensor_, (float) xy6020_get_16bit(16) * 1.f);
+  this->publish_state_(this->run_power_hour_sensor_, (float) xy6020_get_16bit(16) * 1.f);
  //   12     verbrauchte Leistung       
-  //this->publish_state_(this->run_current_hour_sensor_, (float) xy6020_get_16bit(12) * 1.f);
+  this->publish_state_(this->run_current_hour_sensor_, (float) xy6020_get_16bit(12) * 1.f);
 
 
     
