@@ -14,8 +14,7 @@ from esphome.const import (
     UNIT_VOLT,
     UNIT_WATT,
     UNIT_CELSIUS,
-    UNIT_HOUR,
-    UNIT_MINUTES,
+   
 )
 
 from . import CONF_xy6020_ID, xy6020_COMPONENT_SCHEMA
@@ -122,14 +121,14 @@ CONFIG_SCHEMA = xy6020_COMPONENT_SCHEMA.extend(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_RUNTIMEHOURS): sensor.sensor_schema(
-            unit_of_measurement=UNIT_HOURS,
+            unit_of_measurement=UNIT_EMPTY,
             icon=ICON_EMPTY,
             accuracy_decimals=0,
             device_class=DEVICE_CLASS_EMPTY,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_RUNTIMEMINUTES): sensor.sensor_schema(
-            unit_of_measurement=UNIT_MINUTES,
+            unit_of_measurement=UNIT_EMPTY,
             icon=ICON_EMPTY,
             accuracy_decimals=0,
             device_class=DEVICE_CLASS_EMPTY,
