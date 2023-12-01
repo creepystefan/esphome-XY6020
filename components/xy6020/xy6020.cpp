@@ -117,6 +117,10 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
     // hours   09:CA:00:63:09:CA:00:0C:00:1E:12:DA:0C:52:00:00:33:C7:00:01: (00:1A) :  00:07  :00:11:01:5C:22:B8:00:01:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:43:4A
     // minutes 09:CA:00:63:09:CA:00:0C:00:1E:12:DA:0C:52:00:00:33:C7:00:01:  00:1A  : (00:07) :00:11:01:5C:22:B8:00:01:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:43:4A
 
+    // verbrauchte Gesamtleistung Block 16
+    // verbrauchte Leistung  09:CA:00:63:09:CA:00:0C:00:1E:12:DA:0C:52:00:00: (33:C7) :00:01:00:1A:00:07 :00:11:01:5C:22:B8:00:01:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:43:4A
+    
+    
     
   // Byte   Address Content: Description                      Decoded content               Coeff./Unit
   //   0    0x0E 0x10        Voltage setting                  3600 * 0.01 = 36.00V          0.01 V
@@ -149,6 +153,8 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   this->publish_state_(this->runtimehours_sensor_, (float) xy6020_get_16bit(20) * 1.f);    
  //   22     running Time  Minutes        
   this->publish_state_(this->runtimeminutes_sensor_, (float) xy6020_get_16bit(22) * 1.f);
+ //   16     verbrauchte Leistung       
+  //this->publish_state_(this->runtimeminutes_sensor_, (float) xy6020_get_16bit(16) * 1.f);
 
 
     
