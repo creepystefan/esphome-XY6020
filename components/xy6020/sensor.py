@@ -34,8 +34,8 @@ CONF_FIRMWARE_VERSION = "firmware_version"
 CONF_INTERN_TEMP = "intern_temp"
 CONF_RUNTIMEHOURS = "runtimehours"
 CONF_RUNTIMEMINUTES = "runtimeminutes"
-CONF_run_power_hour = "run_power_hour"
-CONF_run_current_hour = "run_current_hour"
+CONF_RUN_POWER_HOUR = "run_power_hour"
+CONF_RUN_CURRENT_HOUR = "run_current_hour"
 CONF_M0_50 = "M0_50"
 CONF_M0_51 = "M0_51"
 CONF_M0_52 = "M0_52"
@@ -138,14 +138,14 @@ CONFIG_SCHEMA = xy6020_COMPONENT_SCHEMA.extend(
             device_class=DEVICE_CLASS_EMPTY,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
-        cv.Optional(CONF_RUN_CURRENT_HOURS): sensor.sensor_schema(
+        cv.Optional(CONF_RUN_CURRENT_HOUR): sensor.sensor_schema(
             unit_of_measurement=UNIT_EMPTY,
             icon=ICON_EMPTY,
             accuracy_decimals=0,
             device_class=DEVICE_CLASS_EMPTY,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
-        cv.Optional(CONF_RUN_POWER_HOURS): sensor.sensor_schema(
+        cv.Optional(CONF_RUN_POWER_HOUR): sensor.sensor_schema(
             unit_of_measurement=UNIT_EMPTY,
             icon=ICON_EMPTY,
             accuracy_decimals=0,
