@@ -168,25 +168,25 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
 //       Store M0
     
     //                    0x50     M0 Voltage Set
-  this->publish_state_(this->M0_50_sensor_, (float) xy6020_get_16bit(14) * 1.f);    
+  this->publish_state_(this->M0_50_sensor_, (float) xy6020_get_16bit(18) * 1.f);    
     //                0x51     M0 Current Set
-  this->publish_state_(this->M0_51_sensor_, (float) xy6020_get_16bit(16) * 1.f);
+  this->publish_state_(this->M0_51_sensor_, (float) xy6020_get_16bit(24) * 1.f);
     //                0x52    OVP Over Voltage Protect
-  this->publish_state_(this->M0_52_sensor_, (float) xy6020_get_16bit(18) * 0.1f);
+  this->publish_state_(this->M0_52_sensor_, (float) xy6020_get_16bit(28) * 0.1f);
     //                0x53    OCP Over Current Protect
-  this->publish_state_(this->M0_53_sensor_, (float) xy6020_get_16bit(12) * 0.1f);
+  this->publish_state_(this->M0_53_sensor_, (float) xy6020_get_16bit(32) * 0.1f);
     //                0x54    OPP
-  this->publish_state_(this->M0_54_sensor_, (float) xy6020_get_16bit(0x54) * 0.01f);
+  this->publish_state_(this->M0_54_sensor_, (float) xy6020_get_16bit(34) * 0.01f);
     //                0x55    b_led2_set_max
-  this->publish_state_(this->M0_55_sensor_, (float) xy6020_get_16bit(0x55) * 0.01f);
+  this->publish_state_(this->M0_55_sensor_, (float) xy6020_get_16bit(36) * 0.01f);
     //                0x56    m_pre_set_max, self.limits.m_pre_set_min
-  this->publish_state_(this->M0_56_sensor_, (float) xy6020_get_16bit(0x56) * 0.01f);
+  this->publish_state_(this->M0_56_sensor_, (float) xy6020_get_16bit(38) * 0.01f);
     //                0x57    s_ini_set_max, self.limits.s_ini_set_min
-  this->publish_state_(this->M0_57_sensor_, (float) xy6020_get_16bit(0x57) * 0.01f);
+  this->publish_state_(this->M0_57_sensor_, (float) xy6020_get_16bit(40) * 0.01f);
     //                0x58
-  this->publish_state_(this->M0_58_sensor_, (float) xy6020_get_16bit(0x58) * 0.01f);
+  this->publish_state_(this->M0_58_sensor_, (float) xy6020_get_16bit(42) * 0.01f);
 //                    0x59
-  this->publish_state_(this->M0_59_sensor_, (float) xy6020_get_16bit(0x59) * 0.01f);
+  this->publish_state_(this->M0_59_sensor_, (float) xy6020_get_16bit(44) * 0.01f);
 
 
    
