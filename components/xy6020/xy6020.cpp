@@ -176,41 +176,41 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
     //                0x53    OCP Over Current Protect
   this->publish_state_(this->M0_53_sensor_, (float) xy6020_get_16bit(12) * 0.1f);
     //                0x54    OPP
- // this->publish_state_(this->M0_54_sensor_, (float) xy6020_get_16bit(0x54) * 0.01f);
+  this->publish_state_(this->M0_54_sensor_, (float) xy6020_get_16bit(0x54) * 0.01f);
     //                0x55    b_led2_set_max
- // this->publish_state_(this->M0_55_sensor_, (float) xy6020_get_16bit(0x55) * 0.01f);
+  this->publish_state_(this->M0_55_sensor_, (float) xy6020_get_16bit(0x55) * 0.01f);
     //                0x56    m_pre_set_max, self.limits.m_pre_set_min
- // this->publish_state_(this->M0_56_sensor_, (float) xy6020_get_16bit(0x56) * 0.01f);
+  this->publish_state_(this->M0_56_sensor_, (float) xy6020_get_16bit(0x56) * 0.01f);
     //                0x57    s_ini_set_max, self.limits.s_ini_set_min
- // this->publish_state_(this->M0_57_sensor_, (float) xy6020_get_16bit(0x57) * 0.01f);
+  this->publish_state_(this->M0_57_sensor_, (float) xy6020_get_16bit(0x57) * 0.01f);
     //                0x58
- // this->publish_state_(this->M0_58_sensor_, (float) xy6020_get_16bit(0x58) * 0.01f);
+  this->publish_state_(this->M0_58_sensor_, (float) xy6020_get_16bit(0x58) * 0.01f);
 //                    0x59
-//  this->publish_state_(this->M0_59_sensor_, (float) xy6020_get_16bit(0x59) * 0.01f);
+  this->publish_state_(this->M0_59_sensor_, (float) xy6020_get_16bit(0x59) * 0.01f);
 
 
    
     //           Store M1
     //                    0x60     M1 Voltage Set
- // this->publish_state_(this->M0_60_sensor_, (float) xy6020_get_16bit(0x60) * 0.01f);    
+  this->publish_state_(this->M0_60_sensor_, (float) xy6020_get_16bit(0x60) * 0.01f);    
     //                0x61     M1 Current Set
- // this->publish_state_(this->M0_61_sensor_, (float) xy6020_get_16bit(0x61) * 0.01f);
+  this->publish_state_(this->M0_61_sensor_, (float) xy6020_get_16bit(0x61) * 0.01f);
     //                0x62    OVP Over Voltage Protect
- // this->publish_state_(this->M0_62_sensor_, (float) xy6020_get_16bit(0x62) * 0.01f);
+  this->publish_state_(this->M0_62_sensor_, (float) xy6020_get_16bit(0x62) * 0.01f);
     //                0x63    OCP Over Current Protect
- // this->publish_state_(this->M0_63_sensor_, (float) xy6020_get_16bit(0x63) * 0.01f);
+  this->publish_state_(this->M0_63_sensor_, (float) xy6020_get_16bit(0x63) * 0.01f);
     //                0x64    OPP
- // this->publish_state_(this->M0_64_sensor_, (float) xy6020_get_16bit(0x64) * 0.01f);
+  this->publish_state_(this->M0_64_sensor_, (float) xy6020_get_16bit(0x64) * 0.01f);
     //                0x65    ??  b_led2_set_max
- // this->publish_state_(this->M0_65_sensor_, (float) xy6020_get_16bit(0x65) * 0.01f);
+  this->publish_state_(this->M0_65_sensor_, (float) xy6020_get_16bit(0x65) * 0.01f);
     //                0x66    ??  m_pre_set_max, self.limits.m_pre_set_min
- // this->publish_state_(this->M0_66_sensor_, (float) xy6020_get_16bit(0x66) * 0.01f);
+  this->publish_state_(this->M0_66_sensor_, (float) xy6020_get_16bit(0x66) * 0.01f);
     //                0x67    ??
- // this->publish_state_(this->M0_67_sensor_, (float) xy6020_get_16bit(0x67) * 0.01f);
+  this->publish_state_(this->M0_67_sensor_, (float) xy6020_get_16bit(0x67) * 0.01f);
     //                0x68    ??
- // this->publish_state_(this->M0_68_sensor_, (float) xy6020_get_16bit(0x68) * 0.01f);
+  this->publish_state_(this->M0_68_sensor_, (float) xy6020_get_16bit(0x68) * 0.01f);
 //                    0x69    ??
-//  this->publish_state_(this->M0_69_sensor_, (float) xy6020_get_16bit(0x69) * 0.01f);
+  this->publish_state_(this->M0_69_sensor_, (float) xy6020_get_16bit(0x69) * 0.01f);
 
     //                    0x50     M2 Voltage Set
  // this->publish_state_(this->51_sensor_, (float) xy6020_get_16bit(0x51) * 0.01f);    
