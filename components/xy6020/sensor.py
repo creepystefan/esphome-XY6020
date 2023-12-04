@@ -154,7 +154,7 @@ CONFIG_SCHEMA = xy6020_COMPONENT_SCHEMA.extend(
             device_class=DEVICE_CLASS_EMPTY,
             state_class=STATE_CLASS_MEASUREMENT,
          ),
-        cv.Optional(CONF_INTERN_TEMP,CONF_RUNTIMEHOURS): sensor.sensor_schema(
+        cv.Optional(CONF_INTERN_TEMP): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
             icon=ICON_EMPTY,
             accuracy_decimals=1,
