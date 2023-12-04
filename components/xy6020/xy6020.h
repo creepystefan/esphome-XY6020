@@ -83,7 +83,55 @@ class xy6020 : public PollingComponent, public modbus::ModbusDevice {
   void set_M0_53_sensor(sensor::Sensor *M0_53_sensor) {
     M0_53_sensor_ = M0_53_sensor;
   }
-
+  void set_M0_54_sensor(sensor::Sensor *M0_54_sensor) {
+    M0_54_sensor_ = M0_54_sensor;
+  }
+  void set_M0_55_sensor(sensor::Sensor *M0_55_sensor) {
+    M0_55_sensor_ = M0_55_sensor;
+  }
+  void set_M0_56_sensor(sensor::Sensor *M0_56_sensor) {
+    M0_56_sensor_ = M0_56_sensor;
+  }
+  void set_M0_57_sensor(sensor::Sensor *M0_57_sensor) {
+    M0_57_sensor_ = M0_57_sensor;
+  }
+void set_M0_58_sensor(sensor::Sensor *M0_58_sensor) {
+    M0_58_sensor_ = M0_58_sensor;
+  }
+    void set_M0_59_sensor(sensor::Sensor *M0_59_sensor) {
+    M0_59_sensor_ = M0_59_sensor;
+  }
+void set_M0_60_sensor(sensor::Sensor *M0_60_sensor) {
+    M0_60_sensor_ = M0_60_sensor;
+  }
+    void set_M0_61_sensor(sensor::Sensor *M0_61_sensor) {
+    M0_61_sensor_ = M0_61_sensor;
+  }
+  void set_M0_62_sensor(sensor::Sensor *M0_62_sensor) {
+    M0_62_sensor_ = M0_62_sensor;
+  }
+  void set_M0_63_sensor(sensor::Sensor *M0_63_sensor) {
+    M0_63_sensor_ = M0_63_sensor;
+  }
+  void set_M0_64_sensor(sensor::Sensor *M0_64_sensor) {
+    M0_64_sensor_ = M0_64_sensor;
+  }
+  void set_M0_65_sensor(sensor::Sensor *M0_65_sensor) {
+    M0_65_sensor_ = M0_65_sensor;
+  }
+  void set_M0_66_sensor(sensor::Sensor *M0_66_sensor) {
+    M0_66_sensor_ = M0_66_sensor;
+  }
+  void set_M0_67_sensor(sensor::Sensor *M0_67_sensor) {
+    M0_67_sensor_ = M0_67_sensor;
+  }
+void set_M0_68_sensor(sensor::Sensor *M0_68_sensor) {
+    M0_68_sensor_ = M0_68_sensor;
+  }
+    void set_M0_69_sensor(sensor::Sensor *M0_69_sensor) {
+    M0_69_sensor_ = M0_69_sensor;
+  }
+  
 
   void set_output_switch(switch_::Switch *output_switch) { output_switch_ = output_switch; }
   void set_key_lock_switch(switch_::Switch *key_lock_switch) { key_lock_switch_ = key_lock_switch; }
