@@ -114,9 +114,10 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
     //  lock   09:CA:00:63:09:CA:00:0B:00:1B:12:DC:00:10:00:00:01:8E:00:00:00:00:00:08:00:24:01:57:22:B8: (00:01) :00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:00:00:00:00:00:00:95:10
 
     // running time hours    (hours Block 20)   (minutes Block 22)
-    // hours   09:CA:00:63:09:CA:00:0C:00:1E:12:DA:0C:52:00:00:33:C7:00:01: (00:1A) :  00:07  :00:11:01:5C:22:B8:00:01:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:43:4A
-    // minutes 09:CA:00:63:09:CA:00:0C:00:1E:12:DA:0C:52:00:00:33:C7:00:01:  00:1A  : (00:07) :00:11:01:5C:22:B8:00:01:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:43:4A
-
+    // hours   09:CA:00:63:09:CA:00:0C:00:1E:12:DA:0C:52:00:00:33:C7:00:01: (00:1A) :  00:07  :  00:11  :01:5C:22:B8:00:01:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:43:4A
+    // minutes 09:CA:00:63:09:CA:00:0C:00:1E:12:DA:0C:52:00:00:33:C7:00:01:  00:1A  : (00:07) :  00:11  :01:5C:22:B8:00:01:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:43:4A
+    // seconds 09:CA:00:63:09:CA:00:0C:00:1E:12:DA:0C:52:00:00:33:C7:00:01:  00:1A  :  00:07  : (00:11) :01:5C:22:B8:00:01:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:43:4A
+   
     // verbrauchte Gesamtleistung in W Block 16
     // verbrauchte Leistung  09:CA:00:63:09:CA:00:0C:00:1E:12:DA:0C:52:00:00: (33:C7) :00:01:00:1A:00:07 :00:11:01:5C:22:B8:00:01:00:00:00:00:00:01:00:00:00:03:00:00:61:00:00:73:00:01:00:06:43:4A
 
@@ -156,6 +157,8 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   this->publish_state_(this->runtimehours_sensor_, (float) xy6020_get_16bit(20) * 1.f);    
  //   22     running Time  Minutes        
   this->publish_state_(this->runtimeminutes_sensor_, (float) xy6020_get_16bit(22) * 1.f);
+ //   24     running Time  Seconds        
+  this->publish_state_(this->runtimeseconds_sensor_, (float) xy6020_get_16bit(24) * 1.f);
  //   16     verbrauchte Leistung       
   this->publish_state_(this->run_power_hour_sensor_, (float) xy6020_get_16bit(16) * 1.f);
  //   12     verbrauchte Leistung       
