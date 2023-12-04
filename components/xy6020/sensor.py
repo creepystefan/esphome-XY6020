@@ -40,6 +40,24 @@ CONF_M0_50 = "M0_50"
 CONF_M0_51 = "M0_51"
 CONF_M0_52 = "M0_52"
 CONF_M0_53 = "M0_53"
+CONF_M0_54 = "M0_54"
+CONF_M0_55 = "M0_55"
+CONF_M0_56 = "M0_56"
+CONF_M0_57 = "M0_57"
+CONF_M0_58 = "M0_58"
+CONF_M0_59 = "M0_59"
+CONF_M0_60 = "M0_60"
+CONF_M0_61 = "M0_61"
+CONF_M0_62 = "M0_62"
+CONF_M0_63 = "M0_63"
+CONF_M0_64 = "M0_64"
+CONF_M0_65 = "M0_65"
+CONF_M0_66 = "M0_66"
+CONF_M0_67 = "M0_67"
+CONF_M0_68 = "M0_68"
+CONF_M0_69 = "M0_69"
+
+
 
 
 ICON_BACKLIGHT_BRIGHTNESS = "mdi:brightness-6"
@@ -62,6 +80,23 @@ SENSORS = [
     CONF_M0_51,
     CONF_M0_52,
     CONF_M0_53,
+    CONF_M0_54,
+    CONF_M0_55,
+    CONF_M0_56,
+    CONF_M0_57,
+    CONF_M0_58,
+    CONF_M0_59,
+    CONF_M0_60,
+    CONF_M0_61,
+    CONF_M0_62,
+    CONF_M0_63,
+    CONF_M0_64,
+    CONF_M0_65,
+    CONF_M0_66,
+    CONF_M0_67,
+    CONF_M0_68,
+    CONF_M0_69,
+    
 ]
 
 # pylint: disable=too-many-function-args
@@ -182,6 +217,126 @@ CONFIG_SCHEMA = xy6020_COMPONENT_SCHEMA.extend(
             device_class=DEVICE_CLASS_EMPTY,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
+        cv.Optional(CONF_M0_54): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=0,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+            
+        ),
+        cv.Optional(CONF_M0_55): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_M0_56): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_M0_57): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=0,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+            
+        ),
+        cv.Optional(CONF_M0_58): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_M0_59): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+cv.Optional(CONF_M0_60): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=0,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_M0_61): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=0,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+            
+        ),
+        cv.Optional(CONF_M0_62): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_M0_63): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_M0_64): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=0,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+            
+        ),
+        cv.Optional(CONF_M0_65): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_M0_66): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_M0_67): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=0,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+            
+        ),
+        cv.Optional(CONF_M0_68): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_M0_69): sensor.sensor_schema(
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_EMPTY,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_EMPTY,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+
+
+        
     }
 )
 
