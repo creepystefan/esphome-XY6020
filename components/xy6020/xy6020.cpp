@@ -179,7 +179,7 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
     //                0x52    OVP Over Voltage Protect
   this->publish_state_(this->M0_52_sensor_, (float) xy6020_get_16bit(28) * 0.1f);
     //                0x53    OCP Over Current Protect
-  this->publish_state_(this->M0_53_sensor_, (float) xy6020_get_16bit(32) * 1f);
+  this->publish_state_(this->M0_53_sensor_, (float) xy6020_get_16bit(32));
     //                0x54    OPP
   this->publish_state_(this->M0_54_sensor_, (float) xy6020_get_16bit(34) * 0.01f);
     //                0x55    b_led2_set_max
