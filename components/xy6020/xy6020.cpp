@@ -72,14 +72,14 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
       break;
     case 5205:
       this->set_current_resolution_if_auto(xy6020_CURRENT_RESOLUTION_HIGH);
-      this->publish_state_(this->device_model_text_sensor_, "DPH" + to_string(model_number - 200));
+      this->publish_state_(this->device_model_text_sensor_, "DPH" + to_string(model_number - 800));
       break;
     case 3005:
     case 5005:
     case 8005:
     default:
       this->set_current_resolution_if_auto(xy6020_CURRENT_RESOLUTION_HIGH);
-      this->publish_state_(this->device_model_text_sensor_, "xy6020" + to_string(model_number));
+      this->publish_state_(this->device_model_text_sensor_, "xy" + to_string(model_number));
       break;
   }
         //# DPS
