@@ -263,7 +263,7 @@ void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
 
 void xy6020::update() {
   // Status request: 0x01 0x03 0x00 0x00 0x00 0x0D 0x84 0x0F
-  this->send(FUNCTION_READ_REGISTERS, 0x0000, 0x001A);
+  this->send(FUNCTION_READ_REGISTERS, 0x0050, 0x00a0);
 }
 
 void xy6020::write_register(uint16_t address, uint16_t value) {
