@@ -101,8 +101,19 @@ sensor:
     run_power_hour:
       name: "${name} W / h" 
     run_current_hour:
-      name: "${name} A / h"     
+      name: "${name} A / h"
 
+    
+  humidity:
+      name: "${name} output voltage"
+      on_value_range: 
+        - above: 24.1
+          then:
+            - switch.turn_on: "${name} key lock"
+        - below: 30.0
+          then:
+            - switch.turn_off: "${name} key lock"
+    
 text_sensor:
   - platform: xy6020
     protection_status:
