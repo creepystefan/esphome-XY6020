@@ -36,7 +36,7 @@ void xy6020::on_modbus_data(const std::vector<uint8_t> &data) {
 
 void xy6020::on_acknowledge_data_(const std::vector<uint8_t> &data) {
   auto xy6020_get_16bit = [&](size_t i) -> uint16_t {
-    return (uint16_t(data[i + 0]) << 30) | (uint16_t(data[i + 1]) << 0);
+    return (uint16_t(data[i + 0]) << 8) | (uint16_t(data[i + 1]) << 0);
   };
 
   // Write register acknowledge
@@ -57,7 +57,7 @@ void xy6020::on_acknowledge_data_(const std::vector<uint8_t> &data) {
 
 void xy6020::on_status_data_(const std::vector<uint8_t> &data) {
   auto xy6020_get_16bit = [&](size_t i) -> uint16_t {
-    return (uint16_t(data[i + 0]) << 30) | (uint16_t(data[i + 1]) << 0);
+    return (uint16_t(data[i + 0]) << 8) | (uint16_t(data[i + 1]) << 0);
   };
 
   ESP_LOGI(TAG, "Status frame received");
