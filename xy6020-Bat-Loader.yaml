@@ -88,8 +88,6 @@ sensor:
       name: "${name} voltage setting"
     current_setting:
       name: "${name} current setting"
-    #backlight_brightness:
-    #  name: "${name} backlight brightness"
     firmware_version:
       name: "${name} firmware version"
     intern_temp:
