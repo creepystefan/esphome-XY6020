@@ -101,54 +101,61 @@ sensor:
     runtimehours:
       name: "${name} runtime Hours"
     runtimeminutes:
-      name: "${name} runtime Minutes"      
-   # M0_50:
-   #   name: "${name} M0_50"
-   # M0_51:
-   #   name: "${name} M0_51"
-   # M0_52:
-   #   name: "${name} M0_52"
-   # M0_53:
-   #   name: "${name} M0_53"
-   # M0_54:
-   #   name: "${name} M0_54"
-   # M0_55:
-   #   name: "${name} M0_55"
-   # M0_56:
-   #   name: "${name} M0_56"
-   # M0_57:
-   #   name: "${name} M0_57"
-   # M0_58:
-   #   name: "${name} M0_58"
-   # M0_59:
-   #   name: "${name} M0_59"
-    # M1_60:
-   #   name: "${name} M1_60"
-   # M1_61:
-   #   name: "${name} M1_61"
-   # M1_62:
-   #   name: "${name} M1_62"
-   # M1_63:
-   #   name: "${name} M1_63"
-   # M1_64:
-   #   name: "${name} M1_64"
-   # M1_65:
-   #   name: "${name} M1_65"
-   # M1_66:
-   #   name: "${name} M1_66"
-   # M1_67:
-   #   name: "${name} M1_67"
-   # M1_68:
-   #   name: "${name} M1_68"
-   # M1_69:
-   #   name: "${name} M1_69"
+      name: "${name} runtime Minutes"
+    runtimeseconds:
+      name: "${name} runtime Seconds" 
+    run_power_hour:
+      name: "${name} W / h" 
+    run_current_hour:
+      name: "${name} A / h"     
+    M0_50:
+      name: "${name} M0_50"
+    M0_51:
+      name: "${name} M0_51"
+    M0_52:
+      name: "${name} M0_52"
+    M0_53:
+      name: "${name} M0_53"
+    M0_54:
+      name: "${name} M0_54"
+    M0_55:
+      name: "${name} M0_55"
+    M0_56:
+      name: "${name} M0_56"
+    M0_57:
+      name: "${name} M0_57"
+    M0_58:
+      name: "${name} M0_58"
+    M0_59:
+      name: "${name} M0_59"
+    M0_60:
+      name: "${name} M0_60"
+    M0_61:
+      name: "${name} M0_61"
+    M0_62:
+      name: "${name} M0_62"
+    M0_63:
+      name: "${name} M0_63"
+    M0_64:
+      name: "${name} M0_64"
+    M0_65:
+      name: "${name} M0_65"
+    M0_66:
+      name: "${name} M0_66"
+    M0_67:
+      name: "${name} M0_67"
+    M0_68:
+      name: "${name} M0_68"
+    M0_69:
+      name: "${name} M0_69"
    
+
 text_sensor:
   - platform: xy6020
     protection_status:
       name: "${name} protection status"
-   # device_model:
-   #   name: "${name} device model"
+    device_model:
+      name: "${name} device model"
 
 switch:
   - platform: xy6020
