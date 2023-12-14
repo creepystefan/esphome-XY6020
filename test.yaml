@@ -55,6 +55,10 @@ uart:
       direction: BOTH
 
 
+switch:
+ name: Tastensperre
+ id: keylock
+
 
 sensor:
   name: Eingangsspannung
