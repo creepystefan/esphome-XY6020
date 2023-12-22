@@ -51,3 +51,7 @@ modbus_controller:
     setup_priority: -10
     update_interval: 10s
 
+<<: !include sensors.yaml
+<<: !include numbers.yaml
+<<: !include switches.yaml
+<<: !include textsensors.yaml
