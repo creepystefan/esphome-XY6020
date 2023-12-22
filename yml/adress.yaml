@@ -1,0 +1,3 @@
+packages:
+  # Minimal config
+  adress: !include adress.yaml
