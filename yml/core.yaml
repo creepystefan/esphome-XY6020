@@ -21,9 +21,3 @@ packages:
 
 captive_portal:
 
-#<<: !include modbus.yaml
-#<<: !include sensors.yaml
-#<<: !include numbers.yaml
-#<<: !include switches.yaml
-#<<: !include textsensors.yaml
-
