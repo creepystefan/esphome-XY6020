@@ -1,3 +1,9 @@
 packages:
   # Minimal config
   adress: !include adress.yaml
+  #adress: !include adress.yaml,
+  switches: !include switches.yaml,
+  sensors: !include sensors.yaml,
+  textsensors: !include textsensors.yaml,
+  numbers: !include numbers.yaml,
+  core: !include core.yaml
