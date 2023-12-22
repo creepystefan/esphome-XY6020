@@ -1,1 +1,1 @@
-V_set: "0x00"    # Voltage Setting          Volt    R/W
+  V_set: "0x00"    # Voltage Setting          Volt    R/W
