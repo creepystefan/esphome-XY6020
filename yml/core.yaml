@@ -1,13 +1,3 @@
-esphome:
-  name: ${name}
-  friendly_name: xy6020
-  comment: ${device_description}
-
-esp32:
-  board: nodemcu-32s
-
-  
-# Enable logging
 logger:
   level: DEBUG
 
