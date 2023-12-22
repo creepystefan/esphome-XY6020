@@ -1,0 +1,29 @@
+switch:
+   - platform: modbus_controller
+     modbus_controller_id: sdm
+     name: "Key Lock"
+     id: keylock
+     register_type: holding
+     address: ${lock}
+     bitmask: 1
+     entity_category: config
+     icon: "mdi:toggle-switch"
+
+   - platform: modbus_controller
+     modbus_controller_id: sdm
+     name: "EIN-AUS Schalter"
+     id: onoff
+     register_type: holding
+     address: ${ONOFF}
+     bitmask: 1
+     entity_category: config
+     icon: "mdi:toggle-switch"  
+     
+   - platform: modbus_controller
+     modbus_controller_id: sdm
+     name: "Sleep"
+     register_type: holding
+     address: ${sleep}
+     bitmask: 1
+     entity_category: config
+     icon: "mdi:toggle-switch"
