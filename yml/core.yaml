@@ -9,7 +9,6 @@ ota:
   password: !secret xyota
 
 packages:
-  # Minimal config
   modbus: !include modbus.yaml
   wifi: !include wifi.yaml
   adress: !include adress.yaml
@@ -17,7 +16,6 @@ packages:
   sensors: !include sensors.yaml
   textsensors: !include textsensors.yaml
   numbers: !include numbers.yaml
-  #core: !include core.yaml
-
+  
 captive_portal:
 
