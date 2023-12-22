@@ -7,13 +7,21 @@ api:
     key: !secret xykey
 ota:
   password: !secret xyota
-<<: !include wifi.yaml
+
+packages:
+  # Minimal config
+  adress: !include adress.yaml
+  switches: !include switches.yaml
+  sensors: !include sensors.yaml
+  textsensors: !include textsensors.yaml
+  numbers: !include numbers.yaml
+  core: !include core.yaml
 
 captive_portal:
 
-<<: !include modbus.yaml
-<<: !include sensors.yaml
-<<: !include numbers.yaml
-<<: !include switches.yaml
-<<: !include textsensors.yaml
+#<<: !include modbus.yaml
+#<<: !include sensors.yaml
+#<<: !include numbers.yaml
+#<<: !include switches.yaml
+#<<: !include textsensors.yaml
 
