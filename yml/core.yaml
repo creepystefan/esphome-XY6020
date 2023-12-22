@@ -10,6 +10,7 @@ ota:
 
 packages:
   # Minimal config
+  modbus: !include modbus.yaml
   wifi: !include wifi.yaml
   adress: !include adress.yaml
   switches: !include switches.yaml
