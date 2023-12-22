@@ -10,6 +10,7 @@ ota:
 
 packages:
   # Minimal config
+  wifi: !include wifi.yaml
   adress: !include adress.yaml
   switches: !include switches.yaml
   sensors: !include sensors.yaml
