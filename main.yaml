@@ -6,6 +6,16 @@ esphome:
 esp32:
   board: nodemcu-32s
 
+uart:
+ - id: uart_bus1
+   tx_pin: ${tx_pin1}
+   rx_pin: ${rx_pin1}
+   baud_rate: ${baud_rate}
+   stop_bits: 1
+   parity: NONE
+   debug:
+     direction: BOTH
+     dummy_receiver: true
 
 packages:
   remote_package:
