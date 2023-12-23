@@ -24,8 +24,8 @@ wifi:
 
 uart:
  - id: uart_bus1
-   tx_pin: ${tx_pin1}
-   rx_pin: ${rx_pin1}
+   tx_pin: GPIO4
+   rx_pin: GPIO2
    baud_rate: ${baud_rate}
    stop_bits: 1
    parity: NONE
