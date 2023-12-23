@@ -10,7 +10,7 @@ ota:
 
 packages:
   modbus: !include modbus.yaml
-  adress: !include adress.yaml
+  adress: !include substitutions.yaml
   switches: !include switches.yaml
   sensors: !include sensors.yaml
   textsensors: !include textsensors.yaml
