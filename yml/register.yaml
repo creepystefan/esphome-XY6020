@@ -6,9 +6,9 @@
   power: "0x04"    # Power in Watt Output     Watt     R
   UIN: "0x05"      # Input Voltage            Voltage  R
   AH_LOW: "0x06"   # Output AH low 16 bits    mAH      R
-  AH-HIGH: "0x07"  # Output AH high 16 bits   mAH      R
-  WH-LOW: "0x08"   # Output WH low 16 bits    mWH      R
-  WH-HIGH: "0x09"  # Output WH high 16 bits   mWH      R
+  AH_HIGH: "0x07"  # Output AH high 16 bits   mAH      R
+  WH_LOW: "0x08"   # Output WH low 16 bits    mWH      R
+  WH_HIGH: "0x09"  # Output WH high 16 bits   mWH      R
   OUT_H: "0x0A"    # Open Time Hours          Hours    R
   OUT_M: "0x0B"    # Open Time Minutes        Minutes  R
   OUT_S: "0x0C"    # Open Time Seconds        Seconds  R
