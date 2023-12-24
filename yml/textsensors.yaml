@@ -11,7 +11,7 @@ text_sensor:
 
 
   - platform: template
-    name: "Tastensperre"
+    name: "On-Time"
     lambda: |- return float(id(protect_state));
 
 
