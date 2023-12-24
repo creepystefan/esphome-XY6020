@@ -11,18 +11,6 @@ text_sensor:
 
 
   - platform: template
-    name: "On-Time"
-    lambda: |-
-      if (id(keylock).state) {
-        return {(id(protect_state).state)(id(protect_state).state)};
-      } else {
-        return {"not On"};
-      }
-    update_interval: 10s
-
-
-
-  - platform: template
     name: "Protect Status Text"
     lambda: |-
       if (id(protect_state).state == 0) {
