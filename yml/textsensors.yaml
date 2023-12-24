@@ -11,6 +11,11 @@ text_sensor:
 
 
   - platform: template
+    name: "Tastensperre"
+    lambda: |- return float(id(protect_state));
+
+
+  - platform: template
     name: "Protect Status Text"
     lambda: |-
       if (id(protect_state).state == 0) {
