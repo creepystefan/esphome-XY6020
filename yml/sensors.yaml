@@ -10,7 +10,7 @@ sensor:
      - multiply: 0.01    
 
   - platform: modbus_controller
-    name: "Protect Status Number"
+    # name: "Protect Status Number"
     id: protect_state
     address: ${PROTECT}
     register_type: "holding"
