@@ -12,7 +12,8 @@ text_sensor:
 
   - platform: template
     name: "On-Time"
-    lambda: |- return float(id(protect_state));
+    lambda: |- 
+        return (id(protect_state));
 
 
   - platform: template
