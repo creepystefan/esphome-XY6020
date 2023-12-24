@@ -41,7 +41,7 @@
       # 6 = 115200
   sleep: "0x15"    #  ??
   model: "0x16"    #  Model
-  version: 0x17"   #  Version
+  version: "0x17"   #  Version
   M050: "0x50"
   M051: "0x51"
   M052: "0x52"
