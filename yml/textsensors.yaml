@@ -14,7 +14,7 @@ text_sensor:
     name: "On-Time"
     lambda: |-
       if (id(keylock).state) {
-        return {id(protect_state,id(protect_state)};
+        return {"id(protect_state,id(protect_state)"};
       } else {
         return {"not On"};
       }
