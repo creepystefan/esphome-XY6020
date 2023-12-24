@@ -9,7 +9,7 @@ ota:
   password: !secret xyota
 
 packages:
-  modbus: !include modbus.yaml
+  modbus: !include modbus.y
   adress: !include substitutions.yaml
   switches: !include switches.yaml
   sensors: !include sensors.yaml
