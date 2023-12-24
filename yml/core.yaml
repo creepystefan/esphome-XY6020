@@ -10,11 +10,11 @@ ota:
 
 packages:
   modbus: !include modbus.y
-  adress: !include substitutions.yaml
-  switches: !include switches.yaml
-  sensors: !include sensors.yaml
-  textsensors: !include textsensors.yaml
-  numbers: !include numbers.yaml
+  adress: !include substitutions.y
+  switches: !include switches.y
+  sensors: !include sensors.y
+  textsensors: !include textsensors.y
+  numbers: !include numbers.y
   
 captive_portal:
 
