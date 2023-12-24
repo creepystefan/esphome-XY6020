@@ -52,6 +52,16 @@ sensor:
      - multiply: 0.01
 
   - platform: modbus_controller
+    name: "Version"
+    address: ${version}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Version"
+    accuracy_decimals: 0
+    filters:
+     - multiply: 1
+
+  - platform: modbus_controller
     name: "Aktueller Strom"
     address: ${IOUT}
     register_type: "holding"
