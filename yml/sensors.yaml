@@ -110,9 +110,9 @@ sensor:
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "Minuten"
-    accuracy_decimals: 2
+    accuracy_decimals: 0
     filters:
-     - multiply: 0.1
+     - multiply: 1
 
   - platform: modbus_controller
     name: "Zeit Ein in Sekunden"
