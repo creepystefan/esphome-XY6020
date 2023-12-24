@@ -45,9 +45,9 @@
   M052: "0x52"
   M053: "0x53"
   M054: "0x54"
-  M055: "0x55"
+  M055: "0x55"    # Over power protection value
   M056: "0x56"
-  M057: "0x57"
+  M057: "0x57"    # Maximum output duration—minutes
   M058: "0x58"
   M059: "0x59"
   M05C: "0x5C"     # Over Temperatur Protect Set     Celsius    R/W
