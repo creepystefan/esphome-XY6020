@@ -3,11 +3,23 @@ text_sensor:
     name: "Tastensperre"
     lambda: |-
       if (id(keylock).state) {
-        return {"lock"};
+        return {"locked"};
       } else {
         return {"unlock"};
       }
     update_interval: 10s
+
+
+  - platform: template
+    name: "On-Time"
+    lambda: |-
+      if (id(keylock).state) {
+        return {id(protect_state,id(protect_state)};
+      } else {
+        return {"not On"};
+      }
+    update_interval: 10s
+
 
 
   - platform: template
