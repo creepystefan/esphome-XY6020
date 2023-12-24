@@ -5,10 +5,18 @@
   IOUT: "0x03"     # Current value display    Ampere   R
   power: "0x04"    # Power in Watt Output     Watt     R
   UIN: "0x05"      # Input Voltage            Voltage  R
-  AH_LOW: "0x06"   
-  AH-HIGH: "0x07"
-  WH-LOW: "0x08"
-  WH-HIGH: "0x09"
+  AH_LOW: "0x06"   # Output AH low 16 bits    mAH      R
+  AH-HIGH: "0x07"  # Output AH high 16 bits   mAH      R
+  WH-LOW: "0x08"   # Output WH low 16 bits    mWH      R
+  WH-HIGH: "0x09"  # Output WH high 16 bits   mWH      R
+  OUT_H: "0x0A"    # Open Time Hours          Hours    R
+  OUT_M: "0x0B"    # Open Time Minutes        Minutes  R
+  OUT_S: "0x0C"    # Open Time Seconds        Seconds  R
+  t_in: "0x0D"     # internal temperatur      Celsius  R
+  t_ex: "0x0E"     # externe temeratur        Celsius  R   external Sensor needed
+  lock: "0x0F"     # Key Lock                         R/W
+      # 0 = unlock
+      # 1 = lock
   PROTECT: "0x10"  # Protect Status           Status   R  
       # 0 = normal
       # 1 = OVP  Over Voltage Protected
@@ -21,14 +29,8 @@
       # 8 = OEP
       # 9 = OWH
       #10 = ICP
+  CVCC: "0x11"     # Constant voltage and constant current   Stage R
   ONOFF: "0x12"
-  t_in: "0x0D"     # internal temperatur      Celsius  R
-  lock: "0x0F"     # Key Lock                         R/W
-      # 0 = unlock
-      # 1 = lock
-  OUT_H: "0x0A"    # Open Time Hours          Hours    R
-  OUT_M: "0x0B"    # Open Time Minutes        Minutes  R
-  OUT_S: "0x0C"    # Open Time Seconds        Seconds  R
   baudrate: "0x19" # baudrate                         R/W
       # 0 = ?
       # 1 = ?
