@@ -26,7 +26,7 @@ uart:
  - id: uart_bus1
    tx_pin: GPIO4
    rx_pin: GPIO2
-   baud_rate: ${baud_rate}
+   baud_rate: 115200
    stop_bits: 1
    parity: NONE
    debug:
