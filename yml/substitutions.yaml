@@ -1,11 +1,7 @@
 substitutions:
   name: "xy6020"
   device_description: "Monitor and control a xy6020 Digital Control Power Supply via UART-TTL"
-  
-  tx_pin1: GPIO4
-  rx_pin1: GPIO2
-  baud_rate: "115200"
-  
+    
            # values Max - Min
   <<: !include common.yaml
     
