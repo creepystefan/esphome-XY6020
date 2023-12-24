@@ -11,12 +11,6 @@ text_sensor:
 
 
   - platform: template
-    name: "On-Time"
-    lambda: |- 
-        return (id(protect_state));
-
-
-  - platform: template
     name: "Protect Status Text"
     lambda: |-
       if (id(protect_state).state == 0) {
