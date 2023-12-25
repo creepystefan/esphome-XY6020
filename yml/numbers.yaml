@@ -59,8 +59,8 @@ number:
      name: "Power In-Out"
      id: powerinout
      unit_of_measurement: "Watt"
-     min_value: ${-500}
-     max_value: ${500}
+     min_value: -500
+     max_value: 500
      multiply: 1
 
 
