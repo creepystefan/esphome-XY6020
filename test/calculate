@@ -1,1 +1,24 @@
-
+sensor:
+  -platform: template
+  - name: "Power Out"
+    state: |
+      {% set gridin = (states('sensor.mb_varta_active_power') | int(0)) %}
+      {% if gridin < 0 %}
+        {{ gridin | abs }}
+      {% else %}
+        0
+      {% endif %}
+    state_class: measurement
+    device_class: power
+ -platform: template
+ - name: "Power in"
+    state: |
+      {% set gridin = (states('sensor.mb_varta_active_power') | int(0)) %}
+      {% if gridin > 0 %}
+        {{ gridin }}
+      {% else %}
+        0
+      {% endif %}
+    state_class: measurement
+    device_class: power
+    unique_id: ddc9e4a0-93f5-11ed-a103-a3cf204e46e1
