@@ -5,6 +5,5 @@ packages:
   sensors: !include sensors.yaml
   textsensors: !include textsensors.yaml
   numbers: !include numbers.yaml
-  
-captive_portal:
+
 
