@@ -1,13 +1,3 @@
-logger:
-  level: DEBUG
-
-# Enable Home Assistant API
-api:
-  encryption:
-    key: !secret xykey
-ota:
-  password: !secret xyota
-
 packages:
   modbus: !include modbus.yaml
   adress: !include substitutions.yaml
