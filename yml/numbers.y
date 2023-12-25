@@ -55,7 +55,7 @@ number:
      value_type: U_WORD
      multiply: 1
 
-- name: template
+   - platform: template
      name: "Power In-Out"
      address: ${M05C}
      id: powerinout
