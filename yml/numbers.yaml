@@ -62,6 +62,5 @@ number:
      min_value: -500
      max_value: 500
      step: 10
-     multiply: 1
 
 
