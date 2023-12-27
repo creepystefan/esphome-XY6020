@@ -1,14 +1,5 @@
 sensor:
    
-  - platform: homeassistant
-    name: "shellyPower"
-    id: shelly_power
-    entity_id: sensor.shellypro3em_0cb815fd43b8_total_active_power
-    unit_of_measurement: "W"
-    accuracy_decimals: 2
-    filters:
-     - multiply: 0.01    
-
   - platform: modbus_controller
     # name: "Protect Status Number"
     id: protect_state
