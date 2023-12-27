@@ -1,3 +1,8 @@
+
+substitutions:
+  name: "xy6020"
+  device_description: "Monitor and control a xy6020 Digital Control Power Supply via UART-TTL"
+   
   V_set_max: "30"
   V_set_min: "24"
   V_set_step: "0.1"
