@@ -1,6 +1,6 @@
 sensor:
 
-   - platform: modbus_controller
+  - platform: modbus_controller
     # name: "Protect Status Number"
     id: protect_state
     address: ${PROTECT}
