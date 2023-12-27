@@ -1,5 +1,4 @@
 packages:
-  #modbus: !include modbus.yaml
   switches: !include switches.yaml
   sensors: !include sensors.yaml
   textsensors: !include textsensors.yaml
