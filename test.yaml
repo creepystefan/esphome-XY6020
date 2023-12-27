@@ -22,17 +22,6 @@ wifi:
     ssid: "xy6020 Fallback Hotspot"
     password: "UEikMwV1wqU8"
 
-uart:
- - id: uart_bus1
-   tx_pin: GPIO4
-   rx_pin: GPIO2
-   baud_rate: 115200
-   stop_bits: 1
-   parity: NONE
-   debug:
-     direction: BOTH
-     dummy_receiver: true
-
 #packages:
 #  remote_package:
 #    url: https://github.com/creepystefan/esphome-XY6020
@@ -40,3 +29,17 @@ uart:
 #    files: [
 #      yml/core.y
 #      ]
+
+sensor:
+
+  -platform: template
+   name: "Power Out"
+    state: |
+      {% set gridin = (states('number.Power In-Out') | int(0)) %}
+      {% if gridin < 0 %}
+        {{ gridin | abs }}
+      {% else %}
+        0
+      {% endif %}
+    state_class: measurement
+    device_class: power
