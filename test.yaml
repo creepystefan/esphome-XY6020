@@ -1,15 +1,15 @@
 number:
-  - platform: template
-    name: "Power In-Out"
-    id: powerinout
-    optimistic: true
-    unit_of_measurement: "Watt"
-    min_value: -200
-    max_value: 200
-    step: 10
+   - platform: template
+     name: "Power In-Out"
+     id: powerinout
+     optimistic: true
+     unit_of_measurement: "Watt"
+     min_value: -200
+     max_value: 200
+     step: 10
 
 sensor:
- - platform: homeassistant
+  - platform: homeassistant
     name: "shellyPower"
     id: shelly_power
     entity_id: sensor.shellypro3em_0cb815fd43b8_total_active_power
