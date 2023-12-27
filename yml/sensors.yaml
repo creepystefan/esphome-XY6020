@@ -1,4 +1,16 @@
 sensor:
+
+  -platform: template
+   name: "Power Out"
+    state: |
+      {% set gridin = (states('Power In-Out') | int(0)) %}
+      {% if gridin < 0 %}
+        {{ gridin | abs }}
+      {% else %}
+        0
+      {% endif %}
+    state_class: measurement
+    device_class: power
    
   - platform: modbus_controller
     # name: "Protect Status Number"
