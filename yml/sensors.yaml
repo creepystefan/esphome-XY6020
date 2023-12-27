@@ -1,5 +1,26 @@
 sensor:
 
+  - platform: template
+    name: "Power Out"
+    lambda: |-
+      if (id(powerinout).state >= 0) {
+        return id(powerinout).state;
+      } else {
+        return id(powerinout).state - id(powerinout).state;
+      }
+    update_interval: 10s
+
+    
+  - platform: template
+    name: "Power In"
+    lambda: |-
+      if (id(powerinout).state >= 0) {
+        return id(powerinout).state - id(powerinout).state;
+      } else {
+        return id(powerinout).state;
+      }
+    update_interval: 10s
+
   - platform: modbus_controller
     # name: "Protect Status Number"
     id: protect_state
