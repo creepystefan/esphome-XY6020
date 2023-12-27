@@ -1,9 +1,0 @@
-packages:
-  modbus: !include modbus.yaml
-  adress: !include substitutions.yaml
-  switches: !include switches.yaml
-  sensors: !include sensors.yaml
-  textsensors: !include textsensors.yaml
-  numbers: !include numbers.yaml
-
-
