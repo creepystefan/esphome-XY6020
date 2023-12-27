@@ -11,17 +11,19 @@ sensor:
       {% endif %}
     state_class: measurement
     device_class: power
-  -platform: template
- - name: "Power in"
-    state: |
-      {% set gridin = (states('Power In-Out') | int(0)) %}
-      {% if gridin > 0 %}
-        {{ gridin }}
-      {% else %}
-        0
-      {% endif %}
-    state_class: measurement
-    device_class: power
+  
+  
+  #-platform: template
+  # name: "Power in"
+  #  state: |
+  #    {% set gridin = (states('Power In-Out') | int(0)) %}
+  #    {% if gridin > 0 %}
+  #      {{ gridin }}
+  #    {% else %}
+  #      0
+  #    {% endif %}
+  #  state_class: measurement
+  #  device_class: power
 
    
   - platform: homeassistant
