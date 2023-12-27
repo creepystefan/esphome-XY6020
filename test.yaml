@@ -9,28 +9,33 @@ number:
     step: 10
 
 sensor:
-  - platform: template
-    name: "Power Out"
-    lambda: |-
-      if (id(powerinout).state >= 0) {
-        return id(powerinout).state;
-      } else {
-        return id(powerinout).state - id(powerinout).state;
-      }
-    update_interval: 10s
-
-    
-  - platform: template
-    name: "Power In"
-    lambda: |-
-      if (id(powerinout).state >= 0) {
-        return id(powerinout).state - id(powerinout).state;
-      } else {
-        return id(powerinout).state;
-      }
-    update_interval: 10s
-
-  - platform: homeassistant
-    name: "Shelly Power"
-    id: shelly
+ - platform: homeassistant
+    name: "shellyPower"
+    id: shelly_power
     entity_id: sensor.shellypro3em_0cb815fd43b8_total_active_power
+    unit_of_measurement: "W"
+    accuracy_decimals: 4
+    filters:
+     - multiply: 1    
+  
+  - platform: template
+    name: "Negative-shelly Output"
+    id: negativ_shelly
+    lambda: |-
+      if (id(powerinout).state <= 0) {
+        return id(powerinout).state - id(powerinout).state - id(powerinout).state;
+      } else {
+        return id(powerinout).state - id(powerinout).state;
+      }
+    update_interval: 10ms
+
+  - platform: template
+    name: "positiv-shelly Output"
+    id: positiv_shelly
+    lambda: |-
+      if (id(powerinout).state >= 0) {
+        return id(shelly_power).state;
+      } else {
+        return id(shelly_power).state - id(shelly_power).state;
+      }
+    update_interval: 10ms
