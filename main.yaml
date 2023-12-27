@@ -21,6 +21,8 @@ wifi:
   ap:
     ssid: "xy6020 Fallback Hotspot"
     password: "UEikMwV1wqU8"
+ota:
+  password: !secret xyota
 
 uart:
  - id: uart_bus1
