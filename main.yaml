@@ -123,6 +123,8 @@ modbus_controller:
     setup_priority: -10
     update_interval: 10s
 
+captive_portal:
+
 packages:
   remote_package:
     url: https://github.com/creepystefan/esphome-XY6020
