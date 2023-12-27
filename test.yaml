@@ -1,55 +1,36 @@
-esphome:
-  name: ${name}
-  friendly_name: xy6020
-  comment: ${device_description}
-
-esp32:
-  board: nodemcu-32s
-
-web_server:
-  port: 9005
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  manual_ip:
-    static_ip: !secret xy6020_IP
-    gateway: !secret gateway
-    subnet: !secret subnet
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "xy6020 Fallback Hotspot"
-    password: "UEikMwV1wqU8"
-
-#packages:
-#  remote_package:
-#    url: https://github.com/creepystefan/esphome-XY6020
-#    refresh: 0d
-#    files: [
-#      yml/core.y
-#      ]
+number:
+  - platform: template
+    name: "Power In-Out"
+    id: powerinout
+    optimistic: true
+    unit_of_measurement: "Watt"
+    min_value: -200
+    max_value: 200
+    step: 10
 
 sensor:
+  - platform: template
+    name: "Power Out"
+    lambda: |-
+      if (id(powerinout).state >= 0) {
+        return id(powerinout).state;
+      } else {
+        return id(powerinout).state - id(powerinout).state;
+      }
+    update_interval: 10s
 
-  -platform: template
-   name: "Power Out"
-    state: |
-      {% set gridin = (states('number.Power In-Out') | int(0)) %}
-      {% if gridin < 0 %}
-        {{ gridin | abs }}
-      {% else %}
-        0
-      {% endif %}
-    state_class: measurement
-    device_class: power
+    
+  - platform: template
+    name: "Power In"
+    lambda: |-
+      if (id(powerinout).state >= 0) {
+        return id(powerinout).state - id(powerinout).state;
+      } else {
+        return id(powerinout).state;
+      }
+    update_interval: 10s
 
-number:
-   - platform: template
-     name: "Power In-Out"
-     id: powerinout
-     optimistic: true
-     unit_of_measurement: "Watt"
-     min_value: -500
-     max_value: 500
-     step: 10
+  - platform: homeassistant
+    name: "Shelly Power"
+    id: shelly
+    entity_id: sensor.shellypro3em_0cb815fd43b8_total_active_power
