@@ -70,19 +70,16 @@ substitutions:
   i_set_temp_min: "0"
   i_set_temp_max: "95"
 
-
-
-
 esphome:
   name: ${name}
-  friendly_name: xy6020
+ # friendly_name: xy6020
   comment: ${device_description}
 
 esp32:
   board: nodemcu-32s
 
-web_server:
-  port: 9005
+#web_server:
+#  port: 9005
 
 wifi:
   ssid: !secret wifi_ssid
@@ -96,19 +93,25 @@ wifi:
   ap:
     ssid: "xy6020 Fallback Hotspot"
     password: "UEikMwV1wqU8"
+
 ota:
   password: !secret xyota
 
+logger:
+  level: DEBUG
+
+api:
+
 uart:
- - id: uart_bus1
-   tx_pin: GPIO4
-   rx_pin: GPIO2
-   baud_rate: 115200
-   stop_bits: 1
-   parity: NONE
-   debug:
-     direction: BOTH
-     dummy_receiver: true
+  - id: uart_bus1
+    tx_pin: GPIO4
+    rx_pin: GPIO2
+    baud_rate: 115200
+    stop_bits: 1
+    parity: NONE
+    debug:
+      direction: BOTH
+      dummy_receiver: true
 
 modbus:
   #send_wait_time: 200ms
@@ -125,10 +128,383 @@ modbus_controller:
 
 captive_portal:
 
-packages:
-  remote_package:
-    url: https://github.com/creepystefan/esphome-XY6020
-    refresh: 0d
-    files: [
-      yml/core.yaml
-      ]
+#packages:
+#  remote_package:
+#    url: https://github.com/creepystefan/esphome-XY6020
+#    refresh: 0d
+#    files: [
+#      yml/core.yaml
+#      ]
+
+sensor:
+  - platform: modbus_controller
+    # name: "Protect Status Number"
+    id: protect_state
+    address: ${PROTECT}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Status"
+    accuracy_decimals: 0
+    filters:
+     - multiply: 1
+
+  - platform: modbus_controller
+    name: "Eingestellte Spannung"
+    address: ${V_set}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    icon: "mdi:water-percent"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Spannung am Ausgang"
+    address: ${VOUT}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Eingestellter Strom"
+    address: ${i_set}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Ampere"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Version"
+    address: ${version}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Version"
+    accuracy_decimals: 0
+    filters:
+     - multiply: 1
+
+  - platform: modbus_controller
+    name: "Aktueller Strom"
+    address: ${IOUT}
+    register_type: "holding"
+    value_type: U_WORD
+    device_class: CURRENT
+    #unit_of_measurement: "Ampere"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Leistung am Ausgang"
+    address: ${power}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Watt"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Eingangsspannung"
+    address: ${UIN}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Volt"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "interne Temperatur"
+    address: ${t_in}
+    register_type: "holding"
+    value_type: U_WORD
+    device_class: TEMPERATURE
+    #unit_of_measurement: "Celsius"
+    icon: "mdi:thermometer"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.1
+
+  - platform: modbus_controller
+    name: "Zeit Ein in Stunden"
+    address: ${OUT_H}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Stunden"
+    accuracy_decimals: 0
+    filters:
+     - multiply: 1
+
+  - platform: modbus_controller
+    name: "Zeit Ein in Minuten"
+    address: ${OUT_M}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Minuten"
+    accuracy_decimals: 0
+    filters:
+     - multiply: 1
+
+  - platform: modbus_controller
+    name: "Zeit Ein in Sekunden"
+    address: ${OUT_S}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Sekunden"
+    accuracy_decimals: 0
+    filters:
+     - multiply: 1
+
+  - platform: modbus_controller
+    name: "M050"
+    address: ${M050}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "M051 Current Setting"
+    address: ${M051}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "A"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "M052 Low Voltage Protected"
+    address: ${M052}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "M053 Over Voltage Protected"
+    address: ${M053}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+     
+  - platform: modbus_controller
+    name: "M054 Over Current Protect"
+    address: ${M054}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "A"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "M055 Over Power Protected"
+    address: ${M055}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "W"
+    accuracy_decimals: 1
+    filters:
+     - multiply: 1.0
+
+  - platform: modbus_controller
+    name: "M056 Maximum Output Time Hours"
+    address: ${M056}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Hours"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "M057"
+    address: ${M057}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "M058"
+    address: ${M058}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "M059"
+    address: ${M059}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "M05C Set Over Temreture Protected"
+    address: ${M05C}
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Celsius"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 1.0
+
+number:
+   - platform: template
+     name: "Power In-Out"
+     id: powerinout
+     optimistic: true
+     unit_of_measurement: "Watt"
+     min_value: -500
+     max_value: 500
+     step: 10
+   
+   - platform: modbus_controller
+     modbus_controller_id: sdm
+     name: "Spannung Einstellen"
+     address: ${V_set}
+     unit_of_measurement: "Volt"
+     min_value: ${V_set_min}
+     max_value: ${V_set_max}
+     step: ${V_set_step}
+     value_type: U_WORD
+     multiply: 100.0
+   
+   
+   - platform: modbus_controller
+     modbus_controller_id: sdm
+     name: "Strom Einstellen"
+     address: ${i_set}
+     unit_of_measurement: "Ampere"
+     min_value: ${i_set_min}
+     max_value: ${i_set_max}
+     step: ${i_set_step}
+     value_type: U_WORD
+     multiply: 100.0
+
+   - platform: modbus_controller
+     modbus_controller_id: sdm
+     name: "M053 Setting Over Voltage Protected"
+     address: ${M053}
+     unit_of_measurement: "Voltage"
+     min_value: ${u_set_OVP_min}
+     max_value: ${u_set_OVP_max}
+     step: ${i_set_step}
+     value_type: U_WORD
+     multiply: 100.0
+
+   - platform: modbus_controller
+     modbus_controller_id: sdm
+     name: "M053 Setting Over Current Protected"
+     address: ${M054}
+     unit_of_measurement: "Ampere"
+     min_value: ${i_set_OVP_min}
+     max_value: ${i_set_OVP_max}
+     step: ${i_set_step}
+     value_type: U_WORD
+     multiply: 100.0
+
+   - platform: modbus_controller
+     modbus_controller_id: sdm
+     name: "Over Temperatur Protect Set"
+     address: ${M05C}
+     unit_of_measurement: "Celsius"
+     min_value: ${i_set_temp_min}
+     max_value: ${i_set_temp_max}
+     step: ${i_set_step}
+     value_type: U_WORD
+     multiply: 1
+
+switch:
+   - platform: modbus_controller
+     modbus_controller_id: sdm
+     name: "Key Lock"
+     id: keylock
+     register_type: holding
+     address: ${lock}
+     bitmask: 1
+     entity_category: config
+     icon: "mdi:toggle-switch"
+
+   - platform: modbus_controller
+     modbus_controller_id: sdm
+     name: "EIN-AUS Schalter"
+     id: onoff
+     register_type: holding
+     address: ${ONOFF}
+     bitmask: 1
+     entity_category: config
+     icon: "mdi:toggle-switch"  
+     
+   - platform: modbus_controller
+     modbus_controller_id: sdm
+     name: "Sleep"
+     register_type: holding
+     address: ${sleep}
+     bitmask: 1
+     entity_category: config
+     icon: "mdi:toggle-switch"
+
+text_sensor:
+  - platform: template
+    name: "Tastensperre"
+    lambda: |-
+      if (id(keylock).state) {
+        return {"locked"};
+      } else {
+        return {"unlock"};
+      }
+    update_interval: 10s
+
+  - platform: template
+    name: "Protect Status Text"
+    lambda: |-
+      if (id(protect_state).state == 0) {
+        return {"Normal"};  
+      } else if(id(protect_state).state == 1) {
+        return {"Over Voltage Protected"};
+      } else if(id(protect_state).state == 2) {
+        return {"Over Current Protected"};
+      } else if(id(protect_state).state == 3) {
+        return {"Over Power Protected"};
+      } else if(id(protect_state).state == 4) {
+        return {"LVP"};
+      } else if(id(protect_state).state == 5) {
+        return {"OAH"};  
+      } else if(id(protect_state).state == 6) {
+        return {"OHP"};
+      } else if(id(protect_state).state == 7) {
+        return {"Over Tempreture Protected"};
+      } else if(id(protect_state).state == 8) {
+        return {"OEP"};
+      } else if(id(protect_state).state == 9) {
+        return {"OWH"};
+      } else if(id(protect_state).state == 10) {
+        return {"ICP"};
+      } else {
+        return {"Error"};
+      }
+    update_interval: 5s
