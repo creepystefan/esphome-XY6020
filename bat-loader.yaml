@@ -2,6 +2,7 @@ substitutions:
   name: "xy6020"
   device_description: "Monitor and control a xy6020 Digital Control Power Supply via UART-TTL"
           # Register
+  updateinterval: "13s"
   V_set: "0x00"    # Voltage Setting          Volt    R/W
   i_set: "0x01"    # Current Setting          Ampere  R/W
   VOUT: "0x02"     # Voltage value display    Voltage  R
@@ -55,13 +56,13 @@ substitutions:
   M057: "0x57"    # Maximum output duration—minutes
   M058: "0x58"
   M059: "0x59"
-  M05C: "0x5C"     # Over Temperatur Protect Set     Celsius    R/W
-   
+  M05C: "0x5C"     # Over Temperatur Protect Set     Celsius    R/W  
+
   V_set_max: "30"
   V_set_min: "24"
   V_set_step: "0.1"
   i_set_max: "10"
-  i_set_min: "0.2"
+  i_set_min: "0.0"
   i_set_step: "0.1"
   u_set_OVP_max: "65"
   u_set_OVP_min: "0"
@@ -70,13 +71,23 @@ substitutions:
   i_set_temp_min: "0"
   i_set_temp_max: "95"
 
+
+
 esphome:
   name: ${name}
- # friendly_name: xy6020
+  friendly_name: xy6020
   comment: ${device_description}
 
 esp32:
   board: nodemcu-32s
+
+#packages:
+#  remote_package:
+#    url: https://github.com/creepystefan/esphome-XY6020
+#    refresh: 0d
+#    files: [
+#      yml/register.yaml,
+#       ]
 
 web_server:
   port: 9005
@@ -100,7 +111,11 @@ ota:
 logger:
   level: DEBUG
 
+
 api:
+  encryption:
+    key: !secret xykey
+    
 
 uart:
   - id: uart_bus1
@@ -126,45 +141,69 @@ modbus_controller:
     setup_priority: -10
     update_interval: 1s
 
-captive_portal:
 
-#packages:
-#  remote_package:
-#    url: https://github.com/creepystefan/esphome-XY6020
-#    refresh: 0d
-#    files: [
-#      yml/core.yaml
-#      ]
+captive_portal:
 
 
 sensor:
+  
+#  - platform: template
+#    name: "Ladestrom"
+#    id: loadcurrent
+#    lambda: |-
+#      return (id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state;
+#    update_interval: 10s
+#    unit_of_measurement: "Ampere"
+#    accuracy_decimals: 4
+#    filters:
+#     - multiply: 1
+
+
+
+
+
   - platform: template
-    name: "Negative-shelly Output"
-    id: negativ_shelly
+    name: "Ladestrom1"
+    id: currentforset1
     lambda: |-
-      if (id(powerinout).state <= 0) {
-        return id(powerinout).state - id(powerinout).state - id(powerinout).state;
-      } else {
-        return id(powerinout).state - id(powerinout).state;
-      }
-    update_interval: 1s
-    unit_of_measurement: "Watt"
-    accuracy_decimals: 2
+      return id(currentset).state + ((id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state); 
+    update_interval: ${updateinterval}
+    unit_of_measurement: "Ampere"
+    accuracy_decimals: 4
     filters:
      - multiply: 1
 
+
+
+
   - platform: template
-    #name: "Ladestrom"
-    id: currentforset
+    name: "Ladestrom zum setzen2"
+    id: currentforset2
     lambda: |-
-      if (id(powerinout).state <= 0) {
-        return id(negativ_shelly).state / id(actualvoltage).state;
+      if (id(currentset).state + ((id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state) <= 0) {
+        return 0;
       } else {
-        return id(powerinout).state - id(powerinout).state + 0.5;
+        return id(currentset).state + ((id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state);
       }
-    update_interval: 1s
+    update_interval: ${updateinterval}
     unit_of_measurement: "Ampere"
-    accuracy_decimals: 2
+    accuracy_decimals: 4
+    filters:
+     - multiply: 1  
+    
+
+  - platform: template
+    name: "Ladestrom zum setzen3"
+    id: currentforset3
+    lambda: |-
+      if (id(currentforset2).state >= 10) {
+        return 10;
+      } else {
+        return (id(currentforset2).state);
+      }
+    update_interval: ${updateinterval}
+    unit_of_measurement: "Ampere"
+    accuracy_decimals: 4
     filters:
      - multiply: 1
     on_value:
@@ -172,33 +211,47 @@ sensor:
          - number.set:
              id: currentset
              value: !lambda |-
-                return id(currentforset).state;
+                return id(currentforset3).state;
 
 
 
-  - platform: template
-    name: "positiv-shelly Output"
-    lambda: |-
-      if (id(powerinout).state >= 0) {
-        return id(powerinout).state;
-      } else {
-        return id(powerinout).state - id(powerinout).state;
-      }
-    update_interval: 1s
-    unit_of_measurement: "Watt"
-    accuracy_decimals: 2
-    filters:
-     - multiply: 1
+#  - platform: template
+#    #name: "backtozer"
+#    id: backtozero
+#    lambda: |-
+#      if ((id(currentforset2).state) = (id(actualcurrent).state)) {
+#        return 0;
+#      } else {
+#        return (id(powerinout).state);
+#      }
+#    update_interval: 5s
+#    unit_of_measurement: "Ampere"
+#    accuracy_decimals: 2
+#    filters:
+#     - multiply: 1
+#    on_value:
+#       then:
+#         - number.set:
+#             id: powerinout
+#             value: !lambda |-
+#                return (id(backtozero).state);
+ 
+
+  
+
+
+
+
 
 
   - platform: template
     name: "Ladespannng"
     id: voltageforset
     lambda: |-
-      if (id(negativ_shelly).state <= 0) {
-        return 24;
+      if (id(batvoltage).state <= 24.5) {
+        return 24.3;
       } else {
-        return 28;
+        return 27;
       }
     update_interval: 1s
     unit_of_measurement: "Voltage"
@@ -211,10 +264,86 @@ sensor:
              id: voltageset
              value: !lambda |-
                 return id(voltageforset).state;
+         - number.set:
+             id: currentset
+             value: !lambda |-
+                return 0.5; 
+             
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+#  - platform: template
+#    #name: "Ladeleistung"
+#    id: loadpower  
+#    lambda: |-
+#       return (id(loadcurrent).state * id(actualvoltage).state) - id(currentset).state;
+#    update_interval: 1s
+#    unit_of_measurement: "Watt"
+#    accuracy_decimals: 4
+#    filters:
+#     - multiply: 1
+
+  - platform: template
+    #name: "Negative-shelly Output"
+    id: pownegativ
+    lambda: |-
+      if (id(powerinout).state <= 0) {
+        return id(powerinout).state - id(powerinout).state - id(powerinout).state;
+      } else {
+        return id(powerinout).state - id(powerinout).state;
+      }
+    update_interval: 1s
+    unit_of_measurement: "Watt"
+    accuracy_decimals: 4
+    filters:
+     - multiply: 1
+
+  - platform: template
+    name: "positiv-shelly Output"
+    id: powpositiv  
+    lambda: |-
+      if (id(powerinout).state >= 0) {
+        return id(powerinout).state;
+      } else {
+        return id(powerinout).state - id(powerinout).state;
+      }
+    update_interval: 1s
+    unit_of_measurement: "Watt"
+    accuracy_decimals: 4
+    filters:
+     - multiply: 1
+
+  - platform: homeassistant
+    #name: "shellyPower"
+    id: shelly_power
+    entity_id: sensor.shellypro3em_0cb815fd43b8_total_active_power
+    unit_of_measurement: "W"
+    accuracy_decimals: 4
+    filters:
+     - multiply: 1 
+
+  - platform: template
+    name: "Shelly-Power"
+    id: powerinout
+    lambda: |-
+       return (id(shelly_power).state);
+    update_interval: 0.1s
+    unit_of_measurement: "Watt"
+    accuracy_decimals: 4
+    filters:
+     - multiply: 1      
 
   - platform: modbus_controller
     id: protect_state
@@ -240,6 +369,7 @@ sensor:
 
   - platform: modbus_controller
     name: "Batterie Spannung"
+    id: batvoltage
     address: ${VOUT}
     register_type: "holding"
     value_type: U_WORD
@@ -250,6 +380,7 @@ sensor:
 
   - platform: modbus_controller
     name: "Eingestellter Strom"
+    id: actualcurrent
     address: ${i_set}
     register_type: "holding"
     value_type: U_WORD
@@ -277,7 +408,7 @@ sensor:
     unit_of_measurement: "Watt"
     accuracy_decimals: 2
     filters:
-     - multiply: 0.01
+     - multiply: 0.1
 
   - platform: modbus_controller
     name: "Eingangsspannung"
@@ -305,17 +436,18 @@ sensor:
   
 number:
    - platform: template
-     name: "Power In-Out"
-     id: powerinout
+     name: "Offset"
+     id: offset
+     mode: slider
      optimistic: true
      unit_of_measurement: "Watt"
-     min_value: -300
+     min_value: -3000
      max_value: 300
      step: 10
         
    - platform: modbus_controller
      modbus_controller_id: sdm
-     #name: "Spannung Einstellen"
+     name: "Spannung Einstellen"
      id: voltageset
      address: ${V_set}
      unit_of_measurement: "Volt"
@@ -328,7 +460,7 @@ number:
    
    - platform: modbus_controller
      modbus_controller_id: sdm
-    # name: "Strom Einstellen"
+     name: "Strom Einstellen"
      id: currentset
      entity_category: config
      mode: box
