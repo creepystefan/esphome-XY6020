@@ -56,7 +56,7 @@ sensor:
 
   - platform: homeassistant
     id: shelly_power
-    entity_id: sensor.shellypro3em_0cb815fd43b8_total_active_power
+    entity_id: ${powermess}
     unit_of_measurement: "W"
     accuracy_decimals: 4
     filters:
