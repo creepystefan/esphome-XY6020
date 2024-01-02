@@ -3,7 +3,7 @@ text_sensor:
     name: "Protect Status Text"
     lambda: |-
       if (id(protect_state).state == 0) {
-        return {"test"};  
+        return {"Normal"};  
       } else if(id(protect_state).state == 1) {
         return {"Over Voltage Protected"};
       } else if(id(protect_state).state == 2) {
