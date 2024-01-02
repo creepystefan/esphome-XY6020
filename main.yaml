@@ -42,6 +42,7 @@ packages:
       yml/text_senssor.yaml,
       yml/uart.yaml,
       yml/substitutions.yaml,
+      yml/wifi.yaml,
       ]
 
 captive_portal:
