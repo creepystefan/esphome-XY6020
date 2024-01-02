@@ -367,7 +367,7 @@ sensor:
 
   - platform: modbus_controller
     name: "M059"
-    address: ${M059}
+    address: 0x59
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "V"
