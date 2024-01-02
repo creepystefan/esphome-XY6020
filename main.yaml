@@ -198,6 +198,16 @@ sensor:
     unit_of_measurement: "Watt"
     accuracy_decimals: 2
     filters:
+     - multiply: 0.1
+
+  - platform: modbus_controller
+    name: "Eingangsspannung"
+    address: 0x05
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Volt"
+    accuracy_decimals: 2
+    filters:
      - multiply: 0.01
    
    - platform: modbus_controller
@@ -211,18 +221,20 @@ sensor:
      - multiply: 1
 
   - platform: modbus_controller
-    name: "Eingangsspannung"
-    address: ${UIN}
+    name: "interne Temperatur"
+    address: 0x0D
     register_type: "holding"
     value_type: U_WORD
-    unit_of_measurement: "Volt"
+    device_class: TEMPERATURE
+    #unit_of_measurement: "Celsius"
+    icon: "mdi:thermometer"
     accuracy_decimals: 2
     filters:
-     - multiply: 0.01
+     - multiply: 0.1
 
   - platform: modbus_controller
-    name: "interne Temperatur"
-    address: ${t_in}
+    name: "externe Temperatur"
+    address: 0x0E
     register_type: "holding"
     value_type: U_WORD
     device_class: TEMPERATURE
@@ -234,7 +246,7 @@ sensor:
 
   - platform: modbus_controller
     name: "Zeit Ein in Stunden"
-    address: ${OUT_H}
+    address: 0x0A
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "Stunden"
