@@ -138,7 +138,7 @@ sensor:
 
   - platform: modbus_controller
     name: "Status"
-    #id: protect_state
+    id: protect_state
     force_new_range: true
     address: 0x10
     register_type: "holding"
@@ -189,13 +189,4 @@ sensor:
     filters:
      - multiply: 1
 
-
-  - platform: template
-    name: "Status Test"
-    lambda: |-
-       return (id(protect).state);
-    update_interval: 0.5s
-    unit_of_measurement: ""
-    accuracy_decimals: 4
-    filters:
-     - multiply: 1      
+ 
