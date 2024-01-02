@@ -193,9 +193,9 @@ sensor:
   - platform: template
     name: "Status Test"
     lambda: |-
-       return (id(protect_state).state);
+       return (id(protect).state);
     update_interval: 0.5s
-    #unit_of_measurement: "Watt"
+    unit_of_measurement: ""
     accuracy_decimals: 4
     filters:
      - multiply: 1      
