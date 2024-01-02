@@ -1,7 +1,8 @@
 substitutions:
   name: "xy6020"
   device_description: "Batterie Laden mit Übereinspeisung"
- 
+
+  powermess: "sensor.shellypro3em_0cb815fd43b8_total_active_power"
   updateinterval: "15s"
   V_set_max: "30"
   V_set_min: "24"
