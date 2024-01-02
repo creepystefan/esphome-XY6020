@@ -4,9 +4,9 @@ substitutions:
           # Register
   # 0x00           # Voltage Setting          Volt    R/W
   # 0x01           # Current Setting          Ampere  R/W
-  VOUT: "0x02"     # Voltage value display    Voltage  R
-  IOUT: "0x03"     # Current value display    Ampere   R
-  power: "0x04"    # Power in Watt Output     Watt     R
+  # 0x02"          # Voltage value display    Voltage  R
+  # 0x03           # Current value display    Ampere   R
+  # 0x04           # Power in Watt Output     Watt     R
   UIN: "0x05"      # Input Voltage            Voltage  R
   AH_LOW: "0x06"   # Output AH low 16 bits    mAH      R
   AH_HIGH: "0x07"  # Output AH high 16 bits   mAH      R
@@ -44,7 +44,7 @@ substitutions:
       # 6 = 115200
   sleep: "0x15"    #  ??
   model: "0x16"    #  Model
-  version: "0x17"   #  Version
+  # 0x17                 #  Version
   M050: "0x50"
   M051: "0x51"
   M052: "0x52"
@@ -189,26 +189,26 @@ sensor:
     accuracy_decimals: 2
     filters:
      - multiply: 0.01
-   
-   - platform: modbus_controller
-    name: "Version"
-    address: ${version}
-    register_type: "holding"
-    value_type: U_WORD
-    unit_of_measurement: "Version"
-    accuracy_decimals: 0
-    filters:
-     - multiply: 1
 
   - platform: modbus_controller
     name: "Leistung am Ausgang"
-    address: ${power}
+    address: 0x04
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "Watt"
     accuracy_decimals: 2
     filters:
      - multiply: 0.01
+   
+   - platform: modbus_controller
+    name: "Version
+    address: 0x17
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Version"
+    accuracy_decimals: 0
+    filters:
+     - multiply: 1
 
   - platform: modbus_controller
     name: "Eingangsspannung"
