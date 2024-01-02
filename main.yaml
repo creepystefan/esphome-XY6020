@@ -131,100 +131,14 @@ packages:
     url: https://github.com/creepystefan/esphome-XY6020
     refresh: 0d
     files: [
-      yml/sensors.yaml
+      yml/sensors.yaml,
+      yml/numbers.yaml,
+      yml/switches.yaml,
+      yml/text_sesnsor.yaml,
       ]
 
 captive_portal:
 
-number:
-   - platform: modbus_controller
-     modbus_controller_id: sdm
-     name: "Spannung Einstellen"
-     mode: box
-     address: 0x00
-     unit_of_measurement: "Volt"
-     min_value: ${V_set_min}
-     max_value: ${V_set_max}
-     step: ${V_set_step}
-     value_type: U_WORD
-     multiply: 100.0
-   
-   
-   - platform: modbus_controller
-     modbus_controller_id: sdm
-     name: "Strom Einstellen"
-     mode: box
-     address: 0x01
-     unit_of_measurement: "Ampere"
-     min_value: ${i_set_min}
-     max_value: ${i_set_max}
-     step: ${i_set_step}
-     value_type: U_WORD
-     multiply: 100.0
-
-   - platform: modbus_controller
-     modbus_controller_id: sdm
-     name: "M053 Setting Over Voltage Protected"
-     mode: box
-     address: ${M053}
-     unit_of_measurement: "Voltage"
-     min_value: ${u_set_OVP_min}
-     max_value: ${u_set_OVP_max}
-     step: ${i_set_step}
-     value_type: U_WORD
-     multiply: 100.0
-
-   - platform: modbus_controller
-     modbus_controller_id: sdm
-     name: "M053 Setting Over Current Protected"
-     address: ${M054}
-     unit_of_measurement: "Ampere"
-     min_value: ${i_set_OVP_min}
-     max_value: ${i_set_OVP_max}
-     step: ${i_set_step}
-     value_type: U_WORD
-     multiply: 100.0
-
-   - platform: modbus_controller
-     modbus_controller_id: sdm
-     name: "Over Temperatur Protect Set"
-     address: ${M05C}
-     unit_of_measurement: "Celsius"
-     min_value: ${i_set_temp_min}
-     max_value: ${i_set_temp_max}
-     step: ${i_set_step}
-     value_type: U_WORD
-     multiply: 1
-
-switch:
-   - platform: modbus_controller
-     modbus_controller_id: sdm
-     name: "Key Lock"
-     id: keylock
-     register_type: holding
-     address: ${lock}
-     bitmask: 1
-     entity_category: config
-     icon: "mdi:toggle-switch"
-
-   - platform: modbus_controller
-     modbus_controller_id: sdm
-     name: "EIN-AUS Schalter"
-     id: onoff
-     register_type: holding
-     address: 0x12
-     bitmask: 1
-     entity_category: config
-     icon: "mdi:toggle-switch"  
-     
-   - platform: modbus_controller
-     modbus_controller_id: sdm
-     name: "Sleep"
-     register_type: holding
-     address: ${sleep}
-     bitmask: 1
-     entity_category: config
-     icon: "mdi:toggle-switch"
 
 text_sensor:
   - platform: template
