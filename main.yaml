@@ -101,6 +101,8 @@ logger:
   level: DEBUG
 
 api:
+  encryption:
+    key: !secret xykey
 
 packages:
   remote_package:
