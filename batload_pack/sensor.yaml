@@ -188,3 +188,14 @@ sensor:
     accuracy_decimals: 0
     filters:
      - multiply: 1
+
+
+  - platform: template
+    name: "Status Test"
+    lambda: |-
+       return (id(protect_state).state);
+    update_interval: 0.5s
+    #unit_of_measurement: "Watt"
+    accuracy_decimals: 4
+    filters:
+     - multiply: 1      
