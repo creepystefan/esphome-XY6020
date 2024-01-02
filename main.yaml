@@ -2,8 +2,8 @@ substitutions:
   name: "xy6020"
   device_description: "Monitor and control a xy6020 Digital Control Power Supply via UART-TTL"
           # Register
-  V_set: "0x00"    # Voltage Setting          Volt    R/W
-  i_set: "0x01"    # Current Setting          Ampere  R/W
+  # 0x00           # Voltage Setting          Volt    R/W
+  # 0x01           # Current Setting          Ampere  R/W
   VOUT: "0x02"     # Voltage value display    Voltage  R
   IOUT: "0x03"     # Current value display    Ampere   R
   power: "0x04"    # Power in Watt Output     Watt     R
@@ -373,19 +373,10 @@ sensor:
      - multiply: 1.0
 
 number:
-   - platform: template
-     name: "Power In-Out"
-     id: powerinout
-     optimistic: true
-     unit_of_measurement: "Watt"
-     min_value: -500
-     max_value: 500
-     step: 10
-   
    - platform: modbus_controller
      modbus_controller_id: sdm
      name: "Spannung Einstellen"
-     address: ${V_set}
+     address: 0x00
      unit_of_measurement: "Volt"
      min_value: ${V_set_min}
      max_value: ${V_set_max}
@@ -397,7 +388,7 @@ number:
    - platform: modbus_controller
      modbus_controller_id: sdm
      name: "Strom Einstellen"
-     address: ${i_set}
+     address: 0x01
      unit_of_measurement: "Ampere"
      min_value: ${i_set_min}
      max_value: ${i_set_max}
