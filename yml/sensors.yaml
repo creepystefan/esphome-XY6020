@@ -166,6 +166,7 @@ sensor:
   - platform: modbus_controller
 # state over Text_Sensor    
     #name: "Power Switch On-Off"
+    id: poweronoffstate
     address: 0x12
     register_type: "holding"
     value_type: U_WORD
