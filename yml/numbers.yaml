@@ -28,7 +28,7 @@ number:
      modbus_controller_id: sdm
      name: "M053 Setting Over Voltage Protected"
      mode: box
-     address: ${M053}
+     address: 0x53
      unit_of_measurement: "Voltage"
      min_value: 0
      max_value: 70
@@ -39,7 +39,7 @@ number:
    - platform: modbus_controller
      modbus_controller_id: sdm
      name: "M053 Setting Over Current Protected"
-     address: ${M054}
+     address: 0x54
      unit_of_measurement: "Ampere"
      min_value: 0
      max_value: 21
@@ -50,7 +50,7 @@ number:
    - platform: modbus_controller
      modbus_controller_id: sdm
      name: "Over Temperatur Protect Set"
-     address: ${M05C}
+     address: 0x5C
      unit_of_measurement: "Celsius"
      min_value: 0
      max_value: 95
