@@ -159,34 +159,6 @@ sensor:
      - multiply: 0.1
 
 
-  - platform: modbus_controller
-    name: "Open Time Hours"
-    address: 0x0A
-    register_type: "holding"
-    value_type: U_WORD
-    unit_of_measurement: "Hours"
-    accuracy_decimals: 0
-    filters:
-     - multiply: 1
-
-  - platform: modbus_controller
-    name: "Open Time Minutes"
-    address: 0x0B
-    register_type: "holding"
-    value_type: U_WORD
-    unit_of_measurement: "Minutes"
-    accuracy_decimals: 0
-    filters:
-     - multiply: 1
-
-  - platform: modbus_controller
-    name: "Open Time Seconds"
-    address: 0x0C
-    register_type: "holding"
-    value_type: U_WORD
-    unit_of_measurement: "Seconds"
-    accuracy_decimals: 0
-    filters:
-     - multiply: 1
+ 
 
  
