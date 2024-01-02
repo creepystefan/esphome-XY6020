@@ -50,6 +50,7 @@ number:
      modbus_controller_id: sdm
      name: "Setting Over Voltage Protected"
      mode: box
+     force_new_range: true
      address: 0x53
      unit_of_measurement: "Voltage"
      min_value: ${u_set_OVP_min}
