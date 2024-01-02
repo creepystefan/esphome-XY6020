@@ -1,40 +1,7 @@
 sensor:
-
-  - platform: template
-    name: "Power Out"
-    lambda: |-
-      if (id(powerinout).state >= 0) {
-        return id(powerinout).state;
-      } else {
-        return id(powerinout).state - id(powerinout).state;
-      }
-    update_interval: 10s
-
-    
-  - platform: template
-    name: "Power In"
-    lambda: |-
-      if (id(powerinout).state >= 0) {
-        return id(powerinout).state - id(powerinout).state;
-      } else {
-        return id(powerinout).state;
-      }
-    update_interval: 10s
-
-  - platform: modbus_controller
-    # name: "Protect Status Number"
-    id: protect_state
-    address: ${PROTECT}
-    register_type: "holding"
-    value_type: U_WORD
-    unit_of_measurement: "Status"
-    accuracy_decimals: 0
-    filters:
-     - multiply: 1
-
   - platform: modbus_controller
     name: "Eingestellte Spannung"
-    address: ${V_set}
+    address: 0x00
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "V"
@@ -44,8 +11,18 @@ sensor:
      - multiply: 0.01
 
   - platform: modbus_controller
+    name: "Eingestellter Strom"
+    address: 0x01
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Ampere"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+  
+  - platform: modbus_controller
     name: "Spannung am Ausgang"
-    address: ${VOUT}
+    address: 0x02
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "V"
@@ -53,29 +30,9 @@ sensor:
     filters:
      - multiply: 0.01
 
-  - platform: modbus_controller
-    name: "Eingestellter Strom"
-    address: ${i_set}
-    register_type: "holding"
-    value_type: U_WORD
-    unit_of_measurement: "Ampere"
-    accuracy_decimals: 2
-    filters:
-     - multiply: 0.01
-
-  - platform: modbus_controller
-    name: "Version"
-    address: ${version}
-    register_type: "holding"
-    value_type: U_WORD
-    unit_of_measurement: "Version"
-    accuracy_decimals: 0
-    filters:
-     - multiply: 1
-
-  - platform: modbus_controller
+   - platform: modbus_controller
     name: "Aktueller Strom"
-    address: ${IOUT}
+    address: 0x03
     register_type: "holding"
     value_type: U_WORD
     device_class: CURRENT
@@ -86,17 +43,17 @@ sensor:
 
   - platform: modbus_controller
     name: "Leistung am Ausgang"
-    address: ${power}
+    address: 0x04
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "Watt"
     accuracy_decimals: 2
     filters:
-     - multiply: 0.01
+     - multiply: 0.1
 
   - platform: modbus_controller
     name: "Eingangsspannung"
-    address: ${UIN}
+    address: 0x05
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "Volt"
@@ -105,8 +62,42 @@ sensor:
      - multiply: 0.01
 
   - platform: modbus_controller
+    # name: "Protect Status Number"
+    # Output over Text_Sensor
+    id: protect_state
+    address: 0x10
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Status"
+    accuracy_decimals: 0
+    filters:
+     - multiply: 1
+   
+   - platform: modbus_controller
+    name: "Version
+    address: 0x17
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Version"
+    accuracy_decimals: 0
+    filters:
+     - multiply: 1
+
+  - platform: modbus_controller
     name: "interne Temperatur"
-    address: ${t_in}
+    address: 0x0D
+    register_type: "holding"
+    value_type: U_WORD
+    device_class: TEMPERATURE
+    #unit_of_measurement: "Celsius"
+    icon: "mdi:thermometer"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.1
+
+  - platform: modbus_controller
+    name: "externe Temperatur"
+    address: 0x0E
     register_type: "holding"
     value_type: U_WORD
     device_class: TEMPERATURE
@@ -118,7 +109,7 @@ sensor:
 
   - platform: modbus_controller
     name: "Zeit Ein in Stunden"
-    address: ${OUT_H}
+    address: 0x0A
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "Stunden"
@@ -128,7 +119,7 @@ sensor:
 
   - platform: modbus_controller
     name: "Zeit Ein in Minuten"
-    address: ${OUT_M}
+    address: 0x0B
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "Minuten"
@@ -138,7 +129,7 @@ sensor:
 
   - platform: modbus_controller
     name: "Zeit Ein in Sekunden"
-    address: ${OUT_S}
+    address: 0x0C
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "Sekunden"
@@ -238,7 +229,7 @@ sensor:
 
   - platform: modbus_controller
     name: "M059"
-    address: ${M059}
+    address: 0x59
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "V"
@@ -248,7 +239,7 @@ sensor:
 
   - platform: modbus_controller
     name: "M05C Set Over Temreture Protected"
-    address: ${M05C}
+    address: 0x5C
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "Celsius"
