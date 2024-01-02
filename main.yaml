@@ -112,7 +112,8 @@ packages:
       yml/numbers.yaml,
       yml/switches.yaml,
       yml/text_senssor.yaml,
-      yml/uart.yaml
+      yml/uart.yaml,
+      yml/substitutions.yaml,
       ]
 
 captive_portal:
