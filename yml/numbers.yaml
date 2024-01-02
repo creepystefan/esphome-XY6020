@@ -7,7 +7,7 @@ number:
      unit_of_measurement: "Volt"
      min_value: 0
      max_value: 65
-     step: ${V_set_step}
+     step: 0.1
      value_type: U_WORD
      multiply: 100.0
    
@@ -20,7 +20,7 @@ number:
      unit_of_measurement: "Ampere"
      min_value: 0
      max_value: 21
-     step: ${i_set_step}
+     step: 0.1
      value_type: U_WORD
      multiply: 100.0
 
@@ -32,7 +32,7 @@ number:
      unit_of_measurement: "Voltage"
      min_value: 0
      max_value: 70
-     step: ${i_set_step}
+     step: 0.1
      value_type: U_WORD
      multiply: 100.0
 
