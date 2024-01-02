@@ -57,9 +57,8 @@ substitutions:
   M059: "0x59"
   M05C: "0x5C"     # Over Temperatur Protect Set     Celsius    R/W
    
-  V_set_max: "30"
-  V_set_min: "24"
-  V_set_step: "0.1"
+  V_set_max: "65"
+  V_set_min: "0"
   i_set_max: "10"
   i_set_min: "0.2"
   i_set_step: "0.1"
