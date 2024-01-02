@@ -134,7 +134,7 @@ packages:
       yml/sensors.yaml,
       yml/numbers.yaml,
       yml/switches.yaml,
-      yml/text_sesnsor.yaml,
+      yml/text_senssor.yaml,
       ]
 
 captive_portal:
