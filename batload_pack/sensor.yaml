@@ -142,10 +142,10 @@ sensor:
     address: 0x10
     register_type: "holding"
     value_type: U_WORD
-    unit_of_measurement: "Status"
-    accuracy_decimals: 0
-    filters:
-     - multiply: 1
+    #unit_of_measurement: "Status"
+    #accuracy_decimals: 0
+    #filters:
+    # - multiply: 1
 
   - platform: modbus_controller
     name: "interne Temperatur"
@@ -161,42 +161,32 @@ sensor:
      - multiply: 0.1
 
 
-  - platform: modbus_controller
-    name: "Output AH low 16 bits"
-    address: 0x06
+ - platform: modbus_controller
+    name: "Open Time Hours"
+    address: 0x0A
     register_type: "holding"
     value_type: U_WORD
-    unit_of_measurement: "mAH"
-    accuracy_decimals: 2
+    unit_of_measurement: "Hours"
+    accuracy_decimals: 0
     filters:
-     - multiply: 0.01
+     - multiply: 1
 
   - platform: modbus_controller
-    name: "Output AH high 16 bits"
-    address: 0x07
+    name: "Open Time Minutes"
+    address: 0x0B
     register_type: "holding"
     value_type: U_WORD
-    unit_of_measurement: "mAH"
-    accuracy_decimals: 2
+    unit_of_measurement: "Minutes"
+    accuracy_decimals: 0
     filters:
-     - multiply: 0.01
+     - multiply: 1
 
   - platform: modbus_controller
-    name: "Output WH low 16 bits"
-    address: 0x08
+    name: "Open Time Seconds"
+    address: 0x0C
     register_type: "holding"
     value_type: U_WORD
-    unit_of_measurement: "mWH"
-    accuracy_decimals: 2
+    unit_of_measurement: "Seconds"
+    accuracy_decimals: 0
     filters:
-     - multiply: 0.01
-
-  - platform: modbus_controller
-    name: "Output WH low 16 bits"
-    address: 0x09
-    register_type: "holding"
-    value_type: U_WORD
-    unit_of_measurement: "mWH"
-    accuracy_decimals: 2
-    filters:
-     - multiply: 0.01
+     - multiply: 1
