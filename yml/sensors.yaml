@@ -62,6 +62,46 @@ sensor:
      - multiply: 0.01
 
   - platform: modbus_controller
+    name: "Output AH low 16 bits"
+    address: 0x06
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "mAH"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Output AH high 16 bits"
+    address: 0x07
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "mAH"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Output WH low 16 bits"
+    address: 0x08
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "mWH"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Output WH low 16 bits"
+    address: 0x09
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "mWH"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
     # name: "Protect Status Number"
     # Output over Text_Sensor
     id: protect_state
