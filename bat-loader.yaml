@@ -6,6 +6,9 @@ esphome:
 esp32:
   board: nodemcu-32s
 
+logger:
+  level: DEBUG
+  
 packages:
   remote_package:
     url: https://github.com/creepystefan/esphome-XY6020
@@ -14,7 +17,7 @@ packages:
       batload_pack/sensor_text.yaml,
       batload_pack/wifi.yaml,
       batload_pack/sensor.yaml,
-      batload_pack/uart.yaml,
+      yml/uart.yaml,
       batload_pack/number.yaml,
       batload_pack/substitutions.yaml,
        ]
