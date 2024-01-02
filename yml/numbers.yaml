@@ -5,8 +5,8 @@ number:
      mode: box
      address: 0x00
      unit_of_measurement: "Volt"
-     min_value: 0
-     max_value: 65
+     min_value: ${V_set_min}
+     max_value: ${V_set_max}
      step: 0.1
      value_type: U_WORD
      multiply: 100.0
@@ -18,8 +18,8 @@ number:
      mode: box
      address: 0x01
      unit_of_measurement: "Ampere"
-     min_value: 0
-     max_value: 21
+     min_value: ${i_set_min}
+     max_value: ${i_set_max}
      step: 0.1
      value_type: U_WORD
      multiply: 100.0
