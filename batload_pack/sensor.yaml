@@ -137,15 +137,13 @@ sensor:
      - multiply: 0.01
 
   - platform: modbus_controller
-    id: protect_state
+    name: "Status"
+    #id: protect_state
     force_new_range: true
     address: 0x10
     register_type: "holding"
     value_type: U_WORD
-    #unit_of_measurement: "Status"
-    #accuracy_decimals: 0
-    #filters:
-    # - multiply: 1
+    
 
   - platform: modbus_controller
     name: "interne Temperatur"
