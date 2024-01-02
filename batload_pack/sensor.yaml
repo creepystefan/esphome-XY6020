@@ -161,7 +161,7 @@ sensor:
      - multiply: 0.1
 
 
- - platform: modbus_controller
+  - platform: modbus_controller
     name: "Open Time Hours"
     address: 0x0A
     register_type: "holding"
