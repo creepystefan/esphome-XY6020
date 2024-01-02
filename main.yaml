@@ -89,7 +89,6 @@ wifi:
     gateway: !secret gateway
     subnet: !secret subnet
 
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "xy6020 Fallback Hotspot"
     password: "UEikMwV1wqU8"
@@ -97,12 +96,12 @@ wifi:
 ota:
   password: !secret xyota
 
-logger:
-  level: DEBUG
-
 api:
   encryption:
     key: !secret xykey
+    
+logger:
+  level: DEBUG
 
 packages:
   remote_package:
