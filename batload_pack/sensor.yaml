@@ -96,29 +96,6 @@ sensor:
      - multiply: 0.01
 
   - platform: modbus_controller
-    name: "Batterie Spannung"
-    id: batvoltage
-    address: 0x02
-    register_type: "holding"
-    value_type: U_WORD
-    unit_of_measurement: "V"
-    accuracy_decimals: 4
-    filters:
-     - multiply: 0.01
-
-  - platform: template
-    name: "Bat in %"
-    lambda: |-
-      return (5 / 100) * (29 - id(batvoltage).state);
-    unit_of_measurement: "%"
-    update_interval: 1s
-    entity_category: "diagnostic"
-    accuracy_decimals: 4
-    filters:
-    # - lambda: return (5 / 100) * (29 - id(batvoltage).state) ;
-     - multiply: 0.01
-
-  - platform: modbus_controller
     name: "Eingestellter Strom"
     id: actualcurrent
     address: 0x01
@@ -126,6 +103,17 @@ sensor:
     value_type: U_WORD
     unit_of_measurement: "Ampere"
     accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Batterie Spannung"
+    id: batvoltage
+    address: 0x02
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    accuracy_decimals: 4
     filters:
      - multiply: 0.01
 
@@ -162,6 +150,7 @@ sensor:
 
   - platform: modbus_controller
     name: "interne Temperatur"
+    force_new_range
     address: 0x0D
     register_type: "holding"
     value_type: U_WORD
