@@ -138,17 +138,7 @@ sensor:
     accuracy_decimals: 0
     filters:
      - multiply: 1
-   
-  - platform: modbus_controller
-    name: "Version
-    address: 0x17
-    register_type: "holding"
-    value_type: U_WORD
-    unit_of_measurement: "Version"
-    accuracy_decimals: 0
-    filters:
-     - multiply: 1
-
+  
   - platform: modbus_controller
     name: "interne Temperatur"
     address: 0x0D
@@ -174,35 +164,15 @@ sensor:
      - multiply: 0.1
 
   - platform: modbus_controller
-    name: "Zeit Ein in Stunden"
-    address: 0x0A
+    name: "Version
+    address: 0x17
     register_type: "holding"
     value_type: U_WORD
-    unit_of_measurement: "Stunden"
+    unit_of_measurement: "Version"
     accuracy_decimals: 0
     filters:
      - multiply: 1
-
-  - platform: modbus_controller
-    name: "Zeit Ein in Minuten"
-    address: 0x0B
-    register_type: "holding"
-    value_type: U_WORD
-    unit_of_measurement: "Minuten"
-    accuracy_decimals: 0
-    filters:
-     - multiply: 1
-
-  - platform: modbus_controller
-    name: "Zeit Ein in Sekunden"
-    address: 0x0C
-    register_type: "holding"
-    value_type: U_WORD
-    unit_of_measurement: "Sekunden"
-    accuracy_decimals: 0
-    filters:
-     - multiply: 1
-
+  
   - platform: modbus_controller
     name: "M050"
     address: ${M050}
