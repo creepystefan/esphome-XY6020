@@ -1,5 +1,15 @@
 text_sensor:
   - platform: template
+    name: "Power On OFF"
+    lambda: |-
+      if (id(poweronoffstate).state) {
+        return {"On"};
+      } else {
+        return {"Off"};
+      }
+    update_interval: 1s
+
+  - platform: template
     name: "Tastensperre"
     lambda: |-
       if (id(keylock).state) {
@@ -7,7 +17,7 @@ text_sensor:
       } else {
         return {"unlock"};
       }
-    update_interval: 10s
+    update_interval: 1s
 
   - platform: template
     name: "Protect Status Text"
