@@ -1,7 +1,7 @@
 sensor:
   
   - platform: template
-    name: "Ladestrom zum setzen2"
+    #name: "Ladestrom zum setzen2"
     id: currentforset2
     lambda: |-
       if (id(currentset).state + ((id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state) <= 0) {
@@ -15,9 +15,8 @@ sensor:
     filters:
      - multiply: 1  
     
-
   - platform: template
-    name: "Ladestrom zum setzen3"
+    #name: "Ladestrom zum setzen3"
     id: currentforset3
     lambda: |-
       if (id(currentforset2).state >= id(maxloadcurrent).state) {
@@ -30,7 +29,6 @@ sensor:
     accuracy_decimals: 4
     filters:
      - multiply: 1
-
 
   - platform: template
     name: "Strom zum setzen"
