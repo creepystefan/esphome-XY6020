@@ -12,8 +12,18 @@ text_sensor:
       lambda: |-
         if(x == "0006") {
           return {"115200"};  
+        } else if(x == "0000") {
+          return {"?"};
         } else if(x == "0001") {
           return {"?"};
+        } else if(x == "0002") {
+          return {"?"};
+        } else if(x == "0003") {
+          return {"?"};
+        } else if(x == "0004") {
+          return {"?"};
+        } else if(x == "0005") {
+          return {"?"};  
         } else {
           return {"Error"};
         }
