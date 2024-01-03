@@ -100,13 +100,13 @@ sensor:
     accuracy_decimals: 2
     filters:
      - multiply: 0.01
-
-  - platform: modbus_controller
-    # Output over Text_Sensor  !!!!!!!!
-    id: protect_state
-    address: 0x10
-    register_type: "holding"
-    value_type: U_WORD
+  
+  # Output over Text_Sensor  !!!!!!!!
+  #- platform: modbus_controller
+  #  id: protect_state
+  #  address: 0x10
+  #  register_type: "holding"
+  #  value_type: U_WORD
   
    
   - platform: modbus_controller
