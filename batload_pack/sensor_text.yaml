@@ -1,4 +1,23 @@
 text_sensor:
+
+  - platform: modbus_controller
+    modbus_controller_id: sdm
+    name: baudrate
+    id: baudrate_status
+    register_type: holding
+    address: 0x19
+    #register_count: 0
+    raw_encode: HEXBYTES
+    filters:
+      lambda: |-
+        if(x == "0006") {
+          return {"115200"};  
+        } else if(x == "0001") {
+          return {"?"};
+        } else {
+          return {"Error"};
+        }
+        
   - platform: modbus_controller
     modbus_controller_id: sdm
     name: Protect Status
