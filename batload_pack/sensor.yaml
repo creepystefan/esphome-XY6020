@@ -158,15 +158,7 @@ sensor:
     filters:
      - multiply: 0.1
 
-  - platform: template
-    name: "test"
-    lambda: |-
-       return (id(test).state);
-    update_interval: 0.5s
-    unit_of_measurement: "Watt"
-    accuracy_decimals: 4
-    filters:
-     - multiply: 1      
+ 
 
 
 
