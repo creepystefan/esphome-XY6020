@@ -4,7 +4,7 @@ switch:
      name: "Key Lock"
      id: keylock
      register_type: holding
-     address: ${lock}
+     address: 0x0F
      bitmask: 1
      entity_category: config
      icon: "mdi:toggle-switch"
