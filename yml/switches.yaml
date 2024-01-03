@@ -23,7 +23,7 @@ switch:
      modbus_controller_id: sdm
      name: "Sleep"
      register_type: holding
-     address: ${sleep}
+     address: 0x15
      bitmask: 1
      entity_category: config
      icon: "mdi:toggle-switch"
