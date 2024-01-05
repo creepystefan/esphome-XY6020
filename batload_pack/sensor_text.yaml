@@ -65,16 +65,14 @@ text_sensor:
   - platform: modbus_controller
     modbus_controller_id: sdm
     name: Key-Lock Status
-    id: key_lock_status
     register_type: holding
     address: 0x0F
-    #register_count: 0
     raw_encode: HEXBYTES
     filters:
       lambda: |-
-        if(x == "0000") {
+        if(x == "0001") {
           return {"unlock"};  
-        } else if(x == "0001") {
+        } else if(x == "0000") {
           return {"locked"};
         } else {
           return {"Error"};
