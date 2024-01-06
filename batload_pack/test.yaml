@@ -1,1 +1,77 @@
+sensor:
+  - platform: template
+    name: "Wind Direction"
+    lambda: !lambda |-
+      if (id(currentset).state + ((id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state) <= 0) {
+        return 0;
+      if id(currentset).state + ((id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state) >= 0 {
+        return NE;
+      if (id(voltage).state)>=0.500 and (id(voltage).state)<0.750 {
+        return E;
+      if (id(voltage).state)>=0.750 and (id(voltage).state)<1.000 {
+        return SE;
+      if (id(voltage).state)>=1.000 and (id(voltage).state)<1.250 {
+        return S;
+      if (id(voltage).state)>=1.250 and (id(voltage).state)<1.500 {
+        return SW;
+      if (id(voltage).state)>=1.500 and (id(voltage).state)<1.750 {
+        return W;
+      if (id(voltage).state)>=1.750 and (id(voltage).state)<=2.000 {
+        return NW;
+      } else {
+        return NaN;
+      }
+    update_interval: 60s
 
+
+    - platform: template
+    #name: "Ladestrom zum setzen2"
+    id: currentforset2
+    lambda: |-
+      if (id(currentset).state + ((id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state) <= 0) {
+        return 0;
+      } else {
+        return id(currentset).state + ((id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state);
+      }
+    update_interval: ${updateinterval}
+    unit_of_measurement: "Ampere"
+    accuracy_decimals: 4
+    filters:
+     - multiply: 1  
+    
+  - platform: template
+    #name: "Ladestrom zum setzen3"
+    id: currentforset3
+    lambda: |-
+      if (id(currentforset2).state >= id(maxloadcurrent).state) {
+        return id(maxloadcurrent).state;
+      } else {
+        return (id(currentforset2).state);
+      }
+    update_interval: ${updateinterval}
+    unit_of_measurement: "Ampere"
+    accuracy_decimals: 4
+    filters:
+     - multiply: 1
+
+  - platform: template
+    name: "Strom zum setzen"
+    id: currentset1
+    lambda: |-
+      if (id(batvoltage).state <= 24.5) {
+        return 0.5;
+      } else {
+        return id(currentforset3).state;
+      }
+    update_interval: 1s
+    unit_of_measurement: "Ampere"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 1
+    on_value:
+       then:
+         - number.set:
+             id: currentset
+             value: !lambda |-
+                return id(currentset1).state;
+         
