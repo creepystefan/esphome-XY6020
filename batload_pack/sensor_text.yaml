@@ -67,6 +67,7 @@ text_sensor:
     name: Key-Lock Status
     register_type: holding
     address: 0x0F
+    bitmask: 1
     raw_encode: HEXBYTES
  #   filters:
  #     lambda: |-
