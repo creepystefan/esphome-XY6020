@@ -3,7 +3,7 @@ sensor:
     name: "currentforset"
     id: currentforset 
     lambda: !lambda |-
-      if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0) {
+      if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0) and (id(batvoltage).state >= 24.5 {
         return 0; }
       if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) >= 5) {
         return id(maxloadcurrent).state;}
