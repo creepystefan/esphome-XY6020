@@ -6,9 +6,8 @@ sensor:
       if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0) {
         return 0; }
       if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) >= 5) {
-        return id(maxloadcurrent).state;}
-      if (id(batvoltage).state <= 24.5) and id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0 {
-        return 0.5;
+        return id(maxloadcurrent).state;
+      
       } else {
         return id(currentset).state + (id(powerinout).state / id(actualvoltage).state);
       }
@@ -24,6 +23,8 @@ sensor:
              value: !lambda |-
                 return id(currentset).state;
 
+#if (id(batvoltage).state <= 24.5) and id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0 {
+        return 0.5;
 
 #if (id(batvoltage).state <= 24.5) and (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0) {
       #  return 0.5;
