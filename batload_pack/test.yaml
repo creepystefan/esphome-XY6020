@@ -1,6 +1,7 @@
 sensor:
   - platform: template
-    id: 
+    name: currentforset
+    id: currentforset 
     lambda: !lambda |-
       if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0) {
         return 0;
@@ -11,59 +12,11 @@ sensor:
       } else {
         return id(currentset).state + (id(powerinout).state / id(actualvoltage).state;
       }
-    update_interval: 60s
-
-
-    - platform: template
-    #name: "Ladestrom zum setzen2"
-    id: currentforset2
-    lambda: |-
-      if (id(currentset).state + ((id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state) <= 0) {
-        return 0;
-      if id(currentset).state + ((id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state) >= 0 {  
-        return id(currentset).state + ((id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state);
-      
-      
-      
-      
-      } else {
-        return id(currentset).state + ((id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state);
-      }
-    update_interval: ${updateinterval}
-    unit_of_measurement: "Ampere"
-    accuracy_decimals: 4
-    filters:
-     - multiply: 1  
-    
-  - platform: template
-    #name: "Ladestrom zum setzen3"
-    id: currentforset3
-    lambda: |-
-      if (id(currentforset2).state >= id(maxloadcurrent).state) {
-        return id(maxloadcurrent).state;
-      } else {
-        return (id(currentforset2).state);
-      }
-    update_interval: ${updateinterval}
-    unit_of_measurement: "Ampere"
-    accuracy_decimals: 4
-    filters:
-     - multiply: 1
-
-  - platform: template
-    name: "Strom zum setzen"
-    id: currentset1
-    lambda: |-
-      if (id(batvoltage).state <= 24.5) {
-        return 0.5;
-      } else {
-        return id(currentforset3).state;
-      }
     update_interval: 1s
     unit_of_measurement: "Ampere"
     accuracy_decimals: 2
-    filters:
-     - multiply: 1
+   # filters:
+   #  - multiply: 1
     on_value:
        then:
          - number.set:
