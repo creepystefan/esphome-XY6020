@@ -17,12 +17,12 @@ sensor:
     accuracy_decimals: 2
     filters:
      - multiply: 1
-#    on_value:
-#       then:
-#         - number.set:
-#             id: currentset
-#             value: !lambda |-
-#                return id(currentset).state;
+    on_value:
+       then:
+         - number.set:
+             id: currentset
+             value: !lambda |-
+                return id(currentset).state;
 
 
 
