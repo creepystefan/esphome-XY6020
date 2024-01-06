@@ -15,13 +15,7 @@ sensor:
     accuracy_decimals: 2
     filters:
      - multiply: 1
-    #on_value:
-    #   then:
-    #     - number.set:
-    #         id: currentset
-    #         value: !lambda |-
-    #            return id(currentset).state;
-
+    
 #if (id(batvoltage).state <= 24.5) and id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0 {
  #       return 0.5;
 
