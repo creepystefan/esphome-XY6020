@@ -45,6 +45,28 @@ sensor:
              value: !lambda |-
                 return id(currentset1).state;
 
+
+  - platform: template
+    name: "Spannung Setzen"
+    id: voltageforset
+    lambda: |-
+      if (id(currentset1).state <= 0) {
+        return 24.5;
+      } else {
+        return 29;
+      }
+    update_interval: 1s
+    unit_of_measurement: "Voltage"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 1
+    on_value:
+       then:
+         - number.set:
+             id: voltageset
+             value: !lambda |-
+                return id(voltageforset).state;
+
   - platform: homeassistant
     id: shelly_power
     entity_id: ${powermess}
