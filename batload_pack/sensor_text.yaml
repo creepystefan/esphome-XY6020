@@ -69,12 +69,12 @@ text_sensor:
     address: 0x0F
     bitmask: 1
     raw_encode: HEXBYTES
- #   filters:
- #     lambda: |-
- #       if(x == "0001") {
- #         return {"unlock"};  
- #       } else if(x == "0000") {
- #         return {"locked"};
- #       } else {
- #         return {"Error"};
- #       }
+    filters:
+      lambda: |-
+        if(x == "00000000") {
+          return {"unlock"};  
+        } else if(x == "00010000") {
+          return {"locked"};
+        } else {
+          return {"Error"};
+        }
