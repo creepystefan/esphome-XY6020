@@ -68,12 +68,12 @@ text_sensor:
     register_type: holding
     address: 0x0F
     raw_encode: HEXBYTES
-    filters:
-      lambda: |-
-        if(x == "0001") {
-          return {"unlock"};  
-        } else if(x == "0000") {
-          return {"locked"};
-        } else {
-          return {"Error"};
-        }
+ #   filters:
+ #     lambda: |-
+ #       if(x == "0001") {
+ #         return {"unlock"};  
+ #       } else if(x == "0000") {
+ #         return {"locked"};
+ #       } else {
+ #         return {"Error"};
+ #       }
