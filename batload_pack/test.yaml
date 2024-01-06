@@ -1,6 +1,6 @@
 sensor:
   - platform: template
-    name: currentforset
+    name: "currentforset"
     id: currentforset 
     lambda: !lambda |-
       if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0) {
