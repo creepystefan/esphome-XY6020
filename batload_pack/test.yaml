@@ -15,18 +15,39 @@ sensor:
     accuracy_decimals: 2
     filters:
      - multiply: 1
-    on_value:
-       then:
-         - number.set:
-             id: currentset
-             value: !lambda |-
-                return id(currentset).state;
+    #on_value:
+    #   then:
+    #     - number.set:
+    #         id: currentset
+    #         value: !lambda |-
+    #            return id(currentset).state;
 
 #if (id(batvoltage).state <= 24.5) and id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0 {
  #       return 0.5;
 
 #if (id(batvoltage).state <= 24.5) and (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0) {
       #  return 0.5;
+
+  - platform: template
+    name: "Strom zum setzen"
+    id: currentset1
+    lambda: |-
+      if (id(batvoltage).state <= 24.5) {
+        return 0.5;
+      } else {
+        return id(currentforset).state;
+      }
+    update_interval: 1s
+    unit_of_measurement: "Ampere"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 1
+    on_value:
+       then:
+         - number.set:
+             id: currentset
+             value: !lambda |-
+                return id(currentset1).state;
 
   - platform: homeassistant
     id: shelly_power
