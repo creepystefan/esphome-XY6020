@@ -15,8 +15,8 @@ sensor:
     update_interval: 1s
     unit_of_measurement: "Ampere"
     accuracy_decimals: 2
-   # filters:
-   #  - multiply: 1
+    filters:
+     - multiply: 1
     on_value:
        then:
          - number.set:
