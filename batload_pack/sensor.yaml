@@ -22,7 +22,7 @@ sensor:
       if (id(currentforset2).state >= id(maxloadcurrent).state) {
         return id(maxloadcurrent).state;
       } else {
-        return (id(currentforset2).state);
+        return id(currentforset2).state;
       }
     update_interval: ${updateinterval}
     unit_of_measurement: "Ampere"
