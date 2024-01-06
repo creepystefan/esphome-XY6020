@@ -35,7 +35,12 @@ sensor:
     id: currentset1
     lambda: |-
       if (id(batvoltage).state <= 24.5) {
-        return 0.5;
+        #return 0.5;
+        then:
+          - number.set:
+              id: currentset
+              value: !lambda |-
+              return id(currentset1).state;
       } else {
         return id(currentforset3).state;
       }
