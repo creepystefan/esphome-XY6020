@@ -30,6 +30,12 @@ sensor:
     lambda: |-
       if (id(currentset).state + ((id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state) <= 0) {
         return 0;
+      if id(currentset).state + ((id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state) >= 0 {  
+        return id(currentset).state + ((id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state);
+      
+      
+      
+      
       } else {
         return id(currentset).state + ((id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state);
       }
