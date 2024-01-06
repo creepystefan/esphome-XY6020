@@ -1,25 +1,15 @@
 sensor:
   - platform: template
-    name: "Wind Direction"
+    id: 
     lambda: !lambda |-
       if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0) {
         return 0;
       if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) >= id(maxloadcurrent).state) {
-        return NE;
-      if (id(voltage).state)>=0.500 and (id(voltage).state)<0.750 {
-        return E;
-      if (id(voltage).state)>=0.750 and (id(voltage).state)<1.000 {
-        return SE;
-      if (id(voltage).state)>=1.000 and (id(voltage).state)<1.250 {
-        return S;
-      if (id(voltage).state)>=1.250 and (id(voltage).state)<1.500 {
-        return SW;
-      if (id(voltage).state)>=1.500 and (id(voltage).state)<1.750 {
-        return W;
-      if (id(voltage).state)>=1.750 and (id(voltage).state)<=2.000 {
-        return NW;
+        return id(maxloadcurrent).state;
+      if (id(batvoltage).state <= 24.5) and (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0) {
+        return 0.5;
       } else {
-        return NaN;
+        return id(currentset).state + (id(powerinout).state / id(actualvoltage).state;
       }
     update_interval: 60s
 
