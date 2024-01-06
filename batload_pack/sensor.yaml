@@ -7,7 +7,7 @@ sensor:
       if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0) {
         return 0;
       } else {
-        return (id(currentset).state + (id(powerinout).state / id(actualvoltage).state);
+        return id(currentset).state + (id(powerinout).state / id(actualvoltage).state;
       }
     update_interval: ${updateinterval}
     unit_of_measurement: "Ampere"
