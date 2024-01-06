@@ -22,7 +22,7 @@ sensor:
          - number.set:
              id: currentset
              value: !lambda |-
-                return id(currentset1).state;
+                return id(currentset).state;
 
 
   - platform: homeassistant
