@@ -1,0 +1,143 @@
+sensor:
+  - platform: template
+    name: "currentforset"
+    id: currentforset 
+    lambda: !lambda |-
+      if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0) {
+        return 0; }
+      if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) >= 5) {
+        return id(maxloadcurrent).state;
+      } else {
+        return id(currentset).state + (id(powerinout).state / id(actualvoltage).state);
+      }
+    update_interval: 1s
+    unit_of_measurement: "Ampere"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 1
+    
+#if (id(batvoltage).state <= 24.5) and id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0 {
+ #       return 0.5;
+
+#if (id(batvoltage).state <= 24.5) and (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0) {
+      #  return 0.5;
+
+  - platform: template
+    name: "Strom zum setzen"
+    id: currentset1
+    lambda: |-
+      if (id(batvoltage).state <= 24.5) {
+        return 0.5;
+      } else {
+        return id(currentforset).state;
+      }
+    update_interval: 1s
+    unit_of_measurement: "Ampere"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 1
+    on_value:
+       then:
+         - number.set:
+             id: currentset
+             value: !lambda |-
+                return id(currentset1).state;
+
+  - platform: homeassistant
+    id: shelly_power
+    entity_id: ${powermess}
+    unit_of_measurement: "W"
+    accuracy_decimals: 4
+    filters:
+     - multiply: 1 
+
+  - platform: template
+    name: "Shelly-Power"
+    id: powerinout
+    lambda: |-
+       return id(shelly_power).state - id(shelly_power).state - id(shelly_power).state;
+    update_interval: 1ms
+    unit_of_measurement: "Watt"
+    accuracy_decimals: 4
+    filters:
+     - multiply: 1      
+
+  - platform: modbus_controller
+    name: "Eingestellte Spannung"
+    id: actualvoltage
+    address: 0x00
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    icon: "mdi:water-percent"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Eingestellter Strom"
+    id: actualcurrent
+    address: 0x01
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Ampere"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Batterie Spannung"
+    id: batvoltage
+    address: 0x02
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Aktueller Strom"
+    address: 0x03
+    register_type: "holding"
+    value_type: U_WORD
+    device_class: CURRENT
+    #unit_of_measurement: "Ampere"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Leistung am Ausgang"
+    address: 0x04
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Watt"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.1
+
+  - platform: modbus_controller
+    name: "Eingangsspannung"
+    address: 0x05
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Volt"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "interne Temperatur"
+    force_new_range: true
+    address: 0x0D
+    register_type: "holding"
+    value_type: U_WORD
+    device_class: TEMPERATURE
+    #unit_of_measurement: "Celsius"
+    icon: "mdi:thermometer"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.1
+
+         
