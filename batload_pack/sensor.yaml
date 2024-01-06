@@ -64,8 +64,8 @@ sensor:
     name: "Shelly-Power"
     id: powerinout
     lambda: |-
-       return (id(shelly_power).state);
-    update_interval: 0.5s
+       return (id(shelly_power).state - id(shelly_power).state - id(shelly_power).state);
+    update_interval: 1ms
     unit_of_measurement: "Watt"
     accuracy_decimals: 4
     filters:
