@@ -2,9 +2,9 @@ sensor:
   - platform: template
     name: "Wind Direction"
     lambda: !lambda |-
-      if (id(currentset).state + ((id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state) <= 0) {
+      if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0) {
         return 0;
-      if id(currentset).state + ((id(powerinout).state - id(powerinout).state - id(powerinout).state) / id(actualvoltage).state) >= 0 {
+      if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) >= id(maxloadcurrent).state) {
         return NE;
       if (id(voltage).state)>=0.500 and (id(voltage).state)<0.750 {
         return E;
