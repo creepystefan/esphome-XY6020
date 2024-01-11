@@ -4,7 +4,7 @@ text_sensor:
   - platform: modbus_controller
     modbus_controller_id: sdm
     name: Protect Status
-    friendly_name: "Status freindly"
+    #friendly_name: "Status freindly"
     register_type: holding
     address: 0x10
     raw_encode: HEXBYTES
