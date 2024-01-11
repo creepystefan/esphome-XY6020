@@ -23,7 +23,7 @@ sensor:
       #  return 0.5;
 
   - platform: template
-    name: "Strom zum setzen"
+    name: Strom zum setzen
     id: currentset1
     lambda: |-
       if (id(batvoltage).state <= 24.5) {
