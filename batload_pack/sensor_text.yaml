@@ -3,7 +3,7 @@ text_sensor:
           
   - platform: modbus_controller
     modbus_controller_id: sdm
-    name: Protect Status
+    #name: Protect Status
     friendly_name: test
     register_type: holding
     address: 0x10
