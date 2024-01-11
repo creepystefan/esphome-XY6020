@@ -1,7 +1,7 @@
 substitutions:
   name: "xy6020"
   device_description: "Batterie Laden mit Übereinspeisung"
-  friendly_name: "TEST"
+  
 
   powermess: !secret powmess
   updateinterval: "15s"
