@@ -4,7 +4,7 @@ number:
      id: underbatvolt
      mode: box
      optimistic: true
-     unit_of_measurement: "Ampere"
+     unit_of_measurement: "Volt"
      min_value: 24.2
      max_value: 28
      step: 1
