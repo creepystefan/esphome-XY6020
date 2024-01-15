@@ -9,9 +9,7 @@ text_sensor:
     raw_encode: HEXBYTES
     filters:
       lambda: |-
-        if(x == "0006") {
-          return {"115200"};  
-        } else if(x == "0000") {
+        if(x == "0000") {
           return {"?"};
         } else if(x == "0001") {
           return {"?"};
@@ -22,7 +20,9 @@ text_sensor:
         } else if(x == "0004") {
           return {"?"};
         } else if(x == "0005") {
-          return {"?"};  
+          return {"?"};
+        } else if(x == "0006") {
+          return {"115200"};  
         } else {
           return {"Error"};
         }
