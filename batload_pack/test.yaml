@@ -86,6 +86,7 @@ sensor:
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "V"
+    device_class: VOLTAGE
     icon: "mdi:water-percent"
     accuracy_decimals: 2
     filters:
