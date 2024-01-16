@@ -152,8 +152,8 @@ sensor:
     address: 0x0D
     register_type: "holding"
     value_type: U_WORD
-    device_class: TEMPERATURE
-    #unit_of_measurement: "Celsius"
+    device_class: "TEMPERATURE"
+    unit_of_measurement: "°C"
     icon: "mdi:thermometer"
     accuracy_decimals: 2
     filters:
