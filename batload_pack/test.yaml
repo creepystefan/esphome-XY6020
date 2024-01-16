@@ -159,9 +159,5 @@ sensor:
  #   filters:
  #    - multiply: 0.1
 
-packages:
-  url: https://github.com/creepystefan/esphome-XY6020
-  internal_temp: !include
-    file: yml/sensors.yaml
 
   
