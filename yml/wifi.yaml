@@ -18,3 +18,5 @@ ota:
 api:
   encryption:
     key: !secret xykey
+
+captive_portal:
