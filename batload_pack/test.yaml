@@ -160,8 +160,8 @@ sensor:
  #    - multiply: 0.1
 
 packages:
-  url
+  url: https://github.com/creepystefan/esphome-XY6020
   left_garage_door: !include
-    file: garage-door.yaml
+    file: yml/sensors.yaml
 
   
