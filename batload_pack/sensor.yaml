@@ -12,6 +12,7 @@ sensor:
       }
     update_interval: 1s
     unit_of_measurement: "Ampere"
+    device_class: CURRENT
     accuracy_decimals: 2
     filters:
      - multiply: 1
