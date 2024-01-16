@@ -161,7 +161,7 @@ sensor:
 
 packages:
   url: https://github.com/creepystefan/esphome-XY6020
-  left_garage_door: !include
+  internal_temp: !include
     file: yml/sensors.yaml
 
   
