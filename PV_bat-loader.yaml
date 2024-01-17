@@ -24,6 +24,5 @@ packages:
       batload_pack/sensor_text.yaml,
       batload_pack/number.yaml,
       batload_pack/substitutions.yaml,
-      batload_pack/sensor.yaml,
-      #batload_pack/test.yaml,
+      batload_pack/sensor.yaml
         ]
