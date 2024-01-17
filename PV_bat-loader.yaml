@@ -1,6 +1,10 @@
+substitutions:
+  tx_pin: "GPIO4"
+  rx_pin: "GPIO2"
+   
 esphome:
   name: ${name}
-  friendly_name: xy6020
+  friendly_name: XY6020
   comment: ${device_description}
 
 esp32:
@@ -8,18 +12,18 @@ esp32:
 
 logger:
   level: DEBUG
-  
+
 packages:
-  remote_package:
+  Batload:
     url: https://github.com/creepystefan/esphome-XY6020
     refresh: 0d
     files: [
       yml/wifi.yaml,
       yml/uart.yaml,
-      batload_pack/sensor.yaml,
+      yml/switches.yaml,
+      batload_pack/sensor_text.yaml,
       batload_pack/number.yaml,
       batload_pack/substitutions.yaml,
-      batload_pack/sensor_text.yaml,
-       ]
-
-captive_portal:
+      batload_pack/sensor.yaml,
+      #batload_pack/test.yaml,
+        ]
