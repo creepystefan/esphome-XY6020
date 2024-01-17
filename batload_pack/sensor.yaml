@@ -3,7 +3,7 @@ sensor:
     name: "currentforset"
     id: currentforset 
     lambda: !lambda |-
-      if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0) {
+      if ((id(currentset).state + (id(powerinout).state / id(actualvoltage).state)<= 0) && (id(batvoltage).state >= id(underbatvolt).state)) {
         return 0; }
       if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) >= 5) {
         return id(maxloadcurrent).state;
@@ -12,22 +12,16 @@ sensor:
       }
     update_interval: 1s
     unit_of_measurement: "Ampere"
-    device_class: CURRENT
     accuracy_decimals: 2
     filters:
      - multiply: 1
     
-#if (id(batvoltage).state <= 24.5) and id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0 {
- #       return 0.5;
-
-#if (id(batvoltage).state <= 24.5) and (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) <= 0) {
-      #  return 0.5;
 
   - platform: template
-    name: Strom zum setzen
-    id: currentset1
+    name: "Strom zum setzen"
+    id: currentforset1
     lambda: |-
-      if (id(batvoltage).state <= 24.5) {
+      if ((id(batvoltage).state <= id(underbatvolt).state) && (id(currentforset).state <= 0)) {
         return 0.5;
       } else {
         return id(currentforset).state;
@@ -42,7 +36,29 @@ sensor:
          - number.set:
              id: currentset
              value: !lambda |-
-                return id(currentset1).state;
+                return id(currentforset1).state;
+
+
+#  - platform: template
+#    name: "Spannung Setzen"
+#    id: voltageforset
+#    lambda: |-
+#      if (id(currentforset1).state <= 0) {
+#        return 24.5;
+#      } else {
+#        return 29;
+#      }
+#    update_interval: 1s
+#    unit_of_measurement: "Voltage"
+#    accuracy_decimals: 2
+#    filters:
+#     - multiply: 1
+#    on_value:
+#       then:
+#         - number.set:
+#             id: voltageset
+#             value: !lambda |-
+#                return id(voltageforset).state;
 
   - platform: homeassistant
     id: shelly_power
@@ -69,7 +85,8 @@ sensor:
     address: 0x00
     register_type: "holding"
     value_type: U_WORD
-    unit_of_measurement: "V"
+    #unit_of_measurement: "V"
+    device_class: VOLTAGE
     icon: "mdi:water-percent"
     accuracy_decimals: 2
     filters:
@@ -81,8 +98,7 @@ sensor:
     address: 0x01
     register_type: "holding"
     value_type: U_WORD
-    device_class: CURRENT
-    #unit_of_measurement: "Ampere"
+    unit_of_measurement: "Ampere"
     accuracy_decimals: 2
     filters:
      - multiply: 0.01
@@ -103,8 +119,8 @@ sensor:
     address: 0x03
     register_type: "holding"
     value_type: U_WORD
-    #device_class: CURRENT
-    unit_of_measurement: "Ampere"
+    device_class: CURRENT
+    #unit_of_measurement: "Ampere"
     accuracy_decimals: 2
     filters:
      - multiply: 0.01
@@ -125,7 +141,7 @@ sensor:
     register_type: "holding"
     value_type: U_WORD
     #unit_of_measurement: "Volt"
-    device_class: "VOLTAGE"
+    device_class: VOLTAGE
     accuracy_decimals: 2
     filters:
      - multiply: 0.01
@@ -136,11 +152,11 @@ sensor:
     address: 0x0D
     register_type: "holding"
     value_type: U_WORD
-    device_class: TEMPERATURE
-    #unit_of_measurement: "Celsius"
+    device_class: "TEMPERATURE"
+    unit_of_measurement: "°C"
     icon: "mdi:thermometer"
     accuracy_decimals: 2
     filters:
      - multiply: 0.1
 
-         
+
