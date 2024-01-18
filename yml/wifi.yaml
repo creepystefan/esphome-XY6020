@@ -1,8 +1,3 @@
-esphome:
-  name: ${esp_name}
-  friendly_name: ${freindly_name}
-  comment: ${device_description}
-
 web_server:
   port: 9005
 
