@@ -1,15 +1,11 @@
 substitutions:
+  esp_name: "xy6020"
+  friendly_name: "XY6020"
+  esp_version: "32" #32 or 8266
+  esp_board: "nodemcu-32s"
   tx_pin: "GPIO4"
   rx_pin: "GPIO2"
-   
-esphome:
-  name: ${name}
-  friendly_name: XY6020
-  comment: ${device_description}
-
-esp32:
-  board: nodemcu-32s
-
+  
 logger:
   level: DEBUG
 
@@ -18,11 +14,14 @@ packages:
     url: https://github.com/creepystefan/esphome-XY6020
     refresh: 0d
     files: [
+      yml/core.yaml,
       yml/wifi.yaml,
       yml/uart.yaml,
       yml/switches.yaml,
       batload_pack/sensor_text.yaml,
       batload_pack/number.yaml,
       batload_pack/substitutions.yaml,
-      batload_pack/sensor.yaml
+      #batload_pack/sensor.yaml,
+      batload_pack/test.yaml,
+      #yml/sensors.yaml
         ]
