@@ -46,7 +46,7 @@ text_sensor:
 
   - platform: modbus_controller
     modbus_controller_id: sdm
-    name: Power On Off
+    name: Key Lock Switch
     register_type: holding
     address: 0x12
     bitmask: 1
