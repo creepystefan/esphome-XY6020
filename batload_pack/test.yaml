@@ -65,6 +65,7 @@ sensor:
     entity_id: ${powermess}
     unit_of_measurement: "W"
     accuracy_decimals: 4
+    update_interval: 1s
     filters:
      - multiply: 1 
 
@@ -73,7 +74,7 @@ sensor:
     id: powerinout
     lambda: |-
        return id(shelly_power).state - id(shelly_power).state - id(shelly_power).state;
-    update_interval: 1ms
+    update_interval: 1s
     unit_of_measurement: "Watt"
     accuracy_decimals: 4
     filters:
