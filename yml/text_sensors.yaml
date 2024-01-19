@@ -29,7 +29,7 @@ text_sensor:
         
   - platform: modbus_controller
     modbus_controller_id: sdm
-    name: "Power text"
+    name: "Power ON OFF"
     register_type: holding
     address: 0x12
     bitmask: 1
@@ -60,16 +60,6 @@ text_sensor:
         } else {
           return {"Error"};
         }
-
-  - platform: template
-    name: "Tastensperre"
-    lambda: |-
-      if (id(keylock).state) {
-        return {"locked"};
-      } else {
-        return {"unlock"};
-      }
-    update_interval: 1s
 
   - platform: modbus_controller
     modbus_controller_id: sdm
