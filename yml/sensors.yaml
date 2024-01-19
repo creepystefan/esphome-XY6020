@@ -200,7 +200,7 @@ sensor:
   
   - platform: modbus_controller
     name: "M050"
-    address: ${M050}
+    address: 0x50
     force_new_range: true
     register_type: "holding"
     value_type: U_WORD
@@ -211,7 +211,7 @@ sensor:
 
   - platform: modbus_controller
     name: "M051 Current Setting"
-    address: ${M051}
+    address: 0x51
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "A"
@@ -221,7 +221,7 @@ sensor:
 
   - platform: modbus_controller
     name: "M052 Low Voltage Protected"
-    address: ${M052}
+    address: 0x52
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "V"
@@ -231,7 +231,7 @@ sensor:
 
   - platform: modbus_controller
     name: "M053 Over Voltage Protected"
-    address: ${M053}
+    address: 0x53
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "V"
@@ -241,7 +241,7 @@ sensor:
      
   - platform: modbus_controller
     name: "M054 Over Current Protect"
-    address: ${M054}
+    address: 0x54
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "A"
@@ -251,7 +251,7 @@ sensor:
 
   - platform: modbus_controller
     name: "M055 Over Power Protected"
-    address: ${M055}
+    address: 0x55
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "W"
@@ -261,7 +261,7 @@ sensor:
 
   - platform: modbus_controller
     name: "M056 Maximum Output Time Hours"
-    address: ${M056}
+    address: 0x56
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "Hours"
@@ -270,8 +270,8 @@ sensor:
      - multiply: 0.01
 
   - platform: modbus_controller
-    name: "M057"
-    address: ${M057}
+    name: "M57"
+    address: 0x57
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "V"
@@ -281,7 +281,7 @@ sensor:
 
   - platform: modbus_controller
     name: "M058"
-    address: ${M058}
+    address: 0x58
     register_type: "holding"
     value_type: U_WORD
     unit_of_measurement: "V"
