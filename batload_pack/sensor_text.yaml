@@ -17,6 +17,16 @@ text_sensor:
         } else {
           return {"Error"};
         }
+
+  - platform: modbus_controller
+    modbus_controller_id: sdm
+    name: Power On Off
+    register_type: holding
+    address: 0x12
+    bitmask: 1
+    raw_encode: NONE
+
+
           
   - platform: modbus_controller
     modbus_controller_id: sdm
