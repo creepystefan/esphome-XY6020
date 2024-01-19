@@ -30,7 +30,7 @@ sensor:
     filters:
      - multiply: 0.01
 
-   - platform: modbus_controller
+  - platform: modbus_controller
     name: "Aktueller Strom"
     address: 0x03
     register_type: "holding"
