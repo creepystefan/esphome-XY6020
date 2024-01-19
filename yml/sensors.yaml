@@ -101,13 +101,6 @@ sensor:
     filters:
      - multiply: 0.01
   
-# Output over Text_Sensor  !!!!!!!!
-#id: protect_state
-#address: 0x10
-#register_type: "holding"
-#value_type: U_WORD
-  
-   
   - platform: modbus_controller
     name: "Open Time Hours"
     address: 0x0A
@@ -162,6 +155,12 @@ sensor:
     accuracy_decimals: 2
     filters:
      - multiply: 0.1
+
+# Output over Text_Sensor  !!!!!!!!
+#id: protect_state
+#address: 0x10
+#register_type: "holding"
+#value_type: U_WORD
 
 # state over Text_Sensor    
 #name: "Power Switch On-Off"
