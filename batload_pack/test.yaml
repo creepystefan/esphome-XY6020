@@ -65,7 +65,6 @@ sensor:
     entity_id: ${powermess}
     unit_of_measurement: "W"
     accuracy_decimals: 4
-    update_interval: 1s
     filters:
      - multiply: 1 
 
