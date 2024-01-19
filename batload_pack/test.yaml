@@ -24,7 +24,7 @@ sensor:
       if ((id(batvoltage).state <= id(underbatvolt).state) && (id(currentforset).state <= 0)) {
         return 0.5;
       } else {
-        return (id(currentforset).state - 0.5);
+        return id(currentforset).state;
       }
     update_interval: 10s
     unit_of_measurement: "Ampere"
