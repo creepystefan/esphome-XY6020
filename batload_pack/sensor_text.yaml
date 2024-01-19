@@ -1,33 +1,7 @@
 text_sensor:
 
 
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "Power text"
-    register_type: holding
-    address: 0x12
-    #bitmask: 1
-    #raw_encode: HEXBYTES
-    filters:
-      lambda: |-
-        if(x == "0000") {
-          return {"OFF"};  
-        } else if(x == "0001") {
-          return {"ON"};
-        } else {
-          return {"Error"};
-        }
-
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "Poweronoff state"
-    register_type: holding
-    address: 0x12
-    bitmask: 1
-    raw_encode: NONE
-
-
-          
+            
   - platform: modbus_controller
     modbus_controller_id: sdm
     name: Protect Status
