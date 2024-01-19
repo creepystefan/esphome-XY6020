@@ -10,10 +10,10 @@ text_sensor:
     raw_encode: HEXBYTES
     filters:
       lambda: |-
-        if(x == "00000000") {
-          return {"unlock"};  
-        } else if(x == "00010000") {
-          return {"locked"};
+        if(x == "0") {
+          return {"OFF"};  
+        } else if(x == "1") {
+          return {"ON"};
         } else {
           return {"Error"};
         }
