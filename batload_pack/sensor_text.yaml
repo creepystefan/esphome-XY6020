@@ -1,5 +1,22 @@
 text_sensor:
 
+
+  - platform: modbus_controller
+    modbus_controller_id: sdm
+    name: Power On Off
+    register_type: holding
+    address: 0x12
+    bitmask: 1
+    raw_encode: HEXBYTES
+    filters:
+      lambda: |-
+        if(x == "00000000") {
+          return {"unlock"};  
+        } else if(x == "00010000") {
+          return {"locked"};
+        } else {
+          return {"Error"};
+        }
           
   - platform: modbus_controller
     modbus_controller_id: sdm
