@@ -2,7 +2,7 @@ text_sensor:
   
   - platform: modbus_controller
     modbus_controller_id: sdm
-    name: "Power text"
+    name: "Power On Off"
     register_type: holding
     address: 0x12
     bitmask: 1
