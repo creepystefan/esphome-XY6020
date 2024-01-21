@@ -1,3 +1,7 @@
+
+
+
+
 sensor:
   - platform: template
     name: "currentforset"
@@ -26,7 +30,7 @@ sensor:
       } else {
         return id(currentforset).state;
       }
-    update_interval: 10s
+    update_interval: 1s
     unit_of_measurement: "Ampere"
     accuracy_decimals: 2
     filters:
