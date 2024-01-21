@@ -5,7 +5,7 @@ text_sensor:
     name: "CV / CC"
     register_type: holding
     address: 0x11
-    bitmask: 1
+    #bitmask: 1
     raw_encode: HEXBYTES
     #filters:
     #  lambda: |-
