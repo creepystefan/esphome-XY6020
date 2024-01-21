@@ -1,6 +1,6 @@
 text_sensor:
 
- - platform: modbus_controller
+  - platform: modbus_controller
     modbus_controller_id: sdm
     name: "CV / CC"
     register_type: holding
