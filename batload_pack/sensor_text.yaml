@@ -7,15 +7,15 @@ text_sensor:
     address: 0x11
     bitmask: 1
     raw_encode: HEXBYTES
-    filters:
-      lambda: |-
-        if(x == "0000") {
-          return {"CV"};  
-        } else if(x == "0001") {
-          return {"CC"};
-        } else {
-          return {"ERROR"};
-        }
+    #filters:
+    #  lambda: |-
+    #    if(x == "0000") {
+    #      return {"CV"};  
+    #    } else if(x == "0001") {
+    #      return {"CC"};
+    #    } else {
+    #      return {"ERROR"};
+    #    }
   
   - platform: modbus_controller
     modbus_controller_id: sdm
