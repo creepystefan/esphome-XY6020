@@ -10,11 +10,11 @@ text_sensor:
     filters:
       lambda: |-
         if(x == "0000") {
-          return {"OFF"};  
+          return {"CV"};  
         } else if(x == "0001") {
-          return {"CV"};
-        } else {
           return {"CC"};
+        } else {
+          return {"ERROR"};
         }
   
   - platform: modbus_controller
