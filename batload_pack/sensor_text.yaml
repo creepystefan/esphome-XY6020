@@ -1,13 +1,13 @@
 text_sensor:
 
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "CV / CC"
-    register_type: holding
-    address: 0x11
-    #bitmask: 1
-    raw_encode: HEXBYTES
-    #filters:
+  #- platform: modbus_controller
+  #  modbus_controller_id: sdm
+  #  name: "CV / CC"
+  #  register_type: holding
+  #  address: 0x11
+  #  #bitmask: 1
+  #  raw_encode: HEXBYTES
+  #  #filters:
     #  lambda: |-
     #    if(x == "0000") {
     #      return {"CV"};  
