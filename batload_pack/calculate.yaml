@@ -9,7 +9,7 @@ sensor:
     lambda: !lambda |-
       if ((id(currentset).state + (id(powerinout).state / id(actualvoltage).state)<= 0) && (id(batvoltage).state >= id(underbatvolt).state)) {
         return 0; }
-      else if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) >= 10) {
+      if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) >= 10) {
         return id(maxloadcurrent).state;
       } else {
         return id(currentset).state + (id(powerinout).state / id(actualvoltage).state);
