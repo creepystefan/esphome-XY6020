@@ -3,9 +3,9 @@ substitutions:
   device_description: "Monitor and control a xy6020 Digital Control Power Supply via UART-TTL"
 
 esphome:
-  name: ${name}
-  friendly_name: xy6020
-  comment: ${device_description}
+  name: xy6020
+  #friendly_name: xy6020
+  comment: "Monitor and control a xy6020 Digital Control Power Supply via UART-TTL"
 
 #        Entsprechend die Daten Anpassen von dem zu verwendenden ESP 
 esp32:
