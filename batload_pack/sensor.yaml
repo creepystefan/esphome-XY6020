@@ -69,7 +69,7 @@ sensor:
     name: "Shelly-Power"
     id: powerinout
     lambda: |-
-       return id(shelly_power).state - id(shelly_power).state - id(shelly_power).state;
+       return (id(shelly_power).state - id(shelly_power).state - id(shelly_power).state) + id(manipulate).state;
     update_interval: 1s
     unit_of_measurement: "Watt"
     accuracy_decimals: 4
