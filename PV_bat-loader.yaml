@@ -22,5 +22,4 @@ packages:
       batload_pack/number.yaml,
       batload_pack/substitutions.yaml,
       batload_pack/sensor.yaml,
-      batload_pack/calculate.yaml,
         ]
