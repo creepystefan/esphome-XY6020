@@ -1,6 +1,6 @@
 substitutions:
-  name: "xy6020"
-  device_description: "Batterie Laden mit Übereinspeisung"
+  #name: "xy6020"
+  #device_description: "Batterie Laden mit Übereinspeisung"
   
 
   powermess: !secret powmess
