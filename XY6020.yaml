@@ -25,8 +25,13 @@ wifi:
 
 
 #       falls kein MQTT Broker verwendet wird auskommentiert lassen.
+#  ! Warning     !!!!!!!!!!!!!!!!
+#    If you enable MQTT and you do not use the “native API” for Home Assistant,
+#    you must remove the api: line from your ESPHome configuration, otherwise the ESP will
+#    reboot every 15 minutes because no client connected to the native API.
 #mqtt:
 #  broker: !secret mqtt_IP
+#  port: 8883
 #  username: !secret mqtt_user
 #  password: !secret mqtt_password
 
