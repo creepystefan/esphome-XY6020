@@ -10,7 +10,7 @@ uart:
       dummy_receiver: true
 
 modbus:
-  send_wait_time: 0.7s
+  send_wait_time: 1s
   uart_id: uart_bus1
   id: mod_bus
 
