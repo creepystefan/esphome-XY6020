@@ -7,7 +7,7 @@ number:
      unit_of_measurement: "Watt"
      #min_value: 24.2
      #max_value: 28
-     #step: 0.1
+     step: 10
    
    - platform: template
      name: "Under Batterie Volt"
