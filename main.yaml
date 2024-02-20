@@ -3,8 +3,40 @@ esphome:
   friendly_name: xy6020
   comment: ${device_description}
 
+#        Entsprechend die Daten Anpassen von dem zu verwendenden ESP 
 esp32:
   board: nodemcu-32s
+
+#web_server:
+#  port: 9005
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  #manual_ip:
+  #  static_ip: !secret xy6020_IP
+  #  gateway: !secret gateway
+  #  subnet: !secret subnet
+  
+  #ap:
+  #  ssid: "xy6020 Fallback Hotspot"
+  #  password: "UEikMwV1wqU8"
+
+
+#       falls kein MQTT Broker verwendet wird auskommentiert lassen.
+#mqtt:
+#  broker: !secret mqtt_IP
+#  username: !secret mqtt_user
+#  password: !secret mqtt_password
+
+ota:
+  password: !secret xyota
+
+api:
+  encryption:
+    key: !secret xykey
+
+captive_portal:
 
 logger:
   level: DEBUG
@@ -20,8 +52,7 @@ packages:
       yml/text_senssor.yaml,
       yml/uart.yaml,
       yml/substitutions.yaml,
-      yml/wifi.yaml,
-      ]
+       ]
 
 
 
