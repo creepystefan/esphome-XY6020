@@ -46,7 +46,7 @@ sensor:
       if (id(currentforset1).state <= 0.5) {
         return 24.5;
       } else {
-        return id(currentforset).state;
+        return id(batloadvoltage).state;
       }
     update_interval: 1s
     accuracy_decimals: 2
