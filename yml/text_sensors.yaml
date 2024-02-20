@@ -48,7 +48,7 @@ text_sensor:
     modbus_controller_id: sdm
     name: "CV / CC"
     register_type: holding
-    address: 0x12
+    address: 0x11
     bitmask: 1
     raw_encode: HEXBYTES
     filters:
