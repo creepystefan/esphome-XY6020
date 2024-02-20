@@ -51,6 +51,7 @@ captive_portal:
 logger:
   level: DEBUG
 
+#            Packages for Modbus Controller and XY6020 Functions
 packages:
   remote_package:
     url: https://github.com/creepystefan/esphome-XY6020
