@@ -123,7 +123,7 @@ sensor:
      - multiply: 0.01
 
   - platform: modbus_controller
-    name: "Leistung am Ausgang"
+    name: "Ladeleistung"
     address: 0x04
     register_type: "holding"
     value_type: U_WORD
