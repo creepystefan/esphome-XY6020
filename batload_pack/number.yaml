@@ -1,5 +1,15 @@
 number:
    - platform: template
+     name: "PV-Manipulate"
+     id: manipulate
+     mode: box
+     optimistic: true
+     unit_of_measurement: "Watt"
+     #min_value: 24.2
+     #max_value: 28
+     #step: 0.1
+   
+   - platform: template
      name: "Under Batterie Volt"
      id: underbatvolt
      mode: box
@@ -8,7 +18,6 @@ number:
      min_value: 24.2
      max_value: 28
      step: 0.1
-
    
    - platform: template
      name: "Max Ladestrom"
