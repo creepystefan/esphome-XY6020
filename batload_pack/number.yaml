@@ -5,8 +5,8 @@ number:
      mode: box
      optimistic: true
      unit_of_measurement: "Watt"
-     #min_value: 24.2
-     #max_value: 28
+     min_value: -500
+     max_value: 500
      step: 10
    
    - platform: template
