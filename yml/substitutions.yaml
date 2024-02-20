@@ -32,7 +32,7 @@ substitutions:
       # 8 = OEP
       # 9 = OWH
       #10 = ICP
-  CVCC: "0x11"     # Constant voltage and constant current   Stage R
+  CVCC: "0x11"     # Constant voltage and constant current   State R
   ONOFF: "0x12"
   baudrate: "0x19" # baudrate                         R/W
       # 0 = ?
