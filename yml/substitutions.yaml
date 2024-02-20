@@ -4,7 +4,7 @@ substitutions:
           # Register
   # 0x00           # Voltage Setting          Volt    R/W
   # 0x01           # Current Setting          Ampere  R/W
-  # 0x02"          # Voltage value display    Voltage  R
+  # 0x02           # Voltage value display    Voltage  R
   # 0x03           # Current value display    Ampere   R
   # 0x04           # Power in Watt Output     Watt     R
   # 0x05           # Input Voltage            Voltage  R
@@ -60,12 +60,12 @@ substitutions:
    # Values for Number - Settings
   V_set_max: "65"
   V_set_min: "0"
-  i_set_max: "10"
-  i_set_min: "0.2"
-  i_set_step: "0.1"
-  u_set_OVP_max: "65"
+  i_set_max: "21"
+  i_set_min: "0"
+  i_set_step: "0.01"
+  u_set_OVP_max: "66"
   u_set_OVP_min: "0"
-  i_set_OVP_max: "21"
+  i_set_OVP_max: "22"
   i_set_OVP_min: "0"
   i_set_temp_min: "0"
   i_set_temp_max: "95"
