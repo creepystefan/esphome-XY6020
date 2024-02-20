@@ -1,7 +1,7 @@
 substitutions:
-  name: "xy6020"
-  device_description: "Monitor and control a xy6020 Digital Control Power Supply via UART-TTL"
-
+  tx_pin: "GPIO4"
+  rx_pin: "GPIO2"
+  
 esphome:
   name: xy6020
   #friendly_name: xy6020
@@ -61,7 +61,6 @@ packages:
       yml/switches.yaml,
       yml/text_senssor.yaml,
       yml/uart.yaml,
-      yml/substitutions.yaml,
        ]
 
 
