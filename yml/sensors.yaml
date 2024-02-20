@@ -256,7 +256,7 @@ sensor:
      - multiply: 1.0
 
   - platform: modbus_controller
-    name: "M056 Maximum Output Time Hours"
+    name: "Maximum Output Time Hours"
     address: 0x56
     register_type: "holding"
     value_type: U_WORD
@@ -296,7 +296,7 @@ sensor:
      - multiply: 0.01
 
   - platform: modbus_controller
-    name: "M05C Set Over Temreture Protected"
+    name: "Set Over Temreture Protected"
     address: 0x5C
     register_type: "holding"
     value_type: U_WORD
