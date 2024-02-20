@@ -46,6 +46,23 @@ text_sensor:
 
   - platform: modbus_controller
     modbus_controller_id: sdm
+    name: "CV / CC"
+    register_type: holding
+    address: 0x12
+    bitmask: 1
+    raw_encode: HEXBYTES
+    filters:
+      lambda: |-
+        if(x == "0000") {
+          return {"CV"};  
+        } else if(x == "0001") {
+          return {"CC"};
+        } else {
+          return {"Error"};
+        }      
+
+  - platform: modbus_controller
+    modbus_controller_id: sdm
     name: Key Lock Switch
     register_type: holding
     address: 0x0F
