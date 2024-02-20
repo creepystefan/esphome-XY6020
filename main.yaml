@@ -14,6 +14,7 @@ packages:
     url: https://github.com/creepystefan/esphome-XY6020
     refresh: 0d
     files: [
+      yml/core.yaml,
       yml/sensors.yaml,
       yml/numbers.yaml,
       yml/switches.yaml,
