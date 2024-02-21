@@ -14,7 +14,7 @@ switch:
      name: "EIN-AUS Schalter"
      id: onoff
      register_type: holding
-     address: 0x12
+     address: 0x5D
      bitmask: 1
      entity_category: config
      icon: "mdi:toggle-switch"  
