@@ -9,15 +9,15 @@ text_sensor:
     bitmask: 0
     #raw_encode: HEXBYTES
     raw_encode: NONE
-    filters:
-      lambda: |-
-        if(x == "0000") {
-          return {"CV"};  
-        } else if(x == "0001") {
-          return {"CC"};
-        } else {
-          return {"ERROR"};
-        }
+    #filters:
+    #  lambda: |-
+    #    if(x == "0000") {
+    #      return {"CV"};  
+    #    } else if(x == "0001") {
+    #      return {"CC"};
+    #    } else {
+    #      return {"ERROR"};
+    #    }
   
   - platform: modbus_controller
     modbus_controller_id: sdm
@@ -27,15 +27,15 @@ text_sensor:
     bitmask: 1
     response_size: 4
     raw_encode: NONE
-    filters:
-      lambda: |-
-        if(x == "0000") {
-          return {"OFF"};  
-        } else if(x == "0001") {
-          return {"ON"};
-        } else {
-          return {"Error"};
-        }
+    #filters:
+    #  lambda: |-
+    #    if(x == "0000") {
+    #      return {"OFF"};  
+    #    } else if(x == "0001") {
+    #      return {"ON"};
+    #    } else {
+    #      return {"Error"};
+    #    }
 
             
   - platform: modbus_controller
@@ -47,32 +47,32 @@ text_sensor:
     register_type: holding
     address: 0x10
     raw_encode: NONE
-    filters:
-      lambda: |-
-        if (x == "0000") {
-          return {"Normal"};  
-        } else if(x == "0001") {
-          return {"Over Voltage Protected"};
-        } else if(x == "0002") {
-          return {"Over Current Protected"};
-        } else if(x == "0003") {
-          return {"Over Power Protected"};
-        } else if(x == "0004") {
-          return {"LVP"};
-        } else if(x == "0005") {
-          return {"OAH"};  
-        } else if(x == "0006") {
-          return {"OHP"};
-        } else if(x == "0007") {
-          return {"Over Tempreture Protected"};
-        } else if(x == "0008") {
-          return {"OEP"};
-        } else if(x == "0009") {
-          return {"OWH"};
-        } else if(x == "0010") {
-          return {"ICP"};
-        } else {
-          return {"Error"};
-        }
+    #filters:
+    #  lambda: |-
+    #    if (x == "0000") {
+    #      return {"Normal"};  
+    #    } else if(x == "0001") {
+    #      return {"Over Voltage Protected"};
+    #    } else if(x == "0002") {
+    #      return {"Over Current Protected"};
+    #    } else if(x == "0003") {
+    #      return {"Over Power Protected"};
+    #    } else if(x == "0004") {
+    #      return {"LVP"};
+    #    } else if(x == "0005") {
+    #      return {"OAH"};  
+    #    } else if(x == "0006") {
+    #      return {"OHP"};
+    #    } else if(x == "0007") {
+    #      return {"Over Tempreture Protected"};
+    #    } else if(x == "0008") {
+    #      return {"OEP"};
+    #    } else if(x == "0009") {
+    #      return {"OWH"};
+    #    } else if(x == "0010") {
+    #      return {"ICP"};
+    #    } else {
+    #      return {"Error"};
+    #    }
   
   
