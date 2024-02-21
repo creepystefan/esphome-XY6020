@@ -18,6 +18,7 @@ packages:
       yml/wifi.yaml,
       yml/uart.yaml,
       yml/switches.yaml,
+      yml/button.yaml,
       batload_pack/sensor_text.yaml,
       batload_pack/number.yaml,
       batload_pack/substitutions.yaml,
