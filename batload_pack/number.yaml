@@ -1,7 +1,7 @@
 number:
    - platform: modbus_controller
      modbus_controller_id: sdm
-     #name: "Spannung Einstellen"
+     name: "Call State"
      id: caller
      address: 0x1D
      #unit_of_measurement: "Volt"
