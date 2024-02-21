@@ -1,0 +1,7 @@
+button:
+  - platform: template
+    name: Protect Aufheben
+    on_press:
+      - number.set:
+             id: protectclear
+             value: 00
