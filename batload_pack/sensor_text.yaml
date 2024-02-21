@@ -11,14 +11,15 @@ text_sensor:
     #raw_encode: NONE
     filters:
       lambda: |-
-        if(x == "0000") {
-          return {"CV"};  
-        } else if(x == "0001") {
-          return {"CC"};
-        } else {
-          return {"ERROR"};
-        }
-  
+    #    if(x == "0000") {
+    #      return {"CV"};  
+    #    } else if(x == "0001") {
+    #      return {"CC"};
+    #    } else {
+    #      return {"ERROR"};
+    #    }
+      return x;
+      
   - platform: modbus_controller
     modbus_controller_id: sdm
     name: "Power On Off"
