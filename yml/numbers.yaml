@@ -28,7 +28,7 @@ number:
      id: protectclear
      address: 0x10
      min_value: 0
-     max_value: 0
+     max_value: 1
      step: 1
      value_type: U_WORD
 
