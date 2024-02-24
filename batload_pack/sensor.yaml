@@ -16,11 +16,7 @@ sensor:
     filters:
      - multiply: 1
 
-    bat_undervoltage: "23"   # Minimum Bat Voltage 
-  bat_holdvoltage: "27.4"  # Voltage to hold Loading
-
-
-  - platform: template
+   - platform: template
     name: "Strom zum setzen"
     id: currentforset1
     lambda: |-
@@ -47,7 +43,7 @@ sensor:
     id: voltageforset
     lambda: |-
       if (id(currentforset1).state <= 0.5) {
-        return 24.5;
+        return ${bat_undervoltage};
       } else {
         return ${bat_loadvoltage};
       }
