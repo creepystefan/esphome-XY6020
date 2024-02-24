@@ -28,7 +28,7 @@ number:
      unit_of_measurement: "Watt"
      initial_value: 0
      min_value: -500
-     max_value: 500
+     max_value: 2000
      step: 10
    
    - platform: template
