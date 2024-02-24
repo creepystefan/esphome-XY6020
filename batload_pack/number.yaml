@@ -19,15 +19,14 @@ number:
      step: 0.1
      value_type: U_WORD
      multiply: 100.0
-   
-   
-   
+      
    - platform: template
      name: "PV-Manipulate"
      id: manipulate
      mode: slider
      optimistic: true
      unit_of_measurement: "Watt"
+     initial_value: 0
      min_value: -500
      max_value: 500
      step: 10
