@@ -1,7 +1,0 @@
-esphome:
-  name: ${esp_name}
-  friendly_name: ${friendly_name}
-  comment: ${device_description}
-
-esp${esp_version}:
-  board: ${esp_board}
