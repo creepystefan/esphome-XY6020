@@ -16,7 +16,7 @@ sensor:
     filters:
      - multiply: 1
 
-   - platform: template
+  - platform: template
     name: "Strom zum setzen"
     id: currentforset1
     lambda: |-
