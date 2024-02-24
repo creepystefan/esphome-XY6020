@@ -20,6 +20,9 @@ substitutions:
   i_set_OVP_min: "0"
   i_set_temp_min: "0"
   i_set_temp_max: "95"  
+  bat_loadvoltage: "28"    # Loadvoltage for Battery
+  bat_undervoltage: "23"   # Minimum Bat Voltage 
+  bat_holdvoltage: "27.4"  # Voltage to hold Loading
 
 esphome:
   name: ${esp_name}
