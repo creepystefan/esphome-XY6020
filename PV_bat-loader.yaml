@@ -5,8 +5,7 @@ substitutions:
   esp_board: "nodemcu-32s"
   tx_pin: "GPIO4"
   rx_pin: "GPIO2"
-  #name: "xy6020"
-  #device_description: "Batterie Laden mit Übereinspeisung"
+  device_description: "Batterie Laden mit Übereinspeisung"
   powermess: !secret powmess
   updateinterval: "15s"
   V_set_max: "30"
