@@ -31,15 +31,15 @@ number:
      max_value: 2000
      step: 10
    
-   - platform: template
-     name: "Under Batterie Volt"
-     id: underbatvolt
-     mode: box
-     optimistic: true
-     unit_of_measurement: "Volt"
-     min_value: 24.2
-     max_value: 28
-     step: 0.1
+#   - platform: template
+#     name: "Under Batterie Volt"
+#     id: underbatvolt
+#     mode: box
+#     optimistic: true
+#     unit_of_measurement: "Volt"
+#     min_value: 24.2
+#     max_value: 28
+#     step: 0.1
    
    - platform: template
      name: "Max Ladestrom"
