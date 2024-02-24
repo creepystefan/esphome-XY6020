@@ -21,6 +21,14 @@ substitutions:
   i_set_OVP_min: "0"
   i_set_temp_min: "0"
   i_set_temp_max: "95"  
+
+esphome:
+  name: ${esp_name}
+  friendly_name: ${friendly_name}
+  comment: ${device_description}
+
+esp${esp_version}:
+  board: ${esp_board}
   
 logger:
   level: DEBUG
@@ -30,7 +38,6 @@ packages:
     url: https://github.com/creepystefan/esphome-XY6020
     refresh: 0d
     files: [
-      yml/core.yaml,
       yml/wifi.yaml,
       yml/uart.yaml,
       yml/switches.yaml,
