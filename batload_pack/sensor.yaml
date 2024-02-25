@@ -192,7 +192,7 @@ sensor:
   - platform: template
     name: "CVCCTEXT"
     lambda: |-
-       return id(cvcctext).state;
+       return id(textcvcctext).state;
     update_interval: 1s
     unit_of_measurement: "Watt"
     accuracy_decimals: 4
