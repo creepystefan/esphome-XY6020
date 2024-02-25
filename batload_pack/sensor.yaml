@@ -190,9 +190,9 @@ sensor:
     value_type: U_WORD
 
   - platform: template
-    name: "Shelly-Power"
+    name: "CVCCTEXT"
     lambda: |-
-       return (id(cvcctext).state;
+       return id(cvcctext).state;
     update_interval: 1s
     unit_of_measurement: "Watt"
     accuracy_decimals: 4
