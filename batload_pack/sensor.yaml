@@ -195,6 +195,4 @@ sensor:
        return id(textcvcctext).state;
     update_interval: 1s
     unit_of_measurement: "Watt"
-    accuracy_decimals: 4
-    filters:
-     - multiply: 1          
+    
