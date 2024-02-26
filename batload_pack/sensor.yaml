@@ -182,7 +182,7 @@ sensor:
     register_type: "holding"
     value_type: U_WORD
     accuracy_decimals: 3
-     filters:
+    filters:
      - multiply: 1
     
 
@@ -193,7 +193,7 @@ sensor:
     register_type: "holding"
     value_type: U_WORD
     accuracy_decimals: 3
-     filters:
+    filters:
      - multiply: 1
     
 
@@ -204,7 +204,7 @@ sensor:
     register_type: "holding"
     value_type: U_WORD
     accuracy_decimals: 3
-     filters:
+    filters:
      - multiply: 0.01
     
 
