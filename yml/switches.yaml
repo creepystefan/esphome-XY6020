@@ -2,7 +2,7 @@ switch:
    - platform: modbus_controller
      modbus_controller_id: sdm
      name: "Tastensperre"
-     id: keylock
+     id: keylockswitch
      register_type: holding
      address: 0x0F
      bitmask: 1
