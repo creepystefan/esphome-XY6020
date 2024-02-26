@@ -169,7 +169,6 @@ sensor:
     value_type: U_WORD
 
   - platform: modbus_controller
-    name: "Sensor CV CC"
     id: cvccsensor
     address: 0x11
     register_type: "holding"
