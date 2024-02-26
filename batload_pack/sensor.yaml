@@ -39,7 +39,7 @@ sensor:
 
 
   - platform: template
-    name: "Spannung Setzen"
+    #name: "Spannung Setzen"
     id: voltageforset
     lambda: |-
       if (id(currentforset1).state <= 0.5) {
