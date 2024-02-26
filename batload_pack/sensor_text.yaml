@@ -35,9 +35,9 @@ text_sensor:
     update_interval: 0.1s
     lambda: |-
       if (id(protectsensor).state == 0) {
-        return {"Normal"};  
+        return {"CV"};  
       } else if (id(protectsensor).state == 1) {
-        return {"Over Voltage Protected"};
+        return {"CC"};
       } else { 
         return {"Error"};
       }      
