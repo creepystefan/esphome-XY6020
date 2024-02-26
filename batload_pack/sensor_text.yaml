@@ -30,7 +30,7 @@ text_sensor:
         return {"Error"};
       }
   
-  - platform: modbus_controller
+  - platform: template
     name: CV CC
     update_interval: 0.1s
     lambda: |-
