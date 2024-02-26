@@ -41,3 +41,15 @@ text_sensor:
       } else { 
         return {"Error"};
       }      
+
+  - platform: template
+    name: Power Switch On Off
+    update_interval: 0.1s
+    lambda: |-
+      if (id(poweronoff).state == 0) {
+        return {"OFF"};  
+      } else if (id(poweronoff).state == 1) {
+        return {"ON"};
+      } else { 
+        return {"Error"};
+      }      
