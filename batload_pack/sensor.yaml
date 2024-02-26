@@ -156,6 +156,12 @@ sensor:
      - multiply: 0.1
 
   - platform: modbus_controller
+    id: protectsensor
+    address: 0x10
+    register_type: "holding"
+    value_type: U_WORD
+    
+  - platform: modbus_controller
     name: "Model"
     address: 0x16
     register_type: "holding"
@@ -197,12 +203,7 @@ sensor:
      - multiply: 0.01
     
 
-  - platform: modbus_controller
-    name: "Sensor Protect"
-    id: protectsensor
-    address: 0x10
-    register_type: "holding"
-    value_type: U_WORD
+  
     
     
     
