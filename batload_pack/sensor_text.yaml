@@ -34,9 +34,9 @@ text_sensor:
     name: CV CC
     update_interval: 0.1s
     lambda: |-
-      if (id(protectsensor).state == 0) {
+      if (id(cvccsensor).state == 0) {
         return {"CV"};  
-      } else if (id(protectsensor).state == 1) {
+      } else if (id(cvccsensor).state == 1) {
         return {"CC"};
       } else { 
         return {"Error"};
