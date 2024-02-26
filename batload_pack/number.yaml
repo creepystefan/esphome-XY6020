@@ -67,9 +67,9 @@ number:
      id: voltageset
      address: 0x00
      unit_of_measurement: "Volt"
-     min_value: ${V_set_min}
-     max_value: ${V_set_max}
-     step: ${V_set_step}
+     min_value: 0
+     max_value: 65
+     step: 0.01
      value_type: U_WORD
      multiply: 100.0
      
@@ -82,9 +82,9 @@ number:
      mode: box
      address: 0x01
      unit_of_measurement: "Ampere"
-     min_value: ${i_set_min}
-     max_value: ${i_set_max}
-     step: ${i_set_step}
+     min_value: 0
+     max_value: 20
+     step: 0.01
      value_type: U_WORD
      multiply: 100.0
     
@@ -95,9 +95,9 @@ number:
      force_new_range: true
      address: 0x53
      unit_of_measurement: "Voltage"
-     min_value: ${u_set_OVP_min}
-     max_value: ${u_set_OVP_max}
-     step: ${i_set_step}
+     min_value: 0
+     max_value: 70
+     step: 0.01
      value_type: U_WORD
      multiply: 100.0
 
@@ -107,9 +107,9 @@ number:
      mode: box
      address: 0x54
      unit_of_measurement: "Ampere"
-     min_value: ${i_set_OVP_min}
-     max_value: ${i_set_OVP_max}
-     step: ${i_set_step}
+     min_value: 0
+     max_value: 21
+     step: 0.01
      value_type: U_WORD
      multiply: 100.0
 
