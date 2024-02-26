@@ -181,6 +181,8 @@ sensor:
     address: 0x10
     register_type: "holding"
     value_type: U_WORD
+    accuracy_decimals: 2
+    
 
   - platform: modbus_controller
     name: "Sensor CV CC"
@@ -188,6 +190,8 @@ sensor:
     address: 0x11
     register_type: "holding"
     value_type: U_WORD
+    accuracy_decimals: 2
+    
 
   - platform: modbus_controller
     name: "Sensor Protect"
@@ -195,7 +199,8 @@ sensor:
     address: 0x12
     register_type: "holding"
     value_type: U_WORD
-
+    accuracy_decimals: 2
+    
 
   
   
