@@ -173,25 +173,7 @@ sensor:
     register_type: "holding"
     value_type: U_WORD
     
-  - platform: modbus_controller
-    name: "Model"
-    address: 0x16
-    register_type: "holding"
-    value_type: U_WORD
-    unit_of_measurement: "Model"
-    accuracy_decimals: 0
-    filters:
-     - multiply: 1
   
-  - platform: modbus_controller
-    name: "Version"
-    address: 0x17
-    register_type: "holding"
-    value_type: U_WORD
-    unit_of_measurement: "Version"
-    accuracy_decimals: 1
-    filters:
-     - multiply: 1
 
     
   
