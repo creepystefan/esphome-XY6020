@@ -52,3 +52,18 @@ text_sensor:
       } else { 
         return {"Error"};
       }      
+
+  - platform: template
+    name: Power Switch On Off
+    update_interval: 0.1s
+    lambda: |-
+      if (id(keylock).state == 0) {
+        return {"Unlock"};  
+      } else if (id(keylock).state == 1) {
+        return {"Locked"};
+      } else { 
+        return {"Error"};
+      }      
+
+
+ 
