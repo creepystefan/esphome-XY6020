@@ -156,11 +156,11 @@ sensor:
     filters:
      - multiply: 0.1
 
-# Output over Text_Sensor  !!!!!!!!
-#id: protect_state
-#address: 0x10
-#register_type: "holding"
-#value_type: U_WORD
+  - platform: modbus_controller
+    id: protectsensor
+    address: 0x10
+    register_type: "holding"
+    value_type: U_WORD
 
 # CV/CC state over Text_Sensor    
 #name: "CV / CC"
