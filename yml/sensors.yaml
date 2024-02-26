@@ -157,6 +157,12 @@ sensor:
      - multiply: 0.1
 
   - platform: modbus_controller
+    id: keylock
+    address: 0x0F
+    register_type: "holding"
+    value_type: U_WORD
+
+  - platform: modbus_controller
     id: protectsensor
     address: 0x10
     register_type: "holding"
