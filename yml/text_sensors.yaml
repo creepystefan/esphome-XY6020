@@ -54,7 +54,7 @@ text_sensor:
       }      
 
   - platform: template
-    name: Power Switch On Off
+    name: Tastensperre
     update_interval: 0.1s
     lambda: |-
       if (id(keylock).state == 0) {
