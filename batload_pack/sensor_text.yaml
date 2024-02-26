@@ -30,3 +30,14 @@ text_sensor:
         return {"Error"};
       }
   
+  - platform: modbus_controller
+    name: "CV / CC"
+    update_interval: 0.1s
+    lambda: |-
+      if (id(protectsensor).state == 0) {
+        return {"Normal"};  
+      } else if (id(protectsensor).state == 1) {
+        return {"Over Voltage Protected"};
+      } else { 
+        return {"Error"};
+      }      
