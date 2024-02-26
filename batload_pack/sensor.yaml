@@ -178,7 +178,7 @@ sensor:
   - platform: modbus_controller
     name: "Sensor Power On Off"
     id: PowerOnOff
-    address: 0x10
+    address: 0x12
     register_type: "holding"
     value_type: U_WORD
     accuracy_decimals: 3
@@ -200,7 +200,7 @@ sensor:
   - platform: modbus_controller
     name: "Sensor Protect"
     id: protectsensor
-    address: 0x12
+    address: 0x10
     register_type: "holding"
     value_type: U_WORD
     accuracy_decimals: 3
