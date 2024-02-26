@@ -143,6 +143,13 @@ sensor:
      - multiply: 0.01
 
   - platform: modbus_controller
+    name: "Sensor Power On Off"
+    id: PowerOnOff
+    address: 0x12
+    register_type: "holding"
+    value_type: U_WORD
+
+  - platform: modbus_controller
     name: "interne Temperatur"
     force_new_range: true
     address: 0x0D
@@ -188,14 +195,7 @@ sensor:
     filters:
      - multiply: 1
 
-  - platform: modbus_controller
-    name: "Sensor Power On Off"
-    id: PowerOnOff
-    address: 0x12
-    register_type: "holding"
-    value_type: U_WORD
-          
-  
+    
   
     
     
