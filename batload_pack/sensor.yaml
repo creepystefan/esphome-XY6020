@@ -137,7 +137,7 @@ sensor:
     register_type: "holding"
     value_type: U_WORD
     #unit_of_measurement: "Volt"
-    device_class: VOLTAGE
+    device_class: "VOLTAGE"
     accuracy_decimals: 2
     filters:
      - multiply: 0.01
