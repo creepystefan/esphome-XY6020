@@ -177,21 +177,21 @@ sensor:
 
   - platform: modbus_controller
     name: "Sensor Power On Off"
-    id: "Sensor Power On Off"
+    id: PowerOnOff
     address: 0x10
     register_type: "holding"
     value_type: U_WORD
 
   - platform: modbus_controller
     name: "Sensor CV CC"
-    id: cvcc
+    id: cvccsensor
     address: 0x11
     register_type: "holding"
     value_type: U_WORD
 
   - platform: modbus_controller
     name: "Sensor Protect"
-    id: "protect"
+    id: protectsensor
     address: 0x12
     register_type: "holding"
     value_type: U_WORD
