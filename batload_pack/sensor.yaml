@@ -205,7 +205,7 @@ sensor:
     value_type: U_WORD
     accuracy_decimals: 3
     filters:
-     - multiply: 0.01
+     - multiply: 0.1
     
 
   
