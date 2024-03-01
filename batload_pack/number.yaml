@@ -85,7 +85,6 @@ number:
      name: "Setting Over Current Protected"
      mode: box
      address: 0x54
-     optimistic: true
      unit_of_measurement: "Ampere"
      min_value: 0
      max_value: 21
