@@ -13,6 +13,7 @@ substitutions:
   bat_loadvoltage: "28"    # Loadvoltage for Battery
   bat_undervoltage: "23"   # Minimum Bat Voltage 
   bat_holdvoltage: "27.4"  # Voltage to hold Loading
+  ShellyIP: "HERE IP FROM SHELLY"                 #####   HERE IP FROM SHELLY
 
 esphome:
   name: ${esp_name}
