@@ -16,13 +16,13 @@ interval:
             then:
               - lambda: |-
                   json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
-                      id(testrequest).publish_state(root["em:0"]["total_act_power"]);
+                      id(shelly_power).publish_state(root["em:0"]["total_act_power"]);
                   });
 
 sensor:
-  - platform: template
-    name: testrequest
-    id: testrequest
+  #- platform: template
+  #  name: testrequest
+  #  id: testrequest
     
   - platform: template
     name: "currentforset"
@@ -82,7 +82,8 @@ sensor:
                 return id(voltageforset).state;
 
   - platform: homeassistant
-    id: shelly_power
+    name: REAL FROM SHELLY
+    #id: shelly_power
     entity_id: ${powermess}
     unit_of_measurement: "W"
     accuracy_decimals: 4
