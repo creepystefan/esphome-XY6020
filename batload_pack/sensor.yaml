@@ -82,7 +82,7 @@ sensor:
                 return id(voltageforset).state;
 
   - platform: homeassistant
-    name: REAL FROM SHELLY
+    name: "Shelly from HA"
     #id: shelly_power
     entity_id: ${powermess}
     unit_of_measurement: "W"
