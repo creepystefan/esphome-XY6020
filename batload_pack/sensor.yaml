@@ -20,9 +20,9 @@ interval:
                   });
 
 sensor:
-  #- platform: template
-  #  name: testrequest
-  #  id: testrequest
+  - platform: template
+    name: testrequest
+    id: testrequest
     
   - platform: template
     name: "currentforset"
