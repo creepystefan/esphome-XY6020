@@ -83,7 +83,7 @@ sensor:
 
   - platform: homeassistant
     name: REAL FROM SHELLY
-    #id: shelly_power
+    id: shelly_power
     entity_id: ${powermess}
     unit_of_measurement: "W"
     accuracy_decimals: 4
