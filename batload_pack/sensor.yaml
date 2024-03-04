@@ -22,7 +22,7 @@ interval:
 sensor:
   - platform: template
     name: testrequest
-    id: testrequest
+    id: shelly_power
     
   - platform: template
     name: "currentforset"
@@ -83,7 +83,7 @@ sensor:
 
   - platform: homeassistant
     name: REAL FROM SHELLY
-    id: shelly_power
+    #id: shelly_power
     entity_id: ${powermess}
     unit_of_measurement: "W"
     accuracy_decimals: 4
