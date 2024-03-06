@@ -6,6 +6,18 @@ substitutions:
   POWER: "Output power display value"  # 0x04
   UIN: "Input Voltage"                 # 0x05
 
+  normal: "Running"                    # 0
+  OVP: "Over Voltage Protected"        # 1
+  OCP: "Over Current Protected"        # 2
+  OPP: "Over Power Protected"          # 3
+  LVP: "Low Voltage Protected"         # 4
+  OAH: "Maximum Output CurrentHour"    # 5
+  OHP: "Maximum output time"           # 6
+  OTP: "Over tempreture Protected"     # 7
+  OEP: "OEP"                           # 8
+  OWH: "Maximum output WattHours"      # 9
+  ICP: "ICP"                           #10
+
 
 
 #  AH_LOW: "0x06"   # Output AH low 16 bits    mAH      R
