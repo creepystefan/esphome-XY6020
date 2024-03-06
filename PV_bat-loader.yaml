@@ -60,6 +60,6 @@ packages:
       yml/text_sensor.yaml,
       batload_pack/number.yaml,
       batload_pack/sensor.yaml,
-      Language/german.yaml,
-      #Language/english.yaml,
+      Language/german.yaml
+      #Language/english.yaml
         ]
