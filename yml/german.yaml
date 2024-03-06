@@ -1,4 +1,4 @@
 substitutions:
   tx_pin: "GPIO4"
   rx_pin: "GPIO2"
-  VIN: "
+  VIN: "Eingangsspannung"
