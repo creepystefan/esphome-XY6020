@@ -4,17 +4,17 @@ text_sensor:
     update_interval: 0.1s
     lambda: |-
       if (id(protectsensor).state == 0) {
-        return {"Normal"};  
+        return {"${normal}"};  
       } else if (id(protectsensor).state == 1) {
-        return {"Over Voltage Protected"};
+        return {"${OVP}"};
       } else if (id(protectsensor).state == 2) {
-        return {"Over Current Protected"};
+        return {"${OCP}"};
       } else if (id(protectsensor).state == 3) {
-        return {"Over Power Protected"};
+        return {"${OPP}"};
       } else if (id(protectsensor).state == 4) {
-        return {"Low Voltage Protected"};
+        return {"${LVP}"};
       } else if (id(protectsensor).state == 5) {
-        return {"Maximum Output CurrentHour "};  
+        return {"${OAH}"};  
       } else if (id(protectsensor).state == 6) {
         return {"Maximum output time"};
       } else if (id(protectsensor).state == 7) {
