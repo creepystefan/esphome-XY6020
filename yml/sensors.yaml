@@ -132,8 +132,7 @@ sensor:
      - multiply: 1
   
   - platform: modbus_controller
-    name: "interne Temperatur"
-    id: internal_temp
+    name: "${t_in}"
     address: 0x0D
     register_type: "holding"
     value_type: U_WORD
@@ -145,7 +144,7 @@ sensor:
      - multiply: 0.1
 
   - platform: modbus_controller
-    name: "externe Temperatur"
+    name: "${t_ex}"
     address: 0x0E
     register_type: "holding"
     value_type: U_WORD
