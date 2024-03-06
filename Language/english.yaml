@@ -18,6 +18,10 @@ substitutions:
   OWH: "Maximum output WattHours"      # 9
   ICP: "ICP"                           #10
 
+  LOCK: "Key Lock"   #
+  unlock: "unlock"   #  0
+  locked: "locked"   #  1
+
 
 
 #  AH_LOW: "0x06"   # Output AH low 16 bits    mAH      R
