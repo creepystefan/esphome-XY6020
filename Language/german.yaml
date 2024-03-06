@@ -1,6 +1,6 @@
 substitutions:
-  V_SET: "Voltage Setting"       # 0x00
-  C_SET: "Current Setting"       # 0x01
+  V_SET: "Spannung Einstellen"   # 0x00
+  C_SET: "Strom Einstellen"      # 0x01
   VOUT: "Spannung Ausgang"       # 0x02
   IOUT: "Strom Ausgang"          # 0x03
   POWER: "Leistung Ausgang"      # 0x04
