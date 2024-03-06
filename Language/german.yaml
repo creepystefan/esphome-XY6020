@@ -11,8 +11,8 @@ substitutions:
   OCP: "Überstrom"                     # 2
   OPP: "Überleistung"                  # 3
   LVP: "Unterspannung"                 # 4
-  OAH: "Maximum Output CurrentHour"    # 5
-  OHP: "Maximum output time"           # 6
+  OAH: "Maximal Ausgang Amper/Stunden" # 5
+  OHP: "Maximal Ausgangzeit"           # 6
   OTP: "Übertemperatur"                # 7
   OEP: "OEP"                           # 8
   OWH: "Maximum output WattHours"      # 9
