@@ -8,9 +8,6 @@ substitutions:
 
 
 
-
-# 0x04           # Power in Watt Output     Watt     R
-# 0x05           # Input Voltage            Voltage  
 #  AH_LOW: "0x06"   # Output AH low 16 bits    mAH      R
 #  AH_HIGH: "0x07"  # Output AH high 16 bits   mAH      R
 #  WH_LOW: "0x08"   # Output WH low 16 bits    mWH      R
