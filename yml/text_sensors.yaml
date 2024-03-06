@@ -16,15 +16,15 @@ text_sensor:
       } else if (id(protectsensor).state == 5) {
         return {"${OAH}"};  
       } else if (id(protectsensor).state == 6) {
-        return {"Maximum output time"};
+        return {"${OHP}"};
       } else if (id(protectsensor).state == 7) {
-        return {"Over Tempreture Protected"};
+        return {"${OTP}"};
       } else if (id(protectsensor).state == 8) {
-        return {"OEP"};
+        return {"${OEP}"};
       } else if (id(protectsensor).state == 9) {
-        return {"Maximum output WattHours"};
+        return {"${OWH}"};
       } else if (id(protectsensor).state == 10) {
-        return {"ICP"};
+        return {"${ICP}"};
       } else {
         return {"Error"};
       }
