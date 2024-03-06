@@ -5,7 +5,9 @@ substitutions:
   IOUT: "Current value display"        # 0x03
   POWER: "Output power display value"  # 0x04
   UIN: "Input Voltage"                 # 0x05
-
+  t_in: "internal Temperature"         # 0x0D
+  t_ex: "external Temperature"         # 0x0D   need external Sensor
+  
   normal: "Running"                    # 0
   OVP: "Over Voltage Protected"        # 1
   OCP: "Over Current Protected"        # 2
@@ -18,7 +20,7 @@ substitutions:
   OWH: "Maximum output WattHours"      # 9
   ICP: "ICP"                           #10
 
-  LOCK: "Key Lock"   #
+  LOCK: "Key Lock"   # 0x0F
   unlock: "unlock"   #  0
   locked: "locked"   #  1
 
@@ -31,11 +33,9 @@ substitutions:
 #  # OUT_H  0x0A    # Open Time Hours          Hours    R
 #  # OUT_M  0x0B    # Open Time Minutes        Minutes  R
 #  # OUT_S  0x0C    # Open Time Seconds        Seconds  R
-#  # t_in   0x0D    # internal temperatur      Celsius  R
-#  # t_ex:  0x0E    # externe temeratur        Celsius  R   external Sensor needed
-#  lock: "0x0F"     # Key Lock                         R/W
-#      # 0 = unlock
-#      # 1 = lock
+
+
+
 #  PROTECT: "0x10"  # Protect Status           Status   R  
 
 #  CVCC: "0x11"     # Constant voltage and constant current   State R
