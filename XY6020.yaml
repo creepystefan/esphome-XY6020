@@ -63,6 +63,8 @@ packages:
       yml/switches.yaml,
       yml/text_senssor.yaml,
       yml/uart.yaml,
+      Language/german.yaml,
+      #Language/english.yaml,
        ]
 
 
