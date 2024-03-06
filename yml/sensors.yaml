@@ -1,6 +1,6 @@
 sensor:
   - platform: modbus_controller
-    name: "Eingestellte Spannung"
+    name: "${V_SET}"
     address: 0x00
     register_type: "holding"
     value_type: U_WORD
@@ -11,7 +11,7 @@ sensor:
      - multiply: 0.01
 
   - platform: modbus_controller
-    name: "Eingestellter Strom"
+    name: "${I_SET}"
     address: 0x01
     register_type: "holding"
     value_type: U_WORD
@@ -21,7 +21,7 @@ sensor:
      - multiply: 0.01
   
   - platform: modbus_controller
-    name: "Spannung am Ausgang"
+    name: "${VOUT}"
     address: 0x02
     register_type: "holding"
     value_type: U_WORD
@@ -31,7 +31,7 @@ sensor:
      - multiply: 0.01
 
   - platform: modbus_controller
-    name: "Aktueller Strom"
+    name: "${IOUT}"
     address: 0x03
     register_type: "holding"
     value_type: U_WORD
@@ -42,7 +42,7 @@ sensor:
      - multiply: 0.01
 
   - platform: modbus_controller
-    name: "Leistung am Ausgang"
+    name: "${POWER}"
     address: 0x04
     register_type: "holding"
     value_type: U_WORD
@@ -52,7 +52,7 @@ sensor:
      - multiply: 0.1
 
   - platform: modbus_controller
-    name: "Eingangsspannung"
+    name: "${UIN}"
     address: 0x05
     register_type: "holding"
     value_type: U_WORD
