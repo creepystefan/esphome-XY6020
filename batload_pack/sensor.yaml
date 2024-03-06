@@ -158,7 +158,7 @@ sensor:
      - multiply: 0.1
 
   - platform: modbus_controller
-    name: "Eingangsspannung"
+    name: "${VIN}"
     address: 0x05
     register_type: "holding"
     value_type: U_WORD
