@@ -24,8 +24,5 @@ substitutions:
 
 
 
-LOCK: "Key Lock"   #
-  unlock: "unlock"   #
-  locked: "locked"   #
 
    
