@@ -1,6 +1,6 @@
 text_sensor:
   - platform: template
-    name: Protect Status text
+    name: "${PROTECT}"
     update_interval: 0.1s
     lambda: |-
       if (id(protectsensor).state == 0) {
@@ -54,13 +54,13 @@ text_sensor:
       }      
 
   - platform: template
-    name: Tastensperre
+    name: "${LOCK}"
     update_interval: 0.1s
     lambda: |-
       if (id(keylock).state == 0) {
-        return {"Unlock"};  
+        return {"${unlock}"};  
       } else if (id(keylock).state == 1) {
-        return {"Locked"};
+        return {"${locked}"};
       } else { 
         return {"Error"};
       }      
