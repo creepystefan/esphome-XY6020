@@ -4,6 +4,7 @@ substitutions:
   C_SET: "Current Setting"       # 0x01
   VOUT: "Voltage value display"  # 0x02
   IOUT: "Current value display"  # 0x03
+  UIN: "Input Voltage"           # 0x05
 
 
 
