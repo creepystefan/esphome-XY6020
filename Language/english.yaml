@@ -5,9 +5,12 @@ substitutions:
   IOUT: "Current value display"        # 0x03
   POWER: "Output power display value"  # 0x04
   UIN: "Input Voltage"                 # 0x05
+  
   t_in: "internal Temperature"         # 0x0D
   t_ex: "external Temperature"         # 0x0D   need external Sensor
   
+  
+  PROTECT: "Protect State"             # 0x10
   normal: "Running"                    # 0
   OVP: "Over Voltage Protected"        # 1
   OCP: "Over Current Protected"        # 2
@@ -23,6 +26,8 @@ substitutions:
   LOCK: "Key Lock"   # 0x0F
   unlock: "unlock"   #  0
   locked: "locked"   #  1
+
+  
 
 
 
