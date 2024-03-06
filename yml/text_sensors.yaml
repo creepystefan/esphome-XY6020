@@ -14,7 +14,7 @@ text_sensor:
       } else if (id(protectsensor).state == 4) {
         return {"Low Voltage Protected"};
       } else if (id(protectsensor).state == 5) {
-        return {"OAH"};  
+        return {"Maximum Output CurrentHour "};  
       } else if (id(protectsensor).state == 6) {
         return {"Maximum output time"};
       } else if (id(protectsensor).state == 7) {
@@ -22,7 +22,7 @@ text_sensor:
       } else if (id(protectsensor).state == 8) {
         return {"OEP"};
       } else if (id(protectsensor).state == 9) {
-        return {"OWH"};
+        return {"Maximum output WattHours"};
       } else if (id(protectsensor).state == 10) {
         return {"ICP"};
       } else {
