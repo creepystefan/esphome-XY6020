@@ -34,7 +34,7 @@ number:
 
    - platform: modbus_controller
      modbus_controller_id: sdm
-     name: "Setting Over Voltage Protected"
+     name: "Overvoltage protection value"
      mode: box
      address: 0x53
      unit_of_measurement: "Voltage"
@@ -46,7 +46,7 @@ number:
 
    - platform: modbus_controller
      modbus_controller_id: sdm
-     name: "Setting Over Current Protected"
+     name: "Overcurrent protection value"
      address: 0x54
      unit_of_measurement: "Ampere"
      min_value: 0
@@ -65,3 +65,17 @@ number:
      step: 1
      value_type: U_WORD
      multiply: 1
+
+   - platform: modbus_controller
+     modbus_controller_id: sdm
+     name: "Low voltage protection value"
+     mode: box
+     address: 0x52
+     unit_of_measurement: "Voltage"
+     min_value: 0
+     max_value: 70
+     step: 0.1
+     value_type: U_WORD
+     multiply: 100.0
+
+   
