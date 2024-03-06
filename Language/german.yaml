@@ -17,3 +17,15 @@ substitutions:
   OEP: "OEP"                           # 8
   OWH: "Maximum output WattHours"      # 9
   ICP: "ICP"                           #10
+
+  LOCK: "Tastensperre"   #
+  unlock: "offen"        #  0
+  locked: "Geschützt"    #  1
+
+
+
+LOCK: "Key Lock"   #
+  unlock: "unlock"   #
+  locked: "locked"   #
+
+   
