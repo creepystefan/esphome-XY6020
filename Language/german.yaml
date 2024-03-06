@@ -5,3 +5,15 @@ substitutions:
   IOUT: "Strom Ausgang"          # 0x03
   POWER: "Leistung Ausgang"      # 0x04
   UIN: "Eingangsspannung"        # 0x05
+
+  normal: "Normal"                     # 0
+  OVP: "Überspannung"                  # 1
+  OCP: "Überstrom"                     # 2
+  OPP: "Überleistung"                  # 3
+  LVP: "Unterspannung"                 # 4
+  OAH: "Maximum Output CurrentHour"    # 5
+  OHP: "Maximum output time"           # 6
+  OTP: "Übertemperatur"                # 7
+  OEP: "OEP"                           # 8
+  OWH: "Maximum output WattHours"      # 9
+  ICP: "ICP"                           #10
