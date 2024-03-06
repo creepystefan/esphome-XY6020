@@ -16,7 +16,7 @@ text_sensor:
       } else if (id(protectsensor).state == 5) {
         return {"OAH"};  
       } else if (id(protectsensor).state == 6) {
-        return {"OHP"};
+        return {"Maximum output time"};
       } else if (id(protectsensor).state == 7) {
         return {"Over Tempreture Protected"};
       } else if (id(protectsensor).state == 8) {
