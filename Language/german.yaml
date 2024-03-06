@@ -5,7 +5,11 @@ substitutions:
   IOUT: "Strom Ausgang"          # 0x03
   POWER: "Leistung Ausgang"      # 0x04
   UIN: "Eingangsspannung"        # 0x05
-
+  t_in: "Temperatur intern"      # 0x0D
+  t_ex: "Temperatur extern"      # 0x0D   need external Sensor
+  
+  
+  PROTECT: "Schutz Status"             # 0x10
   normal: "Normal"                     # 0
   OVP: "Überspannung"                  # 1
   OCP: "Überstrom"                     # 2
