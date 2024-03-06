@@ -1,5 +1,4 @@
 substitutions:
-  UIN: "Input Voltage"
   V_SET: "Voltage Setting"       # 0x00
   C_SET: "Current Setting"       # 0x01
   VOUT: "Voltage value display"  # 0x02
