@@ -34,6 +34,18 @@ number:
 
    - platform: modbus_controller
      modbus_controller_id: sdm
+     name: "Low voltage protection value"
+     mode: box
+     address: 0x52
+     unit_of_measurement: "Voltage"
+     min_value: 0
+     max_value: 70
+     step: 0.1
+     value_type: U_WORD
+     multiply: 100.0
+     
+   - platform: modbus_controller
+     modbus_controller_id: sdm
      name: "Overvoltage protection value"
      mode: box
      address: 0x53
@@ -57,6 +69,17 @@ number:
 
    - platform: modbus_controller
      modbus_controller_id: sdm
+     name: "Over power protection value"
+     address: 0x55
+     unit_of_measurement: "Ampere"
+     min_value: 0
+     max_value: 1200
+     step: 0.01
+     value_type: U_WORD
+     multiply: 100.0
+
+   - platform: modbus_controller
+     modbus_controller_id: sdm
      name: "Over Temperatur Protect Set"
      address: 0x5C
      unit_of_measurement: "Celsius"
@@ -66,16 +89,6 @@ number:
      value_type: U_WORD
      multiply: 1
 
-   - platform: modbus_controller
-     modbus_controller_id: sdm
-     name: "Low voltage protection value"
-     mode: box
-     address: 0x52
-     unit_of_measurement: "Voltage"
-     min_value: 0
-     max_value: 70
-     step: 0.1
-     value_type: U_WORD
-     multiply: 100.0
+   
 
    
