@@ -33,17 +33,7 @@ substitutions:
 #      # 0 = unlock
 #      # 1 = lock
 #  PROTECT: "0x10"  # Protect Status           Status   R  
-#      # 0 = normal
-#      # 1 = OVP  Over Voltage Protected
-#      # 2 = OCP  Over Current Protected
-#      # 3 = OPP  Over Power Protected
-#      # 4 = LVP
-#      # 5 = OAH
-#      # 6 = OHP
-#      # 7 = OTP  Over tempreture Protected
-#      # 8 = OEP
-#      # 9 = OWH
-#      #10 = ICP
+
 #  CVCC: "0x11"     # Constant voltage and constant current   State R
 #  ONOFF: "0x12"
 #  baudrate: "0x19" # baudrate                         R/W
