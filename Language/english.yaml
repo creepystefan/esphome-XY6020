@@ -1,6 +1,6 @@
 substitutions:
   V_SET: "Voltage Setting"             # 0x00
-  C_SET: "Current Setting"             # 0x01
+  I_SET: "Current Setting"             # 0x01
   VOUT: "Voltage value display"        # 0x02
   IOUT: "Current value display"        # 0x03
   POWER: "Output power display value"  # 0x04
@@ -14,6 +14,15 @@ substitutions:
 #  OUT_S: "Open Time Seconds"           # 0x0C
   t_in: "internal Temperature"         # 0x0D
   t_ex: "external Temperature"         # 0x0D   need external Sensor
+#  M052: ""                            # 0x52
+#  M053: ""                             # 0x53
+#  M054: "0x54"
+#  M055: "Over power protection value"      # 0x55
+#  M056: "0x56"
+#  M057: "Maximum output duration—minutes"  # 0x57
+#  M058: "0x58"
+#  M059: "0x59"
+#  M05C: "0x5C"     # Over Temperatur Protect Set     Celsius    R/W#
   
   
   PROTECT: "Protect State"             # 0x10
@@ -35,18 +44,6 @@ substitutions:
 
   
 
-
-
-#  AH_LOW: "0x06"   # Output AH low 16 bits    mAH      R
-#  AH_HIGH: "0x07"  # Output AH high 16 bits   mAH      R
-#  WH_LOW: "0x08"   # Output WH low 16 bits    mWH      R
-#  WH_HIGH: "0x09"  # Output WH high 16 bits   mWH      R
-#  # OUT_H  0x0A    # Open Time Hours          Hours    R
-#  # OUT_M  0x0B    # Open Time Minutes        Minutes  R
-#  # OUT_S  0x0C    # Open Time Seconds        Seconds  R
-
-
-
 #  CVCC: "0x11"     # Constant voltage and constant current   State R
 #  ONOFF: "0x12"
 #  baudrate: "0x19" # baudrate                         R/W
@@ -60,17 +57,6 @@ substitutions:
 #  sleep: "0x15"    #  ??
 #  model: "0x16"    #  Model
 #  # 0x17                 #  Version
-#  M050: "0x50"
-#  M051: "0x51"
-#  M052: "0x52"
-#  M053: "0x53"
-#  M054: "0x54"
-#  M055: "0x55"    # Over power protection value
-#  M056: "0x56"
-#  M057: "0x57"    # Maximum output duration—minutes
-#  M058: "0x58"
-#  M059: "0x59"
-#  M05C: "0x5C"     # Over Temperatur Protect Set     Celsius    R/W#
 
 
   
