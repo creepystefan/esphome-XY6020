@@ -5,7 +5,13 @@ substitutions:
   IOUT: "Current value display"        # 0x03
   POWER: "Output power display value"  # 0x04
   UIN: "Input Voltage"                 # 0x05
-  
+#  AH_LOW: "Output AH low 16 bits"     # 0x06
+#  AH_HIGH: "Output AH high 16 bits"   # 0x07
+#  WH_LOW: "Output WH low 16 bits"     # 0x08
+#  WH_HIGH: "Output WH high 16 bits"   # 0x09
+#  OUT_H: "Open Time Hours"            # 0x0A
+#  OUT_M: "Open Time Minutes"          # 0x0B
+#  OUT_S: "Open Time Seconds"          # 0x0C
   t_in: "internal Temperature"         # 0x0D
   t_ex: "external Temperature"         # 0x0D   need external Sensor
   
@@ -40,8 +46,6 @@ substitutions:
 #  # OUT_S  0x0C    # Open Time Seconds        Seconds  R
 
 
-
-#  PROTECT: "0x10"  # Protect Status           Status   R  
 
 #  CVCC: "0x11"     # Constant voltage and constant current   State R
 #  ONOFF: "0x12"
