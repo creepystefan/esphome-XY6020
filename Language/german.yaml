@@ -7,7 +7,15 @@ substitutions:
   UIN: "Eingangsspannung"        # 0x05
   t_in: "Temperatur intern"      # 0x0D
   t_ex: "Temperatur extern"      # 0x0D   need external Sensor
-  
+#  M052: ""                            # 0x52
+#  M053: ""                             # 0x53
+#  M054: "0x54"
+#  M055: "Over power protection value"      # 0x55
+#  M056: "0x56"
+#  M057: "Maximum output duration—minutes"  # 0x57
+#  M058: "0x58"
+#  M059: "0x59"
+#  M05C: "Schutz Übertemperatur Grenze"  # 0x5C  
   
   PROTECT: "Schutz Status"             # 0x10
   normal: "Normal"                     # 0
