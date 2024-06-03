@@ -1,8 +1,7 @@
 # esphome-XY6020
-Original Project from: https://github.com/syssi/esphome-dps
-change to XY6020
+!DPS Power Supply support by https://github.com/syssi/esphome-dps
+!https://de.aliexpress.com/item/1005005066649442.html?
+!Chose Language in Packages (german or english)
 
-https://de.aliexpress.com/item/1005005066649442.html?
-
-
-Chose Language in Packages (german or english)
+![entity](picture/sinilink_XY-WFPOW_pinout.jpg "entity")
+![entity](picture/cable.png "entity")
