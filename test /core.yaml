@@ -1,3 +1,12 @@
+ota:
+  password: !secret xyota
+
+api:
+  encryption:
+    key: !secret xykey
+
+captive_portal:
+
 web_server:
   port: 9005
 
