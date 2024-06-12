@@ -1,8 +1,9 @@
+#https://forum.openwb.de/viewtopic.php?t=6427
 interval:
   - interval: 1s
     then:
       - http_request.get:
-          url: http://${ShellyIP}/rpc/Shelly.GetStatus
+          url: http://${ichiIP}/cm?cmnd=status%2010 
           verify_ssl: false
           headers:
             Content-Type: application/json
@@ -10,14 +11,12 @@ interval:
             then:
               - lambda: |-
                   json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
-                      id(id).publish_state(root["em:0"]["id"]);
-                      id(a_voltage).publish_state(root["em:0"]["a_voltage"]);
-                      id(b_voltage).publish_state(root["em:0"]["b_voltage"]);
-                      id(c_voltage).publish_state(root["em:0"]["c_voltage"]);
-                      id(a_freq).publish_state(root["em:0"]["a_freq"]);
-                      id(b_freq).publish_state(root["em:0"]["b_freq"]);
-                      id(c_freq).publish_state(root["em:0"]["c_freq"]);
-                      
+                      id(power1).publish_state(root["StatusSNS"]["ENERGY"]["POWER"]);
+                      id(power2).publish_state(root["StatusSNS"]["POWER"]);
+                      id(power3).publish_state(root["ENERGY"]["POWER"]);
+                      id(power4).publish_state(root["StatusSNS"]["ENERGY"]["ApparentPower"]);
+                      id(power5).publish_state(root["StatusSNS"]["ApparentPower"]);
+                      id(power6).publish_state(root["ENERGY"]["ApparentPower"]);
                   });
 
 http_request:
@@ -25,13 +24,28 @@ http_request:
   timeout: 5s
   id: getrequest
 
-#######      NEED Interval.yaml
-
 sensor:
   - platform: template
-    name: ID
-    id: id
+    name: power1
+    id: power1
     
   - platform: template
-    name: a_voltage
-    id: a_voltage
+    name: power2
+    id: power2
+
+  - platform: template
+    name: power3
+    id: power3
+
+  - platform: template
+    name: power4
+    id: power4
+
+  - platform: template
+    name: power5
+    id: power5
+
+  - platform: template
+    name: power6
+    id: power6
+
