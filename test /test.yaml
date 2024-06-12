@@ -45,7 +45,8 @@ packages:
     refresh: 0d
     files: [
       #yml/button.yaml,
-      #yml/sensors.yaml,
+      test/ICHI_smartmeter.yaml,
+      test/sensors.yaml,
       #yml/numbers.yaml,
       #yml/switches.yaml,
       #yml/text_senssor.yaml,
