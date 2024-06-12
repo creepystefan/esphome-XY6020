@@ -46,6 +46,6 @@ packages:
       #yml/switches.yaml,
       #yml/text_senssor.yaml,
       test/uart_wifimodul.yaml,
-      #Language/german.yaml,
+      Language/german.yaml,
       #Language/english.yaml,
        ]
