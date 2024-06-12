@@ -1,7 +1,3 @@
-substitutions:
-  tx_pin: "GPIO1"  
-  rx_pin: "GPIO3" 
-
 esphome:
   name: xy6020_Limiter
   #friendly_name: xy6020_Limiter
@@ -38,7 +34,6 @@ captive_portal:
 logger:
   level: DEBUG
 
-#            Packages for Modbus Controller and XY6020 Functions
 packages:
   remote_package:
     url: https://github.com/creepystefan/esphome-XY6020
