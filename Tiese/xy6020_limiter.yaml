@@ -11,9 +11,9 @@ logger:
 ota:
   password: !secret xyota_tiese
 
-#api:
-#  encryption:
-#    key: !secret xykey_tiese
+api:
+  encryption:
+    key: !secret xykey_tiese
 
 captive_portal:
 
@@ -81,7 +81,7 @@ http_request:
 switch:
   - platform: modbus_controller
     modbus_controller_id: modbus_controll
-    name: EIN-AUS Schalter
+    name: "EIN-AUS Schalter"
     id: onoff
     register_type: holding
     address: 0x12
@@ -91,7 +91,7 @@ switch:
 
 sensor:
   - platform: template
-    name: power1
+    name: "power1"
     id: power1
     
   - platform: template
@@ -115,7 +115,7 @@ sensor:
     id: power6
 
   - platform: modbus_controller
-    name: Eingestellte Spannung
+    name: "Eingestellte Spannung"
     address: 0x00
     register_type: "holding"
     value_type: U_WORD
@@ -126,7 +126,7 @@ sensor:
      - multiply: 0.01
 
   - platform: modbus_controller
-    name: Eingestellter Strom
+    name: "Eingestellter Strom"
     address: 0x01
     register_type: "holding"
     value_type: U_WORD
