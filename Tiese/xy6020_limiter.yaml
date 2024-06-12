@@ -68,10 +68,7 @@ interval:
                       id(power1).publish_state(root["StatusSNS"]["SM"]["1_8_0"]);
                       id(power2).publish_state(root["StatusSNS"]["SM"]["2_8_0"]);
                       id(power3).publish_state(root["StatusSNS"]["SM"]["16_7_0"]);
-                      id(power4).publish_state(root["StatusSNS"]["SM"]["36_7_0"]);
-                      id(power5).publish_state(root["StatusSNS"]["SM"]["56_7_0"]);
-                      id(power6).publish_state(root["StatusSNS"]["SM"]["76_7_0"]);
-                      id(power7).publish_state(root["StatusSNS"]["SM"]["96_1_0"]);
+                      
                   });
 #{"1_8_0":4334.299,"2_8_0":9.385,"16_7_0":297.23,"36_7_0":88.25,"56_7_0":143.71,"76_7_0":65.27,"96_1_0":"1EBZ010230"}}}
 
@@ -102,25 +99,8 @@ sensor:
     id: power2
 
   - platform: template
-    name: "power3"
+    name: "Aktueller Verbrauch"
     id: power3
-
-  - platform: template
-    name: "power4"
-    id: power4
-
-  - platform: template
-    name: "power5"
-    id: power5
-
-  - platform: template
-    name: "power6"
-    id: power6
-
-  - platform: template
-    name: "power7"
-    id: power7
-  
 
   - platform: modbus_controller
     name: "Eingestellte Spannung"
