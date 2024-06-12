@@ -57,7 +57,7 @@ interval:
   - interval: 1s
     then:
       - http_request.get:
-          url: http://${ichiIP}/cm?cmnd=status%2010 
+          url: http://${HichiIP}/cm?cmnd=status%2010 
           verify_ssl: false
           headers:
             Content-Type: application/json
@@ -65,19 +65,17 @@ interval:
             then:
               - lambda: |-
                   json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
-                      id(power1).publish_state(root["StatusSNS"]["ENERGY"]["POWER"]);
-                      id(power2).publish_state(root["StatusSNS"]["POWER"]);
-                      id(power3).publish_state(root["ENERGY"]["POWER"]);
-                      id(power4).publish_state(root["StatusSNS"]["ENERGY"]["ApparentPower"]);
-                      id(power5).publish_state(root["StatusSNS"]["ApparentPower"]);
-                      id(power6).publish_state(root["ENERGY"]["ApparentPower"]);
-                      id(power7).publish_state(root["StatusSNS"]["SM"]["1_8_0"]);
-                      id(power8).publish_state(root["SM"]["1_8_0"]);
-                      id(power9).publish_state(root["StatusSNS"]["SM"]["2_8_0"]);
-                      id(power10).publish_state(root["ENERGY"]["2_8_0"]);
-
+                      id(power1).publish_state(root["StatusSNS"]["SM"]["1_8_0"]);
+                      id(power2).publish_state(root["StatusSNS"]["SM"]["2_8_0"]);
+                      id(power3).publish_state(root["StatusSNS"]["SM"]["16_7_0"]);
+                      id(power4).publish_state(root["StatusSNS"]["SM"]["36_7_0"]);
+                      id(power5).publish_state(root["StatusSNS"]["SM"]["56_7_0"]);
+                      id(power6).publish_state(root["StatusSNS"]["SM"]["76_7_0"]);
+                      id(power7).publish_state(root["StatusSNS"]["SM"]["96_1_0"]);
                   });
+#{"1_8_0":4334.299,"2_8_0":9.385,"16_7_0":297.23,"36_7_0":88.25,"56_7_0":143.71,"76_7_0":65.27,"96_1_0":"1EBZ010230"}}}
 
+ 
 http_request:
   useragent: esphome/device
   timeout: 5s
@@ -96,11 +94,11 @@ switch:
 
 sensor:
   - platform: template
-    name: "power1"
+    name: "Gesamte Leistung"
     id: power1
     
   - platform: template
-    name: "power2"
+    name: "Eingespeiste Leistung"
     id: power2
 
   - platform: template
@@ -122,15 +120,7 @@ sensor:
   - platform: template
     name: "power7"
     id: power7
-  - platform: template
-    name: "power8"
-    id: power8
-  - platform: template
-    name: "power9"
-    id: power9
-  - platform: template
-    name: "power10"
-    id: power10
+  
 
   - platform: modbus_controller
     name: "Eingestellte Spannung"
