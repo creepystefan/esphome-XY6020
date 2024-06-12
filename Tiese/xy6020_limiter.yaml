@@ -93,14 +93,17 @@ sensor:
   - platform: template
     name: "Gesamte Leistung"
     id: power1
+    unit_of_measurement: "KW/h"
     
   - platform: template
     name: "Eingespeiste Leistung"
     id: power2
+    unit_of_measurement: "KW/h"
 
   - platform: template
     name: "Aktueller Verbrauch"
     id: power3
+    unit_of_measurement: "W"
 
   - platform: modbus_controller
     name: "Eingestellte Spannung"
