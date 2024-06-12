@@ -70,9 +70,6 @@ interval:
                       id(power3).publish_state(root["StatusSNS"]["SM"]["16_7_0"]);
                       
                   });
-#{"1_8_0":4334.299,"2_8_0":9.385,"16_7_0":297.23,"36_7_0":88.25,"56_7_0":143.71,"76_7_0":65.27,"96_1_0":"1EBZ010230"}}}
-
- 
 http_request:
   useragent: esphome/device
   timeout: 5s
@@ -158,7 +155,8 @@ sensor:
      - multiply: 0.1
 
   - platform: modbus_controller
-    name: Eingangsspannung
+    name: "Batterie Spannung"
+    id: "Batvolt"
     address: 0x05
     register_type: "holding"
     value_type: U_WORD
