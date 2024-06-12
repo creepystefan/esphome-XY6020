@@ -6,15 +6,6 @@ esphome:
 esp8266:
   board: esp8285
 
-ota:
-  password: !secret xyota
-
-api:
-  encryption:
-    key: !secret xykey
-
-captive_portal:
-
 logger:
   level: DEBUG
 
