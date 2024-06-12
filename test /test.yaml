@@ -9,19 +9,6 @@ esp8266:
 web_server:
   port: 9005
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  #manual_ip:
-  #  static_ip: !secret xy6020_IP
-  #  gateway: !secret gateway
-  #  subnet: !secret subnet
-  
-  #ap:
-  #  ssid: "xy6020 Fallback Hotspot"
-  #  password: "UEikMwV1wqU8"
-
-
 ota:
   password: !secret xyota
 
@@ -40,12 +27,13 @@ packages:
     refresh: 0d
     files: [
       #yml/button.yaml,
+      test/core.yaml
       test/ICHI_smartmeter.yaml,
       test/sensors.yaml,
       #yml/numbers.yaml,
       #yml/switches.yaml,
       #yml/text_senssor.yaml,
-      test/uart_wifimodul.yaml,
+      #test/uart_wifimodul.yaml,
       Language/german.yaml,
       #Language/english.yaml,
        ]
