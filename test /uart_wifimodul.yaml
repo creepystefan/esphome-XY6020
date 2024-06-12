@@ -15,7 +15,7 @@ modbus:
   id: mod_bus
 
 modbus_controller:
-  - id: sdm
+  - id: modbus_controller
     address: 1
     modbus_id: mod_bus
     #command_throttle: 0ms
