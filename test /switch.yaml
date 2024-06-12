@@ -1,5 +1,5 @@
 - platform: modbus_controller
-     modbus_controller_id: sdm
+     #modbus_controller_id:
      name: "EIN-AUS Schalter"
      id: onoff
      register_type: holding
