@@ -11,9 +11,9 @@ logger:
 ota:
   password: !secret xyota_tiese
 
-api:
-  encryption:
-    key: !secret xykey_tiese
+#api:
+#  encryption:
+#    key: !secret xykey_tiese
 
 captive_portal:
 
@@ -71,6 +71,11 @@ interval:
                       id(power4).publish_state(root["StatusSNS"]["ENERGY"]["ApparentPower"]);
                       id(power5).publish_state(root["StatusSNS"]["ApparentPower"]);
                       id(power6).publish_state(root["ENERGY"]["ApparentPower"]);
+                      id(power7).publish_state(root["StatusSNS"]["SM"]["1_8_0"]);
+                      id(power8).publish_state(root["SM"]["1_8_0"]);
+                      id(power9).publish_state(root["StatusSNS"]["SM"]["2_8_0"]);
+                      id(power10).publish_state(root["ENERGY"]["2_8_0"]);
+
                   });
 
 http_request:
@@ -95,24 +100,37 @@ sensor:
     id: power1
     
   - platform: template
-    name: power2
+    name: "power2"
     id: power2
 
   - platform: template
-    name: power3
+    name: "power3"
     id: power3
 
   - platform: template
-    name: power4
+    name: "power4"
     id: power4
 
   - platform: template
-    name: power5
+    name: "power5"
     id: power5
 
   - platform: template
-    name: power6
+    name: "power6"
     id: power6
+
+  - platform: template
+    name: "power7"
+    id: power7
+  - platform: template
+    name: "power8"
+    id: power8
+  - platform: template
+    name: "power9"
+    id: power9
+  - platform: template
+    name: "power10"
+    id: power10
 
   - platform: modbus_controller
     name: "Eingestellte Spannung"
@@ -136,7 +154,7 @@ sensor:
      - multiply: 0.01
   
   - platform: modbus_controller
-    name: Spannung am Ausgang
+    name: "Spannung am Ausgang"
     address: 0x02
     register_type: "holding"
     value_type: U_WORD
@@ -146,7 +164,7 @@ sensor:
      - multiply: 0.01
 
   - platform: modbus_controller
-    name: Strom am Ausgang
+    name: "Strom am Ausgang"
     address: 0x03
     register_type: "holding"
     value_type: U_WORD
@@ -175,3 +193,40 @@ sensor:
     accuracy_decimals: 2
     filters:
      - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Temperatur"
+    address: 0x0D
+    register_type: "holding"
+    value_type: U_WORD
+    device_class: "TEMPERATURE"
+    unit_of_measurement: "°C"
+    icon: "mdi:thermometer"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.1
+
+number:
+   - platform: modbus_controller
+     modbus_controller_id: modbus_controll
+     name: "Spannung Einstellen"
+     mode: box
+     address: 0x00
+     unit_of_measurement: "Volt"
+     min_value: 0
+     max_value: 65
+     step: 0.01
+     value_type: U_WORD
+     multiply: 100.0
+      
+   - platform: modbus_controller
+     modbus_controller_id: modbus_controll 
+     name: "Strom Einstellen"
+     mode: box
+     address: 0x01
+     unit_of_measurement: "Ampere"
+     min_value: 0
+     max_value: 20
+     step: 0.01
+     value_type: U_WORD
+     multiply: 100.0
