@@ -19,3 +19,19 @@ interval:
                       id(c_freq).publish_state(root["em:0"]["c_freq"]);
                       
                   });
+
+http_request:
+  useragent: esphome/device
+  timeout: 5s
+  id: getrequest
+
+#######      NEED Interval.yaml
+
+sensor:
+  - platform: template
+    name: ID
+    id: id
+    
+  - platform: template
+    name: a_voltage
+    id: a_voltage
