@@ -56,7 +56,7 @@ interval:
   - interval: 1s
     then:
       - http_request.get:
-          url: http://${HichiIP}/cm?cmnd=status%2010 
+          url: !secret HichiIP
           verify_ssl: false
           headers:
             Content-Type: application/json
