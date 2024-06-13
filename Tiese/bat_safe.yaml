@@ -185,7 +185,7 @@ sensor:
 
 number:
    - platform: template
-     name: "Max Ladestrom"
+     name: "Batterie Volt Limit"
      id: bat_limit
      mode: box
      optimistic: true
