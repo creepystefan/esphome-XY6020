@@ -101,6 +101,17 @@ sensor:
              id: voltageset
              value: !lambda |-
                 return id(batvolt_safe).state;
+
+#on_value_range:
+#        - above: 65.0
+#          then:
+#            - switch.turn_on: dehumidifier1
+#        - below: 50.0
+#          then:
+#            - switch.turn_off: dehumidifier1
+#on_...:
+#  then:
+#    - switch.turn_off: relay_1
   
   - platform: template
     name: "Aktueller Verbrauch"
