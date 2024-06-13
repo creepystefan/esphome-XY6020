@@ -85,6 +85,24 @@ switch:
 
 sensor:
   - platform: template
+    name: "BIT für Ein Aus"
+    id: batvolt_safe
+    lambda: |-
+      if (id(batvolt).state <= id(batvolt_set).state) {
+        return ${00};
+      } else {
+        return 01;
+      }
+    update_interval: 1s
+    accuracy_decimals: 2
+    on_value:
+       then:
+         - number.set:
+             id: voltageset
+             value: !lambda |-
+                return id(batvolt_safe).state;
+  
+  - platform: template
     name: "Aktueller Verbrauch"
     id: power3
     unit_of_measurement: "W"
