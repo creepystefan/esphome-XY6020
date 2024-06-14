@@ -7,47 +7,47 @@ text_sensor:
       return { time_text };
     update_interval: 60s
   
-  - platform: template
-    name: "${PROTECT}"
-    update_interval: 0.1s
-    lambda: |-
-      if (id(protectsensor).state == 0) {
-        return {"${normal}"};  
-      } else if (id(protectsensor).state == 1) {
-        return {"${OVP}"};
-      } else if (id(protectsensor).state == 2) {
-        return {"${OCP}"};
-      } else if (id(protectsensor).state == 3) {
-        return {"${OPP}"};
-      } else if (id(protectsensor).state == 4) {
-        return {"${LVP}"};
-      } else if (id(protectsensor).state == 5) {
-        return {"${OAH}"};  
-      } else if (id(protectsensor).state == 6) {
-        return {"${OHP}"};
-      } else if (id(protectsensor).state == 7) {
-        return {"${OTP}"};
-      } else if (id(protectsensor).state == 8) {
-        return {"${OEP}"};
-      } else if (id(protectsensor).state == 9) {
-        return {"${OWH}"};
-      } else if (id(protectsensor).state == 10) {
-        return {"${ICP}"};
-      } else {
-        return {"Error"};
-      }
+#  - platform: template
+#    name: "${PROTECT}"
+#    update_interval: 0.1s
+#    lambda: |-
+#      if (id(protectsensor).state == 0) {
+#        return {"${normal}"};  
+#      } else if (id(protectsensor).state == 1) {
+#        return {"${OVP}"};
+#      } else if (id(protectsensor).state == 2) {
+#        return {"${OCP}"};
+#      } else if (id(protectsensor).state == 3) {
+#        return {"${OPP}"};
+#      } else if (id(protectsensor).state == 4) {
+#        return {"${LVP}"};
+#      } else if (id(protectsensor).state == 5) {
+#        return {"${OAH}"};  
+#      } else if (id(protectsensor).state == 6) {
+#        return {"${OHP}"};
+#      } else if (id(protectsensor).state == 7) {
+#        return {"${OTP}"};
+#      } else if (id(protectsensor).state == 8) {
+#        return {"${OEP}"};
+#      } else if (id(protectsensor).state == 9) {
+#        return {"${OWH}"};
+#      } else if (id(protectsensor).state == 10) {
+#        return {"${ICP}"};
+#      } else {
+#        return {"Error"};
+#      }
 
-  - platform: template
-    name: CV CC old
-    update_interval: 0.1s
-    lambda: |-
-      if (id(cvccsensor).state == 0) {
-        return {"CV"};  
-      } else if (id(cvccsensor).state == 1) {
-        return {"CC"};
-      } else { 
-        return {"Error"};
-      }      
+#  - platform: template
+#    name: CV CC old
+#    update_interval: 0.1s
+#    lambda: |-
+#      if (id(cvccsensor).state == 0) {
+#        return {"CV"};  
+#      } else if (id(cvccsensor).state == 1) {
+#        return {"CC"};
+#      } else { 
+#        return {"Error"};
+#      }      
         
   #- platform: template
   #  name: Power Switch On Off old
@@ -76,41 +76,37 @@ text_sensor:
   
   - platform: modbus_controller
     modbus_controller_id: sdm
-    #id: reg_1002_text
     bitmask: 0
     register_type: holding
     address: 0x0F
     raw_encode: HEXBYTES
     name: " TEST Key Lock"
-#    lambda: |-
-#      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
-#      switch (value) {
-#        case 0: return std::string("unlock");
-#        case 1: return std::string("lock");
-#        default: return std::string("Unknown");
-#      }
-#      return x;
+    lambda: |-#      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      switch (value) {
+        case 0000: return std::string("unlock");
+        case 0001: return std::string("lock");
+        default: return std::string("Unknown");
+      }
+      return x;
 
   - platform: modbus_controller
     modbus_controller_id: sdm
-    #id: reg_1002_text
     bitmask: 0
     register_type: holding
     address: 0x11
     raw_encode: HEXBYTES
     name: "CC CV"
-#    lambda: |-
-#      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
-#      switch (value) {
-#        case 0: return std::string("CV");
-#        case 1: return std::string("CC");
-#        default: return std::string("Unknown");
-#      }
-#      return x;
+    lambda: |-
+      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      switch (value) {
+        case 0: return std::string("CV");
+        case 1: return std::string("CC");
+        default: return std::string("Unknown");
+      }
+      return x;
 
   - platform: modbus_controller
     modbus_controller_id: sdm
-    #id: reg_1002_text
     bitmask: 0
     register_type: holding
     address: 0x12
@@ -125,5 +121,28 @@ text_sensor:
       }
       return x;
 
-
+  - platform: modbus_controller
+    modbus_controller_id: sdm
+    bitmask: 0
+    register_type: holding
+    address: 0x10
+    raw_encode: HEXBYTES
+    name: "Protect Status"
+    lambda: |-
+      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      switch (value) {
+        case 0000: return std::string("Normal");
+        case 0001: return std::string("OVP");
+        case 0002: return std::string("OCP");
+        case 0003: return std::string("OPP");
+        case 0004: return std::string("LVP");
+        case 0005: return std::string("OAH");
+        case 0006: return std::string("OTP");
+        case 0007: return std::string("OVP");
+        case 0008: return std::string("OVP");
+        case 0009: return std::string("OVP");
+        case 000A: return std::string("OVP");
+        case 0010: return std::string("OVP");
+        default: return std::string("Unknown");
+      }
  
