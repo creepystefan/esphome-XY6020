@@ -6,6 +6,19 @@ wifi:
     gateway: !secret gateway_tiese
     subnet: !secret subnet_tiese
 
+logger:
+  level: DEBUG
+
+ota:
+  password: !secret xyota_tiese
+
+#api:
+#  encryption:
+#    key: !secret xykey_tiese
+
+web_server:
+  port: 9005
+  
 uart:
   - id: uart_bus1
     tx_pin: GPIO1
