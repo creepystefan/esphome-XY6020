@@ -19,11 +19,6 @@ interval:
                       id(shelly_power).publish_state(root["em:0"]["total_act_power"]);
                   });
 
-sensor:
-  - platform: template
-    name: testrequest
-    id: shelly_power
-    
   - platform: template
     name: "currentforset"
     id: currentforset 
