@@ -1,1 +1,99 @@
+sensor:
+  - platform: template
+    name: "BIT für Ein Aus"
+    id: batvolt_safe
+    lambda: |-
+      if (id(Batvolt).state <= id(bat_limit).state) {
+        return 1;
+      } else {
+        return 2;
+      }
+    update_interval: 1s
+    accuracy_decimals: 2
+    on_value_range:
+        - above: 2
+          then:
+            - switch.turn_on: onoff
+        - below: 2
+          then:
+            - switch.turn_off: onoff   
+ 
+  - platform: template
+    name: "Aktueller Verbrauch"
+    id: power3
+    unit_of_measurement: "W"
 
+  - platform: modbus_controller
+    name: "Eingestellte Spannung"
+    address: 0x00
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    icon: "mdi:water-percent"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Eingestellter Strom"
+    address: 0x01
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Ampere"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+  
+  - platform: modbus_controller
+    name: "Spannung am Ausgang"
+    address: 0x02
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Strom am Ausgang"
+    address: 0x03
+    register_type: "holding"
+    value_type: U_WORD
+    device_class: CURRENT
+    #unit_of_measurement: "Ampere"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: Ausgangsleistung
+    address: 0x04
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Watt"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.1
+
+  - platform: modbus_controller
+    name: "Batterie Spannung"
+    id: "Batvolt"
+    address: 0x05
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Volt"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Temperatur"
+    address: 0x0D
+    register_type: "holding"
+    value_type: U_WORD
+    device_class: "TEMPERATURE"
+    unit_of_measurement: "°C"
+    icon: "mdi:thermometer"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.1
