@@ -15,11 +15,17 @@ ota:
 #  encryption:
 #    key: !secret xykey_tiese
 
-
-
 web_server:
   port: 9005
 
+packages:
+  Batload:
+    url: https://github.com/creepystefan/esphome-XY6020
+    refresh: 0d
+    files: [
+      Tiese/core_tiese.yaml,
+      
+        ]
 
 switch:
   - platform: modbus_controller
