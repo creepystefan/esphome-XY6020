@@ -21,6 +21,7 @@ ota:
 api:
   encryption:
     key: !secret xykey
+    reboot_timeout: 0s
 
 captive_portal:
 
