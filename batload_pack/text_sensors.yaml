@@ -1,4 +1,12 @@
 text_sensor:
+  
+  - platform: template
+    name: Current_time
+    lambda: |-
+      auto time_text = id(sntp_time).now().strftime("%d.%m.%Y %H:%M:%S");
+      return { time_text };
+    update_interval: 60s
+  
   - platform: template
     name: "${PROTECT}"
     update_interval: 0.1s
