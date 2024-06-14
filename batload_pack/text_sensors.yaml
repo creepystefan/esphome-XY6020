@@ -75,7 +75,7 @@ text_sensor:
 
   
   - platform: modbus_controller
-    modbus_controller_id: modbus_controll
+    modbus_controller_id: sdm
     id: reg_1002_text
     bitmask: 0
     register_type: holding
@@ -92,7 +92,7 @@ text_sensor:
       return x;
 
   - platform: modbus_controller
-    modbus_controller_id: modbus_controll
+    modbus_controller_id: sdm
     id: reg_1002_text
     bitmask: 0
     register_type: holding
