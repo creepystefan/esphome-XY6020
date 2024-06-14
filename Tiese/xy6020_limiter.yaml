@@ -15,7 +15,7 @@ ota:
 #  encryption:
 #    key: !secret xykey_tiese
 
-captive_portal:
+
 
 web_server:
   port: 9005
