@@ -50,3 +50,4 @@ http_request:
   timeout: 5s
   id: getrequest
 
+captive_portal:
