@@ -1,0 +1,69 @@
+text_sensor:
+  - platform: template
+    name: "${PROTECT}"
+    update_interval: 0.1s
+    lambda: |-
+      if (id(protectsensor).state == 0) {
+        return {"${normal}"};  
+      } else if (id(protectsensor).state == 1) {
+        return {"${OVP}"};
+      } else if (id(protectsensor).state == 2) {
+        return {"${OCP}"};
+      } else if (id(protectsensor).state == 3) {
+        return {"${OPP}"};
+      } else if (id(protectsensor).state == 4) {
+        return {"${LVP}"};
+      } else if (id(protectsensor).state == 5) {
+        return {"${OAH}"};  
+      } else if (id(protectsensor).state == 6) {
+        return {"${OHP}"};
+      } else if (id(protectsensor).state == 7) {
+        return {"${OTP}"};
+      } else if (id(protectsensor).state == 8) {
+        return {"${OEP}"};
+      } else if (id(protectsensor).state == 9) {
+        return {"${OWH}"};
+      } else if (id(protectsensor).state == 10) {
+        return {"${ICP}"};
+      } else {
+        return {"Error"};
+      }
+
+  - platform: template
+    name: CV CC
+    update_interval: 0.1s
+    lambda: |-
+      if (id(cvccsensor).state == 0) {
+        return {"CV"};  
+      } else if (id(cvccsensor).state == 1) {
+        return {"CC"};
+      } else { 
+        return {"Error"};
+      }      
+        
+  - platform: template
+    name: Power Switch On Off
+    update_interval: 0.1s
+    lambda: |-
+      if (id(poweronoff).state == 0) {
+        return {"OFF"};  
+      } else if (id(poweronoff).state == 1) {
+        return {"ON"};
+      } else { 
+        return {"Error"};
+      }      
+
+  - platform: template
+    name: "${LOCK}"
+    update_interval: 0.1s
+    lambda: |-
+      if (id(keylock).state == 0) {
+        return {"${unlock}"};  
+      } else if (id(keylock).state == 1) {
+        return {"${locked}"};
+      } else { 
+        return {"Error"};
+      }      
+
+
+ 
