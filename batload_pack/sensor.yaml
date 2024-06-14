@@ -187,11 +187,11 @@ sensor:
   #  register_type: "holding"
   #  value_type: U_WORD
 
-  - platform: modbus_controller
-    id: protectsensor
-    address: 0x10
-    register_type: "holding"
-    value_type: U_WORD
+#  - platform: modbus_controller
+#    id: protectsensor
+#    address: 0x10
+#    register_type: "holding"
+#    value_type: U_WORD
 
 #  - platform: modbus_controller
 #    id: cvccsensor
