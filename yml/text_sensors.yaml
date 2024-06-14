@@ -52,18 +52,20 @@ text_sensor:
       } else { 
         return {"Error"};
       }      
-
-  - platform: template
-    name: "${LOCK}"
-    update_interval: 0.1s
+  
+  - platform: modbus_controller
+    modbus_controller_id: sdm
+    bitmask: 0
+    register_type: holding
+    address: 0x0F
+    raw_encode: HEXBYTES
+    name: "Key Lock"
     lambda: |-
-      if (id(keylock).state == 0) {
-        return {"${unlock}"};  
-      } else if (id(keylock).state == 1) {
-        return {"${locked}"};
-      } else { 
-        return {"Error"};
-      }      
-
-
+      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      switch (value) {
+        case 0000: return std::string("unlock");
+        case 0001: return std::string("lock");
+        default: return std::string("Unknown");
+      }
+      return x;
  
