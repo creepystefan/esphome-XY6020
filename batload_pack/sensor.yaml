@@ -76,15 +76,6 @@ interval:
              value: !lambda |-
                 return id(voltageforset).state;
 
-  #- platform: homeassistant
-  #  name: "Shelly from HA"
-  #  #id: shelly_power
-  #  entity_id: ${powermess}
-  #  unit_of_measurement: "W"
-  #  accuracy_decimals: 4
-  #  filters:
-  #   - multiply: 1 
-
   - platform: template
     name: "Shelly-Power"
     id: powerinout
