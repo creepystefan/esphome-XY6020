@@ -30,7 +30,7 @@ packages:
       yml/switches.yaml,
       yml/button.yaml,
       batload_pack/core.yaml,
-      batload_pack/text_sensors.yaml,
+      yml/text_sensors.yaml,
       batload_pack/number.yaml,
       batload_pack/sensor.yaml,
       Language/german.yaml,
