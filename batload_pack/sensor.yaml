@@ -181,11 +181,11 @@ sensor:
     filters:
      - multiply: 0.1
 
-  - platform: modbus_controller
-    id: keylock
-    address: 0x0F
-    register_type: "holding"
-    value_type: U_WORD
+  #- platform: modbus_controller
+  #  id: keylock
+  #  address: 0x0F
+  #  register_type: "holding"
+  #  value_type: U_WORD
 
   - platform: modbus_controller
     id: protectsensor
@@ -193,17 +193,17 @@ sensor:
     register_type: "holding"
     value_type: U_WORD
 
-  - platform: modbus_controller
-    id: cvccsensor
-    address: 0x11
-    register_type: "holding"
-    value_type: U_WORD
+#  - platform: modbus_controller
+#    id: cvccsensor
+#    address: 0x11
+#    register_type: "holding"
+#    value_type: U_WORD
 
-  - platform: modbus_controller
-    id: poweronoff
-    address: 0x12
-    register_type: "holding"
-    value_type: U_WORD
+#  - platform: modbus_controller
+#    id: poweronoff
+#    address: 0x12
+#    register_type: "holding"
+#    value_type: U_WORD
   
 
     
