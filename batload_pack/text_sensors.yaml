@@ -134,9 +134,9 @@ text_sensor:
       switch (value) {
         case 0000: return std::string("Normal");
         case 0001: return std::string("OVP");
-        case 0000: return std::string("Over Current");
-        case 0000: return std::string("O");
-        case 0000: return std::string("off");
+        case 0002: return std::string("Over Current");
+        case 0003: return std::string("O");
+        case 0004: return std::string("off");
         default: return std::string("Unknown");
       }
       return x;
