@@ -73,7 +73,7 @@ text_sensor:
     register_type: holding
     address: 0x0F
     raw_encode: HEXBYTES
-    name: Key Lock real text sensor
+    name: " TEST Key Locj"
     lambda: |-
       uint16_t value = modbus_controller::word_from_hex_str(x, 0);
       switch (value) {
