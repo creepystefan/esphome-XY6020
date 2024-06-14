@@ -41,29 +41,47 @@ text_sensor:
         return {"Error"};
       }      
         
-  - platform: template
-    name: Power Switch On Off
-    update_interval: 0.1s
-    lambda: |-
-      if (id(poweronoff).state == 0) {
-        return {"OFF"};  
-      } else if (id(poweronoff).state == 1) {
-        return {"ON"};
-      } else { 
-        return {"Error"};
-      }      
+  #- platform: template
+  #  name: Power Switch On Off
+  #  update_interval: 0.1s
+  #  lambda: |-
+  #    if (id(poweronoff).state == 0) {
+  #      return {"OFF"};  
+  #    } else if (id(poweronoff).state == 1) {
+  #      return {"ON"};
+  #    } else { 
+  #      return {"Error"};
+  #    }      
 
-  - platform: template
-    name: "${LOCK}"
-    update_interval: 0.1s
+  #- platform: template
+  #  name: "${LOCK}"
+  #  update_interval: 0.1s
+  #  lambda: |-
+  #    if (id(keylock).state == 0) {
+  #      return {"${unlock}"};  
+  #    } else if (id(keylock).state == 1) {
+  #      return {"${locked}"};
+  #    } else { 
+  #      return {"Error"};
+  #    }      
+
+  text_sensor:
+  - platform: modbus_controller
+    modbus_controller_id: modbus_controll
+    id: reg_1002_text
+    bitmask: 0
+    register_type: holding
+    address: 1002
+    raw_encode: HEXBYTES
+    name: Key Lock
     lambda: |-
-      if (id(keylock).state == 0) {
-        return {"${unlock}"};  
-      } else if (id(keylock).state == 1) {
-        return {"${locked}"};
-      } else { 
-        return {"Error"};
-      }      
+      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      switch (value) {
+        case 0: return std::string("ready");
+        case 1: return std::string("EV is present");
+        default: return std::string("Unknown");
+      }
+      return x;
 
 
  
