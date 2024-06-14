@@ -28,3 +28,24 @@ captive_portal:
 logger:
   level: DEBUG
 
+http_request:
+  useragent: esphome/device
+  timeout: 5s
+  id: getrequest
+
+
+interval:
+  - interval: 1s
+    then:
+      - http_request.get:
+          url: http://${ShellyIP}/rpc/Shelly.GetStatus
+          verify_ssl: false
+          headers:
+            Content-Type: application/json
+          on_response:
+            then:
+              - lambda: |-
+                  json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
+                      id(shelly_power).publish_state(root["em:0"]["total_act_power"]);
+                  });
+
