@@ -133,7 +133,7 @@ text_sensor:
       switch (value) {
         case 0000: return std::string("Normal");
         case 0001: return std::string("OVP");
-        case 0002: return std::string("OCP");
+        case 0001: return std::string("OCP");
         default: return std::string("Unknown");
       }
       return x;
