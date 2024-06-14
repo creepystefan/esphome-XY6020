@@ -141,7 +141,6 @@ text_sensor:
         case 0007: return std::string("OVP");
         case 0008: return std::string("OVP");
         case 0009: return std::string("OVP");
-        case 000A: return std::string("OVP");
         case 0010: return std::string("OVP");
         default: return std::string("Unknown");
       }
