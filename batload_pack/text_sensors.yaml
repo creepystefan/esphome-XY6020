@@ -113,14 +113,14 @@ text_sensor:
     #id: reg_1002_text
     bitmask: 0
     register_type: holding
-    address: 0x11
+    address: 0x12
     raw_encode: HEXBYTES
     name: "Power Switch On Off"
     lambda: |-
       uint16_t value = modbus_controller::word_from_hex_str(x, 0);
       switch (value) {
-        case 0: return std::string("CV");
-        case 1: return std::string("CC");
+        case 0: return std::string("off");
+        case 1: return std::string("on");
         default: return std::string("Unknown");
       }
       return x;
