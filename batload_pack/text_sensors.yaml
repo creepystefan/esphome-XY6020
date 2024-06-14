@@ -85,8 +85,8 @@ text_sensor:
     lambda: |-
       uint16_t value = modbus_controller::word_from_hex_str(x, 0);
       switch (value) {
-        case 0: return std::string("ready");
-        case 1: return std::string("EV is present");
+        case 0: return std::string("unlock");
+        case 1: return std::string("lock");
         default: return std::string("Unknown");
       }
       return x;
