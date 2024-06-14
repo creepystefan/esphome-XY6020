@@ -7,73 +7,7 @@ text_sensor:
       return { time_text };
     update_interval: 60s
   
-#  - platform: template
-#    name: "${PROTECT}"
-#    update_interval: 0.1s
-#    lambda: |-
-#      if (id(protectsensor).state == 0) {
-#        return {"${normal}"};  
-#      } else if (id(protectsensor).state == 1) {
-#        return {"${OVP}"};
-#      } else if (id(protectsensor).state == 2) {
-#        return {"${OCP}"};
-#      } else if (id(protectsensor).state == 3) {
-#        return {"${OPP}"};
-#      } else if (id(protectsensor).state == 4) {
-#        return {"${LVP}"};
-#      } else if (id(protectsensor).state == 5) {
-#        return {"${OAH}"};  
-#      } else if (id(protectsensor).state == 6) {
-#        return {"${OHP}"};
-#      } else if (id(protectsensor).state == 7) {
-#        return {"${OTP}"};
-#      } else if (id(protectsensor).state == 8) {
-#        return {"${OEP}"};
-#      } else if (id(protectsensor).state == 9) {
-#        return {"${OWH}"};
-#      } else if (id(protectsensor).state == 10) {
-#        return {"${ICP}"};
-#      } else {
-#        return {"Error"};
-#      }
 
-#  - platform: template
-#    name: CV CC old
-#    update_interval: 0.1s
-#    lambda: |-
-#      if (id(cvccsensor).state == 0) {
-#        return {"CV"};  
-#      } else if (id(cvccsensor).state == 1) {
-#        return {"CC"};
-#      } else { 
-#        return {"Error"};
-#      }      
-        
-  #- platform: template
-  #  name: Power Switch On Off old
-  #  update_interval: 0.1s
-  #  lambda: |-
-  #    if (id(poweronoff).state == 0) {
-  #      return {"OFF"};  
-  #    } else if (id(poweronoff).state == 1) {
-  #      return {"ON"};
-  #    } else { 
-  #      return {"Error"};
-  #    }      
-
-  #- platform: template
-  #  name: "${LOCK}"
-  #  update_interval: 0.1s
-  #  lambda: |-
-  #    if (id(keylock).state == 0) {
-  #      return {"${unlock}"};  
-  #    } else if (id(keylock).state == 1) {
-  #      return {"${locked}"};
-  #    } else { 
-  #      return {"Error"};
-  #    }      
-
-  
   - platform: modbus_controller
     modbus_controller_id: sdm
     bitmask: 0
@@ -133,12 +67,18 @@ text_sensor:
       uint16_t value = modbus_controller::word_from_hex_str(x, 0);
       switch (value) {
         case 0000: return std::string("Normal");
-        case 0001: return std::string("OVP");
+        case 0001: return std::string("Over Voltage");
         case 0002: return std::string("Over Current");
-        case 0003: return std::string("O");
-        case 0004: return std::string("off");
+        case 0003: return std::string("OPP");
+        case 0004: return std::string("LVP");
+        case 0005: return std::string("OAH");
+        case 0006: return std::string("OHP");
+        case 0007: return std::string("OTP");
+        case 0008: return std::string("OEP");
+        case 0009: return std::string("OWH");
+        case 0010: return std::string("ICP");
+        case 000A: return std::string("ICP");
         default: return std::string("Unknown");
       }
       return x;
 
- 
