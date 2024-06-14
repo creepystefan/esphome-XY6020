@@ -71,9 +71,9 @@ text_sensor:
     id: reg_1002_text
     bitmask: 0
     register_type: holding
-    address: 1002
+    address: 0x0F
     raw_encode: HEXBYTES
-    name: Key Lock
+    name: Key Lock real text sensor
     lambda: |-
       uint16_t value = modbus_controller::word_from_hex_str(x, 0);
       switch (value) {
