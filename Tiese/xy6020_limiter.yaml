@@ -52,12 +52,11 @@ modbus_controller:
     setup_priority: -10
     update_interval: 10s
 
-
 interval:
   - interval: 1s
     then:
       - http_request.get:
-          url: http://${HichiIP}/cm?cmnd=status%2010 
+          url: !secret HichiIP
           verify_ssl: false
           headers:
             Content-Type: application/json
@@ -65,8 +64,6 @@ interval:
             then:
               - lambda: |-
                   json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
-                      id(power1).publish_state(root["StatusSNS"]["SM"]["1_8_0"]);
-                      id(power2).publish_state(root["StatusSNS"]["SM"]["2_8_0"]);
                       id(power3).publish_state(root["StatusSNS"]["SM"]["16_7_0"]);
                       
                   });
@@ -88,15 +85,24 @@ switch:
 
 sensor:
   - platform: template
-    name: "Gesamte Leistung"
-    id: power1
-    unit_of_measurement: "KW/h"
-    
-  - platform: template
-    name: "Eingespeiste Leistung"
-    id: power2
-    unit_of_measurement: "KW/h"
-
+    name: "BIT für Ein Aus"
+    id: batvolt_safe
+    lambda: |-
+      if (id(Batvolt).state <= id(bat_limit).state) {
+        return 1;
+      } else {
+        return 2;
+      }
+    update_interval: 1s
+    accuracy_decimals: 2
+    on_value_range:
+        - above: 2
+          then:
+            - switch.turn_on: onoff
+        - below: 2
+          then:
+            - switch.turn_off: onoff   
+ 
   - platform: template
     name: "Aktueller Verbrauch"
     id: power3
@@ -178,6 +184,17 @@ sensor:
      - multiply: 0.1
 
 number:
+   - platform: template
+     name: "Batterie Volt Limit"
+     id: bat_limit
+     mode: box
+     optimistic: true
+     unit_of_measurement: "Volt"
+     initial_value: 10.0
+     min_value: 0.0
+     max_value: 50
+     step: 0.1
+
    - platform: modbus_controller
      modbus_controller_id: modbus_controll
      name: "Spannung Einstellen"
