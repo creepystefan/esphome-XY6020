@@ -74,10 +74,6 @@ text_sensor:
         case 0005: return std::string("OAH");
         case 0006: return std::string("OHP");
         case 0007: return std::string("OTP");
-        case 0008: return std::string("OEP");
-        case 0009: return std::string("OWH");
-        case 0010: return std::string("ICP");
-        case 000A: return std::string("ICP");
         default: return std::string("Unknown");
       }
       return x;
