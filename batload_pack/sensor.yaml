@@ -18,7 +18,7 @@ interval:
                   json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
                       id(shelly_power).publish_state(root["em:0"]["total_act_power"]);
                   });
-sensors:
+sensor:
   - platform: template
     name: "currentforset"
     id: currentforset 
