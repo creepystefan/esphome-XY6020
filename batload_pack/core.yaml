@@ -1,5 +1,5 @@
 web_server:
-  port: 80
+  port: 9005
   auth:
     username: !secret web_server_username
     password: !secret web_server_password
