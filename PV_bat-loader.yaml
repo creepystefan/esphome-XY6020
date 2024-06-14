@@ -1,53 +1,25 @@
 substitutions:
-  esp_name: "xy6020"
-  friendly_name: "XY6020"
-  esp_version: "32" #32 or 8266
-  esp_board: "nodemcu-32s"
+  friendly_name: ""
   tx_pin: "GPIO4"
   rx_pin: "GPIO2"
-  device_description: "Batterie Laden mit Übereinspeisung"
-  powermess: !secret powmess
+  #powermess: !secret powmess
   updateinterval: "15s"
   i_set_temp_min: "0"
-  i_set_temp_max: "95"  
+  i_set_temp_max: "95"
   bat_loadvoltage: "28"    # Loadvoltage for Battery
   bat_undervoltage: "23"   # Minimum Bat Voltage 
   bat_holdvoltage: "27.4"  # Voltage to hold Loading
-  ShellyIP: "HERE IP FROM SHELLY"                 #####   HERE IP FROM SHELLY
+  bat_loadvoltagepv0: "25"
+  ShellyIP: "192.168.178.46"
+  #interval: "1s"  # Interval Time for Request
 
 esphome:
-  name: ${esp_name}
-  friendly_name: ${friendly_name}
-  comment: ${device_description}
+  name: xy6020
+  #friendly_name: ${friendly_name}
+  comment: Batterie Laden mit Übereinspeisung
 
-esp${esp_version}:
-  board: ${esp_board}
-
-web_server:
-  port: 9005
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  manual_ip:
-    static_ip: !secret xy6020_IP
-    gateway: !secret gateway
-    subnet: !secret subnet
-  ap:
-    ssid: "xy6020 Fallback Hotspot"
-    password: "UEikMwV1wqU8"
-
-ota:
-  password: !secret xyota
-
-api:
-  encryption:
-    key: !secret xykey
-
-captive_portal:
-  
-logger:
-  level: DEBUG
+esp32:
+  board: nodemcu-32s
 
 packages:
   Batload:
@@ -57,9 +29,18 @@ packages:
       yml/uart.yaml,
       yml/switches.yaml,
       yml/button.yaml,
-      yml/text_sensor.yaml,
+      batload_pack/core.yaml,
+      batload_pack/text_sensors.yaml,
       batload_pack/number.yaml,
       batload_pack/sensor.yaml,
-      Language/german.yaml
-      #Language/english.yaml
+      Language/german.yaml,
+      #Language/english.yaml,
         ]
+
+
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: Europe/Berlin
+    servers:
+     - 192.168.178.1
