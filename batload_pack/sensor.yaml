@@ -10,7 +10,7 @@ sensor:
       } else {
         return id(currentset).state + (id(powerinout).state / id(actualvoltage).state);
       }
-    update_interval: 7s
+    update_interval: 10s
     unit_of_measurement: "Ampere"
     accuracy_decimals: 2
     filters:
