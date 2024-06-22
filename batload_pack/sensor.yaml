@@ -137,6 +137,7 @@ sensor:
     accuracy_decimals: 2
     filters:
      - multiply: 0.01
+    web_server_sorting_weight: -1
 
   - platform: modbus_controller
     name: "interne Temperatur"
@@ -150,6 +151,7 @@ sensor:
     accuracy_decimals: 2
     filters:
      - multiply: 0.1
+    web_server_sorting_weight: 0
 
 
     
