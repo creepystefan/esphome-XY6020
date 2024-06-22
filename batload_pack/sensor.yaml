@@ -142,7 +142,7 @@ sensor:
 
   - platform: modbus_controller
     name: "interne Temperatur"
-    web_server_sorting_weight: 2
+    #web_server_sorting_weight: 2
     force_new_range: true
     address: 0x0D
     register_type: "holding"
