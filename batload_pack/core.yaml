@@ -26,8 +26,8 @@ api:
 
 captive_portal:
 
-logger:
-  level: DEBUG
+#logger:
+#  level: DEBUG
 
 http_request:
   useragent: esphome/device
