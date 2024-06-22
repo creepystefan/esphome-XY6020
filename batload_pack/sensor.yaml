@@ -56,7 +56,7 @@ sensor:
              value: !lambda |-
                 return id(voltageforset).state;
 
-- platform: template
+  - platform: template
     name: Schelly Power
     id: shelly_power
 
