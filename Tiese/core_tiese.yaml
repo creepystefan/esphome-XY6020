@@ -1,3 +1,11 @@
+# in secrets.yaml
+# HichiIP: http://192.168.178.60/cm?cmnd=status%2010
+
+substitutions:
+  HichiIP: !secret HichiIP
+ 
+
+
 wifi:
   ssid: !secret wifi_ssid_tiese
   password: !secret wifi_password_tiese
@@ -47,7 +55,7 @@ interval:
   - interval: 1s
     then:
       - http_request.get:
-          url: !secret HichiIP
+          url: http://192.168.178.60/cm?cmnd=status%2010
           verify_ssl: false
           headers:
             Content-Type: application/json
