@@ -1,5 +1,5 @@
 # in secrets.yaml
-# HichiIPsecret: http://192.168.178.60/cm?cmnd=status%2010
+# HichiIPsecret: 192.168.178.60
 # intervall: in Compile Code
 #- http_request.get:
 #          url: http://${HichiIP}/cm?cmnd=status%2010
