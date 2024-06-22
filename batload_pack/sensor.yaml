@@ -57,7 +57,7 @@ sensor:
                 return id(voltageforset).state;
 
   - platform: template
-    name: "Schelly Power weis nicht warum"
+    #name: "Schelly Power weis nicht warum"
     id: shelly_power
 
   - platform: template
