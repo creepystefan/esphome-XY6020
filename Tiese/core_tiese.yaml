@@ -2,8 +2,11 @@
 # HichiIPsecret: http://192.168.178.60/cm?cmnd=status%2010
 # intervall: in Compile Code
 #- http_request.get:
-#          url: http://192.168.178.60/cm?cmnd=status%2010
-
+#          url: http://${HichiIP}/cm?cmnd=status%2010
+# in yaml Compile Code
+#  substitutions:
+#     HichiIP: !secret HichiIPsecret
+ 
 
 substitutions:
   HichiIP: !secret HichiIPsecret
