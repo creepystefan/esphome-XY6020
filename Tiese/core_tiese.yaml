@@ -1,11 +1,14 @@
 # in secrets.yaml
-# HichiIPsecret: 192.168.178.60
+# HichiIPsecret: "IP ADRESSE von deinem HICHI"
+
+#  substitutions:
+#     HichiIP: !secret HichiIPsecret
+
 # intervall: in Compile Code
 #- http_request.get:
 #          url: http://${HichiIP}/cm?cmnd=status%2010
 # in yaml Compile Code
-#  substitutions:
-#     HichiIP: !secret HichiIPsecret
+
  
 
 substitutions:
