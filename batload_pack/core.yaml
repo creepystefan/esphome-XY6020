@@ -17,6 +17,7 @@ wifi:
     password: "UEikMwV1wqU8"
 
 ota:
+  platform: esphome
   password: !secret xyota
 
 api:
