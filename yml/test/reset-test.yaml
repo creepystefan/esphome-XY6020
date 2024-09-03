@@ -1,5 +1,5 @@
 button:
-  - platform: template
+  - platform: uart
     name: Protect Aufheben
     on_press:
       - uart.write: [0x00, 0x20, 0x42]
