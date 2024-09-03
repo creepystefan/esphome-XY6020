@@ -65,8 +65,8 @@ packages:
       yml/uart.yaml,
       Language/german.yaml,
       #Language/english.yaml,
-      #test/M1.yaml,
-      #test/M2.yaml,
+      #yml/test/M1.yaml,
+      #yml/test/M2.yaml,
        ]
 
 
