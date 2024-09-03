@@ -1,83 +1,81 @@
 number:
-   - platform: modbus_controller
-     modbus_controller_id: sdm
-     name: "M1 Voltage"
-     mode: box
-     address: 0x60
-     unit_of_measurement: "Volt"
-     min_value: 0
-     max_value: 65
-     step: 0.01
-     value_type: U_WORD
-     multiply: 100.0
+  - platform: modbus_controller
+    modbus_controller_id: sdm
+    name: "M1 Voltage"
+    mode: box
+    address: 0x60
+    unit_of_measurement: "Volt"
+    min_value: 0
+    max_value: 65
+    step: 0.01
+    value_type: U_WORD
+    multiply: 100.0
       
-   - platform: modbus_controller
-     modbus_controller_id: sdm
-     name: "M1 current"
-     mode: box
-     address: 0x61
-     unit_of_measurement: "Ampere"
-     min_value: 0
-     max_value: 20
-     step: 0.01
-     value_type: U_WORD
-     multiply: 100.0
+  - platform: modbus_controller
+    modbus_controller_id: sdm
+    name: "M1 current"
+    mode: box
+    address: 0x61
+    unit_of_measurement: "Ampere"
+    min_value: 0
+    max_value: 20
+    step: 0.01
+    value_type: U_WORD
+    multiply: 100.0
 
-   - platform: modbus_controller
-     modbus_controller_id: sdm
-     name: "M1 Low voltage protection value"
-     mode: box
-     address: 0x62
-     unit_of_measurement: "Voltage"
-     min_value: 0
-     max_value: 70
-     step: 0.1
-     value_type: U_WORD
-     multiply: 100.0
+  - platform: modbus_controller
+    modbus_controller_id: sdm
+    name: "M1 Low voltage protection value"
+    mode: box
+    address: 0x62
+    unit_of_measurement: "Voltage"
+    min_value: 0
+    max_value: 70
+    step: 0.1
+    value_type: U_WORD
+    multiply: 100.0
      
-   - platform: modbus_controller
-     modbus_controller_id: sdm
-     name: "M1 Overvoltage protection value"
-     mode: box
-     address: 0x63
-     unit_of_measurement: "Voltage"
-     min_value: 0
-     max_value: 70
-     step: 0.1
-     value_type: U_WORD
-     multiply: 100.0
+  - platform: modbus_controller
+    modbus_controller_id: sdm
+    name: "M1 Overvoltage protection value"
+    mode: box
+    address: 0x63
+    unit_of_measurement: "Voltage"
+    min_value: 0
+    max_value: 70
+    step: 0.1
+    value_type: U_WORD
+    multiply: 100.0
 
-   - platform: modbus_controller
-     modbus_controller_id: sdm
-     name: "M1 Overcurrent protection value"
-     address: 0x64
-     unit_of_measurement: "Ampere"
-     min_value: 0
-     max_value: 21
-     step: 0.01
-     value_type: U_WORD
-     multiply: 100.0
+  - platform: modbus_controller
+    modbus_controller_id: sdm
+    name: "M1 Overcurrent protection value"
+    address: 0x64
+    unit_of_measurement: "Ampere"
+    min_value: 0
+    max_value: 21
+    step: 0.01
+    value_type: U_WORD
+    multiply: 100.0
+ 
+  - platform: modbus_controller
+    modbus_controller_id: sdm
+    name: "M1 Over power protection value"
+    address: 0x65
+    unit_of_measurement: "Ampere"
+    min_value: 0
+    max_value: 1200
+    step: 0.01
+    value_type: U_WORD
+    multiply: 100.0
 
-   - platform: modbus_controller
-     modbus_controller_id: sdm
-     name: "M1 Over power protection value"
-     address: 0x65
-     unit_of_measurement: "Ampere"
-     min_value: 0
-     max_value: 1200
-     step: 0.01
-     value_type: U_WORD
-     multiply: 100.0
-
-   - platform: modbus_controller
-     modbus_controller_id: sdm
-     name: "M1 Over Temperatur Protect Set"
-     address: 0x6C
-     unit_of_measurement: "Celsius"
-     min_value: 0
-     max_value: 95
-     step: 1
-     value_type: U_WORD
-     multiply: 1
-
-   
+  - platform: modbus_controller
+    modbus_controller_id: sdm
+    name: "M1 Over Temperatur Protect Set"
+    address: 0x6C
+    unit_of_measurement: "Celsius"
+    min_value: 0
+    max_value: 95
+    step: 1
+    value_type: U_WORD
+    multiply: 1
