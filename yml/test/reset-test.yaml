@@ -1,0 +1,6 @@
+button:
+  - platform: template
+    # ...
+    on_press:
+      then:
+        - logger.log: Button Pressed
