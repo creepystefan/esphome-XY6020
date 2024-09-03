@@ -1,6 +1,5 @@
 button:
   - platform: template
-    # ...
+    name: Protect Aufheben
     on_press:
-      then:
-        - logger.log: Button Pressed
+      - uart.write: [0x00, 0x20, 0x42]
