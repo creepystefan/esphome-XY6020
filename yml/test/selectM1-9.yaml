@@ -1,7 +1,7 @@
 select:
   - platform: modbus_controller
-    name: "Modbus Select Register 1000"
-    address: 0x
+    name: "Select Programm M1-M9"
+    address: 0x1D
     value_type: U_WORD
     optionsmap:
       "M1": 1
