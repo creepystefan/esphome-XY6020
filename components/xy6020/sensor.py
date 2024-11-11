@@ -17,30 +17,17 @@ from esphome.const import (
 
 from . import CONF_DPS_ID, DPS_COMPONENT_SCHEMA
 
-DEPENDENCIES = ["dps"]
+DEPENDENCIES = ["xy6020"]
 
-CODEOWNERS = ["@syssi"]
+CODEOWNERS = ["@creepystefan"]
 
 CONF_OUTPUT_VOLTAGE = "output_voltage"
-CONF_OUTPUT_CURRENT = "output_current"
-CONF_OUTPUT_POWER = "output_power"
-CONF_INPUT_VOLTAGE = "input_voltage"
-CONF_VOLTAGE_SETTING = "voltage_setting"
-CONF_CURRENT_SETTING = "current_setting"
-CONF_BACKLIGHT_BRIGHTNESS = "backlight_brightness"
-CONF_FIRMWARE_VERSION = "firmware_version"
 
 ICON_BACKLIGHT_BRIGHTNESS = "mdi:brightness-6"
 
 SENSORS = [
     CONF_OUTPUT_VOLTAGE,
-    CONF_OUTPUT_CURRENT,
-    CONF_OUTPUT_POWER,
-    CONF_INPUT_VOLTAGE,
-    CONF_VOLTAGE_SETTING,
-    CONF_CURRENT_SETTING,
-    CONF_BACKLIGHT_BRIGHTNESS,
-    CONF_FIRMWARE_VERSION,
+    
 ]
 
 # pylint: disable=too-many-function-args
