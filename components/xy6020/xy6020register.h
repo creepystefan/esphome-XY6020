@@ -8,18 +8,7 @@ static const float ONE_DEC_UNIT = 0.1;
 static const float NO_DEC_UNIT = 1;
 static const float MULTIPLY_TEN_UNIT = 10;
 static const float MULTIPLY_THOUSAND_UNIT = 1000;
-
-
-  
-  
  
-#  AH_LOW: "Output AH low 16 bits"      # 0x06
-#  AH_HIGH: "Output AH high 16 bits"    # 0x07
-#  WH_LOW: "Output WH low 16 bits"      # 0x08
-#  WH_HIGH: "Output WH high 16 bits"    # 0x09
-#  OUT_H: "Open Time Hours"             # 0x0A
-#  OUT_M: "Open Time Minutes"           # 0x0B
-#  OUT_S: "Open Time Seconds"           # 0x0C
   t_in: "internal Temperature"         # 0x0D
   t_ex: "external Temperature"         # 0x0D   need external Sensor
 
@@ -38,8 +27,8 @@ static const uint16_t SELEC_ = 0x09;
 static const uint16_t SELEC_ = 0x0A;
 static const uint16_t SELEC_ = 0x0B;
 static const uint16_t SELEC_ = 0x0C;
-static const uint16_t SELEC_ = 0x0D;
-static const uint16_t SELEC_ = 0x0E;
+static const uint16_t SELEC_TEMPERATUR_INTERNAL_DISPLAY = 0x0D;
+static const uint16_t SELEC_TEMPERATUR_EXTERNAL_DISPLAY = 0x0E;
 static const uint16_t SELEC_ = 0x0F;
 static const uint16_t SELEC_ = 0x10;
 static const uint16_t SELEC_ = 0x11;
