@@ -9,10 +9,6 @@ static const float NO_DEC_UNIT = 1;
 static const float MULTIPLY_TEN_UNIT = 10;
 static const float MULTIPLY_THOUSAND_UNIT = 1000;
  
-  t_in: "internal Temperature"         # 0x0D
-  t_ex: "external Temperature"         # 0x0D   need external Sensor
-
-
 /* PHASE STATUS REGISTERS */
 //static const uint16_t SELEC_VOLTAGE_VALUE_SETTING = 0x00;
 //static const uint16_t SELEC_CURRENT_VALUE_SETTING = 0x01;
