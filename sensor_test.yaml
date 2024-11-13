@@ -30,3 +30,9 @@ captive_portal:
 logger:
   level: DEBUG
 
+sensor:
+  - platform: xy6020
+    Output_Voltage_Display:
+      name: "Output Voltage"
+    Input_Voltage:
+      name: "Input Voltage"
