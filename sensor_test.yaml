@@ -27,6 +27,17 @@ captive_portal:
 logger:
   level: DEBUG
 
+uart:
+  - id: uart_bus1
+    tx_pin: ${tx_pin}
+    rx_pin: ${rx_pin}
+    baud_rate: 115200
+    stop_bits: 1
+    parity: NONE
+    debug:
+      direction: BOTH
+      dummy_receiver: true
+
 sensor:
   - platform: xy6020
     Output_Voltage_Display:
