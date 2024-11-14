@@ -39,6 +39,7 @@ CONF_APPARENT_ENERGY = "apparent_energy"
 CONF_MAXIMUM_DEMAND_ACTIVE_POWER = "maximum_demand_active_power"
 CONF_MAXIMUM_DEMAND_REACTIVE_POWER = "maximum_demand_reactive_power"
 CONF_MAXIMUM_DEMAND_APPARENT_POWER = "maximum_demand_apparent_power"
+CONF_VOLTAGE_INPUT = "voltage_input"
 
 UNIT_KILOWATT_HOURS = "kWh"
 UNIT_KILOVOLT_AMPS_HOURS = "kVAh"
