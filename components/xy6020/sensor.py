@@ -1,6 +1,6 @@
 import esphome.codegen as cg
 import esphome.config_validation as cv
-from esphome.components import sensor, modbus
+from esphome.components import sensor, modbus, modbus_controller
 from esphome.const import (
     CONF_ACTIVE_POWER,
     CONF_APPARENT_POWER,
@@ -28,6 +28,7 @@ from esphome.const import (
     UNIT_VOLT_AMPS,
     UNIT_VOLT_AMPS_REACTIVE,
     UNIT_WATT,
+    CONF_ADDRESS,
 )
 
 AUTO_LOAD = ["modbus"]
