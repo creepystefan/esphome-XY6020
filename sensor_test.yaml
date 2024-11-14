@@ -40,5 +40,5 @@ uart:
 sensor:
   - platform: xy6020
     VOLTAGE_INPUT:
-      name: "Output Voltage"
+      name: "Input Voltage"
    
