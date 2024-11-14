@@ -49,28 +49,17 @@ SelecMeter = selec_meter_ns.class_(
     "SelecMeter", cg.PollingComponent, modbus.ModbusDevice
 )
 
-- platform: modbus_controller
-    name: "${VOUT}"
-    address: 0x02
-    register_type: "holding"
-    value_type: U_WORD
-    unit_of_measurement: "V"
-    accuracy_decimals: 2
-    filters:
-     - multiply: 0.01
-
-
 
 SENSORS = {
     CONF_VOLTAGE_INPUT: sensor.sensor_schema(
-        adress:0x02
-        register_type: "holding"
+        adress=0x02,
+        register_type="holding",
+        value_type=U_WORD,
         unit_of_measurement="V",
         accuracy_decimals=2,
         device_class=DEVICE_CLASS_ENERGY,
         state_class=STATE_CLASS_TOTAL_INCREASING,
-        filters:
-         - multiply: 0.01
+        
     ),
    
    
