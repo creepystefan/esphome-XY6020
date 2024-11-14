@@ -53,7 +53,7 @@ SelecMeter = selec_meter_ns.class_(
 
 SENSORS = {
     CONF_VOLTAGE_INPUT: sensor.sensor_schema(
-        adress=0x02,
+        adress="0x02",
         register_type="holding",
         value_type="U_WORD",
         unit_of_measurement="V",
