@@ -31,6 +31,7 @@ from esphome.const import (
 )
 
 AUTO_LOAD = ["modbus"]
+AUTO_LOAD = ["modbus_controller"]
 CODEOWNERS = ["@creepystefan"]
 
 CONF_TOTAL_ACTIVE_ENERGY = "total_active_energy"
