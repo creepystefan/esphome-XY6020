@@ -30,8 +30,8 @@ UNIT_KILOVOLT_AMPS_HOURS = "kVAh"
 UNIT_KILOVOLT_AMPS_REACTIVE_HOURS = "kVARh"
 
 xy6020_ns = cg.esphome_ns.namespace("xy6020")
-XY_6020 = xy6020_ns.class_(
-    "XY_6020", cg.PollingComponent, modbus.ModbusDevice
+XYi6020 = xy6020_ns.class_(
+    "XYi6020", cg.PollingComponent, modbus.ModbusDevice
 )
 
 
@@ -57,7 +57,7 @@ SENSORS = {
 }
 
 CONFIG_SCHEMA = (
-    cv.Schema({cv.GenerateID(): cv.declare_id(XY_6020)})
+    cv.Schema({cv.GenerateID(): cv.declare_id(XYi6020)})
     .extend(
         {cv.Optional(sensor_name): schema for sensor_name, schema in SENSORS.items()}
     )
