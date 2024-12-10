@@ -10,14 +10,13 @@ static const float MULTIPLY_TEN_UNIT = 10;
 static const float MULTIPLY_THOUSAND_UNIT = 1000;
  
 /* PHASE STATUS REGISTERS */
-//static const uint16_t SELEC_VOLTAGE_VALUE_SETTING = 0x00;
-//static const uint16_t SELEC_CURRENT_VALUE_SETTING = 0x01;
-static const uint16_t SELEC_VOLTAGE_VALUE_DISPLAY = 0x02;
-static const uint16_t SELEC_CURRENT_VALUE_DISPLAY = 0x03;
-static const uint16_t SELEC_POWER_OUTPUT_DISPLAY = 0x04;
-static const uint16_t SELEC_VOLTAGE_INPUT_DISPLAY = 0x05;
-static const uint16_t SELEC_TEMPERATUR_INTERNAL_DISPLAY = 0x0D;
-static const uint16_t SELEC_TEMPERATUR_EXTERNAL_DISPLAY = 0x0E;
+
+static const uint16_t XY6020_OUTPUT_VOLTAGE = 0x02;
+static const uint16_t XY6020_CURRENT = 0x03;
+static const uint16_t XY6020_POWER_OUTPUT_DISPLAY = 0x04;
+static const uint16_t XY6020_INPUT_VOLTAGE = 0x05;
+static const uint16_t XY6020_TEMPERATUR_INTERNAL = 0x0D;
+
 
 
 }  // namespace xy6020
