@@ -9,7 +9,7 @@
 namespace esphome {
 namespace xy6020 {
 
-#define XY6020_SENSOR(name) \
+#define iXY6020_SENSOR(name) \
  protected: \
   sensor::Sensor *name##_sensor_{nullptr}; \
 \
