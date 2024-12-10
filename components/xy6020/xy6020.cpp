@@ -27,8 +27,8 @@ void XY_6020::on_modbus_data(const std::vector<uint8_t> &data) {
     return (f * unit);
   };
   //
-  float input_voltage_energy = xy6020_get_float(XY6020_INPUT_VOLTAGE * 2, NO_DEC_UNIT);
-  float output_voltage_energy = xy6020_get_float(XY6020_OUTPUT_VOLTAGE * 2, NO_DEC_UNIT);
+  float input_voltage = xy6020_get_float(XY6020_INPUT_VOLTAGE * 2, NO_DEC_UNIT);
+  float output_voltage = xy6020_get_float(XY6020_OUTPUT_VOLTAGE * 2, NO_DEC_UNIT);
   float temperature_intern = xy6020_get_float(XY6020_TEMPERATUR_INTERNAL * 2, NO_DEC_UNIT);
 
 
