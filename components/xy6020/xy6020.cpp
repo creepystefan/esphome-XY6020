@@ -1,5 +1,5 @@
-#include "selec_meter.h"
-#include "selec_meter_registers.h"
+#include "xy6020.h"
+#include "xy6020register.h"
 #include "esphome/core/log.h"
 
 namespace esphome {
