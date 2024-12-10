@@ -42,9 +42,9 @@ UNIT_KILOWATT_HOURS = "kWh"
 UNIT_KILOVOLT_AMPS_HOURS = "kVAh"
 UNIT_KILOVOLT_AMPS_REACTIVE_HOURS = "kVARh"
 
-selec_meter_ns = cg.esphome_ns.namespace("selec_meter")
-SelecMeter = selec_meter_ns.class_(
-    "SelecMeter", cg.PollingComponent, modbus.ModbusDevice
+xy6020_ns = cg.esphome_ns.namespace("xy6020")
+XY_6020 = xy6020_ns.class_(
+    "XY_6020", cg.PollingComponent, modbus.ModbusDevice
 )
 
 
