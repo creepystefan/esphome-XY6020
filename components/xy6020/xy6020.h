@@ -18,9 +18,9 @@ namespace xy6020 {
 
 class XY6020 : public PollingComponent, public modbus::ModbusDevice {
  public:
-  XY6020_SENSOR(input_voltage)
-  XY6020_SENSOR(output_voltage)
-  XY6020_SENSOR(temperature_intern)
+  iXY6020_SENSOR(input_voltage)
+  iXY6020_SENSOR(output_voltage)
+  iXY6020_SENSOR(temperature_intern)
   
   void update() override;
 
