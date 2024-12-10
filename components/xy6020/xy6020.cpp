@@ -3,23 +3,23 @@
 #include "esphome/core/log.h"
 
 namespace esphome {
-namespace xy_6020 {
+namespace xy6020 {
 
 //static const char *const TAG = "selec_meter";
-static const char *const TAG = "xy_6020";
+static const char *const TAG = "xy6020";
 
 static const uint8_t MODBUS_CMD_READ_IN_REGISTERS = 0x04;
 static const uint8_t MODBUS_REGISTER_COUNT = 20;  // 20 x 16-bit registers
 
 //void SelecMeter::on_modbus_data(const std::vector<uint8_t> &data) {
-void XY6020::on_modbus_data(const std::vector<uint8_t> &data) {
+void XY_6020::on_modbus_data(const std::vector<uint8_t> &data) {
   if (data.size() < MODBUS_REGISTER_COUNT * 2) {
     ESP_LOGW(TAG, "Invalid size for XY6020!");
     return;
   }
 
   //auto selec_meter_get_float = [&](size_t i, float unit) -> float {
-  auto xy_6020_get_float = [&](size_t i, float unit) -> float {  
+  auto xy6020_get_float = [&](size_t i, float unit) -> float {  
     uint32_t temp = encode_uint32(data[i + 2], data[i + 3], data[i], data[i + 1]);
 
     float f;
@@ -27,10 +27,10 @@ void XY6020::on_modbus_data(const std::vector<uint8_t> &data) {
     return (f * unit);
   };
   //
-  float input_voltage_energy = xy_6020_get_float(SELEC_TOTAL_ACTIVE_ENERGY * 2, NO_DEC_UNIT);
-  float output_voltage_energy = xy_6020_get_float(SELEC_TOTAL_ACTIVE_ENERGY * 2, NO_DEC_UNIT);
-  float temperature_intern = xy_6020_get_float(SELEC_TOTAL_ACTIVE_ENERGY * 2, NO_DEC_UNIT);
-  
+  float input_voltage_energy = xy6020_get_float(XY6020_INPUT_VOLTAGE * 2, NO_DEC_UNIT);
+  float output_voltage_energy = xy6020_get_float(XY6020_OUTPUT_VOLTAGE * 2, NO_DEC_UNIT);
+  float temperature_intern = xy6020_get_float(XY6020_TEMPERATUR_INTERNAL * 2, NO_DEC_UNIT);
+
 
   if (this->input_voltage_sensor_ != nullptr)
     this->input_voltage_sensor_->publish_state(input_voltage);
@@ -43,8 +43,8 @@ void XY6020::on_modbus_data(const std::vector<uint8_t> &data) {
 
 //void SelecMeter::update() { this->send(MODBUS_CMD_READ_IN_REGISTERS, 0, MODBUS_REGISTER_COUNT); }
 //void SelecMeter::dump_config() {
-void XY6020::update() { this->send(MODBUS_CMD_READ_IN_REGISTERS, 0, MODBUS_REGISTER_COUNT); }
-void XY6020::dump_config() {
+void XY_6020::update() { this->send(MODBUS_CMD_READ_IN_REGISTERS, 0, MODBUS_REGISTER_COUNT); }
+void XY_6020::dump_config() {
   //ESP_LOGCONFIG(TAG, "SELEC Meter:");
   ESP_LOGCONFIG(TAG, "XY6020:");
   ESP_LOGCONFIG(TAG, "  Address: 0x%02X", this->address_);
@@ -53,5 +53,5 @@ void XY6020::dump_config() {
   LOG_SENSOR("  ", "Temperature Intern", this->temperature_intern_sensor_);
 }
 
-}  // namespace selec_meter
+}  // namespace xy6020
 }  // namespace esphome
