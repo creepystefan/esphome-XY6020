@@ -32,16 +32,11 @@ from esphome.const import (
 )
 
 AUTO_LOAD = ["modbus"]
-AUTO_LOAD = ["modbus_controller"]
 CODEOWNERS = ["@creepystefan"]
 
-CONF_TOTAL_ACTIVE_ENERGY = "total_active_energy"
-CONF_TOTAL_REACTIVE_ENERGY = "total_reactive_energy"
-CONF_APPARENT_ENERGY = "apparent_energy"
-CONF_MAXIMUM_DEMAND_ACTIVE_POWER = "maximum_demand_active_power"
-CONF_MAXIMUM_DEMAND_REACTIVE_POWER = "maximum_demand_reactive_power"
-CONF_MAXIMUM_DEMAND_APPARENT_POWER = "maximum_demand_apparent_power"
-CONF_VOLTAGE_INPUT = "voltage_input"
+CONF_INPUT_VOLTAGE = "input_voltage"
+CONF_OUTPUT_VOLTAGE = "output_voltage"
+CONF_TEMPERATURE_INTERN = "temperature_intern"
 
 UNIT_KILOWATT_HOURS = "kWh"
 UNIT_KILOVOLT_AMPS_HOURS = "kVAh"
@@ -54,18 +49,24 @@ SelecMeter = selec_meter_ns.class_(
 
 
 SENSORS = {
-    CONF_VOLTAGE_INPUT: sensor.sensor_schema(
-        address="0x02",
-        register_type="holding",
-        value_type="U_WORD",
-        unit_of_measurement="V",
+    CONF_INPUT_VOLTAGE: sensor.sensor_schema(
+        unit_of_measurement=UNIT_VOLT,
         accuracy_decimals=2,
-        device_class=DEVICE_CLASS_ENERGY,
-        state_class=STATE_CLASS_TOTAL_INCREASING,
-        
-    ),
-   
-   
+        device_class=DEVICE_CLASS_VOLTAGE,
+        state_class=STATE_CLASS_MEASUREMENT,
+    ), 
+    CONF_OUTPUT_VOLTAGE: sensor.sensor_schema(
+        unit_of_measurement=UNIT_VOLT,
+        accuracy_decimals=2,
+        device_class=DEVICE_CLASS_VOLTAGE,
+        state_class=STATE_CLASS_MEASUREMENT,
+    ), 
+    CONF_TEMPERATURE_INTERN: sensor.sensor_schema(
+        unit_of_measurement=UNIT_VOLT,
+        accuracy_decimals=2,
+        device_class=DEVICE_CLASS_VOLTAGE,
+        state_class=STATE_CLASS_MEASUREMENT,
+    ), 
 }
 
 CONFIG_SCHEMA = (
