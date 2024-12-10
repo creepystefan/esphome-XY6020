@@ -1,23 +1,10 @@
 import esphome.codegen as cg
 import esphome.config_validation as cv
-from esphome.components import sensor, modbus, modbus_controller
+from esphome.components import sensor, modbus
 from esphome.const import (
-    CONF_ACTIVE_POWER,
-    CONF_APPARENT_POWER,
-    CONF_CURRENT,
-    CONF_EXPORT_ACTIVE_ENERGY,
-    CONF_EXPORT_REACTIVE_ENERGY,
-    CONF_FREQUENCY,
-    CONF_ID,
-    CONF_IMPORT_ACTIVE_ENERGY,
-    CONF_IMPORT_REACTIVE_ENERGY,
-    CONF_POWER_FACTOR,
-    CONF_REACTIVE_POWER,
-    CONF_VOLTAGE,
-    DEVICE_CLASS_CURRENT,
-    DEVICE_CLASS_ENERGY,
-    DEVICE_CLASS_POWER,
-    DEVICE_CLASS_POWER_FACTOR,
+    CONF_INPUT_VOLTAGE,
+    CONF_OUTPUT_VOLTAGE,
+    CONF_TEMPERATURE_INTERN,
     DEVICE_CLASS_VOLTAGE,
     ICON_CURRENT_AC,
     STATE_CLASS_MEASUREMENT,
