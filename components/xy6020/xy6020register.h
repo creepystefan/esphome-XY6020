@@ -9,7 +9,7 @@ static const float NO_DEC_UNIT = 1;
 static const float MULTIPLY_TEN_UNIT = 10;
 static const float MULTIPLY_THOUSAND_UNIT = 1000;
  
-/* PHASE STATUS REGISTERS */
+/* STATUS REGISTERS */
 
 static const uint16_t XY6020_OUTPUT_VOLTAGE = 0x02;
 static const uint16_t XY6020_CURRENT = 0x03;
