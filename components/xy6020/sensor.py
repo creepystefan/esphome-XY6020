@@ -58,7 +58,7 @@ SENSORS = {
 }
 
 CONFIG_SCHEMA = (
-    cv.Schema({cv.GenerateID(): cv.declare_id(XY6020)})
+    cv.Schema({cv.GenerateID(): cv.declare_id(XY6020), cv.declare_id(XY602050)})
     .extend(
         {cv.Optional(sensor_name): schema for sensor_name, schema in SENSORS.items()}
     )
