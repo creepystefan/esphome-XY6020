@@ -63,10 +63,7 @@ CONFIG_SCHEMA = (
         {cv.Optional(sensor_name): schema for sensor_name, schema in SENSORS.items()}
     )
     cv.Schema({cv.GenerateID(): cv.declare_id(XY602050)})
-    .extend(
-        {cv.Optional(sensor_name): schema for sensor_name, schema in SENSORS.items()}
-    )
-    
+       
     .extend(cv.polling_component_schema("1s"))
     .extend(modbus.modbus_device_schema(0x01))
 )
