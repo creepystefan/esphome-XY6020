@@ -15,7 +15,7 @@ static const uint16_t XY6020_OUTPUT_VOLTAGE = 0x02;
 static const uint16_t XY6020_CURRENT = 0x03;
 static const uint16_t XY6020_POWER_OUTPUT_DISPLAY = 0x04;
 static const uint16_t XY6020_INPUT_VOLTAGE = 0x05;
-static const uint16_t XY6020_TEMPERATURE_INTERN = 0x0D;
+static const uint16_t XY6020_TEMPERATURE_INTERN = 0x55;
 
 
 
