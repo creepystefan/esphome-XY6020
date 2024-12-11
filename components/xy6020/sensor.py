@@ -62,7 +62,7 @@ CONFIG_SCHEMA = (
     .extend(
         {cv.Optional(sensor_name): schema for sensor_name, schema in SENSORS.items()}
     )
-    .extend(cv.polling_component_schema("10s"))
+    .extend(cv.polling_component_schema("1s"))
     .extend(modbus.modbus_device_schema(0x01))
 )
 
