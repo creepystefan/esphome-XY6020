@@ -27,19 +27,34 @@ void XY6020::on_modbus_data(const std::vector<uint8_t> &data) {
     return (f * unit);
   };
 
-  void XY602050::on_modbus_data(const std::vector<uint8_t> &data) {
-  if (data.size() < MODBUS_REGISTER_COUNT * 2) {
+  //
+  float input_voltage = xy6020_get_float(XY6020_INPUT_VOLTAGE * 2, NO_DEC_UNIT);
+  float output_voltage = xy6020_get_float(XY6020_OUTPUT_VOLTAGE * 2, NO_DEC_UNIT);
+  float temperature_intern = xy6020_get_float(XY6020_TEMPERATURE_INTERN * 2, NO_DEC_UNIT);
+
+
+  if (this->input_voltage_sensor_ != nullptr)
+    this->input_voltage_sensor_->publish_state(input_voltage);
+  if (this->output_voltage_sensor_ != nullptr)
+    this->output_voltage_sensor_->publish_state(output_voltage);
+  if (this->temperature_intern_sensor_ != nullptr)
+    this->temperature_intern_sensor_->publish_state(temperature_intern);
+ 
+}
+
+void XY602050::on_modbus_data(const std::vector<uint8_t> &data) {
+  if (data.size() < MODBUS_REGISTER_COUNT50 * 2) {
     ESP_LOGW(TAG, "Invalid size for XY6020!");
     return;
   }
   auto xy6020_get_float = [&](size_t i, float unit) -> float {  
     uint32_t temp = encode_uint32(data[i + 2], data[i + 3], data[i], data[i + 1]);
+
     float f;
     memcpy(&f, &temp, sizeof(f));
     return (f * unit);
   };
 
-    
   //
   float input_voltage = xy6020_get_float(XY6020_INPUT_VOLTAGE * 2, NO_DEC_UNIT);
   float output_voltage = xy6020_get_float(XY6020_OUTPUT_VOLTAGE * 2, NO_DEC_UNIT);
