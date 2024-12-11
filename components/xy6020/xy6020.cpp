@@ -30,6 +30,22 @@ void XY6020::on_modbus_data(const std::vector<uint8_t> &data) {
     memcpy(&f, &temp, sizeof(f));
     return (f * unit);
   };
+
+  void XY602050::on_modbus_data(const std::vector<uint8_t> &data) {
+  if (data.size() < MODBUS_REGISTER_COUNT * 2) {
+    ESP_LOGW(TAG, "Invalid size for XY6020!");
+    return;
+  }
+
+ 
+  //auto selec_meter_get_float = [&](size_t i, float unit) -> float {
+  auto xy6020_get_float = [&](size_t i, float unit) -> float {  
+    uint32_t temp = encode_uint32(data[i + 2], data[i + 3], data[i], data[i + 1]);
+
+    float f;
+    memcpy(&f, &temp, sizeof(f));
+    return (f * unit);
+  };
   //
   float input_voltage = xy6020_get_float(XY6020_INPUT_VOLTAGE * 2, NO_DEC_UNIT);
   float output_voltage = xy6020_get_float(XY6020_OUTPUT_VOLTAGE * 2, NO_DEC_UNIT);
