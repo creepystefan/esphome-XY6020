@@ -2,6 +2,7 @@
 #include "xy6020register.h"
 #include "esphome/core/log.h"
 
+
 namespace esphome {
 namespace xy6020 {
 
