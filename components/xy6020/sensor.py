@@ -67,6 +67,32 @@ CONFIG_SCHEMA = (
     .extend(modbus.modbus_device_schema(0x01))
 )
 
+XY602050 = xy6020_ns.class_(
+    "XY602050", cg.PollingComponent, modbus.ModbusDevice
+)
+
+
+SENSORS = {
+    CONF_INPUT_VOLTAGE: sensor.sensor_schema(
+        unit_of_measurement=UNIT_VOLT,
+        accuracy_decimals=2,
+        device_class=DEVICE_CLASS_VOLTAGE,
+        state_class=STATE_CLASS_MEASUREMENT,
+    ), 
+    CONF_OUTPUT_VOLTAGE: sensor.sensor_schema(
+        unit_of_measurement=UNIT_VOLT,
+        accuracy_decimals=2,
+        device_class=DEVICE_CLASS_VOLTAGE,
+        state_class=STATE_CLASS_MEASUREMENT,
+    ), 
+    CONF_TEMPERATURE_INTERN: sensor.sensor_schema(
+        unit_of_measurement=UNIT_VOLT,
+        accuracy_decimals=2,
+        device_class=DEVICE_CLASS_VOLTAGE,
+        state_class=STATE_CLASS_MEASUREMENT,
+    ), 
+}
+
 CONFIG_SCHEMA = (
     cv.Schema({cv.GenerateID(): cv.declare_id(XY602050)})
     .extend(
