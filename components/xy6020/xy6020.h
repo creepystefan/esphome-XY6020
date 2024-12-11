@@ -9,7 +9,7 @@
 namespace esphome {
 namespace xy6020 {
 
-#define iXY6020_SENSOR(name) \
+#define XY6020_SENSOR(name) \
  protected: \
   sensor::Sensor *name##_sensor_{nullptr}; \
 \
@@ -18,9 +18,9 @@ namespace xy6020 {
 
 class XY6020 : public PollingComponent, public modbus::ModbusDevice {
  public:
-  iXY6020_SENSOR(input_voltage)
-  iXY6020_SENSOR(output_voltage)
-  iXY6020_SENSOR(temperature_intern)
+  XY6020_SENSOR(input_voltage)
+  XY6020_SENSOR(output_voltage)
+  XY6020_SENSOR(temperature_intern)
   
   void update() override;
 
