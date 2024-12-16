@@ -1,10 +1,11 @@
 import esphome.codegen as cg
 import esphome.config_validation as cv
-from esphome.components import sensor, modbus
+from esphome.components import sensor, modbus, modbus_controller
 from esphome.const import (
     #CONF_INPUT_VOLTAGE,
     #CONF_OUTPUT_VOLTAGE,
     #CONF_TEMPERATURE_INTERN,
+    CONF_
     CONF_ID,
     DEVICE_CLASS_VOLTAGE,
     ICON_CURRENT_AC,
@@ -18,7 +19,7 @@ from esphome.const import (
     UNIT_WATT,
     CONF_ADDRESS,
 )
-
+AUTO_LOAD = ["modbus_controller"]
 AUTO_LOAD = ["modbus"]
 CODEOWNERS = ["@creepystefan"]
 
@@ -30,35 +31,26 @@ UNIT_KILOWATT_HOURS = "kWh"
 UNIT_KILOVOLT_AMPS_HOURS = "kVAh"
 UNIT_KILOVOLT_AMPS_REACTIVE_HOURS = "kVARh"
 
-xy6020_ns = cg.esphome_ns.namespace("xy6020")
-XY6020 = xy6020_ns.class_(
-    "XY6020", cg.PollingComponent, modbus.ModbusDevice
+test_ns = cg.esphome_ns.namespace("test")
+TEST = test_ns.class_(
+    "TEST", cg.PollingComponent, modbus.ModbusDevice
 )
 
 
 SENSORS = {
     CONF_INPUT_VOLTAGE: sensor.sensor_schema(
+        platform=modbus_controller
+        modbus_controller_id=modbus_device
         unit_of_measurement=UNIT_VOLT,
         accuracy_decimals=2,
         device_class=DEVICE_CLASS_VOLTAGE,
         state_class=STATE_CLASS_MEASUREMENT,
     ), 
-    CONF_OUTPUT_VOLTAGE: sensor.sensor_schema(
-        unit_of_measurement=UNIT_VOLT,
-        accuracy_decimals=2,
-        device_class=DEVICE_CLASS_VOLTAGE,
-        state_class=STATE_CLASS_MEASUREMENT,
-    ), 
-    CONF_TEMPERATURE_INTERN: sensor.sensor_schema(
-        unit_of_measurement=UNIT_VOLT,
-        accuracy_decimals=2,
-        device_class=DEVICE_CLASS_VOLTAGE,
-        state_class=STATE_CLASS_MEASUREMENT,
-    ), 
+  
 }
 
 CONFIG_SCHEMA = (
-    cv.Schema({cv.GenerateID(): cv.declare_id(XY6020)}),
+    cv.Schema({cv.GenerateID(): cv.declare_id(TEST)}),
     .extend(
         {cv.Optional(sensor_name): schema for sensor_name, schema in SENSORS.items()}
     )
