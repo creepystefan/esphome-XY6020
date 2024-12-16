@@ -5,7 +5,6 @@ from esphome.const import (
     #CONF_INPUT_VOLTAGE,
     #CONF_OUTPUT_VOLTAGE,
     #CONF_TEMPERATURE_INTERN,
-    CONF_
     CONF_ID,
     DEVICE_CLASS_VOLTAGE,
     ICON_CURRENT_AC,
