@@ -2,8 +2,10 @@
 sensor:
   - platform: homeassistant
     name: "Diamex Verbraucht Sensor von Home Assistant"
-    id: power
-    entity_id: sensor.diamexpower_sensor
+    id: diamax_power
+    entity_id: sensor.diamexpower_sensor    # anstelle von diamexpower die entität eintragen die in homeassistant angezeigt wird. da muss du mal suchen
  
  
-#entity_id: sensor.     """"   hier die entität von Homeassistant eintragen  """""    _sensor    
+#   entity_id: sensor.     """"   hier die entität von Homeassistant eintragen  """""    _sensor    
+
+#intervall und http_request löschen
