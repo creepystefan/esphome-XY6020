@@ -1,0 +1,24 @@
+http_request:
+  useragent: esphome/device
+  timeout: 5s
+  id: getrequest
+  verify_ssl: false
+
+interval:
+  - interval: 1s
+    then:
+      - http_request.get:
+          url: http://IP von Powermeter/cm?cmnd=status%2010                   # IP Anpassen
+          headers:
+            Content-Type: application/json
+          on_response:
+            then:
+              - lambda: |-
+                  json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
+                      id(power).publish_state(root["Power_curr"]);
+                  });
+
+sensor:
+  - platform: template
+    name: Power
+    id: power
