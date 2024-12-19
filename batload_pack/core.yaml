@@ -34,7 +34,8 @@ http_request:
   useragent: esphome/device
   timeout: 5s
   id: getrequest
-
+  verify_ssl: false
+  
 #     !secret xy6020_IP
 interval:
   - interval: 1s
@@ -42,7 +43,6 @@ interval:
       - http_request.get:
           url: http://${ShellyIP}/rpc/Shelly.GetStatus
           #url: http://${ShellyIP}/rpc/Shelly.GetStatus
-          verify_ssl: false
           headers:
             Content-Type: application/json
           on_response:
