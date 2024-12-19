@@ -13,10 +13,10 @@ substitutions:
   ShellyIP: "192.168.178.46"
   #interval: "1s"  # Interval Time for Request
 
-esphome:
-  name: xy6020
-  #friendly_name: ${friendly_name}
-  comment: Batterie Laden mit Übereinspeisung
+#esphome:
+#esp32:
+#modbus_controller
+#uart:
+#web:
+#.......
 
-esp32:
-  board: nodemcu-32s
