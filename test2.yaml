@@ -396,8 +396,45 @@ text_sensor:
         default: return std::string("Unknown");
       }
       return x;
- 
 
+switch:
+   - platform: modbus_controller
+     modbus_controller_id: sdm
+     name: "Tastensperre"
+     id: keylockswitch
+     register_type: holding
+     address: 0x0F
+     bitmask: 1
+     entity_category: config
+     icon: "mdi:toggle-switch"
+
+   - platform: modbus_controller
+     modbus_controller_id: sdm
+     name: "EIN-AUS Schalter"
+     id: onoff
+     register_type: holding
+     address: 0x12
+     bitmask: 1
+     entity_category: config
+     icon: "mdi:toggle-switch"
+
+   - platform: modbus_controller
+     modbus_controller_id: sdm
+     name: "Grad - Farendheit"
+     register_type: holding
+     address: 0x13
+     bitmask: 1
+     entity_category: config
+     icon: "mdi:toggle-switch"
+     
+   - platform: modbus_controller
+     modbus_controller_id: sdm
+     name: "Sleep"
+     register_type: holding
+     address: 0x15
+     bitmask: 1
+     entity_category: config
+     icon: "mdi:toggle-switch"
     
   
     
