@@ -29,9 +29,9 @@ wifi:
 ota:
   password: !secret xyota
 
-api:
-  encryption:
-    key: !secret xykey
+#api:
+#  encryption:
+#    key: !secret xykey
 
 captive_portal:
 
