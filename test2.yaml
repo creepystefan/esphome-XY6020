@@ -18,6 +18,7 @@ substitutions:
 #modbus_controller
 #uart:
 #web:
+#captive_portal:
 #.......
 
 
