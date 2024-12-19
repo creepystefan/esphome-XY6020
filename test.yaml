@@ -100,5 +100,5 @@ sensor:
      - multiply: 0.01
 
   - platform: template
-    name: ID
+    name: Power
     id: power
