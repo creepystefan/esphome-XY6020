@@ -86,8 +86,6 @@ interval:
                   json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
                       id(id).publish_state(root["em:0"]["id"]);
                       id(Power).publish_state(root["em:0"]["a_power"]);
-                      
-                      
                   });
 
 sensor:
