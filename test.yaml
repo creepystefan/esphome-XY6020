@@ -64,4 +64,13 @@ modbus_controller:
     setup_priority: -10
     update_interval: 10s
 
-    
+sensor:
+  - platform: modbus_controller
+    name: "${UIN}"
+    address: 0x05
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Volt"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
