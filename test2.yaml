@@ -1,7 +1,7 @@
 substitutions:
   friendly_name: ""
-  tx_pin: "GPIO4"
-  rx_pin: "GPIO2"
+  tx_pin: "GPIO17"
+  rx_pin: "GPIO16"
   #powermess: !secret powmess
   updateinterval: "15s"
   i_set_temp_min: "0"
