@@ -10,7 +10,7 @@ substitutions:
   bat_undervoltage: "23"   # Minimum Bat Voltage 
   bat_holdvoltage: "27.4"  # Voltage to hold Loading
   bat_loadvoltagepv0: "25"
-  DiamaxIP: "192.168.178.46"                              ### IP Adresse von Tasmota
+  #DiamaxIP: "192.168.178.46"                              ### IP Adresse von Tasmota
   #interval: "1s"  # Interval Time for Request
 
 #esphome:
