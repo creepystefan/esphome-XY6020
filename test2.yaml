@@ -1,1 +1,22 @@
+substitutions:
+  friendly_name: ""
+  tx_pin: "GPIO4"
+  rx_pin: "GPIO2"
+  #powermess: !secret powmess
+  updateinterval: "15s"
+  i_set_temp_min: "0"
+  i_set_temp_max: "95"
+  bat_loadvoltage: "28"    # Loadvoltage for Battery
+  bat_undervoltage: "23"   # Minimum Bat Voltage 
+  bat_holdvoltage: "27.4"  # Voltage to hold Loading
+  bat_loadvoltagepv0: "25"
+  ShellyIP: "192.168.178.46"
+  #interval: "1s"  # Interval Time for Request
 
+esphome:
+  name: xy6020
+  #friendly_name: ${friendly_name}
+  comment: Batterie Laden mit Übereinspeisung
+
+esp32:
+  board: nodemcu-32s
