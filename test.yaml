@@ -64,6 +64,31 @@ modbus_controller:
     setup_priority: -10
     update_interval: 10s
 
+# Tasmota / Hitchi abfragen  http://IP von Hitchi/cm?cmnd=status%2010
+
+interval:
+  - interval: 1s
+    then:
+      - http_request.get:
+          url: http://IP von Hitchi/cm?cmnd=status%2010
+          #url: http://${ShellyIP}/rpc/Shelly.GetStatus
+          verify_ssl: false
+          headers:
+            Content-Type: application/json
+          on_response:
+            then:
+              - lambda: |-
+                  json::parse_json(id(getrequest).get_string(), [](JsonObject root) {
+                      id(id).publish_state(root["em:0"]["id"]);
+                      id(a_voltage).publish_state(root["em:0"]["a_voltage"]);
+                      id(b_voltage).publish_state(root["em:0"]["b_voltage"]);
+                      id(c_voltage).publish_state(root["em:0"]["c_voltage"]);
+                      id(a_freq).publish_state(root["em:0"]["a_freq"]);
+                      id(b_freq).publish_state(root["em:0"]["b_freq"]);
+                      id(c_freq).publish_state(root["em:0"]["c_freq"]);
+                      
+                  });
+
 sensor:
   - platform: modbus_controller
     name: "Eingangsspannung"
