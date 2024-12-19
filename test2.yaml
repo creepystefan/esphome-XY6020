@@ -114,3 +114,169 @@ number:
      step: 0.01
      value_type: U_WORD
      multiply: 100.0
+
+sensor:
+  - platform: template
+    name: "currentforset"
+    id: currentforset 
+    lambda: !lambda |-
+      if ((id(currentset).state + (id(powerinout).state / id(actualvoltage).state)<= 0) && (id(batvoltage).state >= ${bat_undervoltage})) {
+        return 0; }
+      if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) >= id(maxloadcurrent).state) {
+        return id(maxloadcurrent).state;
+      } else {
+        return id(currentset).state + (id(powerinout).state / id(actualvoltage).state);
+      }
+    update_interval: 10s
+    unit_of_measurement: "Ampere"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 1
+
+  - platform: template
+    name: "Strom zum setzen"
+    id: currentforset1
+    lambda: |-
+      if ((id(batvoltage).state <= ${bat_undervoltage}) && (id(currentforset).state <= 0)) {
+        return 0.5;
+      } else {
+        return id(currentforset).state;
+      }
+    update_interval: 1s
+    unit_of_measurement: "Ampere"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 1
+    on_value:
+       then:
+         - number.set:
+             id: currentset
+             value: !lambda |-
+                return id(currentforset1).state;
+
+
+  - platform: template
+    #name: "Spannung Setzen"
+    id: voltageforset
+    lambda: |-
+      if (id(currentforset1).state <= 0.5) {
+        return ${bat_undervoltage};
+      } else {
+        return ${bat_loadvoltage};
+      }
+    update_interval: 1s
+    accuracy_decimals: 2
+    on_value:
+       then:
+         - number.set:
+             id: voltageset
+             value: !lambda |-
+                return id(voltageforset).state;
+
+  - platform: template
+    #name: "Schelly Power weis nicht warum"
+    id: shelly_power
+
+  - platform: template
+    name: "Shelly-Power"
+    id: powerinout
+    lambda: |-
+       return (id(shelly_power).state - id(shelly_power).state - id(shelly_power).state) + id(manipulate).state;
+    update_interval: 1s
+    unit_of_measurement: "Watt"
+    accuracy_decimals: 4
+    filters:
+     - multiply: 1      
+
+  - platform: modbus_controller
+    name: "Eingestellte Spannung"
+    id: actualvoltage
+    address: 0x00
+    register_type: "holding"
+    value_type: U_WORD
+    #unit_of_measurement: "V"
+    device_class: VOLTAGE
+    icon: "mdi:water-percent"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Eingestellter Strom"
+    id: actualcurrent
+    address: 0x01
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Ampere"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Batterie Spannung"
+    id: batvoltage
+    address: 0x02
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Aktueller Strom"
+    address: 0x03
+    register_type: "holding"
+    value_type: U_WORD
+    device_class: CURRENT
+    #unit_of_measurement: "Ampere"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Ladeleistung"
+    address: 0x04
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Watt"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.1
+
+  - platform: modbus_controller
+    name: "${UIN}"
+    #web_server_sorting_weight: 1
+    address: 0x05
+    register_type: "holding"
+    value_type: U_WORD
+    #unit_of_measurement: "Volt"
+    device_class: "VOLTAGE"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+    
+
+  - platform: modbus_controller
+    name: "interne Temperatur"
+    #web_server_sorting_weight: 2
+    force_new_range: true
+    address: 0x0D
+    register_type: "holding"
+    value_type: U_WORD
+    device_class: "TEMPERATURE"
+    unit_of_measurement: "°C"
+    icon: "mdi:thermometer"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.1
+    
+
+
+    
+  
+    
+    
+    
+
+  
