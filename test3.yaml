@@ -1,0 +1,3 @@
+ - platform: homeassistant
+    name: "Temperature Sensor From Home Assistant"
+    entity_id: sensor.temperature_sensor
