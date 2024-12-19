@@ -64,7 +64,7 @@ modbus_controller:
     setup_priority: -10
     update_interval: 10s
 
-# Tasmota / Hitchi abfragen  http://IP von Hitchi/cm?cmnd=status%2010
+# Tasmota  abfragen  http://IP von Hitchi/cm?cmnd=status%2010
 
 http_request:
   useragent: esphome/device
@@ -75,7 +75,7 @@ interval:
   - interval: 1s
     then:
       - http_request.get:
-          url: http://IP von Hitchi/cm?cmnd=status%2010
+          url: http://IP von Powermeter/cm?cmnd=status%2010
           #url: http://${ShellyIP}/rpc/Shelly.GetStatus
           verify_ssl: false
           headers:
