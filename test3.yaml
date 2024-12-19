@@ -1,3 +1,9 @@
- - platform: homeassistant
-    name: "Temperature Sensor From Home Assistant"
-    entity_id: sensor.temperature_sensor
+
+sensor:
+  - platform: homeassistant
+    name: "Diamex Verbraucht Sensor von Home Assistant"
+    id: power
+    entity_id: sensor.diamexpower_sensor
+ 
+ 
+#entity_id: sensor.     """"   hier die entität von Homeassistant eintragen  """""    _sensor    
