@@ -70,13 +70,13 @@ http_request:
   useragent: esphome/device
   timeout: 5s
   id: getrequest
+  verify_ssl: false
 
 interval:
   - interval: 1s
     then:
       - http_request.get:
           url: http://IP von Powermeter/cm?cmnd=status%2010                   # IP Anpassen
-          verify_ssl: false
           headers:
             Content-Type: application/json
           on_response:
