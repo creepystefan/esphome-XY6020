@@ -12,6 +12,40 @@ substitutions:
   bat_loadvoltagepv0: "25"
   #DiamaxIP: "192.168.178.46"                              ### IP Adresse von Tasmota
   #interval: "1s"  # Interval Time for Request
+  V_SET: "Spannung Einstellen"   # 0x00
+  C_SET: "Strom Einstellen"      # 0x01
+  VOUT: "Spannung Ausgang"       # 0x02
+  IOUT: "Strom Ausgang"          # 0x03
+  POWER: "Leistung Ausgang"      # 0x04
+  UIN: "Eingangsspannung"        # 0x05
+  t_in: "Temperatur intern"      # 0x0D
+  t_ex: "Temperatur extern"      # 0x0D   need external Sensor
+#  M052: ""                            # 0x52
+#  M053: ""                             # 0x53
+#  M054: "0x54"
+#  M055: "Over power protection value"      # 0x55
+#  M056: "0x56"
+#  M057: "Maximum output duration—minutes"  # 0x57
+#  M058: "0x58"
+#  M059: "0x59"
+#  M05C: "Schutz Übertemperatur Grenze"  # 0x5C  
+  
+  PROTECT: "Schutz Status"             # 0x10
+  normal: "Normal"                     # 0
+  OVP: "Überspannung"                  # 1
+  OCP: "Überstrom"                     # 2
+  OPP: "Überleistung"                  # 3
+  LVP: "Unterspannung"                 # 4
+  OAH: "Maximal Ausgang Amper/Stunden" # 5
+  OHP: "Maximal Ausgangzeit"           # 6
+  OTP: "Übertemperatur"                # 7
+  OEP: "OEP"                           # 8
+  OWH: "Maximum output WattHours"      # 9
+  ICP: "ICP"                           #10
+
+  LOCK: "Tastensperre"   #
+  unlock: "offen"        #  0
+  locked: "Geschützt"    #  1
 
 #esphome:
 #esp32:
