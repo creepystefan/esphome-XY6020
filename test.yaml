@@ -16,10 +16,10 @@ web_server:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  #manual_ip:
-  #  static_ip: !secret xy6020_IP
-  #  gateway: !secret gateway
-  #  subnet: !secret subnet
+  manual_ip:
+    static_ip: !secret xy6020_IP
+    gateway: !secret gateway
+    subnet: !secret subnet
   
   #ap:
   #  ssid: "xy6020 Fallback Hotspot"
