@@ -66,7 +66,7 @@ modbus_controller:
 
 sensor:
   - platform: modbus_controller
-    name: "${UIN}"
+    name: "Eingangsspannung"
     address: 0x05
     register_type: "holding"
     value_type: U_WORD
