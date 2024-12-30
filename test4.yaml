@@ -1,7 +1,6 @@
 substitutions:
   bat_loadvoltage: "28.2"    # Loadvoltage for Battery
-  bat_undervoltage: "23"   # Minimum Bat Voltage
-  max_load_current: "10"   # Maximaler Ladestrom fix in Ampere ${max_load_current} XY6020 MAximal 21
+  max_load_current: "20"   # Maximaler Ladestrom fix in Ampere ${max_load_current} XY6020 MAximal 21
 
 number:
         
@@ -15,18 +14,21 @@ number:
     min_value: -500
     max_value: 2000
     step: 10
-   
+
+## Wenn aktueller Spannung nicht gleich Ladespannung (loadvoltage) dann stelle auf loadvoltage
   - platform: modbus_controller
     modbus_controller_id: sdm
     #name: "Spannung Einstellen"
     id: voltageset
     address: 0x00
     unit_of_measurement: "Volt"
-    min_value: 0
-    max_value: 65
-    step: 0.01
+    initial_value: ${bat_loadvoltage}
     value_type: U_WORD
     multiply: 100.0
+    lambda: |-
+      if (id(actualvoltage).state != ${bat_loadvoltage}) {
+        return ${bat_loadvoltage};
+      } 
         
   - platform: modbus_controller
     modbus_controller_id: sdm
@@ -50,10 +52,7 @@ sensor:
     name: "Diamex Verbraucht Sensor von Home Assistant"
     id: shelly_power
     entity_id: sensor.tasmota_sml_power_curr
- 
- 
- 
- 
+  
  #      if ((id(currentset).state + (id(powerinout).state / id(actualvoltage).state)<= 0) && (id(batvoltage).state >= ${bat_undervoltage})) {
 ##   aktueller Ladestrom + StromZähler Strom     kleiner       0
 ##      return 0
@@ -64,7 +63,6 @@ sensor:
 ##         RETURN in die ID currentforset
 ##   Wenn ein Wert vorhanden dann setze Number: ID currentset auf den errechneten Wert von currentforset
       
-
   - platform: template
     name: "currentforset"
     id: currentforset 
@@ -93,23 +91,23 @@ sensor:
 ##   Wenn errechneter Ladestrom 0 Ampere dann BAT_UNDERVOLTAGE
 ##   ansonsten gebe BAT_LOADVOLTAGE zurück
   
-  - platform: template
-    #name: "Spannung Setzen"
-    id: voltageforset
-    lambda: |-
-      if (id(currentforset).state == 0) {
-        return ${bat_undervoltage};
-      } else {
-        return ${bat_loadvoltage};
-      }
-    update_interval: 0.5ms
-    accuracy_decimals: 2
-    on_value:
-       then:
-         - number.set:
-             id: voltageset
-             value: !lambda |-
-                return id(voltageforset).state;
+ # - platform: template
+ #   #name: "Spannung Setzen"
+ #   id: voltageforset
+ #   lambda: |-
+ #     if (id(currentforset).state == 0) {
+ #       return ${bat_undervoltage};
+ #     } else {
+ #       return ${bat_loadvoltage};
+ #     }
+ #   update_interval: 0.5ms
+ #   accuracy_decimals: 2
+ #   on_value:
+ #      then:
+ #        - number.set:
+ #            id: voltageset
+ #            value: !lambda |-
+ #               return id(voltageforset).state;
 
 # Minus Übereinspeisung umrechnung in einen positiven Wert
   - platform: template
@@ -180,7 +178,7 @@ sensor:
      - multiply: 0.1
 
   - platform: modbus_controller
-    name: "${UIN}"
+    name: "Netzteilspannung"
     address: 0x05
     register_type: "holding"
     value_type: U_WORD
