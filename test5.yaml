@@ -139,5 +139,21 @@ sensor:
     accuracy_decimals: 2
     filters:
      - multiply: 0.01
-    
- 
+
+######   bin ich noch am basteln   NICHT VERWENDEN
+
+text_sensor:
+  - platform: template
+    name: "Ladestatus"
+    update_interval: 0.5ms
+    lambda: |-
+      if (${bat_loadvoltage} == id(batvoltage).state &&  {
+        return std::string("Voll");  }
+      if (id(alarm_status).state == "disarmed") {
+        return std::string("Laden");  }
+      if (id(alarm_status).state == "disarmed") {
+        return std::string("Voll");  }
+           
+        
+      
+
