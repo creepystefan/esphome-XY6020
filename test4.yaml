@@ -1,25 +1,5 @@
 number:
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    id: protectclear
-    address: 0x10
-    min_value: 0
-    max_value: 1
-    step: 1
-    value_type: U_WORD
         
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "Setting Over Voltage Protected"
-    mode: box
-    address: 0x53
-    unit_of_measurement: "Voltage"
-    min_value: 0
-    max_value: 70
-    step: 0.1
-    value_type: U_WORD
-    multiply: 100.0
-      
   - platform: template
     name: "PV-Manipulate"
     id: manipulate
@@ -335,48 +315,3 @@ text_sensor:
       }
       return x;
 
-switch:
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "Tastensperre"
-    id: keylockswitch
-    register_type: holding
-    address: 0x0F
-    bitmask: 1
-    entity_category: config
-    icon: "mdi:toggle-switch"
-
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "EIN-AUS Schalter"
-    id: onoff
-    register_type: holding
-    address: 0x12
-    bitmask: 1
-    entity_category: config
-    icon: "mdi:toggle-switch"
-
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "Grad - Farendheit"
-    register_type: holding
-    address: 0x13
-    bitmask: 1
-    entity_category: config
-    icon: "mdi:toggle-switch"
-     
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "Sleep"
-    register_type: holding
-    address: 0x15
-    bitmask: 1
-    entity_category: config
-    icon: "mdi:toggle-switch"
-    
-  
-    
-    
-    
-
-  
