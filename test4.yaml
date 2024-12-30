@@ -117,7 +117,7 @@ sensor:
       } else {
         return ${bat_loadvoltage};
       }
-    update_interval: 1s
+    update_interval: 0.5ms
     accuracy_decimals: 2
     on_value:
        then:
