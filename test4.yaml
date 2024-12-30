@@ -1,5 +1,5 @@
 substitutions:
-  bat_loadvoltage: "28"    # Loadvoltage for Battery
+  bat_loadvoltage: "28.2"    # Loadvoltage for Battery
   bat_undervoltage: "23"   # Minimum Bat Voltage 
 
 
