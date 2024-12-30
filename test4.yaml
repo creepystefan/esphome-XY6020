@@ -66,8 +66,9 @@ sensor:
 ##   aktueller Ladestrom + Stromzähler Strom      größer       als maximaler eingestellter Strom
 ##      return maxloadcurrent (maximaler eingestellter Strom)
 ##   wenn beides NICHT Zutrifft, dann
-        aktueller Ladestrom + StromZähler Strom
-##        RETURN in die ID currentforset
+##      aktueller Ladestrom + StromZähler Strom
+##         RETURN in die ID currentforset
+##   Wenn ein Wert vorhanden dann setze Number: ID currentset auf den errechneten Wert von currentforset
       
 
   - platform: template
