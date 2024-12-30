@@ -152,7 +152,7 @@ text_sensor:
       if (id(alarm_status).state == "disarmed") {
         return std::string("Laden");  }
       if (id(alarm_status).state == "disarmed") {
-        return std::string("Voll");  }
+        return std::string("Stop");  }
            
         
       
