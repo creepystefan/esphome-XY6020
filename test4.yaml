@@ -1,8 +1,7 @@
 substitutions:
   bat_loadvoltage: "28.2"    # Loadvoltage for Battery
   bat_undervoltage: "23"   # Minimum Bat Voltage
-  max_load_current: "10"   # Maximaler Ladestrom fix in Ampere ${max_load_current}
-
+  max_load_current: "10"   # Maximaler Ladestrom fix in Ampere ${max_load_current} XY6020 MAximal 21
 
 number:
         
