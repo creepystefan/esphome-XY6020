@@ -57,7 +57,16 @@ sensor:
     id: shelly_power
     entity_id: sensor.tasmota_sml_power_curr
  
+ 
+ 
+ 
  #      if ((id(currentset).state + (id(powerinout).state / id(actualvoltage).state)<= 0) && (id(batvoltage).state >= ${bat_undervoltage})) {
+##   aktueller Ladestrom + StromZähler Strom    <= 0
+      return 0
+##   aktueller Ladestrom + Stromzähler Strom    >= 0
+      return maxloadcurrent (maximaler eingestellter Strom)
+      
+
   - platform: template
     name: "currentforset"
     id: currentforset 
