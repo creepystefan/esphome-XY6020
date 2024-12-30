@@ -110,6 +110,7 @@ sensor:
 
   - platform: modbus_controller
     name: "Ladestrom"
+    id: loadcurrent
     address: 0x03
     register_type: "holding"
     value_type: U_WORD
@@ -147,7 +148,7 @@ text_sensor:
     name: "Ladestatus"
     update_interval: 0.5ms
     lambda: |-
-      if (${bat_loadvoltage} == id(batvoltage).state &&  {
+      if ((${bat_loadvoltage} == id(batvoltage).state) && ($(max_load_current) == id(loadcurrent).state)) {  
         return std::string("Voll");  }
       if (id(alarm_status).state == "disarmed") {
         return std::string("Laden");  }
