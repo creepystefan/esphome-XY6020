@@ -65,6 +65,8 @@ sensor:
 ##      return 0
 ##   aktueller Ladestrom + Stromzähler Strom    >= 0
 ##      return maxloadcurrent (maximaler eingestellter Strom)
+
+##        RETURN in die ID currentforset
       
 
   - platform: template
