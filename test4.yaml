@@ -48,30 +48,7 @@ number:
     value_type: U_WORD
     multiply: 100.0
     
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "Setting Over Voltage Protected"
-    mode: box
-    force_new_range: true
-    address: 0x53
-    unit_of_measurement: "Voltage"
-    min_value: 0
-    max_value: 70
-    step: 0.01
-    value_type: U_WORD
-    multiply: 100.0
-
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "Setting Over Current Protected"
-    mode: box
-    address: 0x54
-    unit_of_measurement: "Ampere"
-    min_value: 0
-    max_value: 21
-    step: 0.01
-    value_type: U_WORD
-    multiply: 100.0
+  
 
 sensor:
 
@@ -80,12 +57,12 @@ sensor:
     id: shelly_power
     entity_id: sensor.tasmota_sml_power_curr
  
- 
+ #      if ((id(currentset).state + (id(powerinout).state / id(actualvoltage).state)<= 0) && (id(batvoltage).state >= ${bat_undervoltage})) {
   - platform: template
     name: "currentforset"
     id: currentforset 
     lambda: !lambda |-
-      if ((id(currentset).state + (id(powerinout).state / id(actualvoltage).state)<= 0) && (id(batvoltage).state >= ${bat_undervoltage})) {
+      if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state)<= 0) {
         return 0; }
       if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) >= id(maxloadcurrent).state) {
         return id(maxloadcurrent).state;
