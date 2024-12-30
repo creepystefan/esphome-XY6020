@@ -85,30 +85,15 @@ sensor:
     unit_of_measurement: "Ampere"
     accuracy_decimals: 2
     filters:
-     - multiply: 1
-
-  - platform: template
-    name: "Strom zum setzen"
-    id: currentforset1
-    lambda: |-
-      if ((id(batvoltage).state <= ${bat_undervoltage}) && (id(currentforset).state <= 0)) {
-        return 0.5;
-      } else {
-        return id(currentforset).state;
-      }
-    update_interval: 1s
-    unit_of_measurement: "Ampere"
-    accuracy_decimals: 2
-    filters:
-     - multiply: 1
-    on_value:
+     - multiply: 10
+     on_value:
        then:
          - number.set:
              id: currentset
              value: !lambda |-
-                return id(currentforset1).state;
+                return id(currentforset).state;
 
-
+  
   - platform: template
     #name: "Spannung Setzen"
     id: voltageforset
