@@ -94,12 +94,16 @@ sensor:
              value: !lambda |-
                 return id(currentforset).state;
 
+
+##   Spannung setzen
+##   Wenn errechneter Ladestrom 0 Ampere dann BAT_UNDERVOLTAGE
+##   ansonsten gebe BAT_LOADVOLTAGE zurück
   
   - platform: template
     #name: "Spannung Setzen"
     id: voltageforset
     lambda: |-
-      if (id(currentforset1).state <= 0.5) {
+      if (id(currentforset).state == 0) {
         return ${bat_undervoltage};
       } else {
         return ${bat_loadvoltage};
