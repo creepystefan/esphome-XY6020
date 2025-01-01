@@ -1,0 +1,162 @@
+#####     not use at momanet   #####
+
+
+substitutions:
+  bat_loadvoltage: "28.2"    # Loadvoltage for Battery
+  max_load_current: "20"   # Maximaler Ladestrom fix in Ampere ${max_load_current} XY6020 MAximal 21
+
+number:
+        
+  - platform: template
+    name: "PV-Manipulate"
+    id: manipulate
+    mode: slider
+    optimistic: true
+    unit_of_measurement: "Watt"
+    initial_value: 0
+    min_value: -500
+    max_value: 2000
+    step: 10
+
+## Wenn aktueller Spannung nicht gleich Ladespannung (loadvoltage) dann stelle auf loadvoltage
+  - platform: modbus_controller
+    modbus_controller_id: sdm
+    #name: "Spannung Einstellen"
+    id: voltageset
+    address: 0x00
+    unit_of_measurement: "Volt"
+    initial_value: ${bat_loadvoltage}
+    value_type: U_WORD
+    multiply: 100.0
+    lambda: |-
+      if (id(actualvoltage).state != ${bat_loadvoltage}) {
+        return ${bat_loadvoltage};
+      } 
+        
+  - platform: modbus_controller
+    modbus_controller_id: sdm
+    #name: "Strom Einstellen"
+    id: currentset
+    entity_category: config
+    mode: box
+    address: 0x01
+    unit_of_measurement: "Ampere"
+    min_value: 0
+    max_value: 20
+    step: 0.01
+    value_type: U_WORD
+    multiply: 100.0
+    lambda: !lambda |-
+      if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state)<= 0) {
+        return 0; }
+      if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) >= ${max_load_current}) {
+        return ${max_load_current};
+      } else {
+        return id(currentset).state + (id(powerinout).state / id(actualvoltage).state);
+      }
+  
+
+sensor:
+
+  - platform: homeassistant
+    name: "Diamex Verbraucht Sensor von Home Assistant"
+    id: shelly_power
+    entity_id: sensor.tasmota_sml_power_curr
+  
+
+# Minus Übereinspeisung umrechnung in einen positiven Wert
+  - platform: template
+    name: "Shelly-Power"
+    id: powerinout
+    lambda: |-
+       return (id(shelly_power).state - id(shelly_power).state - id(shelly_power).state) + id(manipulate).state;
+    update_interval: 0.5ms
+    unit_of_measurement: "Watt"
+    accuracy_decimals: 4
+    filters:
+     - multiply: 1      
+
+  - platform: modbus_controller
+    name: "Lade-Spannung"
+    id: actualvoltage
+    address: 0x00
+    register_type: "holding"
+    value_type: U_WORD
+    #unit_of_measurement: "V"
+    device_class: VOLTAGE
+    icon: "mdi:water-percent"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Lade-Strom"
+    id: actualcurrent
+    address: 0x01
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Ampere"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Batterie Spannung"
+    id: batvoltage
+    address: 0x02
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Ladestrom"
+    id: loadcurrent
+    address: 0x03
+    register_type: "holding"
+    value_type: U_WORD
+    device_class: CURRENT
+    #unit_of_measurement: "Ampere"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Ladeleistung"
+    address: 0x04
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Watt"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.1
+
+  - platform: modbus_controller
+    name: "Netzteilspannung"
+    address: 0x05
+    register_type: "holding"
+    value_type: U_WORD
+    #unit_of_measurement: "Volt"
+    device_class: "VOLTAGE"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+######   bin ich noch am basteln   NICHT VERWENDEN
+
+text_sensor:
+  - platform: template
+    name: "Ladestatus"
+    update_interval: 0.5ms
+    lambda: |-
+      if ((${bat_loadvoltage} == id(batvoltage).state) && ($(max_load_current) == id(loadcurrent).state)) {  
+        return std::string("Voll");  }
+      if (id(alarm_status).state == "disarmed") {
+        return std::string("Laden");  }
+      if (id(alarm_status).state == "disarmed") {
+        return std::string("Stop");  }
+           
+        
+      
