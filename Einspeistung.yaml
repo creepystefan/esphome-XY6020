@@ -59,7 +59,7 @@ number:
 sensor:
 
   - platform: homeassistant
-    name: "Diamex Verbraucht Sensor von Home Assistant"
+    #name: "Diamex Verbraucht Sensor von Home Assistant"
     id: shelly_power
     entity_id: sensor.tasmota_sml_power_curr
 
@@ -117,7 +117,7 @@ sensor:
      - multiply: 0.01
 
   - platform: modbus_controller
-    name: "Ladestrom"
+    name: "Einspeisestrom"
     id: loadcurrent
     address: 0x03
     register_type: "holding"
@@ -129,7 +129,7 @@ sensor:
      - multiply: 0.01
 
   - platform: modbus_controller
-    name: "Ladeleistung"
+    name: "Einspeiseleistung"
     address: 0x04
     register_type: "holding"
     value_type: U_WORD
