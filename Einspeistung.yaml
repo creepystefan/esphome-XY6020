@@ -62,6 +62,11 @@ sensor:
     name: "Diamex Verbraucht Sensor von Home Assistant"
     id: shelly_power
     entity_id: sensor.tasmota_sml_power_curr
+
+  - platform: homeassistant
+    #name: "Ladestrom von Batterie"
+    id: loadcurrent_bat
+    entity_id:                         ######   Entität ID von Homeassist Sensor von Batterie Lade ESP Strom "Lade Strom" "loadcurrent"
   
 
 # Minus Übereinspeisung umrechnung in einen positiven Wert
