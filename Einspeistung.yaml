@@ -47,12 +47,12 @@ number:
     value_type: U_WORD
     multiply: 100.0
     lambda: !lambda |-
-      if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state)<= 0) {
+      if (id(currentset).state + (id(powerinout_wr).state / id(actualvoltage).state)<= 0) {
         return 0; }
-      if (id(currentset).state + (id(powerinout).state / id(actualvoltage).state) >= ${max_load_current}) {
+      if (id(currentset).state + (id(powerinout_wr).state / id(actualvoltage).state) >= ${max_load_current}) {
         return ${max_load_current};
       } else {
-        return id(currentset).state + (id(powerinout).state / id(actualvoltage).state);
+        return id(currentset).state + (id(powerinout_wr).state / id(actualvoltage).state);
       }
   
 
@@ -60,7 +60,7 @@ sensor:
 
   - platform: homeassistant
     #name: "Diamex Verbraucht Sensor von Home Assistant"
-    id: shelly_power
+    id: powerinout_wr
     entity_id: sensor.tasmota_sml_power_curr
 
   - platform: homeassistant
@@ -68,18 +68,6 @@ sensor:
     id: loadcurrent_bat
     entity_id:                         ######   Entität ID von Homeassist Sensor von Batterie Lade ESP Strom "Lade Strom" "loadcurrent"
   
-
-# Minus Übereinspeisung umrechnung in einen positiven Wert
-  - platform: template
-    name: "Shelly-Power"
-    id: powerinout
-    lambda: |-
-       return (id(shelly_power).state - id(shelly_power).state - id(shelly_power).state) + id(manipulate).state;
-    update_interval: 0.5ms
-    unit_of_measurement: "Watt"
-    accuracy_decimals: 4
-    filters:
-     - multiply: 1      
 
   - platform: modbus_controller
     name: "Lade-Spannung"
@@ -139,7 +127,7 @@ sensor:
      - multiply: 0.1
 
   - platform: modbus_controller
-    name: "Netzteilspannung"
+    name: "BatterieSpannung_WR"
     address: 0x05
     register_type: "holding"
     value_type: U_WORD
