@@ -421,6 +421,6 @@ switch:
 
   - platform: gpio
     pin: GPIOXX                           # hier Pin für Ladestatus eintragen
-    name: "Ladestatus On Off"
+    #name: "Ladestatus On Off"
     id: ladastatus
     
