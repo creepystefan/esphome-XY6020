@@ -418,5 +418,9 @@ switch:
      bitmask: 1
      entity_category: config
      icon: "mdi:toggle-switch"
-    
+
+  - platform: gpio
+    pin: GPIOXX                           # hier Pin für Ladestatus eintragen
+    name: "Ladestatus On Off"
+    id: ladastatus
     
