@@ -35,7 +35,7 @@ number:
         
   - platform: modbus_controller
     modbus_controller_id: sdm
-    #name: "Strom Einstellen"
+    #name: "Strom Einspeisung"
     id: currentset
     entity_category: config
     mode: box
