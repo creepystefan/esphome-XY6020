@@ -63,10 +63,7 @@ sensor:
     id: powerinout_wr
     entity_id: sensor.tasmota_sml_power_curr
 
-  - platform: homeassistant
-    #name: "Ladestrom von Batterie"
-    id: loadcurrent_bat
-    entity_id:                         ######   Entität ID von Homeassist Sensor von Batterie Lade ESP Strom "Lade Strom" "loadcurrent"
+  
   
 
   - platform: modbus_controller
