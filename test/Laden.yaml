@@ -136,6 +136,13 @@ number:
     step: 0.1
     value_type: U_WORD
     multiply: 100.0
+    on_value_range:
+        - above: 0.1
+          then:
+            - switch.turn_on: ladestatus
+        - below: 0.1
+          then:
+            - switch.turn_off: ladestatus
     
   - platform: modbus_controller
     modbus_controller_id: sdm
@@ -192,6 +199,7 @@ sensor:
              id: currentset
              value: !lambda |-
                 return id(currentforset).state;
+           
 
 
   - platform: template
