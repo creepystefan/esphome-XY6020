@@ -2,11 +2,11 @@
 #include "xy6020register.h"
 #include "esphome/core/log.h"
 
+// ORIGInAL from selec_meter
 
 namespace esphome {
 namespace xy6020 {
 
-//static const char *const TAG = "selec_meter";
 static const char *const TAG = "xy6020";
 
 static const uint8_t MODBUS_CMD_READ_IN_REGISTERS = 0x04;
