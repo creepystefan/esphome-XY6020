@@ -22,9 +22,12 @@ from esphome.const import (
 AUTO_LOAD = ["modbus"]
 CODEOWNERS = ["@creepystefan"]
 
-CONF_INPUT_VOLTAGE = "input_voltage"
 CONF_OUTPUT_VOLTAGE = "output_voltage"
+CONF_OUTPUT_VOLTAGE = "output_current"
+CONF_OUTPUT_VOLTAGE = "output_power"
+CONF_INPUT_VOLTAGE = "input_voltage"
 CONF_TEMPERATURE_INTERN = "temperature_intern"
+CONF_TEMPERATURE_INTERN = "temperature_extern"
 
 UNIT_KILOWATT_HOURS = "kWh"
 UNIT_KILOVOLT_AMPS_HOURS = "kVAh"
