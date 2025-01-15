@@ -25,19 +25,26 @@ void XY6020::on_modbus_data(const std::vector<uint8_t> &data) {
     memcpy(&f, &temp, sizeof(f));
     return (f * unit);
   };
-  float input_voltage = xy6020_get_float(XY6020_INPUT_VOLTAGE * 2, NO_DEC_UNIT);
-  float output_voltage = xy6020_get_float(XY6020_OUTPUT_VOLTAGE * 2, NO_DEC_UNIT);
-  float output_power = xy6020_get_float(XY6020_OUTPUT_POWER * 2, NO_DEC_UNIT);
-  float key_lock = xy6020_get_float(XY6020_KEY_LOCK * 2, NO_DEC_UNIT);
-  float temperature_intern = xy6020_get_float(XY6020_TEMPERATURE_INTERN * 2, NO_DEC_UNIT);
+
+  float output_voltage = xy6020_get_float(XY6020_OUTPUT_VOLTAGE * 2, NO_DEC_UNIT);         //0x02
+  float output_current = xy6020_get_float(XY6020_OUTPUT_CURRENT * 2, NO_DEC_UNIT);         //0x03
+  float output_power = xy6020_get_float(XY6020_OUTPUT_POWER * 2, NO_DEC_UNIT);             //0x04
+  float input_voltage = xy6020_get_float(XY6020_INPUT_VOLTAGE * 2, NO_DEC_UNIT);           //0x05
+  float temperature_intern = xy6020_get_float(XY6020_TEMPERATURE_INTERN * 2, NO_DEC_UNIT); //0x0d
+  float temperature_extern = xy6020_get_float(XY6020_TEMPERATURE_EXTERN * 2, NO_DEC_UNIT); //0x0e
   
-  
-  if (this->input_voltage_sensor_ != nullptr)
-    this->input_voltage_sensor_->publish_state(input_voltage);
   if (this->output_voltage_sensor_ != nullptr)
-    this->output_voltage_sensor_->publish_state(output_voltage);
+    this->output_voltage_sensor_->publish_state(output_voltage);               //0x02
+  if (this->output_current_sensor_ != nullptr)
+    this->output_current_sensor_->publish_state(output_current);               //0x03
+  if (this->output_power_sensor_ != nullptr)
+    this->output_power_sensor_->publish_state(output_power);                   //0x03
+  if (this->input_voltage_sensor_ != nullptr)
+    this->input_voltage_sensor_->publish_state(input_voltage);                 //0x05
   if (this->temperature_intern_sensor_ != nullptr)
-    this->temperature_intern_sensor_->publish_state(temperature_intern);
+    this->temperature_intern_sensor_->publish_state(temperature_intern);       //0x0d
+  if (this->temperature_extern_sensor_ != nullptr)
+    this->temperature_extern_sensor_->publish_state(temperature_extern);       //0x0e
 }
 
 
