@@ -49,6 +49,12 @@ SENSORS = {
         device_class=DEVICE_CLASS_CURRENT,
         state_class=STATE_CLASS_MEASUREMENT,
     ), 
+     CONF_OUTPUT_POWER: sensor.sensor_schema(
+        unit_of_measurement=UNIT_WATT,
+        accuracy_decimals=2,
+        device_class=DEVICE_CLASS_WATT,
+        state_class=STATE_CLASS_MEASUREMENT,
+    ), 
     CONF_INPUT_VOLTAGE: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT,
         accuracy_decimals=2,
