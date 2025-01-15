@@ -13,7 +13,7 @@ substitutions:
 #  OUT_M: "Open Time Minutes"           # 0x0B
 #  OUT_S: "Open Time Seconds"           # 0x0C
   t_in: "internal Temperature"         # 0x0D
-  t_ex: "external Temperature"         # 0x0D   need external Sensor
+  t_ex: "external Temperature"         # 0x0E   need external Sensor
 #  M052: ""                            # 0x52
 #  M053: ""                             # 0x53
 #  M054: "0x54"
