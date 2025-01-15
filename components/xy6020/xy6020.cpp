@@ -11,7 +11,7 @@ static const char *const TAG = "xy6020";
 
 static const uint8_t MODBUS_CMD_READ_IN_REGISTERS = 0x04;
 static const uint8_t MODBUS_REGISTER_COUNT = 20;  // 20 x 16-bit registers
-static const uint8_t MODBUS_REGISTER_COUNT50 = 50;  // 20 x 16-bit registers
+//static const uint8_t MODBUS_REGISTER_COUNT50 = 50;  // 20 x 16-bit registers
 
 
 void XY6020::on_modbus_data(const std::vector<uint8_t> &data) {
@@ -49,6 +49,7 @@ void XY6020::on_modbus_data(const std::vector<uint8_t> &data) {
 
 
 void XY6020::update() {this->send(MODBUS_CMD_READ_IN_REGISTERS, 0, MODBUS_REGISTER_COUNT);}
+void XY6020::update50() {this->send(MODBUS_CMD_READ_IN_REGISTERS, 50, MODBUS_REGISTER_COUNT);}
 void XY6020::dump_config() {
   //ESP_LOGCONFIG(TAG, "SELEC Meter:");
   ESP_LOGCONFIG(TAG, "XY6020:");
