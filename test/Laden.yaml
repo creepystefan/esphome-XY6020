@@ -54,6 +54,15 @@ uart:
     debug:
       direction: BOTH
       dummy_receiver: true
+  - id: uart_bus2               
+    tx_pin:  GPIOxx  #{tx_pin}   ################
+    rx_pin:  GPIOxx  #{rx_pin}   ################
+    baud_rate: 115200
+    stop_bits: 1
+    parity: NONE
+    debug:
+      direction: BOTH
+      dummy_receiver: true
 
 modbus:
   send_wait_time: 1s
@@ -61,10 +70,14 @@ modbus:
   id: mod_bus
 
 modbus_controller:
-  - id: sdm
+  - id: sdm              
     address: 1
     modbus_id: mod_bus
-    #command_throttle: 0ms
+    setup_priority: -10
+    update_interval: 10s
+  - id: laden             ###################
+    address: 1            ###################
+    modbus_id: mod_bus
     setup_priority: -10
     update_interval: 10s
 
