@@ -136,17 +136,40 @@ sensor:
 
 ######   bin ich noch am basteln   NICHT VERWENDEN
 
-text_sensor:
-  - platform: template
-    name: "Ladestatus"
-    update_interval: 0.5ms
-    lambda: |-
-      if ((${bat_loadvoltage} == id(batvoltage).state) && ($(max_load_current) == id(loadcurrent).state)) {  
-        return std::string("Voll");  }
-      if (id(alarm_status).state == "disarmed") {
-        return std::string("Laden");  }
-      if (id(alarm_status).state == "disarmed") {
-        return std::string("Stop");  }
-           
+#text_sensor:
+#  - platform: template
+#    name: "Ladestatus"
+#    update_interval: 0.5ms
+#    lambda: |-
+#      if ((${bat_loadvoltage} == id(batvoltage).state) && ($(max_load_current) == id(loadcurrent).state)) {  
+#        return std::string("Voll");  }
+#      if (id(alarm_status).state == "disarmed") {
+#        return std::string("Laden");  }
+#      if (id(alarm_status).state == "disarmed") {
+#        return std::string("Stop");  }
+
+switch:
+  - platform: gpio
+    id: speise_on_off
+    #name: speise_on_off
+    pin: GPIO        ??????????????    GPIO zum lade GPIO binary_sensor Pin
+
+ binary_sensor:
+  - platform: gpio
+    #name: speisung_on_off
+    id: laden_on_off
+    pin:
+      number: GPIO   ??????????????  vom lade GPIO switch 
+      mode:
+        input: true
+      #  pullup: true
+      #  pulldown: true
+    on_press:
+      #- switch.turn_on: onoff_speisen
+      - switch.turn_off: onoff_speisen
+    on_release:
+      #- switch.turn_on: onoff_speisen
+      - switch.turn_off: onoff_speisen
+
         
       
