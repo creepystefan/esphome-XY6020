@@ -401,7 +401,7 @@ switch:
    - platform: modbus_controller
      modbus_controller_id: sdm
      name: "EIN-AUS Schalter"
-     id: onoff
+     id: onoff_laden
      register_type: holding
      address: 0x12
      bitmask: 1
@@ -426,20 +426,27 @@ switch:
      entity_category: config
      icon: "mdi:toggle-switch"
 
+  - platform: gpio
+    id: lade_on_off
+    #name: lade_on_off
+    pin: GPIO        ??????????????    GPIO zum Speise GPIO binary_sensor Pin
+
  binary_sensor:
   - platform: gpio
     #name: speisung_on_off
     id: speisung_on_off
     pin:
-      number: GPIO   ??????????????
+      number: GPIO   ??????????????  vom Speise GPIO switch 
       mode:
         input: true
       #  pullup: true
       #  pulldown: true
     on_press:
-      then:
-      #  - switch.turn_on: onoff
-        - switch.turn_off: onoff
+      #- switch.turn_on: onoff_laden
+      - switch.turn_off: onoff_laden
+    on_release:
+      #- switch.turn_on: onoff_laden
+      - switch.turn_off: onoff_laden
 
 
    
