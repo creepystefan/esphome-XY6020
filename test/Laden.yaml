@@ -253,7 +253,7 @@ sensor:
     unit_of_measurement: "Ampere"
     accuracy_decimals: 2
     filters:
-     - multiply: 0.01
+     - multiply: 0.01                  #######################################
     on_value_range:
         - above: 0.01
           then:
@@ -396,7 +396,7 @@ switch:
    - platform: modbus_controller
      modbus_controller_id: sdm
      name: "EIN-AUS Schalter"
-     id: onoff_laden
+     id: onoff_laden               ###############################
      register_type: holding
      address: 0x12
      bitmask: 1
@@ -412,12 +412,12 @@ switch:
      entity_category: config
      icon: "mdi:toggle-switch"
      
-  - platform: gpio
+  - platform: gpio             ######################################
     id: lade_on_off
     #name: lade_on_off
     pin: GPIO        ??????????????    GPIO zum Speise GPIO binary_sensor Pin
 
- binary_sensor:
+ binary_sensor:            ##########################################
   - platform: gpio
     #name: speisung_on_off
     id: speisung_on_off
