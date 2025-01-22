@@ -249,12 +249,12 @@ sensor:
     filters:
      - multiply: 0.01                  #######################################
     on_value_range:
-        - above: 0.01
-          then:
-            - switch.turn_on: lade_on_off
-        - below: 0.01
-          then:
-            - switch.turn_off: lade_on_off
+      - above: 0.01
+        then:
+          - switch.turn_on: lade_on_off
+      - below: 0.01
+        then:
+          - switch.turn_off: lade_on_off
 
   - platform: modbus_controller
     name: "Batterie Spannung"
