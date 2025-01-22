@@ -54,15 +54,7 @@ uart:
     debug:
       direction: BOTH
       dummy_receiver: true
-  - id: uart_bus2               
-    tx_pin:  GPIOxx  #{tx_pin}   ################
-    rx_pin:  GPIOxx  #{rx_pin}   ################
-    baud_rate: 115200
-    stop_bits: 1
-    parity: NONE
-    debug:
-      direction: BOTH
-      dummy_receiver: true
+ 
 
 modbus:
   send_wait_time: 1s
@@ -75,13 +67,7 @@ modbus_controller:
     modbus_id: mod_bus
     setup_priority: -10
     update_interval: 10s
-  - id: laden             ###################
-    address: 1            ###################
-    modbus_id: mod_bus
-    setup_priority: -10
-    update_interval: 10s
-
-
+  
 number:
   - platform: modbus_controller
     modbus_controller_id: sdm
@@ -440,8 +426,18 @@ switch:
      entity_category: config
      icon: "mdi:toggle-switch"
 
+ binary_sensor:
   - platform: gpio
-    pin: GPIOXX                           # hier Pin für Ladestatus eintragen
-    name: "Ladestatus On Off"
-    id: ladastatus
-    
+    pin:
+      number: GPIO   ??????????????
+      mode:
+        input: true
+      #  pullup: true
+      #  pulldown: true
+    on_press:
+      then:
+      #  - switch.turn_on: onoff
+        - switch.turn_off: onoff
+
+
+   
