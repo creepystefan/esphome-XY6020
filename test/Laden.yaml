@@ -428,6 +428,8 @@ switch:
 
  binary_sensor:
   - platform: gpio
+    #name: speisung_on_off
+    id: speisung_on_off
     pin:
       number: GPIO   ??????????????
       mode:
