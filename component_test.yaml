@@ -53,6 +53,18 @@ uart:
     direction: BOTH
     dummy_receiver: true
 
+packages:
+  remote_package:
+    url: https://github.com/creepystefan/esphome-XY6020
+    refresh: 0d
+    files: [
+      yml/button.yaml,
+      yml/numbers.yaml,
+      yml/switches.yaml,
+      yml/text_senssor.yaml,
+      Language/german.yaml,
+       ]
+
 sensor:
   - platform: xy6020
     seted_output_voltage:
