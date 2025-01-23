@@ -2,9 +2,9 @@ import esphome.codegen as cg
 import esphome.config_validation as cv
 from esphome.components import sensor, modbus
 from esphome.const import (
-    #CONF_INPUT_VOLTAGE,
-    #CONF_OUTPUT_VOLTAGE,
-    #CONF_TEMPERATURE_INTERN,
+    CONF_INPUT_VOLTAGE,
+    CONF_OUTPUT_VOLTAGE,
+    CONF_TEMPERATURE_INTERN,
     CONF_ID,
     DEVICE_CLASS_VOLTAGE,
     ICON_CURRENT_AC,
@@ -84,7 +84,6 @@ CONFIG_SCHEMA = (
     .extend(
         {cv.Optional(sensor_name): schema for sensor_name, schema in SENSORS.items()}
     )
-           
     .extend(cv.polling_component_schema("1s"))
     .extend(modbus.modbus_device_schema(0x01))
 )
