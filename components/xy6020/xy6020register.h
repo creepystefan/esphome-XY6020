@@ -21,7 +21,7 @@ static const uint16_t XY6020_INPUT_VOLTAGE = 0x05;         //UIN
 //  bit 1 = locked
 //static const uint16_t XY6020_PROTECT_STATE = 0x10;         //Protect_state
 static const uint16_t XY6020_TEMPERATURE_INTERN = 0x0D;    //t_in
-static const uint16_t XY6020_TEMPERATURE_INTERN = 0x0D;    //t_ex
+static const uint16_t XY6020_TEMPERATURE_EXTERN = 0x0E;    //t_ex
 //static const uint16_t XY6020_OVERPOWER_PROTECT_VALUE = 0x55;    //0x55
 //static const uint16_t XY6020_OVERTEMP_PROTECT_VALUE = 0x5c;    //0x55
 
