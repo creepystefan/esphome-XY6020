@@ -1,3 +1,6 @@
+external_components:
+  - source: github://creepystefan/esphome-XY6020
+
 sensor:
   - platform: xy6020
     seted_output_voltage:
