@@ -10,8 +10,8 @@ static const float MULTIPLY_TEN_UNIT = 10;
 static const float MULTIPLY_THOUSAND_UNIT = 1000;
  
 /* STATUS REGISTERS */
-static const uint16_t XY6020_SET_OUTPUT_VOLTAGE = 0x00;    //V_SET
-static const uint16_t XY6020_SET_OUTPUT_VOLTAGE = 0x01;    //C_SET
+static const uint16_t XY6020_SETED_OUTPUT_VOLTAGE = 0x00;    //V_SET
+static const uint16_t XY6020_SETED_OUTPUT_VOLTAGE = 0x01;    //C_SET
 static const uint16_t XY6020_OUTPUT_VOLTAGE = 0x02;        //VOUT
 static const uint16_t XY6020_OUTPUT_CURRENT = 0x03;        //IOUT
 static const uint16_t XY6020_OUTPUT_POWER = 0x04;          //POWER
