@@ -24,7 +24,9 @@ static const uint16_t XY6020_TEMPERATURE_INTERN = 0x0D;    //t_in
 static const uint16_t XY6020_TEMPERATURE_EXTERN = 0x0E;    //t_ex
 //static const uint16_t XY6020_OVERPOWER_PROTECT_VALUE = 0x55;    //0x55
 //static const uint16_t XY6020_OVERTEMP_PROTECT_VALUE = 0x5c;    //0x55
-
+static const uint16_t XY6020_MODEL = 0x16;    //MODEL
+static const uint16_t XY6020_SOFTWARE_VERSION = 0x17;    //FirmwareVersion
+    
 
 
 }  // namespace xy6020
