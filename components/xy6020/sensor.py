@@ -76,16 +76,16 @@ SENSORS = {
         state_class=STATE_CLASS_MEASUREMENT,
     ),
     CONF_MODEL: sensor.sensor_schema(
-        unit_of_measurement=UNIT_VOLT,
-        accuracy_decimals=2,
+        unit_of_measurement=Model,
+        accuracy_decimals=0,
         device_class=DEVICE_CLASS_VOLTAGE,
-        state_class=STATE_CLASS_MEASUREMENT,
+#        state_class=STATE_CLASS_MEASUREMENT,
     ),
     CONF_SOFTWARE_VERSION: sensor.sensor_schema(
-        unit_of_measurement=UNIT_VOLT,
-        accuracy_decimals=2,
+        unit_of_measurement=Firmware,
+        accuracy_decimals=0,
         device_class=DEVICE_CLASS_VOLTAGE,
-        state_class=STATE_CLASS_MEASUREMENT,
+#        state_class=STATE_CLASS_MEASUREMENT,
     ),
 
 
