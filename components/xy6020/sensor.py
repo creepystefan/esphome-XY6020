@@ -56,7 +56,7 @@ SENSORS = {
         device_class=DEVICE_CLASS_CURRENT,
         state_class=STATE_CLASS_MEASUREMENT,
     ), 
-    CONF_SET_OUTPUT_VOLTAGE: sensor.sensor_schema(
+    CONF_OUTPUT_VOLTAGE: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT,
         accuracy_decimals=2,
         device_class=DEVICE_CLASS_VOLTAGE,
