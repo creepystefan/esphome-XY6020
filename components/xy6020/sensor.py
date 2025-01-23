@@ -10,7 +10,6 @@ from esphome.const import (
     UNIT_AMPERE,
     UNIT_HERTZ,
     UNIT_VOLT,
-    UNIT_CURRENT,
     UNIT_VOLT_AMPS,
     UNIT_VOLT_AMPS_REACTIVE,
     UNIT_WATT,
