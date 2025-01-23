@@ -87,11 +87,6 @@ SENSORS = {
         device_class=DEVICE_CLASS_VOLTAGE,
 #        state_class=STATE_CLASS_MEASUREMENT,
     ),
-
-
-
-
-
     
 }
 
