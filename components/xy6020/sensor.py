@@ -20,8 +20,8 @@ AUTO_LOAD = ["modbus"]
 CODEOWNERS = ["@creepystefan"]
 
 CONF_OUTPUT_VOLTAGE = "output_voltage"
-CONF_OUTPUT_VOLTAGE = "output_current"
-CONF_OUTPUT_VOLTAGE = "output_power"
+CONF_OUTPUT_CURRENT = "output_current"
+CONF_OUTPUT_POWER = "output_power"
 CONF_INPUT_VOLTAGE = "input_voltage"
 CONF_TEMPERATURE_INTERN = "temperature_intern"
 CONF_TEMPERATURE_INTERN = "temperature_extern"
