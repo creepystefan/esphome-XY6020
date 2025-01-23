@@ -4,6 +4,7 @@ from esphome.components import sensor, modbus
 from esphome.const import (
     CONF_ID,
     DEVICE_CLASS_VOLTAGE,
+    DEVICE_CLASS_CURRENT,
     ICON_CURRENT_AC,
     STATE_CLASS_MEASUREMENT,
     STATE_CLASS_TOTAL_INCREASING,
