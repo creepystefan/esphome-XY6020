@@ -54,7 +54,11 @@ uart:
     dummy_receiver: true
 
 sensor:
-  - platform: test
+  - platform: xy6020
+#    seted_output_voltage:
+#      name: "Eingestellte Ausgangsspannung"
+#    seted_output_current:
+#      name: "Eingestellter Ausgangsstrom"
     input_voltage:
       name: "Eingangsspannung"
     output_voltage:
