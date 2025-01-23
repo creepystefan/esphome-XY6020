@@ -26,7 +26,7 @@ class XY6020 : public PollingComponent, public modbus::ModbusDevice {
   XY6020_SENSOR(temperature_extern)
   
   void update() override;
-  void update50() override;
+  //void update50() override;
 
   void on_modbus_data(const std::vector<uint8_t> &data) override;
 
