@@ -24,6 +24,8 @@ class XY6020 : public PollingComponent, public modbus::ModbusDevice {
   XY6020_SENSOR(input_voltage)
   XY6020_SENSOR(temperature_intern)
   XY6020_SENSOR(temperature_extern)
+  XY6020_SENSOR(model)
+  XY6020_SENSOR(software_version)
   
   void update() override;
   //void update50() override;
