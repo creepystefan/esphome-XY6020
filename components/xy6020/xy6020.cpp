@@ -32,6 +32,8 @@ void XY6020::on_modbus_data(const std::vector<uint8_t> &data) {
   float input_voltage = xy6020_get_float(XY6020_INPUT_VOLTAGE * 2, NO_DEC_UNIT);           //0x05
   float temperature_intern = xy6020_get_float(XY6020_TEMPERATURE_INTERN * 2, NO_DEC_UNIT); //0x0d
   float temperature_extern = xy6020_get_float(XY6020_TEMPERATURE_EXTERN * 2, NO_DEC_UNIT); //0x0e
+  float model = xy6020_get_float(XY6020_MODEL * 2, NO_DEC_UNIT); //0x16
+  float software_version = xy6020_get_float(XY6020_SOFTWARE_VERSION * 2, NO_DEC_UNIT); //0x17
   
   if (this->output_voltage_sensor_ != nullptr)
     this->output_voltage_sensor_->publish_state(output_voltage);               //0x02
@@ -45,6 +47,10 @@ void XY6020::on_modbus_data(const std::vector<uint8_t> &data) {
     this->temperature_intern_sensor_->publish_state(temperature_intern);       //0x0d
   if (this->temperature_extern_sensor_ != nullptr)
     this->temperature_extern_sensor_->publish_state(temperature_extern);       //0x0e
+  if (this->model_sensor_ != nullptr)
+    this->model_sensor_->publish_state(model);                                 //0x16
+  if (this->software_version_sensor_ != nullptr)
+    this->software_version_sensor_->publish_state(software_version);           //0x17
 }
 
 
@@ -60,6 +66,8 @@ void XY6020::dump_config() {
   LOG_SENSOR("  ", "Input Voltage", this->input_voltage_sensor_);
   LOG_SENSOR("  ", "Temperature Intern", this->temperature_intern_sensor_);
   LOG_SENSOR("  ", "Temperature Extern", this->temperature_extern_sensor_);
+  LOG_SENSOR("  ", "Model", this->model_sensor_);
+  LOG_SENSOR("  ", "Software Version", this->software_version_sensor_);  
 }
 
 }  // namespace xy6020
