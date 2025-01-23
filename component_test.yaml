@@ -30,29 +30,6 @@ captive_portal:
 logger:
   level: DEBUG
 
-modbus:
-  send_wait_time: 1s
-  uart_id: uart_bus
-  id: mod_bus
-
-modbus_controller:
-  - id: modbus_controller
-    address: 1
-    modbus_id: mod_bus
-    setup_priority: -10
-    update_interval: 10s
-
-uart:
-  tx_pin: ${tx_pin}
-  rx_pin: ${rx_pin}
-  id: uart_bus
-  baud_rate: 115200
-  stop_bits: 1
-  parity: NONE
-  debug:
-    direction: BOTH
-    dummy_receiver: true
-
 packages:
   remote_package:
     url: https://github.com/creepystefan/esphome-XY6020
@@ -62,6 +39,7 @@ packages:
       yml/numbers.yaml,
       yml/switches.yaml,
       yml/text_senssor.yaml,
+      yml/uart.yaml,
        ]
 
 sensor:
