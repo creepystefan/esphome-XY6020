@@ -1,6 +1,6 @@
 switch:
   - platform: modbus_controller
-    modbus_controller_id: sdm
+    modbus_controller_id: modbus_controller
     name: "Tastensperre"
     id: keylockswitch
     register_type: holding
@@ -10,7 +10,7 @@ switch:
     icon: "mdi:toggle-switch"
 
   - platform: modbus_controller
-    modbus_controller_id: sdm
+    modbus_controller_id: modbus_controller
     name: "EIN-AUS Schalter"
     id: onoff
     register_type: holding
@@ -20,7 +20,7 @@ switch:
     icon: "mdi:toggle-switch"
 
   - platform: modbus_controller
-    modbus_controller_id: sdm
+    modbus_controller_id: modbus_controller
     name: "Grad - Farendheit"
     register_type: holding
     address: 0x13
@@ -29,7 +29,7 @@ switch:
     icon: "mdi:toggle-switch"
      
   - platform: modbus_controller
-    modbus_controller_id: sdm
+    modbus_controller_id: modbus_controller
     name: "Sleep"
     register_type: holding
     address: 0x15
