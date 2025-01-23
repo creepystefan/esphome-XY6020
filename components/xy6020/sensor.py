@@ -26,7 +26,7 @@ CONF_OUTPUT_CURRENT = "output_current"
 CONF_OUTPUT_POWER = "output_power"
 CONF_INPUT_VOLTAGE = "input_voltage"
 CONF_TEMPERATURE_INTERN = "temperature_intern"
-CONF_TEMPERATURE_INTERN = "temperature_extern"
+CONF_TEMPERATURE_EXTERN = "temperature_extern"
 
 UNIT_KILOWATT_HOURS = "kWh"
 UNIT_KILOVOLT_AMPS_HOURS = "kVAh"
