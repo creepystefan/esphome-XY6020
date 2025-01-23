@@ -1,6 +1,6 @@
 number:
   - platform: modbus_controller
-    modbus_controller_id: sdm
+    modbus_controller_id: modbus_controller
     name: "Spannung Einstellen"
     mode: box
     address: 0x00
@@ -12,7 +12,7 @@ number:
     multiply: 100.0
       
   - platform: modbus_controller
-    modbus_controller_id: sdm
+    modbus_controller_id: modbus_controller
     name: "Strom Einstellen"
     mode: box
     address: 0x01
@@ -24,7 +24,7 @@ number:
     multiply: 100.0
 
   - platform: modbus_controller
-    modbus_controller_id: sdm
+    modbus_controller_id: modbus_controller
     id: protectclear
     address: 0x10
     min_value: 0
@@ -33,7 +33,7 @@ number:
     value_type: U_WORD
 
   - platform: modbus_controller
-    modbus_controller_id: sdm
+    modbus_controller_id: modbus_controller
     name: "Low voltage protection value"
     mode: box
     address: 0x52
@@ -45,7 +45,7 @@ number:
     multiply: 100.0
      
   - platform: modbus_controller
-    modbus_controller_id: sdm
+    modbus_controller_id: modbus_controller
     name: "Overvoltage protection value"
     mode: box
     address: 0x53
@@ -57,7 +57,7 @@ number:
     multiply: 100.0
 
   - platform: modbus_controller
-    modbus_controller_id: sdm
+    modbus_controller_id: modbus_controller
     name: "Overcurrent protection value"
     address: 0x54
     unit_of_measurement: "Ampere"
@@ -68,7 +68,7 @@ number:
     multiply: 100.0
 
   - platform: modbus_controller
-    modbus_controller_id: sdm
+    modbus_controller_id: modbus_controller
     name: "Over power protection value"
     address: 0x55
     unit_of_measurement: "Ampere"
@@ -79,7 +79,7 @@ number:
     multiply: 100.0
 
   - platform: modbus_controller
-    modbus_controller_id: sdm
+    modbus_controller_id: modbus_controller
     name: "Over Temperatur Protect Set"
     address: 0x5C
     unit_of_measurement: "Celsius"
