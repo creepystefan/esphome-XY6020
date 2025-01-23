@@ -386,3 +386,11 @@ number:
     step: 1
     value_type: U_WORD
     multiply: 1
+
+button:
+  - platform: template
+    name: Protect Aufheben
+    on_press:
+      - number.set:
+             id: protectclear
+             value: 00
