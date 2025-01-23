@@ -42,7 +42,19 @@ XY6020 = xy6020_ns.class_(
 )
 
 SENSORS = {
-    CONF_OUTPUT_VOLTAGE: sensor.sensor_schema(
+#    CONF_SET_OUTPUT_VOLTAGE: sensor.sensor_schema(
+#        unit_of_measurement=UNIT_VOLT,
+#        accuracy_decimals=2,
+#        device_class=DEVICE_CLASS_VOLTAGE,
+#        state_class=STATE_CLASS_MEASUREMENT,
+#    ), 
+#    CONF_SET_OUTPUT_CURRENT: sensor.sensor_schema(
+#        unit_of_measurement=UNIT_AMPERE,
+#        accuracy_decimals=2,
+#        device_class=DEVICE_CLASS_CURRENT,
+#        state_class=STATE_CLASS_MEASUREMENT,
+#    ), 
+    CONF_SET_OUTPUT_VOLTAGE: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT,
         accuracy_decimals=2,
         device_class=DEVICE_CLASS_VOLTAGE,
