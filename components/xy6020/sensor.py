@@ -33,6 +33,8 @@ CONF_SOFTWARE_VERSION = "software_version"
 UNIT_KILOWATT_HOURS = "kWh"
 UNIT_KILOVOLT_AMPS_HOURS = "kVAh"
 UNIT_KILOVOLT_AMPS_REACTIVE_HOURS = "kVARh"
+UNIT_MODEL = "Model"
+UNIT_SOFTWARE_VERSION = "Version"
 
 xy6020_ns = cg.esphome_ns.namespace("xy6020")
 XY6020 = xy6020_ns.class_(
@@ -78,13 +80,13 @@ SENSORS = {
         state_class=STATE_CLASS_MEASUREMENT,
     ),
     CONF_MODEL: sensor.sensor_schema(
-        unit_of_measurement=Model,
+        unit_of_measurement=UNIT_MODEL,
         accuracy_decimals=0,
         device_class=DEVICE_CLASS_VOLTAGE,
 #        state_class=STATE_CLASS_MEASUREMENT,
     ),
     CONF_SOFTWARE_VERSION: sensor.sensor_schema(
-        unit_of_measurement=Firmware,
+        unit_of_measurement=UNIT_SOFTWARE_VERSION,
         accuracy_decimals=0,
         device_class=DEVICE_CLASS_VOLTAGE,
 #        state_class=STATE_CLASS_MEASUREMENT,
