@@ -1,0 +1,204 @@
+sensor:
+  - platform: xy6020
+    seted_output_voltage:
+      name: "Eingestellte Ausgangsspannung"
+    seted_output_current:
+      name: "Eingestellter Ausgangsstrom"
+    input_voltage:
+      name: "Eingangsspannung"
+    output_voltage:
+      name: "Ausgangsspannung"
+    output_current:
+      name: "Ausgangsstrom"
+    output_power:
+      name: "Ausgangsleistung"
+    temperature_intern:
+      name: "Temperatur intern"
+    temperature_extern:
+      name: "Temperatur intern"
+    model:
+      name: "Model"
+    software_version:
+      name: "Software Version"
+ 
+  - platform: modbus_controller
+    name: "Output AH low 16 bits"
+    address: 0x06
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "mAH"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Output AH high 16 bits"
+    address: 0x07
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "mAH"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Output WH low 16 bits"
+    address: 0x08
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "mWH"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Output WH low 16 bits"
+    address: 0x09
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "mWH"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+  
+  - platform: modbus_controller
+    name: "Open Time Hours"
+    address: 0x0A
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Hours"
+    accuracy_decimals: 0
+    filters:
+     - multiply: 1
+
+  - platform: modbus_controller
+    name: "Open Time Minutes"
+    address: 0x0B
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Minutes"
+    accuracy_decimals: 0
+    filters:
+     - multiply: 1
+
+  - platform: modbus_controller
+    name: "Open Time Seconds"
+    address: 0x0C
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Seconds"
+    accuracy_decimals: 0
+    filters:
+     - multiply: 1
+  
+  - platform: modbus_controller
+    name: "M050"
+    address: 0x50
+    force_new_range: true
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "M051 Current Setting"
+    address: 0x51
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "A"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "M052 Low Voltage Protected"
+    address: 0x52
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "M053 Over Voltage Protected"
+    address: 0x53
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+     
+  - platform: modbus_controller
+    name: "M054 Over Current Protect"
+    address: 0x54
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "A"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "M055 Over Power Protected"
+    address: 0x55
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "W"
+    accuracy_decimals: 1
+    filters:
+     - multiply: 1.0
+
+  - platform: modbus_controller
+    name: "Maximum Output Time Hours"
+    address: 0x56
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Hours"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "M57"
+    address: 0x57
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "M058"
+    address: 0x58
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "M059"
+    address: 0x59
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "V"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 0.01
+
+  - platform: modbus_controller
+    name: "Set Over Temperature Protected"
+    address: 0x5C
+    register_type: "holding"
+    value_type: U_WORD
+    unit_of_measurement: "Celsius"
+    accuracy_decimals: 2
+    filters:
+     - multiply: 1.0
+
