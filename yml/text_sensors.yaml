@@ -1,6 +1,6 @@
 text_sensor:
   - platform: modbus_controller
-    modbus_controller_id: modbus_controller
+    #modbus_controller_id: mod_bus_controller
     bitmask: 0
     register_type: holding
     address: 0x10
@@ -33,7 +33,7 @@ text_sensor:
 
 
   - platform: modbus_controller
-    modbus_controller_id: modbus_controller
+    #modbus_controller_id: mod_bus_controller
     bitmask: 0
     register_type: holding
     address: 0x11
@@ -50,7 +50,7 @@ text_sensor:
 
 
   - platform: modbus_controller
-    modbus_controller_id: modbus_controller
+   #modbus_controller_id: mod_bus_controller
     bitmask: 0
     register_type: holding
     address: 0x12
@@ -66,7 +66,7 @@ text_sensor:
       return x;
     
   - platform: modbus_controller
-    modbus_controller_id: modbus_controller
+    #modbus_controller_id: mod_bus_controller
     bitmask: 0
     register_type: holding
     address: 0x0F
