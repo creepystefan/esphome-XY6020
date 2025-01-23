@@ -1,1 +1,70 @@
+substitutions:
+  tx_pin: "GPIO21"
+  rx_pin: "GPIO20"
+  
+esphome:
+  name: xy6020
+
+external_components:
+  - source: github://creepystefan/esphome-XY6020
+
+esp32:
+  board: esp32-c3-devkitm-1
+  variant: esp32c3 
+
+wifi:
+  ssid: forsteramsee
+  power_save_mode: none
+  ap: {}
+  #password: 
+  #manual_ip:
+  #  static_ip: !secret xy6020_IP
+  #  gateway: !secret gateway
+  #  subnet: !secret subnet
+
+web_server:
+  port: 80
+
+captive_portal:
+
+logger:
+  level: DEBUG
+
+modbus:
+  send_wait_time: 1s
+  uart_id: uart_bus1
+  id: mod_bus
+
+modbus_controller:
+  - id: modbus_c
+    address: 1
+    modbus_id: mod_bus
+    setup_priority: -10
+    update_interval: 10s
+
+uart:
+  tx_pin: ${tx_pin}
+  rx_pin: ${rx_pin}
+  id: uart_bus1
+  baud_rate: 115200
+  stop_bits: 1
+  parity: NONE
+  debug:
+    direction: BOTH
+    dummy_receiver: true
+
+sensor:
+  - platform: test
+    input_voltage:
+      name: "Eingangsspannung"
+    output_voltage:
+      name: "Ausgangsspannung"
+    output_current:
+      name: "Ausgangsstrom"
+    output_power:
+      name: "Ausgangsleistung"
+    temperature_intern:
+      name: "Temperatur intern"
+    temperature_extern:
+      name: "Temperatur intern"
 
