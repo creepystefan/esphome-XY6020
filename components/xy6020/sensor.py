@@ -2,10 +2,6 @@ import esphome.codegen as cg
 import esphome.config_validation as cv
 from esphome.components import sensor, modbus
 from esphome.const import (
-    CONF_INPUT_VOLTAGE,
-    CONF_OUTPUT_VOLTAGE,
-    CONF_TEMPERATURE_INTERN,
-    CONF_TEMPERATURE_EXTERN,
     CONF_ID,
     DEVICE_CLASS_VOLTAGE,
     ICON_CURRENT_AC,
