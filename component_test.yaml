@@ -38,7 +38,7 @@ packages:
       yml/button.yaml,
       yml/numbers.yaml,
       yml/switches.yaml,
-      yml/text_senssor.yaml,
+      yml/text_senssors.yaml,
       yml/uart.yaml,
        ]
 
