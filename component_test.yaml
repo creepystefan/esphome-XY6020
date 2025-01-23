@@ -67,4 +67,8 @@ sensor:
       name: "Temperatur intern"
     temperature_extern:
       name: "Temperatur intern"
+    model:
+      name: "Model"
+    software_version:
+      name: "Software Version"
 
