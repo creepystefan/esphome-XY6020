@@ -65,6 +65,8 @@ void XY6020::dump_config() {
   //ESP_LOGCONFIG(TAG, "SELEC Meter:");
   ESP_LOGCONFIG(TAG, "XY6020:");
   ESP_LOGCONFIG(TAG, "  Address: 0x%02X", this->address_);
+  LOG_SENSOR("  ", "seted Output Voltage", this->seted_output_voltage_sensor_);
+  LOG_SENSOR("  ", "seted Output Current", this->seted_output_current_sensor_);
   LOG_SENSOR("  ", "Output Voltage", this->output_voltage_sensor_);
   LOG_SENSOR("  ", "Output Current", this->output_current_sensor_);
   LOG_SENSOR("  ", "Output Power", this->output_current_sensor_);
