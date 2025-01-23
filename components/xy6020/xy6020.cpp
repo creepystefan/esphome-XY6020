@@ -49,7 +49,7 @@ void XY6020::on_modbus_data(const std::vector<uint8_t> &data) {
 
 
 void XY6020::update() {this->send(MODBUS_CMD_READ_IN_REGISTERS, 0, MODBUS_REGISTER_COUNT);}
-void XY6020::update50() {this->send(MODBUS_CMD_READ_IN_REGISTERS, 50, MODBUS_REGISTER_COUNT);}
+//void XY6020::update50() {this->send(MODBUS_CMD_READ_IN_REGISTERS, 50, MODBUS_REGISTER_COUNT);}
 void XY6020::dump_config() {
   //ESP_LOGCONFIG(TAG, "SELEC Meter:");
   ESP_LOGCONFIG(TAG, "XY6020:");
