@@ -32,11 +32,11 @@ logger:
 
 modbus:
   send_wait_time: 1s
-  uart_id: uart_bus1
+  uart_id: uart_bus
   id: mod_bus
 
 modbus_controller:
-  - id: modbus_c
+  - id: modbus_controller
     address: 1
     modbus_id: mod_bus
     setup_priority: -10
@@ -45,7 +45,7 @@ modbus_controller:
 uart:
   tx_pin: ${tx_pin}
   rx_pin: ${rx_pin}
-  id: uart_bus1
+  id: uart_bus
   baud_rate: 115200
   stop_bits: 1
   parity: NONE
@@ -257,140 +257,3 @@ sensor:
     filters:
      - multiply: 1.0
 
-switch:
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "Tastensperre"
-    id: keylockswitch
-    register_type: holding
-    address: 0x0F
-    bitmask: 1
-    entity_category: config
-    icon: "mdi:toggle-switch"
-
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "EIN-AUS Schalter"
-    id: onoff
-    register_type: holding
-    address: 0x12
-    bitmask: 1
-    entity_category: config
-    icon: "mdi:toggle-switch"
-
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "Grad - Farendheit"
-    register_type: holding
-    address: 0x13
-    bitmask: 1
-    entity_category: config
-    icon: "mdi:toggle-switch"
-     
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "Sleep"
-    register_type: holding
-    address: 0x15
-    bitmask: 1
-    entity_category: config
-    icon: "mdi:toggle-switch"
-
-number:
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "Spannung Einstellen"
-    mode: box
-    address: 0x00
-    unit_of_measurement: "Volt"
-    min_value: 0
-    max_value: 65
-    step: 0.01
-    value_type: U_WORD
-    multiply: 100.0
-      
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "Strom Einstellen"
-    mode: box
-    address: 0x01
-    unit_of_measurement: "Ampere"
-    min_value: 0
-    max_value: 20
-    step: 0.01
-    value_type: U_WORD
-    multiply: 100.0
-
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    id: protectclear
-    address: 0x10
-    min_value: 0
-    max_value: 1
-    step: 1
-    value_type: U_WORD
-
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "Low voltage protection value"
-    mode: box
-    address: 0x52
-    unit_of_measurement: "Voltage"
-    min_value: 0
-    max_value: 70
-    step: 0.1
-    value_type: U_WORD
-    multiply: 100.0
-     
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "Overvoltage protection value"
-    mode: box
-    address: 0x53
-    unit_of_measurement: "Voltage"
-    min_value: 0
-    max_value: 70
-    step: 0.1
-    value_type: U_WORD
-    multiply: 100.0
-
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "Overcurrent protection value"
-    address: 0x54
-    unit_of_measurement: "Ampere"
-    min_value: 0
-    max_value: 21
-    step: 0.01
-    value_type: U_WORD
-    multiply: 100.0
-
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "Over power protection value"
-    address: 0x55
-    unit_of_measurement: "Ampere"
-    min_value: 0
-    max_value: 1200
-    step: 0.01
-    value_type: U_WORD
-    multiply: 100.0
-
-  - platform: modbus_controller
-    modbus_controller_id: sdm
-    name: "Over Temperatur Protect Set"
-    address: 0x5C
-    unit_of_measurement: "Celsius"
-    min_value: 0
-    max_value: 95
-    step: 1
-    value_type: U_WORD
-    multiply: 1
-
-button:
-  - platform: template
-    name: Protect Aufheben
-    on_press:
-      - number.set:
-             id: protectclear
-             value: 00
