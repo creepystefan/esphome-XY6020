@@ -2,7 +2,7 @@
 *!DPS Power Supply support by https://github.com/syssi/esphome-dps
 *https://de.aliexpress.com/item/1005005066649442.html?
 *!Chose Language in Packages (german or english)
-* Python nice Controller https://github.com/lambcutlet/DPS5005_pyGUI its for DPS not for XY Series (Other Modbus Register)
+* Python GUI for XY6015 https://github.com/kbs3056/XY6015L_pyGUI
 
 * XYxxxx have new function ( MPPT ) see in DOC new Modbus Register with MPPT 
 * 
