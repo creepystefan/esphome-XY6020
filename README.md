@@ -10,3 +10,5 @@
 ![entity](picture/sinilink_XY-WFPOW_pinout.jpg "entity")
 ![entity](picture/xy6020_1.png "entity")
 ![entity](picture/1.jpg "entity")
+
+* https://github.com/9lyph/CVE-2022-43704
