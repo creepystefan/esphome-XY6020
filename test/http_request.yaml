@@ -1,8 +1,8 @@
 interval:
-  - interval: 1s
+  - interval: 2s
     then:
       - http_request.get:
-          url: http:// DEINE IP ADRESSE /rpc/Shelly.GetStatus
+          url: http://   IP von Powermeter    /cm?cmnd=status%2010                   # IP Anpassen
           #verify_ssl: false
           headers:
             Content-Type: application/json
@@ -12,13 +12,18 @@ interval:
             then:
               - lambda: |-
                   json::parse_json(body, [](JsonObject root) -> bool {
-                      id(id).publish_state(root["em:0"]["id"].as< float >());
+                      id(powermeterrequest).publish_state(root["Power_curr"].as< float >());
                       return true;
                   });
 
+            #   wenn der Wert nicht stimmt schau mal nochmal
+            #   http://   IP von Powermeter    /cm?cmnd=status%2010
+            #   in deinem Browser eingeben und das richtigte suchen
+            #   und in dem Lamda abstelle Power_curr das richtige eingeben
+
 http_request:
   useragent: esphome/device
-  timeout: 3s
+  timeout: 2s
   id: getrequest
   verify_ssl: false
   watchdog_timeout: 5s  # more as timeout
@@ -26,4 +31,4 @@ http_request:
 sensor:
   - platform: template
     name: "Power Meter HTTP Request"
-    id: 
+    id: powermeterrequest
