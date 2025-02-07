@@ -3,9 +3,6 @@ interval:
     then:
       - http_request.get:
           url: http://   IP von Powermeter    /cm?cmnd=status%2010                   # IP Anpassen
-          #verify_ssl: false
-          headers:
-            Content-Type: application/json
           capture_response: true
           max_response_buffer_size: 4096
           on_response:
@@ -24,11 +21,15 @@ interval:
 http_request:
   useragent: esphome/device
   timeout: 2s
-  id: getrequest
   verify_ssl: false
-  watchdog_timeout: 5s  # more as timeout
+  watchdog_timeout: 30s  # more as timeout
   
 sensor:
   - platform: template
     name: "Power Meter HTTP Request"
     id: powermeterrequest
+    update_interval: 1s
+    state_class: "measurement"
+    device_class: "energy_storage"
+    unit_of_measurement: "Watt"
+
