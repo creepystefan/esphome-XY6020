@@ -8,7 +8,7 @@ modbus_controller:
     address: 1
     modbus_id: mod_bus
     setup_priority: -10
-    update_interval: 10s
+    update_interval: 3s
 
 uart:
   tx_pin: ${tx_pin}
