@@ -9,7 +9,7 @@ interval:
             then:
               - lambda: |-
                   json::parse_json(body, [](JsonObject root) -> bool {
-                      id(powermeterrequest).publish_state(root["Power_curr"].as< float >());
+                      id(powermeterrequest).publish_state(root["SML"]["Power_curr"].as< float >());
                       return true;
                   });
 
