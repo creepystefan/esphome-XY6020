@@ -20,7 +20,7 @@ void XY6020_TURN_ON_OFF_Switch::write_state(bool state) {
 }
 
 void XY6020_TURN_ON_OFF_Switch::dump_config(){
-    ESP_LOGCONFIG(TAG, "TURN ON");
+    ESP_LOGCONFIG(TAG, "XY6020 Switch");
 }
 
 } //namespace xy6020_switch
