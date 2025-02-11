@@ -1,4 +1,4 @@
-#include "xy6020.h"
+#include "xy6020_sensor.h"
 #include "xy6020register.h"
 #include "esphome/core/log.h"
 
