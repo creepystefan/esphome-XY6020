@@ -5,7 +5,7 @@
 // ORIGInAL from selec_meter
 
 namespace esphome {
-namespace xy6020 {
+namespace xy6020_sensor {
 
 static const char *const TAG = "xy6020";
 
@@ -77,5 +77,5 @@ void XY6020::dump_config() {
   LOG_SENSOR("  ", "Software Version", this->software_version_sensor_);  
 }
 
-}  // namespace xy6020
+}  // namespace xy6020_sensor
 }  // namespace esphome
