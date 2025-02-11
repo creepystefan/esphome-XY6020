@@ -38,7 +38,7 @@ UNIT_KILOVOLT_AMPS_REACTIVE_HOURS = "kVARh"
 UNIT_MODEL = "Model"
 UNIT_SOFTWARE_VERSION = "Version"
 
-xy6020_ns = cg.esphome_ns.namespace("xy6020_sensor")
+xy6020_ns = cg.esphome_ns.namespace("xy6020")
 XY6020 = xy6020_ns.class_(
     "XY6020", cg.PollingComponent, modbus.ModbusDevice
 )
