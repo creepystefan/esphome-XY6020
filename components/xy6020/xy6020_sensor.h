@@ -7,14 +7,14 @@
 #include <vector>
 
 namespace esphome {
-namespace xy6020_sensor {
+namespace xy6020 {
 
-#define XY6020_SENSOR(name) \
+#define XY6020(name) \
  protected: \
-  sensor::Sensor *name##_sensor_{nullptr}; \
+  sensor::Sensor *name##_{nullptr}; \
 \
  public: \
-  void set_##name##_sensor(sensor::Sensor *(name)) { this->name##_sensor_ = name; }
+  void set_##name##(sensor::Sensor *(name)) { this->name##_ = name; }
 
 class XY6020 : public PollingComponent, public modbus::ModbusDevice {
  public:
@@ -37,5 +37,5 @@ class XY6020 : public PollingComponent, public modbus::ModbusDevice {
   void dump_config() override;
 };
 
-}  // namespace xy6020_sensor
+}  // namespace xy6020
 }  // namespace esphome
