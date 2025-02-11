@@ -1,3 +1,3 @@
 import esphome.codegen as cg
 
-sensor_ns = cg.esphome_ns.namespace('xy6020')
+xy6020_ns = cg.esphome_ns.namespace('xy6020')
