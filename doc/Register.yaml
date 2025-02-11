@@ -31,6 +31,8 @@
       #10 = ICP
   CVCC: "0x11"     # Constant voltage and constant current   State R
   ONOFF: "0x12"
+      # 0 = Off
+      # 1 = ON
   baudrate: "0x19" # baudrate                         R/W
       # 0 = ?
       # 1 = ?
