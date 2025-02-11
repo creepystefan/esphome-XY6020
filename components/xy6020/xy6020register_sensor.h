@@ -1,7 +1,7 @@
 #pragma once
 
 namespace esphome {
-namespace xy6020_sensor {
+namespace xy6020 {
 
 static const float TWO_DEC_UNIT = 0.01;
 static const float ONE_DEC_UNIT = 0.1;
