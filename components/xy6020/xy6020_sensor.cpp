@@ -1,5 +1,5 @@
-#include "xy6020.h"
-#include "xy6020register.h"
+#include "xy6020_sensor.h"
+#include "xy6020register_sensor.h"
 #include "esphome/core/log.h"
 
 // ORIGInAL from selec_meter
