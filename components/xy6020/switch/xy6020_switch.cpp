@@ -7,6 +7,9 @@ namespace xy6020_switch {
 
 
 static const char *TAG = "empty_switch.switch";
+//static const uint8_t MODBUS_CMD_READ_IN_REGISTERS = 0x03;
+static const uint8_t MODBUS_CMD_WRITE_IN_REGISTERS = 0x06;
+static const uint8_t MODBUS_REGISTER_COUNT = 20;  // 20 x 16-bit registers
 
 void EmptySwitch::setup() {
 
