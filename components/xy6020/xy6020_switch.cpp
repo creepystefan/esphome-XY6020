@@ -1,8 +1,6 @@
-#include "xy6020_sensor.h"
+#include "xy6020_switch.h"
 #include "xy6020register.h"
 #include "esphome/core/log.h"
-
-// ORIGInAL from selec_meter
 
 namespace esphome {
 namespace xy6020 {
