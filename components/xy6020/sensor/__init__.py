@@ -39,8 +39,8 @@ UNIT_MODEL = "Model"
 UNIT_SOFTWARE_VERSION = "Version"
 
 xy6020_ns = cg.esphome_ns.namespace("xy6020")
-XY6020 = xy6020_ns.class_(
-    "XY6020", cg.PollingComponent, modbus.ModbusDevice
+XY6020Sensor = xy6020_ns.class_(
+    "XY6020Sensor", cg.PollingComponent, modbus.ModbusDevice
 )
 
 SENSORS = {
@@ -109,7 +109,7 @@ SENSORS = {
 }
 
 CONFIG_SCHEMA = (
-    cv.Schema({cv.GenerateID(): cv.declare_id(XY6020)})
+    cv.Schema({cv.GenerateID(): cv.declare_id(XY6020Sensor)})
     .extend(
         {cv.Optional(sensor_name): schema for sensor_name, schema in SENSORS.items()}
     )
