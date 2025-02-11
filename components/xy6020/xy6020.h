@@ -11,7 +11,7 @@ namespace xy6020 {
 
 #define XY6020_SENSOR(name) \
  protected: \
-  sensor::Sensor *name##_sensor{nullptr}; \
+  sensor::Sensor *name##_sensor_{nullptr}; \
 \
  public: \
   void set_##name##_sensor(sensor::Sensor *(name)) { this->name##_sensor_ = name; }
