@@ -15,7 +15,7 @@ void XY6020_TURN_ON_OFF_Switch::setup() {
 
 }
 
-void XY602Switch::write_state(bool state) {
+void XY6020Switch::write_state(bool state) {
 
 }
 
