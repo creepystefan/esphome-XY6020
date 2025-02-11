@@ -5,22 +5,22 @@
 namespace esphome {
 namespace xy6020_switch {
 
-
-static const char *TAG = "empty_switch.switch";
+static const char *const TAG = "xy6020";
+//static const char *TAG = "empty_switch.switch";
 //static const uint8_t MODBUS_CMD_READ_IN_REGISTERS = 0x03;
 static const uint8_t MODBUS_CMD_WRITE_IN_REGISTERS = 0x06;
 static const uint8_t MODBUS_REGISTER_COUNT = 20;  // 20 x 16-bit registers
 
-void EmptySwitch::setup() {
+void XY6020_TURN_ON_OFF_Switch::setup() {
 
 }
 
-void EmptySwitch::write_state(bool state) {
+void XY6020_TURN_ON_OFF_Switch::write_state(bool state) {
 
 }
 
-void EmptySwitch::dump_config(){
-    ESP_LOGCONFIG(TAG, "Empty custom switch");
+void XY6020_TURN_ON_OFF_Switch::dump_config(){
+    ESP_LOGCONFIG(TAG, "TURN ON");
 }
 
 } //namespace xy6020_switch
