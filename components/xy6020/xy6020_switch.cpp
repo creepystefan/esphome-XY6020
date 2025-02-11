@@ -1,5 +1,5 @@
 #include "xy6020_switch.h"
-#include "xy6020register.h"
+#include "xy6020register_switch.h"
 #include "esphome/core/log.h"
 
 namespace esphome {
