@@ -23,7 +23,7 @@ SWITCHES = {
     CONF_TURN_ON_OFF: switch.swtich_schema(
         device_class=DEVICE_CLASS_SWITCH,
     ), 
-    CONF_KEY_PROTECT: sensor.sensor_schema(
+    CONF_KEY_PROTECT: swtich.switch_schema(
         device_class=DEVICE_CLASS_SWITCH,
     ), 
 
