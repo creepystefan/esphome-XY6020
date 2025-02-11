@@ -8,8 +8,8 @@ namespace xy6020 {
 static const char *const TAG = "xy6020";
 //static const char *TAG = "empty_switch.switch";
 //static const uint8_t MODBUS_CMD_READ_IN_REGISTERS = 0x03;
-static const uint8_t MODBUS_CMD_WRITE_IN_REGISTERS = 0x06;
-static const uint8_t MODBUS_REGISTER_COUNT = 20;  // 20 x 16-bit registers
+//static const uint8_t MODBUS_CMD_WRITE_IN_REGISTERS = 0x06;
+//static const uint8_t MODBUS_REGISTER_COUNT = 20;  // 20 x 16-bit registers
 
 void XY6020_TURN_ON_OFF_Switch::setup() {
 
