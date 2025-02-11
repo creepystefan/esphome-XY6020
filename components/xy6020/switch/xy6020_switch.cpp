@@ -3,7 +3,29 @@
 #include "esphome/core/log.h"
 
 namespace esphome {
-namespace xy6020 {
+namespace xy6020_switch {
+
+
+static const char *TAG = "empty_switch.switch";
+
+void EmptySwitch::setup() {
+
+}
+
+void EmptySwitch::write_state(bool state) {
+
+}
+
+void EmptySwitch::dump_config(){
+    ESP_LOGCONFIG(TAG, "Empty custom switch");
+}
+
+} //namespace xy6020_switch
+} //namespace esphome
+
+
+
+/*
 
 static const char *const TAG = "xy6020";
 
@@ -74,6 +96,4 @@ void XY6020::dump_config() {
   LOG_SENSOR("  ", "Model", this->model_sensor_);
   LOG_SENSOR("  ", "Software Version", this->software_version_sensor_);  
 }
-
-}  // namespace xy6020
-}  // namespace esphome
+*/
