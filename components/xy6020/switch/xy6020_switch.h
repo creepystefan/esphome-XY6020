@@ -3,7 +3,7 @@
 #include "esphome/core/log.h"
 
 namespace esphome {
-namespace xy6020_switch {
+namespace xy6020 {
 
 static const char *const TAG = "xy6020";
 //static const char *TAG = "empty_switch.switch";
@@ -15,15 +15,15 @@ void XY6020_TURN_ON_OFF_Switch::setup() {
 
 }
 
-void XY6020_TURN_ON_OFF_Switch::write_state(bool state) {
+void XY6020Switch::write_state(bool state) {
 
 }
 
-void XY6020_TURN_ON_OFF_Switch::dump_config(){
+void XY6020Switch::dump_config(){
     ESP_LOGCONFIG(TAG, "XY6020 Switch:");
 }
 
-} //namespace xy6020_switch
+} //namespace xy6020
 } //namespace esphome
 
 
