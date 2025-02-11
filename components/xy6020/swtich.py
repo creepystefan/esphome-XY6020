@@ -3,6 +3,7 @@ import esphome.config_validation as cv
 from esphome.components import switch, modbus
 from esphome.const import (
     CONF_ID,
+    DEVICE_CLASS_SWITCH,
     CONF_ADDRESS,
 )
 
@@ -20,16 +21,10 @@ XY6020 = xy6020_ns.class_(
 
 SWITCHES = {
     CONF_TURN_ON_OFF: switch.swtich_schema(
- #       unit_of_measurement=UNIT_VOLT,
- #       accuracy_decimals=2,
- #       device_class=DEVICE_CLASS_VOLTAGE,
- #       state_class=STATE_CLASS_MEASUREMENT,
+        device_class=DEVICE_CLASS_SWITCH,
     ), 
     CONF_KEY_PROTECT: sensor.sensor_schema(
- #       unit_of_measurement=UNIT_AMPERE,
- #       accuracy_decimals=2,
- #       device_class=DEVICE_CLASS_CURRENT,
- #       state_class=STATE_CLASS_MEASUREMENT,
+        device_class=DEVICE_CLASS_SWITCH,
     ), 
 
 }
