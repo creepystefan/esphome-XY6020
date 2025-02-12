@@ -10,8 +10,8 @@ from esphome.const import (
 AUTO_LOAD = ["modbus"]
 CODEOWNERS = ["@creepystefan"]
 
-CONF_TURN_ON_OFF = "turn_on_off"
-CONF_KEY_PROTECT = "key_protect"
+CONF_SWITCH_TURN_ON_OFF = "turn_on_off"
+CONF_SWITCH_KEY_PROTECT = "key_protect"
 
 
 xy6020_ns = cg.esphome_ns.namespace("xy6020")
