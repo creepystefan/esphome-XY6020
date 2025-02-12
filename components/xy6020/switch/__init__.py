@@ -7,7 +7,7 @@ from esphome.const import (
     CONF_ADDRESS,
 )
 
-#AUTO_LOAD = ["modbus"]
+AUTO_LOAD = ["modbus"]
 CODEOWNERS = ["@creepystefan"]
 
 CONF_TURN_ON_OFF = "turn_on_off"
