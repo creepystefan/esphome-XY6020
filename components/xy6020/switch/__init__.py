@@ -39,9 +39,9 @@ async def to_code(config):
     await switch.register_switch(var, config)
     await modbus.register_modbus_device(var, config)
     for name in SWITCHES:
-        if name in config:
-            swit = await switch.new_switch(config[name])
-            cg.add(getattr(var, f"set_{name}_switch")(swit))
+        if turn in config:
+            swit = await switch.new_switch(config[turn])
+            cg.add(getattr(var, f"set_{turn}_switch")(swit))
 
 
 
