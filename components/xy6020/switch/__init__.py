@@ -20,10 +20,10 @@ XY6020Switch = xy6020_ns.class_(
 )
 
 SWITCHES = {
-    CONF_TURN_ON_OFF: switch.switch_schema(
+    CONF_SWITCH_TURN_ON_OFF: switch.switch_schema(
         device_class=DEVICE_CLASS_SWITCH,
     ), 
-    CONF_KEY_PROTECT: switch.switch_schema(
+    CONF_SWITCH_KEY_PROTECT: switch.switch_schema(
         device_class=DEVICE_CLASS_SWITCH,
     ), 
 
