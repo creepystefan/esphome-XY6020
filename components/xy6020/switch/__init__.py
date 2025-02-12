@@ -29,7 +29,7 @@ CONFIG_SCHEMA = (
     .extend(
         {cv.Optional(switch_name): schema for switch_name, schema in SWITCHES.items()}
     )
-    #.extend(cv.polling_component_schema("1s"))
+    .extend(cv.polling_component_schema("1s"))
     .extend(modbus.modbus_device_schema(0x01))
 )
 
