@@ -5,6 +5,7 @@ from esphome.const import (
     CONF_ID,
     DEVICE_CLASS_SWITCH,
     CONF_ADDRESS,
+    CONF_OUTPUT,
 )
 
 AUTO_LOAD = ["modbus"]
