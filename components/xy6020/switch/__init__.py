@@ -16,6 +16,9 @@ CODEOWNERS = ["@creepystefan"]
 
 CONF_TURN_ON_OFF = "turn_on_off"
 
+ICON_OUTPUT = "mdi:power"
+ICON_KEY_LOCK = "mdi:play-box-lock-outline"
+
 xy6020_ns = cg.esphome_ns.namespace("xy6020")
 XY6020Switch = xy6020_ns.class_(
     "XY6020Switch", cg.PollingComponent, modbus.ModbusDevice
