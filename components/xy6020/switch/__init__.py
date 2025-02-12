@@ -45,8 +45,8 @@ async def to_code(config):
 #    await switch.register_switch(var, config)
     for name in SWITCHES:
         if name in config:
-            sens = await switch.new_switch(config[name])
-            cg.add(getattr(var, f"set_{name}_switch")(sens))
+            swit = await switch.new_switch(config[name])
+            cg.add(getattr(var, f"set_{name}_switch")(swit))
 
 
 #     await switch.register_switch(var, conf)
