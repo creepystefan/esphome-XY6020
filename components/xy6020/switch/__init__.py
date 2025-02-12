@@ -29,7 +29,7 @@ CONFIG_SCHEMA = (
     .extend(
         {cv.Optional(switch_name): schema for switch_name, schema in SWITCHES.items()}
     )
-    .extend(cv.polling_component_schema("1s"))
+    #.extend(cv.polling_component_schema("1s"))
     .extend(modbus.modbus_device_schema(0x01))
 )
 
@@ -37,7 +37,6 @@ async def to_code(config):
     var = cg.new_Pvariable(config[CONF_ID])
     await cg.register_component(var, config)
     await modbus.register_modbus_device(var, config)
-#    await switch.register_switch(var, config)
     for name in SWITCHES:
         if name in config:
             swit = await switch.new_switch(config[name])
