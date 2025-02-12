@@ -43,10 +43,20 @@ CONFIG_SCHEMA = (
 async def to_code(config):
     var = cg.new_Pvariable(config[CONF_ID])
     await cg.register_component(var, config)
-    await switch.register_switch(var, config)
-    #await modbus.register_modbus_device(var, config)
- #   for name in SWITCHES:
- #       if name in config:
- #           sens = await switch.new_switch(config[name])
- #           cg.add(getattr(var, f"set_{name}_switch")(sens))
+    #await switch.register_switch(var, config)
+    await modbus.register_modbus_device(var, config)
+    for name in SWITCHES:
+        if name in config:
+            swit = await switch.new_switch(config[name])
+            cg.add(getattr(var, f"set_{name}_switch")(swit))
+
+
+async def to_code(config):
+    var = cg.new_Pvariable(config[CONF_ID])
+    await cg.register_component(var, config)
+    await modbus.register_modbus_device(var, config)
+    for name in SENSORS:
+        if name in config:
+            sens = await sensor.new_sensor(config[name])
+            cg.add(getattr(var, f"set_{name}_sensor")(sens))
 
