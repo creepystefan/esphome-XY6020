@@ -16,7 +16,6 @@ namespace xy6020 {
  public: \
   void set_##name##_sensor(sensor::Sensor *(name)) { this->name##_sensor_ = name; }
 
-//class XY6020 : public PollingComponent, public modbus::ModbusDevice {
 class XY6020Sensor : public PollingComponent, public modbus::ModbusDevice {
  public:
   XY6020_SENSOR(seted_output_voltage)
