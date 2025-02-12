@@ -11,8 +11,6 @@ AUTO_LOAD = ["modbus"]
 CODEOWNERS = ["@creepystefan"]
 
 CONF_TURN_ON_OFF = "turn_on_off"
-CONF_KEY_PROTECT = "key_protect"
-
 
 xy6020_ns = cg.esphome_ns.namespace("xy6020")
 XY6020Switch = xy6020_ns.class_(
@@ -23,10 +21,7 @@ SWITCHES = {
     CONF_TURN_ON_OFF: switch.switch_schema(
         device_class=DEVICE_CLASS_SWITCH,
     ), 
-    CONF_KEY_PROTECT: switch.switch_schema(
-        device_class=DEVICE_CLASS_SWITCH,
-    ), 
-
+   
 }
 
 CONFIG_SCHEMA = (
