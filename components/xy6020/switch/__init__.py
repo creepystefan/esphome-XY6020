@@ -34,7 +34,7 @@ SWITCHES = {
 CONFIG_SCHEMA = (
     cv.Schema({cv.GenerateID(): cv.declare_id(XY6020Switch)})
     .extend(
-        {cv.Optional(switch_name): schema for switch_name, schema in SWITCHES.items()}
+ #       {cv.Optional(switch_name): schema for switch_name, schema in SWITCHES.items()}
     )
     .extend(cv.polling_component_schema("1s"))
     .extend(modbus.modbus_device_schema(0x01))
