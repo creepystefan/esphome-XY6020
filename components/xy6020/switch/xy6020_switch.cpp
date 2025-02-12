@@ -11,7 +11,7 @@ static const char *const TAG = "xy6020";
 //static const uint8_t MODBUS_CMD_WRITE_IN_REGISTERS = 0x06;
 //static const uint8_t MODBUS_REGISTER_COUNT = 20;  // 20 x 16-bit registers
 
-void XY6020_TURN_ON_OFF_Switch::setup() {
+void XY6020Switch::setup() {
 
 }
 
