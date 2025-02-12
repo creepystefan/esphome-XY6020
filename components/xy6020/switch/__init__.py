@@ -42,7 +42,14 @@ async def to_code(config):
     var = cg.new_Pvariable(config[CONF_ID])
     await cg.register_component(var, config)
     await modbus.register_modbus_device(var, config)
-    for name in SWITCHES:
-        if name in config:
-            sens = await switch.new_switch(config[name])
-            cg.add(getattr(var, f"set_{name}_switch")(sens))
+    await switch.register_switch(var, conf)
+#    for name in SWITCHES:
+#        if name in config:
+#            hub = await switch.new_switch(config[name])
+#            cg.add(getattr(var, f"set_{name}_switch")(hub))
+
+
+#     await switch.register_switch(var, conf)
+#            cg.add(getattr(hub, f"set_{key}_switch")(var))
+#            cg.add(var.set_parent(hub))
+#            cg.add(var.set_holding_register(address))
