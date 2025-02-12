@@ -8,7 +8,7 @@
 namespace esphome {
 namespace xy6020 {
 
-#define XY6020Switch(name) 
+#define XY6020_SWITCH(name) 
  protected: 
   switch::Switch *name##_switch_{nullptr}; 
 
