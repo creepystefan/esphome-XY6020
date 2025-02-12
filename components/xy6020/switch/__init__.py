@@ -10,8 +10,8 @@ from esphome.const import (
 AUTO_LOAD = ["modbus"]
 CODEOWNERS = ["@creepystefan"]
 
-CONF_SWITCH_TURN_ON_OFF = "turn_on_off"
-CONF_SWITCH_KEY_PROTECT = "key_protect"
+CONF_TURN_ON_OFF = "turn_on_off"
+CONF_KEY_PROTECT = "key_protect"
 
 
 xy6020_ns = cg.esphome_ns.namespace("xy6020")
@@ -20,10 +20,10 @@ XY6020Switch = xy6020_ns.class_(
 )
 
 SWITCHES = {
-    CONF_SWITCH_TURN_ON_OFF: switch.switch_schema(
+    CONF_TURN_ON_OFF: switch.switch_schema(
         device_class=DEVICE_CLASS_SWITCH,
     ), 
-    CONF_SWITCH_KEY_PROTECT: switch.switch_schema(
+    CONF_KEY_PROTECT: switch.switch_schema(
         device_class=DEVICE_CLASS_SWITCH,
     ), 
 
