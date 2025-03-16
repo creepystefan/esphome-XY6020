@@ -4,6 +4,8 @@ interval:
       - http_request.get:
           url: http://   IP von Powermeter    /cm?cmnd=status%2010                   # IP Anpassen
           capture_response: true
+          headers:
+            Content-Type: application/json
           max_response_buffer_size: 4096
           on_response:
             then:
