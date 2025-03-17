@@ -6,7 +6,7 @@ interval:
           capture_response: true
           headers:
             Content-Type: application/json
-          max_response_buffer_size: 4096
+          #max_response_buffer_size: 4096
           on_response:
             then:
               - lambda: |-
@@ -34,4 +34,12 @@ sensor:
     state_class: "measurement"
     device_class: "energy_storage"
     unit_of_measurement: "Watt"
+
+
+
+sensor:
+  - platform: udp
+    id: temperature_id      # ID von einem sensor, number, swtich, von einem anderen ESP
+    provider: thermometer   # Name des anderen ESP
+    remote_id: temp_id      # optional, wenn nicht gesetzt auskommentier wird ID verwendet für den esp-code 
 
