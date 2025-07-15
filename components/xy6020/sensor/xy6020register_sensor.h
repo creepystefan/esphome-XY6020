@@ -3,7 +3,7 @@
 namespace esphome {
 namespace xy6020 {
 
-static const uint16_t TWO_DEC_UNIT = 0.01;
+static const float TWO_DEC_UNIT = 0.01;
 static const float ONE_DEC_UNIT = 0.1;
 static const float NO_DEC_UNIT = 1;
 static const float MULTIPLY_TEN_UNIT = 10;
