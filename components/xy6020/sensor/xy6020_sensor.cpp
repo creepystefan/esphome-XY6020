@@ -17,7 +17,7 @@ void XY6020Sensor::on_modbus_data(const std::vector<uint8_t> &data) {
     ESP_LOGW(TAG, "Invalid size for XY6020!");
     return;
   }
-  auto xy6020_get_float = [&](size_t i, float unit) -> float {  
+  auto xy6020_get_16bit = [&](size_t i, float unit) -> float {  
  //   uint32_t temp = encode_uint32(data[i + 2], data[i + 3], data[i], data[i + 1]);
       uint16_t temp = encode_uint16(data[i], data[i + 1]);
     float f;
