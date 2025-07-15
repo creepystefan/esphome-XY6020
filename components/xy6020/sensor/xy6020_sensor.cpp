@@ -10,7 +10,7 @@ namespace xy6020 {
 static const char *const TAG = "xy6020";
 
 static const uint8_t MODBUS_CMD_READ_IN_REGISTERS = 0x03;
-static const uint8_t MODBUS_REGISTER_COUNT = 10;  // 10 x 16-bit registers
+static const uint8_t MODBUS_REGISTER_COUNT = 20;  // 10 x 16-bit registers
 
 void XY6020Sensor::on_modbus_data(const std::vector<uint8_t> &data) {
   if (data.size() < MODBUS_REGISTER_COUNT * 2) {
