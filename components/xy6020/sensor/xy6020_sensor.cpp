@@ -24,8 +24,8 @@ void XY6020Sensor::on_modbus_data(const std::vector<uint8_t> &data) {
     memcpy(&f, &temp, sizeof(f));
     return (f * unit);
   };
-  uint16_t seted_output_voltage = xy6020_get_16bit(XY6020_SETED_OUTPUT_VOLTAGE + 2, TWO_DEC_UNIT);         //0x00
-  uint16_t seted_output_current = xy6020_get_16bit(XY6020_SETED_OUTPUT_CURRENT * 2, TWO_DEC_UNIT);         //0x01
+  uint16_t seted_output_voltage = xy6020_get_16bit(XY6020_SETED_OUTPUT_VOLTAGE + 2, NO_DEC_UNIT);         //0x00
+  uint16_t seted_output_current = xy6020_get_16bit(XY6020_SETED_OUTPUT_CURRENT * 2, NO_DEC_UNIT);         //0x01
   uint16_t output_voltage = xy6020_get_16bit(XY6020_OUTPUT_VOLTAGE * 2, NO_DEC_UNIT);         //0x02
   uint16_t output_current = xy6020_get_16bit(XY6020_OUTPUT_CURRENT * 2, NO_DEC_UNIT);         //0x03
   uint16_t output_power = xy6020_get_16bit(XY6020_OUTPUT_POWER * 2, NO_DEC_UNIT);             //0x04
