@@ -17,7 +17,7 @@ void XY6020Sensor::on_modbus_data(const std::vector<uint8_t> &data) {
     ESP_LOGW(TAG, "Invalid size for XY6020!");
     return;
   }
-  auto xy6020_get_16bit = [&](size_t i, float unit) -> float {  
+  auto xy6020_get_16bit = [&](size_t i, 16bit unit) -> float {  
  //   uint32_t temp = encode_uint32(data[i + 2], data[i + 3], data[i], data[i + 1]);
       uint16_t temp = encode_uint16(data[i], data[i + 1]);
     float f;
@@ -33,7 +33,7 @@ void XY6020Sensor::on_modbus_data(const std::vector<uint8_t> &data) {
   float temperature_intern = xy6020_get_16bit(XY6020_TEMPERATURE_INTERN * 2, NO_DEC_UNIT); //0x0d
   float temperature_extern = xy6020_get_16bit(XY6020_TEMPERATURE_EXTERN * 2, NO_DEC_UNIT); //0x0e
   float model = xy6020_get_16bit(XY6020_MODEL * 2, NO_DEC_UNIT); //0x16
-  float software_version = xy6020_get_float(XY6020_SOFTWARE_VERSION * 2, NO_DEC_UNIT); //0x17
+  float software_version = xy6020_get_16bit(XY6020_SOFTWARE_VERSION * 2, NO_DEC_UNIT); //0x17
 
   if (this->seted_output_voltage_sensor_ != nullptr)
     this->seted_output_voltage_sensor_->publish_state(seted_output_voltage);               //0x00
