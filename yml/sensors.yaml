@@ -92,7 +92,7 @@ sensor:
      - multiply: 0.01
 
   - platform: modbus_controller
-    name: "Output WH low 16 bits"
+    name: "Output WH high 16 bits"
     address: 0x09
     register_type: "holding"
     value_type: U_WORD
