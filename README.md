@@ -12,3 +12,4 @@
 ![entity](picture/1.jpg "entity")
 
 * https://github.com/9lyph/CVE-2022-43704
+* https://github.com/framenic/sinilink-modbus/blob/main/sinilink-modbus.yaml
