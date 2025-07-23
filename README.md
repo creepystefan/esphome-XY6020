@@ -1,8 +1,9 @@
 # esphome-XY6020
-*!DPS Power Supply support by https://github.com/syssi/esphome-dps
-*https://de.aliexpress.com/item/1005005066649442.html?
+
+
 *!Chose Language in Packages (german or english)
-* Python GUI for XY6015 https://github.com/kbs3056/XY6015L_pyGUI
+
+new function: shows On-Time as sensor
 
 * XYxxxx have new function ( MPPT ) see in DOC new Modbus Register with MPPT 
 * 
@@ -13,3 +14,6 @@
 
 * https://github.com/9lyph/CVE-2022-43704
 * https://github.com/framenic/sinilink-modbus/blob/main/sinilink-modbus.yaml
+* !DPS Power Supply support by https://github.com/syssi/esphome-dps
+* *https://de.aliexpress.com/item/1005005066649442.html?
+* * Python GUI for XY6015 https://github.com/kbs3056/XY6015L_pyGUI
