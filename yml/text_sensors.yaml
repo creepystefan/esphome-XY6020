@@ -81,3 +81,13 @@ text_sensor:
       }
       return x;
  
+
+  - platform: template
+    name: "Turn On Time"
+    lambda: |-
+      char buffer[16];
+      std::string ton_time;
+      std::snprintf(buffer, 16, "%02d:%02d:%02d" , (int)id(turnon_hours).state, (int)id(turnon_minutes).state, (int)id(turnon_seconds).state);
+      ton_time = buffer;
+      return {ton_time};
+    update_interval: 1s
