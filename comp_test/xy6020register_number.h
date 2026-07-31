@@ -11,7 +11,7 @@ static const float MULTIPLY_THOUSAND_UNIT = 1000;
  
 /* STATUS REGISTERS */
 //static const uint16_t XY6020_SET_OUTPUT_VOLTAGE = 0x00;    //V_SET
-//static const uint16_t XY6020_SET_OUTPUT_CURRENT = 0x01;    //C_SET
+//static const uint16_t XY6020_SET_OUTPUT_CURRENT = 0x01;    // I_SET
 
     
 
